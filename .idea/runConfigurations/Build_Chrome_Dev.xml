@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Build Chrome Dev" type="NodeJSConfigurationType" path-to-node="node" node-parameters="--max-old-space-size=4096" path-to-js-file="env/chrome/build.js" working-dir="$PROJECT_DIR$">
-    <envs>
-      <env name="APP_CONFIG" value="dev" />
-    </envs>
-    <method v="2" />
-  </configuration>
-</component>

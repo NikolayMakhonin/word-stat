@@ -10,7 +10,7 @@
   "license": "CC0-1.0",
   "keywords": [],
   "files": [
-    "dist/sapper/export/**"
+    "dist/**"
   ],
   "main": "dist/js/main/browser/main.js",
   "jsnext:main": "dist/mjs/main/browser/main.js",
@@ -20,46 +20,19 @@
   },
   "scripts": {
     "precommit": "npm run test:ci",
-    "prepare": "npm run build-and-pack:dev",
+    "prepare": "npm run build:dev",
     "prepublishOnly": "npm run test:dev",
     "ci": "npm run test:ci && ncat \"tmp/common/coverage/all/lcov/**/lcov.info\" --banner \"\" | coveralls",
 
     "build:icons": "icon-gen --ico name=appicon --icns name=appicon --favicon name=favicon sizes=16,64,512 --input src/assets/icons/vector/appicon.svg --output src/assets/icons/ico",
     "build:polyfill": "node ./env/scripts/run.js \"require('./env/scripts/common').buildPolyfill().stopOnError()\"",
     "build:libs": "node ./env/scripts/run.js \"require('./env/scripts/common').buildLibs().stopOnError()\"",
-    "build:electron:dev": "node ./env/scripts/run.js \"require('./env/scripts/specific/builds').buildElectron('dev').stopOnError()\"",
-    "build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll(['electron'], ['dev']).stopOnError()\"",
+    "build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll('dev').stopOnError()\"",
 
     "test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll('dev').stopOnError()\"",
     "test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll('demo', 'dev', 'stage', 'prod').stopOnError()\"",
     "test:ci": "node ./env/scripts/run.js \"require('./env/scripts').testCiAll('dev').stopOnError()\"",
-    "coverage:mocha:dev": "node ./env/scripts/run.js \"require('./env/scripts/specific/tests').coverageMocha('dev').stopOnError()\"",
-
-    "pack:dev": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['electron'], ['dev']).stopOnError()\"",
-    "pack:demo": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['electron'], ['demo']).stopOnError()\"",
-    "pack:stage": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['electron'], ['stage']).stopOnError()\"",
-    "pack:preprod": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['electron'], ['preprod']).stopOnError()\"",
-    "pack:prod": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['electron'], ['prod']).stopOnError()\"",
-    "pack:chrome:dev": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['chrome'], ['dev']).stopOnError()\"",
-    "pack:chrome:prod": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['chrome'], ['prod']).stopOnError()\"",
-    "pack:all": "node ./env/scripts/run.js \"require('./env/scripts').packAll(['electron'], ['stage', 'dev']).stopOnError()\"",
-
-    "build-and-pack:all": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['electron', 'chrome'], ['stage', 'dev', 'demo']).stopOnError()\"",
-    "build-and-pack:prod": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['electron', 'chrome'], ['prod']).stopOnError()\"",
-    "build-and-pack:preprod": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['electron'], ['preprod']).stopOnError()\"",
-    "build-and-pack:stage": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['electron', 'chrome'], ['stage']).stopOnError()\"",
-    "build-and-pack:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['electron'], ['dev']).stopOnError()\"",
-    "build-and-pack:demo": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['electron'], ['demo']).stopOnError()\"",
-    "build-and-pack:chrome:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAndPackAll(['chrome'], ['dev']).stopOnError()\"",
-
-    "test-and-pack:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAndPackAll(['electron'], ['dev']).stopOnError()\"",
-    "test-and-pack:all": "node ./env/scripts/run.js \"require('./env/scripts').testAndPackAll(['electron'], ['demo', 'dev', 'stage', 'prod']).stopOnError()\"",
-
-    "sapper:dev": "node ./env/sapper/dev.js",
-    "sapper:dev:components": "node ./env/sapper/dev-components.js",
-
-    "electron:dev": "set APP_CONFIG=debug&& electron ./src/main/node/electron/run/dev/run.js",
-    "electron:export": "set APP_CONFIG=dev&& electron ./src/main/node/electron/run/export/run.js"
+    "coverage:mocha:dev": "node ./env/scripts/run.js \"require('./env/scripts/specific/tests').coverageMocha('dev').stopOnError()\""
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -93,7 +66,6 @@
     "cssnano": "^4.1.10",
     "depcheck": "^0.8.3",
     "electron": "^6.0.11",
-    "electron-builder": "^21.2.0",
     "eslint": "^6.4.0",
     "eslint-config-pro": "^0.0.5",
     "eslint-plugin-html": "^6.0.0",
@@ -132,7 +104,6 @@
     "rollup-plugin-svelte": "^5.1.1",
     "rollup-plugin-terser": "^5.1.3",
     "rollup-pluginutils": "^2.8.2",
-    "sapper": "^0.27.9",
     "shx": "^0.3.2",
     "spawn-command-with-kill": "^1.0.2",
     "svelte": "^3.16.4",

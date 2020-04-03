@@ -25,7 +25,6 @@ const mode = process.env.NODE_ENV
 
 const plugins = {
 	svelte  : svelte.rollup,
-	postCss : postcss.rollup.sapper,
 	babel   : babel.rollup,
 	istanbul: (options = {}) => istanbul({
 		...nycrc,
@@ -44,7 +43,6 @@ const plugins = {
 	// }),
 	replace: (options = {}) => replace({
 		APP_CONFIG_PATH       : require.resolve('../../configs/' + process.env.APP_CONFIG).replace(/\\/g, '/'),
-		SAPPER_MODULE         : `@sapper/${appConfig.sapper.devServer ? 'debug' : appConfig.type}`,
 		'process.env.NODE_ENV': JSON.stringify(mode),
 		...options,
 	}),
@@ -152,69 +150,6 @@ module.exports = {
 			}),
 			plugins.commonjs(),
 			legacy && plugins.babel.browser(),
-		]
-	},
-	client({dev = false, legacy = true}) {
-		return [
-			plugins.metricStart('client'),
-			plugins.babel.minimal(),
-			plugins.replace({
-				'process.browser': true,
-			}),
-			plugins.postCss(),
-			plugins.svelte.client(),
-			plugins.resolveWebrain(),
-			plugins.resolve({
-				browser: true,
-			}),
-			plugins.commonjs(),
-			legacy && plugins.babel.browser(),
-			!dev && plugins.terser({
-				module: true,
-			}),
-			plugins.metricEnd(),
-		]
-	},
-	server({dev = false, legacy = true}) {
-		return [
-			plugins.metricStart('server'),
-			plugins.babel.minimal(),
-			plugins.replace({
-				'process.browser': false,
-			}),
-			plugins.postCss(),
-			plugins.svelte.server(),
-			plugins.resolveWebrain(),
-			plugins.resolve(),
-			plugins.commonjs(),
-			legacy && plugins.babel.node(),
-			plugins.metricEnd(),
-		]
-	},
-	serviceworker({dev = false, legacy = true}) {
-		return [
-			plugins.metricStart('serviceworker'),
-			plugins.babel.minimal(),
-			plugins.resolveWebrain(),
-			plugins.resolve(),
-			plugins.replace({
-				'process.browser': true,
-			}),
-			plugins.commonjs(),
-			legacy && plugins.babel.browser(),
-			!dev && plugins.terser(),
-			plugins.metricEnd(),
-		]
-	},
-	electron({dev = false, legacy = true}) {
-		return [
-			plugins.babel.minimal(),
-			plugins.replace({
-				'process.browser': true,
-			}),
-			plugins.resolveWebrain(),
-			plugins.commonjs(),
-			legacy && plugins.babel.node(),
 		]
 	},
 }

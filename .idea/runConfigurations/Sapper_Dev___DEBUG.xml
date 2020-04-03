@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Sapper Dev - DEBUG" type="NodeJSConfigurationType" path-to-node="node" node-parameters="--max-old-space-size=4096 --prof" path-to-js-file="./env/sapper/dev.js" working-dir="$PROJECT_DIR$">
-    <envs>
-      <env name="APP_CONFIG" value="dev" />
-    </envs>
-    <method v="2" />
-  </configuration>
-</component>

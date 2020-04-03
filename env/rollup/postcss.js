@@ -230,13 +230,5 @@ module.exports = {
 	plugins,
 	rollup  : {
 		common: rollupCommon,
-		sapper: (options = {}) => postcssRollup(rollupCommon({
-			extensions: ['.jss', '.scss', '.sass', '.less', '.styl'],
-			parser    : syntax.parse,
-			requireFromString,
-			sourceMap : false, // 'inline',
-			extract   : 'static/client/styles.css',
-			...options
-		}))
 	}
 }
