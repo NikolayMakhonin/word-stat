@@ -24,7 +24,7 @@ const testCi = singleCall(async appConfigType => {
 // region All
 
 const buildAll = singleCall((...appConfigTypes) => Promise.all(
-	appConfigTypes.map(appConfigType => specific.builds.build(appConfigType, {intern: false}))
+	appConfigTypes.map(appConfigType => specific.builds.build(appConfigType))
 ))
 
 const testInternAll = singleCall((...appConfigTypes) => Promise.all(

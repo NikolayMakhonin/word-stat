@@ -27,20 +27,6 @@ const testMocha = singleCall((appConfigType, coverage) => Promise.all([
 	testMochaJs(appConfigType, coverage),
 ]))
 
-const testIntern = singleCall(async appConfigType => {
-	await builds.build(appConfigType)
-	await run(
-		'mocha --opts env/intern/mocha.opts ./env/intern/configs/export/mocha.js --bail',
-		{env: {APP_CONFIG: appConfigType}}
-	)
-})
-const coverageKarma = singleCall(async appConfigType => {
-	await builds.build(appConfigType)
-	await run(
-		'karma start ./env/karma/configs/coverage.js',
-		{env: {APP_CONFIG: appConfigType}}
-	)
-})
 const coverageMocha = singleCall(appConfigType => testMocha(appConfigType, true))
 const coverageMerge = singleCall(appConfigType => run(`istanbul-combine -d tmp/common/coverage/all/lcov -p summary -r lcov tmp/${appConfigType}/coverage/*/json/**.json`))
 const coverageCheck = singleCall(appConfigType => run(

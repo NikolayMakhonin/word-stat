@@ -1,4 +1,0 @@
---exclude ./*/**/{src,assets}/**
---ui bdd
---watch-extensions js){100}|^(((?!([\\/](dist|tmp|node_modules|\.[^\\/]*)[\\/]|\.(log|bak)$)).)*
--r ./env/intern/register-mocha

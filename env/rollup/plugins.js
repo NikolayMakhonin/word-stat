@@ -107,21 +107,6 @@ plugins.resolveWebrain = (options = {}) => plugins.resolveTs({
 // noinspection PointlessBooleanExpressionJS
 module.exports = {
 	plugins,
-	karma({dev = false, legacy = true, coverage = false}) {
-		return [
-			plugins.babel.minimal(),
-			plugins.replace(),
-			plugins.svelte.client(),
-			coverage && plugins.istanbul(),
-			plugins.resolveWebrain(),
-			plugins.resolve({
-				browser: true,
-			}),
-			plugins.commonjs(),
-			legacy && plugins.babel.browser(),
-			!dev && plugins.terser(),
-		]
-	},
 	watch({dev = false, legacy = true, coverage = false, getFileCodePlugins = []}) {
 		return [
 			plugins.babel.minimal(),
