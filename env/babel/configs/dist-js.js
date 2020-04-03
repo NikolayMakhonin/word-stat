@@ -8,6 +8,18 @@ module.exports = {
 		]
 	],
 	plugins: [
+		[
+			'babel-plugin-root-import',
+			{
+				"paths": [
+					{
+						"rootPathSuffix": "../../",
+						"rootPathPrefix": "~/",
+					},
+				]
+			},
+		],
+
 		'@babel/plugin-transform-typescript',
 		'@babel/plugin-syntax-dynamic-import',
 		[

@@ -3,7 +3,7 @@
 const {
 	test,
 	isWin,
-} = require.main.require(process.cwd() + '/build/Release/binding')
+} = require('~/build/Release/binding')
 
 declare const describe
 declare const it

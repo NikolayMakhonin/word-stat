@@ -11,5 +11,7 @@ module.exports = {
 			}
 		]
 	],
-	plugins: []
+	plugins: [
+		[ 'babel-plugin-root-import' ],
+	]
 }

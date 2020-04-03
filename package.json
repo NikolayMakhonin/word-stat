@@ -59,6 +59,7 @@
     "@babel/register": "^7.5.5",
     "@babel/runtime-corejs3": "^7.5.5",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-root-import": "^6.5.0",
     "caller": "^1.0.1",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
