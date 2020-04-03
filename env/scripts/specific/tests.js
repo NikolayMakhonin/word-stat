@@ -36,7 +36,6 @@ const coverageCheck = singleCall(appConfigType => run(
 const coverage = singleCall(async appConfigType => {
 	await Promise.all([
 		coverageMocha(appConfigType),
-		coverageKarma(appConfigType),
 	])
 	await coverageMerge(appConfigType)
 	await coverageCheck(appConfigType)
@@ -47,8 +46,6 @@ module.exports = {
 	testMochaMjs,
 	testMochaJs,
 	testMocha,
-	testIntern,
-	coverageKarma,
 	coverageMocha,
 	coverageMerge,
 	coverageCheck,
