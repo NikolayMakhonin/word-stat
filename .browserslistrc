@@ -1,9 +1,3 @@
 # Browsers that we support
 
-last 3 version
-> 1%
-Chrome >= 30
-# Chrome 33
-# Chrome 37
-# Chrome 39
-# Chrome 44
+node >= 4.9.1
