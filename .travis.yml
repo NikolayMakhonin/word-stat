@@ -1,38 +1,35 @@
 language: node_js
 
 # Node versions: https://node.green/
-
 matrix:
   include:
-    - name: "browsers linux"
-      os: "linux"
-      node_js: "11.5.0"
-#    - name: "browsers osx"
-#      os: "osx"
-#      node_js: "11.5.0"
-#    - name: "browsers windows & node old"
-#      os: "windows"
-#      node_js: "11.5.0"
-#    - name: "node old"
-#      os: "osx"
-#      node_js: "8.6.0"
-#      env: NODE_ONLY=true
+    - os: windows
+      env: CXX=g++-4.8
+      node_js: "12.10.0"
+    - os: linux
+      env: CXX=g++-4.8
+      node_js: "4.9.1"
 
-sudo: false
-cache: npm
+os:
+  - osx
+
+env:
+  - CXX=clang
+
+node_js:
+  - "8.6.0"
+  - "12.10.0"
 
 addons:
-  chrome: stable
-  firefox: latest
-#  browserstack:
-#    username: "nikolaymakhonin1"
-#    access_key:
-#      # You should generate this for each repositories.
-#      # See: https://docs.travis-ci.com/user/encryption-keys
-#      secure: "Z/pTlHdmPQ5Ge51yzuRau1QKxd6FrB+vlkaKlpltqfxdTC96d2Z2H5tXvOM8W0QJM56Rne+KJ97T3qvqNhLKCgXgsaRqCiKMeJ6dWXl5AQk9PFq1zCJWOuQdt8mQJ6Zi6Y/leZBaOUAL/7mqrg0GkgL2Ck5j6n7AcWymHb40QvMV3BmYIiEi1i4FRuJ+w8ULLYT7RbgQq7IMZNmP9s57giaSAlxEIHHpBoGyP7wVecZHPVfjh2pmkBkq7wCYX4KzyriHde3y3R1h7Y7ZM5RXtyboscYM4fcwg6/qslq00MVfCDI+5zud+/O8b9Y1F/I/gUoVZByhQJA0WtUGsOBMLpS76OWPZX7b2UmyYBw8BOyal5rV8V+mbEqtFksyeGBI/bkRD6wllxPd/uJ+qOMvet4H8DnpxeJnq/h0asMRvar6dWtl2BjNNWawYVicxCUvY2/aPMYxjRYTIem8jfwfCKgVuiThNrPR4A8tVPESEE727JsEaLKPWTvJ2DLjOURXoUsWBnHYunyibUuYGgox4Lfl9ZiRvIbotg9hbWnHaskg5Rzot3+lI3KYhyotWDyxxRBN1IERqsE68Gn5Yk/e97LNAGMt/hK7O69QKRDqdJFurb4JuMw2QIOeKvgthdUuPl4pkfJs7aIgYirqAiV3ov8BRclOkMkeNhOUDOOScDk="
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 
-services:
-  - xvfb
+sudo: false
+dist: precise
+cache: npm
 
 before_install:
   # Skip updating shrinkwrap / lock
@@ -45,13 +42,6 @@ before_install:
   # Update Node.js modules
   - "test ! -d node_modules || npm prune"
   - "test ! -d node_modules || npm rebuild"
-
-before_script:
-  - export DISPLAY=:99.0
-  # https://stackoverflow.com/questions/55674746/travis-sh-0-cant-open-etc-init-d-xvfb
-  # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
-  # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
-  # - sleep 3 # give xvfb some time to start
 
 script:
   - if [[ ${NODE_ONLY} == true ]]; then
