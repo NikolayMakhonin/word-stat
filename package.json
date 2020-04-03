@@ -19,9 +19,9 @@
   "files": [
     "dist/**"
   ],
-  "main": "dist/dev/js/main/browser/main.js",
-  "jsnext:main": "dist/dev/mjs/main/browser/main.js",
-  "module": "dist/dev/mjs/main/browser/main.js",
+  "main": "dist/dev/js/main/node/main.js",
+  "jsnext:main": "dist/dev/mjs/main/node/main.js",
+  "module": "dist/dev/mjs/main/node/main.js",
   "engines": {
     "node": ">= 8.6.0"
   },
