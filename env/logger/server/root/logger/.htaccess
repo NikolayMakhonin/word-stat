@@ -1,8 +1,0 @@
-#RemoveInputFilter
-RewriteEngine Off
-#AuthName "log"
-#AuthUserFile "/home/dinoms/.htpasswds/public_html/log/passwd"
-DefaultType text/xml
-<FilesMatch "[^.]+\.xsl$">
-	Header always set Content-Type "text/xsl"
-</FilesMatch>
