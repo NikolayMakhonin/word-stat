@@ -11,7 +11,7 @@ const buildGyp = singleCall(async () => {
 	await run(`node-gyp configure`)
 	await run(`node-gyp build`)
 })
-const clean = singleCall(() => run('shx rm -rf {*.log,__sapper__}'))
+const clean = singleCall(() => run('shx rm -rf {*.log,__sapper__,build}'))
 const build = singleCall(async () => {
 	// await clean()
 	await Promise.all([
