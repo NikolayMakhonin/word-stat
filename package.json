@@ -31,7 +31,6 @@
     "prepublishOnly": "npm run test:dev",
     "ci": "npm run test:ci && ncat \"tmp/common/coverage/all/lcov/**/lcov.info\" --banner \"\" | coveralls",
 
-    "build:icons": "icon-gen --ico name=appicon --icns name=appicon --favicon name=favicon sizes=16,64,512 --input src/assets/icons/vector/appicon.svg --output src/assets/icons/ico",
     "build:polyfill": "node ./env/scripts/run.js \"require('./env/scripts/common').buildPolyfill().stopOnError()\"",
     "build:libs": "node ./env/scripts/run.js \"require('./env/scripts/common').buildLibs().stopOnError()\"",
     "build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll('dev').stopOnError()\"",
