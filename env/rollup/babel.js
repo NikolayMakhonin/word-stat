@@ -1,6 +1,5 @@
 const babel = require('rollup-plugin-babel')
 const babelConfigMinimal = require('../babel/configs/minimal')
-const babelConfigBrowser = require('../babel/configs/browser')
 const babelConfigNode = require('../babel/configs/node')
 const {fileExtensions} = require('../common/helpers')
 
@@ -21,13 +20,6 @@ const babelRollup = {
 			...babelCommon,
 			extensions: [...fileExtensions.js, ...fileExtensions.ts],
 			...babelConfigNode,
-			...options,
-		}),
-		browser: options => babel({
-			...babelCommon,
-			runtimeHelpers: true,
-			extensions    : [...fileExtensions.js, ...fileExtensions.ts],
-			...babelConfigBrowser,
 			...options,
 		}),
 	}
