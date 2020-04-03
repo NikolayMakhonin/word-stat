@@ -1,232 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-	<component name="ChangeListManager">
-		<option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true"/>
-		<option name="SHOW_DIALOG" value="false"/>
-		<option name="HIGHLIGHT_CONFLICTS" value="true"/>
-		<option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false"/>
-		<option name="LAST_RESOLUTION" value="IGNORE"/>
-	</component>
-	<component name="FavoritesManager">
-		<favorites_list name="balda"/>
-	</component>
-	<component name="Git.Settings">
-		<excluded-from-favorite>
-			<branch-storage>
-				<map>
-					<entry type="REMOTE">
-						<value>
-							<list>
-								<branch-info repo="$PROJECT_DIR$" source="origin/master"/>
-							</list>
-						</value>
-					</entry>
-				</map>
-			</branch-storage>
-		</excluded-from-favorite>
-		<favorite-branches>
-			<branch-storage>
-				<map>
-					<entry type="REMOTE">
-						<value>
-							<list>
-								<branch-info repo="$PROJECT_DIR$" source="origin/webapp"/>
-								<branch-info repo="$PROJECT_DIR$" source="origin/browser-helpers"/>
-							</list>
-						</value>
-					</entry>
-				</map>
-			</branch-storage>
-		</favorite-branches>
-		<option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false"/>
-		<option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true"/>
-		<option name="RECENT_BRANCH_BY_REPOSITORY">
-			<map>
-				<entry key="$PROJECT_DIR$" value="browser-helpers"/>
-			</map>
-		</option>
-		<option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$"/>
-		<option name="ROOT_SYNC" value="DONT_SYNC"/>
-	</component>
-	<component name="IgnoredFileRootStore">
-		<option name="generatedRoots">
-			<set>
-				<option value="L:\Work\_GIT\GitHub\NodeJs\apps\app-template\.idea"/>
-			</set>
-		</option>
-	</component>
-	<component name="JsFlowSettings">
-		<service-enabled>true</service-enabled>
-		<exe-path/>
-		<other-services-enabled>true</other-services-enabled>
-		<auto-save>true</auto-save>
-	</component>
-	<component name="PackageJsonUpdateNotifier">
-		<dismissed value="$PROJECT_DIR$/package.json"/>
-	</component>
-	<component name="ProjectId" id="1QDyXYBPHxGRJ3XfwibYzFNKXV7"/>
-	<component name="ProjectLevelVcsManager" settingsEditedManually="true">
-		<ConfirmationsSetting value="2" id="Add"/>
-	</component>
-	<component name="PropertiesComponent">
-		<property name="ChangesTree.GroupingKeys" value="directory"/>
-		<property name="NewWatcherDialog.advanced.open" value="true"/>
-		<property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true"/>
-		<property name="WebServerToolWindowFactoryState" value="false"/>
-		<property name="auto.test.manager.delay" value="1000"/>
-		<property name="javascript.nodejs.core.library.configured.version" value="12.4.0"/>
-		<property name="js.buildTools.grunt.grunt-cli.package" value="$USER_HOME$/AppData/Roaming/npm/node_modules/grunt-cli"/>
-		<property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp"/>
-		<property name="jsx.switch.disabled" value="true"/>
-		<property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/tests/node/env"/>
-		<property name="node.js.detected.package.eslint" value="true"/>
-		<property name="node.js.detected.package.standard" value="true"/>
-		<property name="node.js.detected.package.stylelint" value="true"/>
-		<property name="node.js.detected.package.tslint" value="true"/>
-		<property name="node.js.path.for.package.eslint" value="node"/>
-		<property name="node.js.path.for.package.standard" value="node"/>
-		<property name="node.js.path.for.package.stylelint" value="project"/>
-		<property name="node.js.path.for.package.tslint" value="project"/>
-		<property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/../nodejs-templates/node_modules/eslint"/>
-		<property name="node.js.selected.package.standard" value="L:\Work\_GIT\GitHub\NodeJs\templates\nodejs-templates\node_modules\eslint"/>
-		<property name="node.js.selected.package.stylelint" value=""/>
-		<property name="node.js.selected.package.tslint" value="(autodetect)"/>
-		<property name="nodejs.cucumber.cucumber_node_package_dir" value=""/>
-		<property name="nodejs.jest.jest_package" value=""/>
-		<property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha"/>
-		<property name="nodejs.protractor.protractor_package" value=""/>
-		<property name="nodejs_interpreter_path" value="node"/>
-		<property name="nodejs_package_manager_path" value="npm"/>
-		<property name="restartRequiresConfirmation" value="false"/>
-		<property name="settings.editor.selected.configurable" value="web-ide.project.structure"/>
-		<property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib"/>
-	</component>
-	<component name="RunManager" selected="Mocha.Watch">
-		<configuration default="true" type="JavaScriptTestRunnerKarma">
-			<config-file value="$PROJECT_DIR$/env/karma/configs/dev.js"/>
-			<karma-package-dir value="$PROJECT_DIR$/node_modules/karma"/>
-			<node-interpreter value="node"/>
-			<envs/>
-			<method v="2"/>
-		</configuration>
-		<configuration default="true" type="NodeJSConfigurationType" path-to-node="node" node-parameters="--max-old-space-size=4096" working-dir="$PROJECT_DIR$">
-			<method v="2"/>
-		</configuration>
-		<configuration default="true" type="js.build_tools.grunt">
-			<node-interpreter value="project"/>
-			<envs/>
-			<method v="2"/>
-		</configuration>
-		<configuration default="true" type="js.build_tools.gulp">
-			<node-interpreter>project</node-interpreter>
-			<node-options/>
-			<gulpfile/>
-			<tasks/>
-			<arguments/>
-			<envs/>
-			<method v="2"/>
-		</configuration>
-		<configuration default="true" type="js.build_tools.npm">
-			<package-json value="$PROJECT_DIR$/package.json"/>
-			<command value="run"/>
-			<scripts/>
-			<node-interpreter value="node"/>
-			<envs/>
-			<method v="2"/>
-		</configuration>
-		<configuration default="true" type="mocha-javascript-test-runner">
-			<node-interpreter>node</node-interpreter>
-			<node-options>--max-old-space-size=4096</node-options>
-			<mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-			<working-directory>$PROJECT_DIR$</working-directory>
-			<pass-parent-env>true</pass-parent-env>
-			<ui>bdd</ui>
-			<extra-mocha-options>--opts ./env/mocha/mocha.babel.opts --watch</extra-mocha-options>
-			<test-kind>PATTERN</test-kind>
-			<test-pattern>./src/test/tests/{common,node}/**/*.*</test-pattern>
-			<method v="2"/>
-		</configuration>
-		<list>
-			<item itemvalue="Mocha.Watch"/>
-			<item itemvalue="npm.build:polyfill"/>
-			<item itemvalue="npm.Test All"/>
-			<item itemvalue="npm.Test Dev"/>
-		</list>
-	</component>
-	<component name="Vcs.Log.History.Properties">
-		<option name="COLUMN_ORDER">
-			<list>
-				<option value="0"/>
-				<option value="2"/>
-				<option value="3"/>
-				<option value="1"/>
-			</list>
-		</option>
-	</component>
-	<component name="Vcs.Log.Tabs.Properties">
-		<option name="TAB_STATES">
-			<map>
-				<entry key="1">
-					<value>
-						<State>
-							<option name="SHOW_ONLY_AFFECTED_CHANGES" value="true"/>
-							<option name="FILTERS">
-								<map>
-									<entry key="branch">
-										<value>
-											<list>
-												<option value="HEAD"/>
-											</list>
-										</value>
-									</entry>
-									<entry key="structure">
-										<value>
-											<list>
-												<option value="dir:L:/Work/_GIT/GitHub/NodeJs/apps/app-template/src/main/common"/>
-											</list>
-										</value>
-									</entry>
-								</map>
-							</option>
-						</State>
-					</value>
-				</entry>
-				<entry key="MAIN">
-					<value>
-						<State>
-							<option name="COLUMN_ORDER"/>
-						</State>
-					</value>
-				</entry>
-			</map>
-		</option>
-		<option name="OPEN_TABS">
-			<set>
-				<option value="1"/>
-			</set>
-		</option>
-	</component>
-	<component name="VcsManagerConfiguration">
-		<option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false"/>
-		<option name="CHECK_NEW_TODO" value="false"/>
-		<option name="LAST_COMMIT_MESSAGE" value="Delete browser specific code"/>
-		<MESSAGE value="Users dialogs in process..."/>
-		<MESSAGE value="v0.0.18"/>
-		<MESSAGE value="User edit dialog in process..."/>
-		<MESSAGE value="Dialogs in process..."/>
-		<MESSAGE value="Devices in process..."/>
-		<MESSAGE value="Battery marker"/>
-		<MESSAGE value="Develop devices"/>
-		<MESSAGE value="Develop devices and users"/>
-		<MESSAGE value="build-and-pack:dev OK"/>
-		<MESSAGE value="configure travis"/>
-		<MESSAGE value="fix travis"/>
-		<MESSAGE value="fix coveralls"/>
-		<MESSAGE value="fix ReadMe"/>
-		<MESSAGE value="Merged with app"/>
-		<MESSAGE value="TODO changed"/>
-		<MESSAGE value="Remove pug"/>
-		<MESSAGE value="Fix package.json"/>
-		<MESSAGE value="Delete browser specific code"/>
-	</component>
+  <component name="ChangeListManager">
+    <list default="true" id="5af543fe-8184-494f-a5e1-8e5d5a90db79" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/common/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/common/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/specific/builds.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/builds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/specific/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/tests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="balda" />
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/webapp" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/browser-helpers" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="browser-helpers" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="L:\Work\_GIT\GitHub\NodeJs\apps\app-template\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1QDyXYBPHxGRJ3XfwibYzFNKXV7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="auto.test.manager.delay" value="1000" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.4.0" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="$USER_HOME$/AppData/Roaming/npm/node_modules/grunt-cli" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/tests/node/env" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="node" />
+    <property name="node.js.path.for.package.standard" value="node" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/../nodejs-templates/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="L:\Work\_GIT\GitHub\NodeJs\templates\nodejs-templates\node_modules\eslint" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
+    <property name="nodejs.jest.jest_package" value="" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
+    <property name="nodejs.protractor.protractor_package" value="" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Mocha.Watch">
+    <configuration default="true" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
+      <node-interpreter value="node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" path-to-node="node" node-parameters="--max-old-space-size=4096" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt">
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner">
+      <node-interpreter>node</node-interpreter>
+      <node-options>--max-old-space-size=4096</node-options>
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--opts ./env/mocha/mocha.babel.opts --watch</extra-mocha-options>
+      <test-kind>PATTERN</test-kind>
+      <test-pattern>./src/test/tests/{common,node}/**/*.*</test-pattern>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Mocha.Watch" />
+      <item itemvalue="npm.build:polyfill" />
+      <item itemvalue="npm.Test All" />
+      <item itemvalue="npm.Test Dev" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Add node-gyp">
+      <created>1585902373720</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585902373720</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="additionalRoots">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:L:/Work/_GIT/GitHub/NodeJs/apps/app-template/src/main/common" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Users dialogs in process..." />
+    <MESSAGE value="v0.0.18" />
+    <MESSAGE value="User edit dialog in process..." />
+    <MESSAGE value="Dialogs in process..." />
+    <MESSAGE value="Devices in process..." />
+    <MESSAGE value="Battery marker" />
+    <MESSAGE value="Develop devices" />
+    <MESSAGE value="Develop devices and users" />
+    <MESSAGE value="build-and-pack:dev OK" />
+    <MESSAGE value="configure travis" />
+    <MESSAGE value="fix travis" />
+    <MESSAGE value="fix coveralls" />
+    <MESSAGE value="fix ReadMe" />
+    <MESSAGE value="Merged with app" />
+    <MESSAGE value="TODO changed" />
+    <MESSAGE value="Remove pug" />
+    <MESSAGE value="Fix package.json" />
+    <MESSAGE value="Delete browser specific code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete browser specific code" />
+  </component>
 </project>

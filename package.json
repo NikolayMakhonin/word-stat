@@ -28,14 +28,14 @@
   },
   "scripts": {
     "precommit": "npm run test:ci",
-    "prepare": "npm run build:gyp && npm run build:dev",
+    "prepare": "npm run build:dev",
     "prepublishOnly": "npm run test:dev",
     "ci": "npm run test:ci && ncat \"tmp/common/coverage/all/lcov/**/lcov.info\" --banner \"\" | coveralls",
 
     "build:polyfill": "node ./env/scripts/run.js \"require('./env/scripts/common').buildPolyfill().stopOnError()\"",
     "build:libs": "node ./env/scripts/run.js \"require('./env/scripts/common').buildLibs().stopOnError()\"",
     "build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll('dev').stopOnError()\"",
-    "build:gyp": "node-gyp configure && node-gyp build",
+    "build:gyp": "node ./env/scripts/run.js \"require('./env/scripts/common').buildGyp().stopOnError()\"",
 
     "test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll('dev').stopOnError()\"",
     "test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll('demo', 'dev', 'stage', 'prod').stopOnError()\"",

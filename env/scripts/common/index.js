@@ -7,10 +7,17 @@ const buildPolyfill = singleCall(() => run(
 const buildLibs = singleCall(() => Promise.all([
 	buildPolyfill(),
 ]))
+const buildGyp = singleCall(async () => {
+	await run(`node-gyp configure`)
+	await run(`node-gyp build`)
+})
 const clean = singleCall(() => run('shx rm -rf {*.log,__sapper__}'))
 const build = singleCall(async () => {
 	// await clean()
-	await buildLibs()
+	await Promise.all([
+		buildLibs(),
+		buildGyp(),
+	])
 })
 const npmCheck = singleCall(() => run('depcheck --ignores="*,@babel/*,@types/*,@metahub/karma-rollup-preprocessor,karma-*,@sapper/*,rdtsc,tslint-eslint-rules,electron,APP_CONFIG_PATH,SAPPER_MODULE,caniuse-lite,browserslist" --ignore-dirs=__sapper__,_trash,dist,docs,static,tmp'))
 const lint = singleCall(() => Promise.all([
@@ -25,4 +32,5 @@ module.exports = {
 	build,
 	buildLibs,
 	buildPolyfill,
+	buildGyp,
 }

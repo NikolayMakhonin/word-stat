@@ -8,7 +8,6 @@ const testMochaSrc = singleCall(coverage => run(
 ))
 const testMochaMjs = singleCall(async (appConfigType, coverage) => {
 	await builds.buildMjs(appConfigType)
-	await builds.buildGyp(appConfigType)
 	await run(
 		`${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/mjs/test/tests/{node,common}/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
@@ -16,7 +15,6 @@ const testMochaMjs = singleCall(async (appConfigType, coverage) => {
 })
 const testMochaJs = singleCall(async (appConfigType, coverage) => {
 	await builds.buildJs(appConfigType)
-	await builds.buildGyp(appConfigType)
 	await run(
 		// `${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/*.*`,
 		`${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/no-babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/*.*`,
