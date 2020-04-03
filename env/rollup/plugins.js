@@ -11,8 +11,6 @@ const replace = require('rollup-plugin-replace')
 const {fileExtensions} = require('../common/helpers')
 const metric = require('./metric')
 const babel = require('./babel')
-const svelte = require('./svelte')
-const postcss = require('./postcss')
 const dedupe = importee => /^(svelte|@babel|core-js[^\\/]*|regenerator-runtime)([\\/]|$)/.test(importee)
 
 if (!process.env.APP_CONFIG) {
@@ -24,7 +22,6 @@ const appConfig = require(`../../configs/${process.env.APP_CONFIG}`)
 const mode = process.env.NODE_ENV
 
 const plugins = {
-	svelte  : svelte.rollup,
 	babel   : babel.rollup,
 	istanbul: (options = {}) => istanbul({
 		...nycrc,
@@ -66,11 +63,6 @@ const plugins = {
 		dedupe,
 		...options,
 	}),
-	// svelte: (options = {}) => resolve({
-	// 	dedupe,
-	// 	browser: true,
-	// 	...options,
-	// }),
 	commonjs: (options = {}) => commonjs({
 		extensions: [...fileExtensions.js, ...fileExtensions.ts],
 		// namedExports: {
@@ -105,22 +97,6 @@ plugins.resolveWebrain = (options = {}) => plugins.resolveTs({
 // noinspection PointlessBooleanExpressionJS
 module.exports = {
 	plugins,
-	watch({dev = false, legacy = true, coverage = false, getFileCodePlugins = []}) {
-		return [
-			plugins.babel.minimal(),
-			plugins.replace(),
-			plugins.svelte.client(),
-			coverage && plugins.istanbul(),
-			plugins.resolveWebrain(),
-			plugins.resolve({
-				browser: true,
-			}),
-			plugins.commonjs(),
-			legacy && plugins.babel.browser(),
-			...getFileCodePlugins,
-			!dev && plugins.terser(),
-		]
-	},
 	libs({dev = false, legacy = true}) {
 		return [
 			plugins.babel.minimal({
@@ -135,21 +111,6 @@ module.exports = {
 				compact: true,
 			}),
 			!dev && plugins.terser(),
-		]
-	},
-	components({dev = false, legacy = true}) {
-		return [
-			plugins.babel.minimal(),
-			plugins.replace(),
-			plugins.svelte.client({
-				emitCss: false,
-			}),
-			plugins.resolveWebrain(),
-			plugins.resolve({
-				browser: true,
-			}),
-			plugins.commonjs(),
-			legacy && plugins.babel.browser(),
 		]
 	},
 }

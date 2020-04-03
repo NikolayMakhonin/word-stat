@@ -3,8 +3,6 @@ module.exports = {
 	packageName: 'app-template',
 	description: 'App Template',
 	tests: {
-		intern: {
 
-		},
 	},
 }

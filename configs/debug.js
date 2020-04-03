@@ -7,10 +7,6 @@ module.exports = {
 
 	type  : 'debug',
 	tests: {
-		intern: {
-			staticPort: 3010,
-			serverPort: 3020,
-			socketPort: 3030,
-		},
+
 	},
 }

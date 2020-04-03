@@ -7,10 +7,6 @@ module.exports = {
 
 	type: 'preprod',
 	tests: {
-		intern: {
-			staticPort: 3014,
-			serverPort: 3024,
-			socketPort: 3034,
-		},
+
 	},
 }

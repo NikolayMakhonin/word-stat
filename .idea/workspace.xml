@@ -42,7 +42,7 @@
 		<option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true"/>
 		<option name="RECENT_BRANCH_BY_REPOSITORY">
 			<map>
-				<entry key="$PROJECT_DIR$" value="node-module"/>
+				<entry key="$PROJECT_DIR$" value="browser-helpers"/>
 			</map>
 		</option>
 		<option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$"/>
@@ -147,15 +147,6 @@
 			<method v="2"/>
 		</configuration>
 		<list>
-			<item itemvalue="Karma.CI"/>
-			<item itemvalue="Karma.Coverage"/>
-			<item itemvalue="Karma.Dev"/>
-			<item itemvalue="Karma.Performance"/>
-			<item itemvalue="Karma.Tests"/>
-			<item itemvalue="Mocha.Intern Dev"/>
-			<item itemvalue="Mocha.Intern Dev Video"/>
-			<item itemvalue="Mocha.Intern Export"/>
-			<item itemvalue="Mocha.Intern Export with rebuild"/>
 			<item itemvalue="Mocha.Watch"/>
 			<item itemvalue="npm.build:polyfill"/>
 			<item itemvalue="npm.Test All"/>
@@ -218,7 +209,7 @@
 	<component name="VcsManagerConfiguration">
 		<option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false"/>
 		<option name="CHECK_NEW_TODO" value="false"/>
-		<option name="LAST_COMMIT_MESSAGE" value="Remove pug"/>
+		<option name="LAST_COMMIT_MESSAGE" value="Fix package.json"/>
 		<MESSAGE value="Users dialogs in process..."/>
 		<MESSAGE value="v0.0.18"/>
 		<MESSAGE value="User edit dialog in process..."/>
@@ -235,5 +226,6 @@
 		<MESSAGE value="Merged with app"/>
 		<MESSAGE value="TODO changed"/>
 		<MESSAGE value="Remove pug"/>
+		<MESSAGE value="Fix package.json"/>
 	</component>
 </project>

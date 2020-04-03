@@ -5,7 +5,6 @@ const fs = require('fs')
 const fileExtensions = {
 	js    : ['.es6', '.es', '.js', '.mjs'],
 	ts    : ['.ts'],
-	svelte: ['.html', '.svelte'],
 }
 
 function asPromise(func) {

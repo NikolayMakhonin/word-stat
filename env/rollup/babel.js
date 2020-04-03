@@ -26,7 +26,7 @@ const babelRollup = {
 		browser: options => babel({
 			...babelCommon,
 			runtimeHelpers: true,
-			extensions    : [...fileExtensions.js, ...fileExtensions.ts, ...fileExtensions.svelte],
+			extensions    : [...fileExtensions.js, ...fileExtensions.ts],
 			...babelConfigBrowser,
 			...options,
 		}),
