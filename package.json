@@ -17,7 +17,8 @@
   "license": "CC0-1.0",
   "keywords": [],
   "files": [
-    "dist/**"
+    "dist/**",
+    "src/main/gyp/**"
   ],
   "main": "dist/dev/js/main/node/main.js",
   "jsnext:main": "dist/dev/mjs/main/node/main.js",
@@ -27,13 +28,14 @@
   },
   "scripts": {
     "precommit": "npm run test:ci",
-    "prepare": "npm run build:dev",
+    "prepare": "npm run build:gyp && npm run build:dev",
     "prepublishOnly": "npm run test:dev",
     "ci": "npm run test:ci && ncat \"tmp/common/coverage/all/lcov/**/lcov.info\" --banner \"\" | coveralls",
 
     "build:polyfill": "node ./env/scripts/run.js \"require('./env/scripts/common').buildPolyfill().stopOnError()\"",
     "build:libs": "node ./env/scripts/run.js \"require('./env/scripts/common').buildLibs().stopOnError()\"",
     "build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll('dev').stopOnError()\"",
+    "build:gyp": "node-gyp configure && node-gyp build",
 
     "test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll('dev').stopOnError()\"",
     "test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll('demo', 'dev', 'stage', 'prod').stopOnError()\"",
@@ -76,6 +78,7 @@
     "kleur": "^3.0.3",
     "mocha": "^5.2.0",
     "ncat": "^2.0.7",
+    "node-gyp": "^5.1.0",
     "nyc": "^14.1.1",
     "ps-tree": "^1.2.0",
     "rdtsc": "^2.0.0",

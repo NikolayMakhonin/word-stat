@@ -78,7 +78,7 @@
 		<property name="js.buildTools.grunt.grunt-cli.package" value="$USER_HOME$/AppData/Roaming/npm/node_modules/grunt-cli"/>
 		<property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp"/>
 		<property name="jsx.switch.disabled" value="true"/>
-		<property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/karma"/>
+		<property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/tests/node/env"/>
 		<property name="node.js.detected.package.eslint" value="true"/>
 		<property name="node.js.detected.package.standard" value="true"/>
 		<property name="node.js.detected.package.stylelint" value="true"/>
@@ -98,10 +98,10 @@
 		<property name="nodejs_interpreter_path" value="node"/>
 		<property name="nodejs_package_manager_path" value="npm"/>
 		<property name="restartRequiresConfirmation" value="false"/>
-		<property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation"/>
-		<property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\apps\app-template\node_modules\typescript\lib"/>
+		<property name="settings.editor.selected.configurable" value="web-ide.project.structure"/>
+		<property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib"/>
 	</component>
-	<component name="RunManager" selected="npm.Test All">
+	<component name="RunManager" selected="Mocha.Watch">
 		<configuration default="true" type="JavaScriptTestRunnerKarma">
 			<config-file value="$PROJECT_DIR$/env/karma/configs/dev.js"/>
 			<karma-package-dir value="$PROJECT_DIR$/node_modules/karma"/>
@@ -209,7 +209,7 @@
 	<component name="VcsManagerConfiguration">
 		<option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false"/>
 		<option name="CHECK_NEW_TODO" value="false"/>
-		<option name="LAST_COMMIT_MESSAGE" value="Fix package.json"/>
+		<option name="LAST_COMMIT_MESSAGE" value="Delete browser specific code"/>
 		<MESSAGE value="Users dialogs in process..."/>
 		<MESSAGE value="v0.0.18"/>
 		<MESSAGE value="User edit dialog in process..."/>
@@ -227,5 +227,6 @@
 		<MESSAGE value="TODO changed"/>
 		<MESSAGE value="Remove pug"/>
 		<MESSAGE value="Fix package.json"/>
+		<MESSAGE value="Delete browser specific code"/>
 	</component>
 </project>

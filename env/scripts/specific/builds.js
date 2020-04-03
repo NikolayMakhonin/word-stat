@@ -11,6 +11,12 @@ const buildJs = singleCall(async appConfigType => {
 	await run(`shx mkdir -p dist/${appConfigType}/js/`)
 	await run(`babel src -x .js -x .ts --out-dir dist/${appConfigType}/js/ --no-babelrc --config-file ./env/babel/configs/dist-js.js`)
 })
+const buildGyp = singleCall(async appConfigType => {
+	await run(`shx rm -rf dist/${appConfigType}/gyp/`)
+	await run(`shx mkdir -p dist/${appConfigType}/gyp/`)
+	await run(`node-gyp configure`)
+	await run(`node-gyp build`)
+})
 
 const clean = singleCall(appConfigType => run(`shx rm -rf {dist,tmp}/${appConfigType}`))
 const build = singleCall(async appConfigType => {
@@ -20,6 +26,7 @@ const build = singleCall(async appConfigType => {
 		common.build(),
 		buildMjs(appConfigType),
 		buildJs(appConfigType),
+		buildGyp(appConfigType),
 	])
 })
 
@@ -28,4 +35,5 @@ module.exports = {
 	build,
 	buildMjs,
 	buildJs,
+	buildGyp,
 }
