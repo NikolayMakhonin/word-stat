@@ -42,7 +42,7 @@
 		<option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true"/>
 		<option name="RECENT_BRANCH_BY_REPOSITORY">
 			<map>
-				<entry key="$PROJECT_DIR$" value="webapp"/>
+				<entry key="$PROJECT_DIR$" value="node-module"/>
 			</map>
 		</option>
 		<option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$"/>
@@ -101,7 +101,7 @@
 		<property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation"/>
 		<property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\apps\app-template\node_modules\typescript\lib"/>
 	</component>
-	<component name="RunManager" selected="npm.Test Dev">
+	<component name="RunManager" selected="npm.Test All">
 		<configuration default="true" type="JavaScriptTestRunnerKarma">
 			<config-file value="$PROJECT_DIR$/env/karma/configs/dev.js"/>
 			<karma-package-dir value="$PROJECT_DIR$/node_modules/karma"/>
@@ -159,8 +159,6 @@
 			<item itemvalue="Mocha.Watch"/>
 			<item itemvalue="npm.build:polyfill"/>
 			<item itemvalue="npm.Test All"/>
-			<item itemvalue="npm.Test and Pack All"/>
-			<item itemvalue="npm.Test and Pack Dev"/>
 			<item itemvalue="npm.Test Dev"/>
 		</list>
 	</component>
