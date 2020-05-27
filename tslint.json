@@ -58,13 +58,18 @@
 			"check-whitespace"
 		],
 		"no-empty-interface": false,
-		"no-void-expression": true,
-		"return-undefined": true,
+		"no-void-expression": false,
+		"return-undefined": false,
 		"use-type-alias": false,
 		"prefer-immediate-return": false,
 		"parameters-max-number": false,
 		"only-arrow-functions": false,
-		"no-console": false
+		"no-console": false,
+		"no-invariant-return": false,
+		"no-dead-store": false,
+		"no-construct": false,
+		"use-primitive-type": false,
+		"no-var-requires": false
 	},
 	"rulesDirectory": [
 		"node_modules/tslint-eslint-rules/dist/rules"
@@ -77,6 +82,7 @@
 			"node_modules",
 			"tmp",
 			"**/*olyfill**"
-		]
+		],
+		"project": "tsconfig.eslint.json"
 	}
 }

@@ -5,8 +5,8 @@ module.exports = {
 	// base
 	packageName: `${base.packageName}-demo`,
 
-	type  : 'demo',
-	tests : {
+	type : 'demo',
+	tests: {
 
 	},
 }

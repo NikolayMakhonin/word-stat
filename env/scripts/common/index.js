@@ -19,14 +19,25 @@ const build = singleCall(async () => {
 		buildGyp(),
 	])
 })
-const npmCheck = singleCall(() => run('depcheck --ignores="*,@babel/*,@types/*,@metahub/karma-rollup-preprocessor,karma-*,@sapper/*,rdtsc,tslint-eslint-rules,electron,APP_CONFIG_PATH,SAPPER_MODULE,caniuse-lite,browserslist" --ignore-dirs=__sapper__,_trash,dist,docs,static,tmp'))
+
+const lintEs = singleCall(async () => {
+	await run('eslint --plugin markdown --ext js,md .')
+})
+
+const lintTs = singleCall(async () => {
+	await run('tslint --project tsconfig.json --config tslint.json --exclude **/_trash/** src/main/**/*.ts')
+})
+
+// Warning - depcheck takes a lot of memory - 13 GB !!
+// const npmCheck = singleCall(() => run('depcheck --ignores="*,@babel/*,@types/*,@metahub/karma-rollup-preprocessor,karma-*,@sapper/*,rdtsc,tslint-eslint-rules,electron,APP_CONFIG_PATH,SAPPER_MODULE,caniuse-lite,browserslist" --ignore-dirs=__sapper__,_trash,dist,docs,static,tmp'))
 const lint = singleCall(() => Promise.all([
-	npmCheck(),
-	// run('eslint --plugin markdown --ext js,md . '),
+	// npmCheck(),
+	lintEs(),
+	lintTs(),
 ]))
 
 module.exports = {
-	npmCheck,
+	// npmCheck,
 	lint,
 	clean,
 	build,

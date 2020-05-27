@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="" />
+    <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,7 +168,6 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.Watch" />
-      <item itemvalue="npm.build:polyfill" />
       <item itemvalue="npm.Test All" />
       <item itemvalue="npm.Test Dev" />
     </list>
@@ -174,6 +176,28 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Precommit OK.">
+      <created>1590575276433</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590575276433</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Precommit OK.">
+      <created>1590575306225</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590575306225</updated>
+    </task>
+    <task id="LOCAL-00003" summary="SHA-1: bc2d2f929f5656162efd700717bbb3bb3b362238&#10;&#10;* Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.browserslistrc&#10;#&#9;.eslintrc&#10;#&#9;.idea/runConfigurations/Intern_Dev.xml&#10;#&#9;.idea/runConfigurations/Intern_Dev_Video.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;.travis.yml&#10;#&#9;configs/demo.js&#10;#&#9;configs/prod.js&#10;#&#9;env/babel/configs/intern.js&#10;#&#9;env/intern/configs/constants.js&#10;#&#9;env/intern/configs/dev-video/intern.js&#10;#&#9;env/intern/configs/dev-video/mocha.js&#10;#&#9;env/intern/configs/dev/mocha.js&#10;#&#9;env/intern/helpers/.eslintrc&#10;#&#9;env/intern/helpers/assert.js&#10;#&#9;env/intern/helpers/base.js&#10;#&#9;env/intern/helpers/log.js&#10;#&#9;env/intern/helpers/open-window.js&#10;#&#9;env/intern/helpers/svelte.js&#10;#&#9;env/intern/mocha-helpers.js&#10;#&#9;env/intern/register-intern.js&#10;#&#9;env/karma/configs/ci.js&#10;#&#9;env/karma/configs/coverage.js&#10;#&#9;env/karma/configs/dev.js&#10;#&#9;env/karma/configs/performance.js&#10;#&#9;env/karma/configs/tests.js&#10;#&#9;env/karma/helpers.js&#10;#&#9;env/rollup/babel.js&#10;#&#9;env/rollup/postcss.js&#10;#&#9;env/rollup/svelte.js&#10;#&#9;env/scripts/index.js&#10;#&#9;env/scripts/specific/tests.js&#10;#&#9;modules/browser/browser-debug/.eslintrc&#10;#&#9;modules/browser/browser-debug/helpers/get-debug-info.js&#10;#&#9;package.json&#10;#&#9;src/test/performance/browser/isBrowser.js&#10;#&#9;src/test/tests/browser/env/component.js&#10;#&#9;src/test/tests/browser/isBrowser.js&#10;#&#9;src/test/tests/common/env/modules.js&#10;#&#9;src/test/tests/webdriver/.eslintrc">
+      <created>1590576269979</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590576269979</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -249,9 +273,55 @@
     <MESSAGE value="Remove pug" />
     <MESSAGE value="Fix package.json" />
     <MESSAGE value="Delete browser specific code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete browser specific code" />
+    <MESSAGE value="Precommit OK." />
+    <MESSAGE value="SHA-1: bc2d2f929f5656162efd700717bbb3bb3b362238&#10;&#10;* Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.browserslistrc&#10;#&#9;.eslintrc&#10;#&#9;.idea/runConfigurations/Intern_Dev.xml&#10;#&#9;.idea/runConfigurations/Intern_Dev_Video.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;.travis.yml&#10;#&#9;configs/demo.js&#10;#&#9;configs/prod.js&#10;#&#9;env/babel/configs/intern.js&#10;#&#9;env/intern/configs/constants.js&#10;#&#9;env/intern/configs/dev-video/intern.js&#10;#&#9;env/intern/configs/dev-video/mocha.js&#10;#&#9;env/intern/configs/dev/mocha.js&#10;#&#9;env/intern/helpers/.eslintrc&#10;#&#9;env/intern/helpers/assert.js&#10;#&#9;env/intern/helpers/base.js&#10;#&#9;env/intern/helpers/log.js&#10;#&#9;env/intern/helpers/open-window.js&#10;#&#9;env/intern/helpers/svelte.js&#10;#&#9;env/intern/mocha-helpers.js&#10;#&#9;env/intern/register-intern.js&#10;#&#9;env/karma/configs/ci.js&#10;#&#9;env/karma/configs/coverage.js&#10;#&#9;env/karma/configs/dev.js&#10;#&#9;env/karma/configs/performance.js&#10;#&#9;env/karma/configs/tests.js&#10;#&#9;env/karma/helpers.js&#10;#&#9;env/rollup/babel.js&#10;#&#9;env/rollup/postcss.js&#10;#&#9;env/rollup/svelte.js&#10;#&#9;env/scripts/index.js&#10;#&#9;env/scripts/specific/tests.js&#10;#&#9;modules/browser/browser-debug/.eslintrc&#10;#&#9;modules/browser/browser-debug/helpers/get-debug-info.js&#10;#&#9;package.json&#10;#&#9;src/test/performance/browser/isBrowser.js&#10;#&#9;src/test/tests/browser/env/component.js&#10;#&#9;src/test/tests/browser/isBrowser.js&#10;#&#9;src/test/tests/common/env/modules.js&#10;#&#9;src/test/tests/webdriver/.eslintrc" />
+    <option name="LAST_COMMIT_MESSAGE" value="SHA-1: bc2d2f929f5656162efd700717bbb3bb3b362238&#10;&#10;* Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.browserslistrc&#10;#&#9;.eslintrc&#10;#&#9;.idea/runConfigurations/Intern_Dev.xml&#10;#&#9;.idea/runConfigurations/Intern_Dev_Video.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;.travis.yml&#10;#&#9;configs/demo.js&#10;#&#9;configs/prod.js&#10;#&#9;env/babel/configs/intern.js&#10;#&#9;env/intern/configs/constants.js&#10;#&#9;env/intern/configs/dev-video/intern.js&#10;#&#9;env/intern/configs/dev-video/mocha.js&#10;#&#9;env/intern/configs/dev/mocha.js&#10;#&#9;env/intern/helpers/.eslintrc&#10;#&#9;env/intern/helpers/assert.js&#10;#&#9;env/intern/helpers/base.js&#10;#&#9;env/intern/helpers/log.js&#10;#&#9;env/intern/helpers/open-window.js&#10;#&#9;env/intern/helpers/svelte.js&#10;#&#9;env/intern/mocha-helpers.js&#10;#&#9;env/intern/register-intern.js&#10;#&#9;env/karma/configs/ci.js&#10;#&#9;env/karma/configs/coverage.js&#10;#&#9;env/karma/configs/dev.js&#10;#&#9;env/karma/configs/performance.js&#10;#&#9;env/karma/configs/tests.js&#10;#&#9;env/karma/helpers.js&#10;#&#9;env/rollup/babel.js&#10;#&#9;env/rollup/postcss.js&#10;#&#9;env/rollup/svelte.js&#10;#&#9;env/scripts/index.js&#10;#&#9;env/scripts/specific/tests.js&#10;#&#9;modules/browser/browser-debug/.eslintrc&#10;#&#9;modules/browser/browser-debug/helpers/get-debug-info.js&#10;#&#9;package.json&#10;#&#9;src/test/performance/browser/isBrowser.js&#10;#&#9;src/test/tests/browser/env/component.js&#10;#&#9;src/test/tests/browser/isBrowser.js&#10;#&#9;src/test/tests/common/env/modules.js&#10;#&#9;src/test/tests/webdriver/.eslintrc" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590576987353">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576987353" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590576267852">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590576267852" />
+    <state x="2" y="0" width="1917" height="883" key="DiffContextDialog" timestamp="1590577007152">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="2" y="0" width="1917" height="883" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1590577007152" />
+    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1590576570299">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1590576570299" />
+    <state width="1892" height="331" key="GridCell.Tab.0.bottom" timestamp="1590576866461">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="331" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
+    <state width="1892" height="331" key="GridCell.Tab.0.center" timestamp="1590576866461">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="331" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
+    <state width="1892" height="331" key="GridCell.Tab.0.left" timestamp="1590576866461">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="331" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
+    <state width="1892" height="331" key="GridCell.Tab.0.right" timestamp="1590576866461">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="331" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590576120883">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576120883" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590576136921">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576136921" />
+    <state x="570" y="57" key="VcsDiffUtil.ChangesDialog" timestamp="1590576694849">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="570" y="57" key="VcsDiffUtil.ChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576694849" />
     <state x="602" y="108" width="716" height="666" key="find.popup" timestamp="1590575046462">
       <screen x="0" y="0" width="1920" height="882" />
     </state>

@@ -5,7 +5,7 @@ module.exports = {
 	// base
 	packageName: `${base.packageName}-stage`,
 
-	type  : 'stage',
+	type : 'stage',
 	tests: {
 
 	},

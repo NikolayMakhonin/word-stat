@@ -1,5 +1,4 @@
 /* eslint-disable object-curly-newline,prefer-template,no-process-env */
-const path = require('path')
 const {terser} = require('rollup-plugin-terser')
 const istanbul = require('rollup-plugin-istanbul')
 // const globals = require('rollup-plugin-node-globals')
@@ -73,7 +72,7 @@ const plugins = {
 	}),
 	terser: (options = {}) => terser({
 		mangle: false,
-		module: true,
+		module: false,
 		ecma  : 5,
 		output: {
 			max_line_len: 50,

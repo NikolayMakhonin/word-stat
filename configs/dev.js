@@ -5,7 +5,7 @@ module.exports = {
 	// base
 	packageName: `${base.packageName}-dev`,
 
-	type  : 'dev',
+	type : 'dev',
 	tests: {
 
 	},

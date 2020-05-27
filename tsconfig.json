@@ -3,13 +3,14 @@
 		"declaration": true,
 		"emitDeclarationOnly": true,
 		"outDir": "dist/types",
-    	"baseUrl": ".",
+		"baseUrl": ".",
 		"target": "ESNext",
 		"lib": ["dom", "esnext"],
 		"skipLibCheck": true,
+		"stripInternal": true,
 		"allowSyntheticDefaultImports": true,
 		"paths": {
-		  "*" : ["node_modules/*"]
+			"*" : ["node_modules/*"]
 		}
 	},
 	"include": [

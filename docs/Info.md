@@ -32,7 +32,7 @@ https://www.npmjs.com/package/karma-electron
 * https://electronjs.org/docs/api/ipc-renderer
 > When you spawn your browser window set the preload option to a script you wish to preload:
 > 
-> ```js
+> ```
 > webPreferences: {
 >     nodeIntegration: false,
 >     preload: "preload.js"

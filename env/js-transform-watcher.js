@@ -1,4 +1,4 @@
-/* eslint-disable no-shadow,global-require */
+/* eslint-disable no-shadow,global-require,no-unused-vars */
 const files = process.argv.slice(2)
 const fileInput = files[0]
 const fileOutput = files[1]

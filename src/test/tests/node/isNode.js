@@ -1,5 +1,4 @@
 /* eslint-disable no-new-func */
-
 describe('node', function () {
 	it('isNode', function () {
 		// see: https://stackoverflow.com/a/31090240/5221762

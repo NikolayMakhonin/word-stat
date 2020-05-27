@@ -25,6 +25,8 @@ node_modules/
 /tmp
 /.idea/libraries/Generated_files.xml
 /package-lock.json
+code.asm
+hydrogen*.cfg
 /dist/**/pack/**
 /dist/*/chrome/**
 /dist/

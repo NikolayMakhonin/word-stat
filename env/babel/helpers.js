@@ -1,4 +1,3 @@
-const path = require('path')
 const registerBabel = require('@babel/register')
 const {fileExtensions, normalizePath} = require('../common/helpers')
 require('core-js/stable')

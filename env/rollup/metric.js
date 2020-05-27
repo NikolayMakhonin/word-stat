@@ -40,7 +40,7 @@ function metricEnd() {
 						const duration = _module.duration != null && +_module.duration.toPrecision(3)
 						const size = _module.sizeStart != null && _module.sizeEnd != null
 							&& +Math.max(_module.sizeStart, _module.sizeEnd) // .toPrecision(3)
-			// 		console.log(`[${duration} ms][${size} B][${name}] ${id}`)
+						// console.log(`[${duration} ms][${size} B][${name}] ${id}`)
 						return `[${duration} ms][${size} B][${name}] ${id}`
 					})
 					.join('\r\n')

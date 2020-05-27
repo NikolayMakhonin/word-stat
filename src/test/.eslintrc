@@ -1,8 +1,8 @@
 {
 	"env": {
-		"mocha": true,
 		"browser": false,
-		"node": false
+		"node": false,
+		"mocha": true
 	},
 	"rules": {
 		"no-empty-function": ["off"],
@@ -14,9 +14,7 @@
 		"no-process-env" : "off"
 	},
 	"globals": {
-		"assert": true,
-		"expect": true,
-		"should": true,
-		"console": true
+		"console": true,
+		"assert": true
 	}
 }
