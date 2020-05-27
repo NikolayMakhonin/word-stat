@@ -3,7 +3,7 @@ const {run, singleCall} = require('../helpers/helpers')
 const builds = require('./builds')
 
 const testMochaSrc = singleCall(coverage => run(
-	`${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/babel/mocha.opts --bail ./src/test/tests/{node,common}/**/*.*`,
+	`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./src/test/tests/{node,common}/**/*.*`,
 	{env: {APP_CONFIG: 'dev'}}
 ))
 const testMochaMjs = singleCall(async (appConfigType, coverage, options = {}) => {
@@ -11,7 +11,7 @@ const testMochaMjs = singleCall(async (appConfigType, coverage, options = {}) =>
 		await builds.buildMjs(appConfigType)
 	}
 	await run(
-		`${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/mjs/test/tests/{node,common}/**/*.*`,
+		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/mjs/test/tests/{node,common}/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
 	)
 })
@@ -20,8 +20,8 @@ const testMochaJs = singleCall(async (appConfigType, coverage, options = {}) => 
 		await builds.buildJs(appConfigType)
 	}
 	await run(
-		// `${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/*.*`,
-		`${coverage ? 'nyc ' : ''}mocha --opts ./env/mocha/configs/no-babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/*.*`,
+		// `${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/*.*`,
+		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/no-babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
 	)
 })
