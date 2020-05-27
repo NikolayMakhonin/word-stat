@@ -8,8 +8,8 @@ const buildLibs = singleCall(() => Promise.all([
 	buildPolyfill(),
 ]))
 const buildGyp = singleCall(async () => {
-	await run(`node-gyp configure`)
-	await run(`node-gyp build`)
+	await run('node-gyp configure')
+	await run('node-gyp build')
 })
 const clean = singleCall(() => run('shx rm -rf {*.log,__sapper__,build}'))
 const build = singleCall(async () => {
