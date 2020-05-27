@@ -165,9 +165,9 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.Watch" />
+      <item itemvalue="npm.build:polyfill" />
       <item itemvalue="npm.Test All" />
       <item itemvalue="npm.Test Dev" />
-      <item itemvalue="npm.build:polyfill" />
     </list>
   </component>
   <component name="SvnConfiguration">
