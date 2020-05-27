@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="balda" />
   </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
@@ -48,18 +63,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="L:\Work\_GIT\GitHub\NodeJs\apps\app-template\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
+  </component>
+  <component name="NamedScopeManager">
+    <order>
+      <scope name="src-test" />
+      <scope name="src-main" />
+      <scope name="all" />
+      <scope name="env" />
+      <scope name="all-ts" />
+    </order>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -148,10 +165,16 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.Watch" />
-      <item itemvalue="npm.build:polyfill" />
       <item itemvalue="npm.Test All" />
       <item itemvalue="npm.Test Dev" />
+      <item itemvalue="npm.build:polyfill" />
     </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -193,23 +216,21 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete browser specific code" />
     <MESSAGE value="Users dialogs in process..." />
     <MESSAGE value="v0.0.18" />
     <MESSAGE value="User edit dialog in process..." />
@@ -228,5 +249,12 @@
     <MESSAGE value="Remove pug" />
     <MESSAGE value="Fix package.json" />
     <MESSAGE value="Delete browser specific code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete browser specific code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="602" y="108" width="716" height="666" key="find.popup" timestamp="1590575046462">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="602" y="108" width="716" height="666" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1590575046462" />
   </component>
 </project>
