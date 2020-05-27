@@ -168,8 +168,8 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.Watch" />
-      <item itemvalue="npm.Test All" />
       <item itemvalue="npm.Test Dev" />
+      <item itemvalue="npm.Test All" />
     </list>
   </component>
   <component name="SvnConfiguration">
