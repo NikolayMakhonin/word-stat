@@ -27,7 +27,7 @@ node_js:
 #      - build-essential
 
 sudo: false
-dist: precise
+#dist: precise
 cache: npm
 
 before_install:
