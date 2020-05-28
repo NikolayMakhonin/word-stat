@@ -19,5 +19,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="@types/mocha" level="application" />
+    <orderEntry type="library" name="@types/fs-extra" level="application" />
+    <orderEntry type="library" name="@types/mocha" level="application" />
+    <orderEntry type="library" name="@types/chai" level="application" />
   </component>
 </module>

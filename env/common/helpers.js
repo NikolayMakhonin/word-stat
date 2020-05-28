@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const fse = require('fs-extra')
 const globby = require('globby')
 
 /* eslint-disable no-undef */
@@ -106,6 +107,19 @@ async function copyToSingleDir(destDir, ...globbyPatterns) {
 	)
 }
 
+async function deletePath(_path) {
+	await fse.remove(_path)
+}
+
+async function createDir(dirPath) {
+	await fse.mkdirp(dirPath)
+}
+
+async function reCreateDir(dirPath) {
+	await deletePath(dirPath)
+	await createDir(dirPath)
+}
+
 module.exports = {
 	writeTextFile,
 	writeTextFileSync,
@@ -114,4 +128,7 @@ module.exports = {
 	asPromise,
 	now,
 	normalizePath,
+	deletePath,
+	createDir,
+	reCreateDir,
 }
