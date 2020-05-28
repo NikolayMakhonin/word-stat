@@ -3,32 +3,28 @@ language: node_js
 # Node versions: https://node.green/
 jobs:
   include:
-#    - os: windows
-#      env: CXX=g++-4.8
-#      node_js: "13.3.0"
-    - os: linux
-      dist: precise
-      node_js: "10.16.3"
+    - os: windows
       env: CXX=g++-4.8
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-4.8
+      node_js: "13.3.0"
     - os: linux
       dist: xenial
-      node_js: "12.4.0"
+      node_js:
+        - "10.16.3"
+        - "12.4.0"
       env: CXX=clang
-
-os:
-  - osx
-
-env:
-  - CXX=clang
-
-node_js:
-  - "12.4.0"
+    - os: osx
+      env: CXX=clang
+      node_js: "13.7.0"
+#    - os: linux
+#      dist: precise
+#      node_js: "4.9.1"
+#      env: CXX=g++-4.8
+#      addons:
+#        apt:
+#          sources:
+#            - ubuntu-toolchain-r-test
+#          packages:
+#            - g++-4.8
 
 sudo: false
 cache: npm
