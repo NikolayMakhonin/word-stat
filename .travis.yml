@@ -7,7 +7,7 @@ jobs:
       env: CXX=g++-4.8
       node_js: "13.3.0"
     - os: linux
-      env: CXX=g++-4.8
+      env: CXX=g++-8
       node_js: "12.4.0"
 
 os:
@@ -24,7 +24,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+      - g++-8
       - build-essential
 
 sudo: false
