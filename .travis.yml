@@ -8,13 +8,13 @@ jobs:
       node_js: "13.3.0"
     - os: linux
       dist: xenial
-      node_js:
-        - "10.16.3"
-        - "12.4.0"
+      node_js: "10.16.3"
       env: CXX=clang
     - os: osx
       env: CXX=clang
-      node_js: "13.7.0"
+      node_js:
+        - "12.4.0"
+        - "13.7.0"
 #    - os: linux
 #      dist: precise
 #      node_js: "4.9.1"
