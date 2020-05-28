@@ -5,10 +5,10 @@ matrix:
   include:
     - os: windows
       env: CXX=g++-4.8
-      node_js: "12.10.0"
+      node_js: "12.4.0"
     - os: linux
       env: CXX=g++-4.8
-      node_js: "12.4.0"
+      node_js: "13.3.0"
 
 os:
   - osx
