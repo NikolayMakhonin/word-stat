@@ -11,8 +11,8 @@ jobs:
       node_js: "10.16.3"
       env: CXX=clang
     - os: osx
-      env: CXX=clang
       node_js: "12.4.0"
+      env: CXX=clang
 #    - os: linux
 #      dist: precise
 #      node_js: "4.9.1"
@@ -26,6 +26,12 @@ jobs:
 
 sudo: false
 cache: npm
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 
 before_install:
   # Skip updating shrinkwrap / lock
