@@ -13,8 +13,8 @@ jobs:
 os:
   - osx
 
-env:
-  - CXX=clang
+#env:
+#  - CXX=clang
 
 node_js:
   - "12.4.0"
