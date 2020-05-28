@@ -3,13 +3,13 @@ language: node_js
 # Node versions: https://node.green/
 jobs:
   include:
-    - os: windows
-      env: CXX=g++-4.8
-      node_js: "13.3.0"
-    - os: linux
-      dist: xenial
-      node_js: "10.16.3"
-      env: CXX=clang
+#    - os: windows
+#      env: CXX=g++-4.8
+#      node_js: "13.3.0"
+#    - os: linux
+#      dist: xenial
+#      node_js: "10.16.3"
+#      env: CXX=clang
     - os: osx
       node_js: "12.4.0"
       env: CXX=clang
@@ -23,15 +23,6 @@ jobs:
 #            - ubuntu-toolchain-r-test
 #          packages:
 #            - g++-4.8
-
-sudo: false
-cache: npm
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
 
 before_install:
   # Skip updating shrinkwrap / lock

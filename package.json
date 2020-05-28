@@ -38,9 +38,9 @@
 		"build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll('dev').stopOnError()\"",
 		"build:gyp": "node ./env/scripts/run.js \"require('./env/scripts/common').buildGyp().stopOnError()\"",
 
-		"test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['dev']).stopOnError()\"",
-		"test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['demo', 'dev', 'stage', 'prod']).stopOnError()\"",
-		"test:ci": "node ./env/scripts/run.js \"require('./env/scripts').testCiAll(['dev']).stopOnError()\"",
+		"test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['dev'], { build: false }).stopOnError()\"",
+		"test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['demo', 'dev', 'stage', 'prod'], { build: false }).stopOnError()\"",
+		"test:ci": "node ./env/scripts/run.js \"require('./env/scripts').testCiAll(['dev'], { build: false }).stopOnError()\"",
 
 		"build-test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['dev']).stopOnError()\"",
 		"build-test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['demo', 'dev', 'stage', 'prod']).stopOnError()\"",
