@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590651486524</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fix travis">
+      <created>1590652289397</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1590652289397</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -348,14 +353,14 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576987353" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590651485399">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590652288050">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590651485399" />
-    <state x="2" y="0" width="1917" height="883" key="DiffContextDialog" timestamp="1590577007152">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590652288050" />
+    <state x="2" y="0" width="1917" height="882" key="DiffContextDialog" timestamp="1590652277931">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="2" y="0" width="1917" height="883" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1590577007152" />
+    <state x="2" y="0" width="1917" height="882" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1590652277931" />
     <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1590576570299">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -388,9 +393,9 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="570" y="57" key="VcsDiffUtil.ChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576694849" />
-    <state x="602" y="108" width="716" height="666" key="find.popup" timestamp="1590575046462">
+    <state x="3" y="3" width="1914" height="876" key="find.popup" timestamp="1590653023937">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="602" y="108" width="716" height="666" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1590575046462" />
+    <state x="3" y="3" width="1914" height="876" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1590653023937" />
   </component>
 </project>
