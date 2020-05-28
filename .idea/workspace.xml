@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,14 +317,14 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1892" height="331" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590576120883">
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590646899889">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576120883" />
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590577764978">
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590646899889" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590646905020">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590577764978" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590646905020" />
     <state x="570" y="57" key="VcsDiffUtil.ChangesDialog" timestamp="1590576694849">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
