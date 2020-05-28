@@ -1,14 +1,14 @@
 language: node_js
 
 # Node versions: https://node.green/
-#jobs:
-#  include:
-#    - os: windows
-#      env: CXX=g++-4.8
-#      node_js: "13.3.0"
-#    - os: linux
-#      env: CXX=g++-4.8
-#      node_js: "10.16.3"
+jobs:
+  include:
+    - os: windows
+      env: CXX=g++-4.8
+      node_js: "13.3.0"
+    - os: linux
+      env: CXX=g++-4.8
+      node_js: "10.16.3"
 
 os:
   - osx
