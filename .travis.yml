@@ -7,7 +7,7 @@ jobs:
       env: CXX=g++-4.8
       node_js: "13.3.0"
     - os: linux
-      node_js: "12.4.0"
+      node_js: "12"
 
 os:
   - osx
