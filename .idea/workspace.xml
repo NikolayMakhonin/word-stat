@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590578318992</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Precommit OK.">
+      <created>1590647720502</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590647720502</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -279,20 +287,20 @@
     <MESSAGE value="Remove pug" />
     <MESSAGE value="Fix package.json" />
     <MESSAGE value="Delete browser specific code" />
-    <MESSAGE value="Precommit OK." />
     <MESSAGE value="SHA-1: bc2d2f929f5656162efd700717bbb3bb3b362238&#10;&#10;* Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.browserslistrc&#10;#&#9;.eslintrc&#10;#&#9;.idea/runConfigurations/Intern_Dev.xml&#10;#&#9;.idea/runConfigurations/Intern_Dev_Video.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;.travis.yml&#10;#&#9;configs/demo.js&#10;#&#9;configs/prod.js&#10;#&#9;env/babel/configs/intern.js&#10;#&#9;env/intern/configs/constants.js&#10;#&#9;env/intern/configs/dev-video/intern.js&#10;#&#9;env/intern/configs/dev-video/mocha.js&#10;#&#9;env/intern/configs/dev/mocha.js&#10;#&#9;env/intern/helpers/.eslintrc&#10;#&#9;env/intern/helpers/assert.js&#10;#&#9;env/intern/helpers/base.js&#10;#&#9;env/intern/helpers/log.js&#10;#&#9;env/intern/helpers/open-window.js&#10;#&#9;env/intern/helpers/svelte.js&#10;#&#9;env/intern/mocha-helpers.js&#10;#&#9;env/intern/register-intern.js&#10;#&#9;env/karma/configs/ci.js&#10;#&#9;env/karma/configs/coverage.js&#10;#&#9;env/karma/configs/dev.js&#10;#&#9;env/karma/configs/performance.js&#10;#&#9;env/karma/configs/tests.js&#10;#&#9;env/karma/helpers.js&#10;#&#9;env/rollup/babel.js&#10;#&#9;env/rollup/postcss.js&#10;#&#9;env/rollup/svelte.js&#10;#&#9;env/scripts/index.js&#10;#&#9;env/scripts/specific/tests.js&#10;#&#9;modules/browser/browser-debug/.eslintrc&#10;#&#9;modules/browser/browser-debug/helpers/get-debug-info.js&#10;#&#9;package.json&#10;#&#9;src/test/performance/browser/isBrowser.js&#10;#&#9;src/test/tests/browser/env/component.js&#10;#&#9;src/test/tests/browser/isBrowser.js&#10;#&#9;src/test/tests/common/env/modules.js&#10;#&#9;src/test/tests/webdriver/.eslintrc" />
     <MESSAGE value="Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;package.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;package.json" />
+    <MESSAGE value="Precommit OK." />
+    <option name="LAST_COMMIT_MESSAGE" value="Precommit OK." />
   </component>
   <component name="WindowStateProjectService">
     <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590576987353">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576987353" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590578316816">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590647719337">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590578316816" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590647719337" />
     <state x="2" y="0" width="1917" height="883" key="DiffContextDialog" timestamp="1590577007152">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
