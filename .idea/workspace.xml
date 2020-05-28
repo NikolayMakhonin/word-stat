@@ -21,6 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/specific/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/tests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nyc.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nyc.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brain/helpers/system-info.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brain/system-info.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/common/WindowButtons.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/common/WindowButtonsMac.svelte" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +273,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590652289397</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix travis">
+      <created>1590653705394</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1590653705394</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix travis">
+      <created>1590653837657</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1590653837657</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -349,14 +370,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fix travis" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590576987353">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590655106138">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576987353" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590652288050">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590655106138" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590653836469">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590652288050" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590653836469" />
     <state x="2" y="0" width="1917" height="882" key="DiffContextDialog" timestamp="1590652277931">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -365,22 +386,22 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1590576570299" />
-    <state width="1892" height="331" key="GridCell.Tab.0.bottom" timestamp="1590576866461">
+    <state width="1864" height="215" key="GridCell.Tab.0.bottom" timestamp="1590654508833">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="331" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
-    <state width="1892" height="331" key="GridCell.Tab.0.center" timestamp="1590576866461">
+    <state width="1864" height="215" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1590654508833" />
+    <state width="1864" height="215" key="GridCell.Tab.0.center" timestamp="1590654508833">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="331" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
-    <state width="1892" height="331" key="GridCell.Tab.0.left" timestamp="1590576866461">
+    <state width="1864" height="215" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1590654508833" />
+    <state width="1864" height="215" key="GridCell.Tab.0.left" timestamp="1590654508832">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="331" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
-    <state width="1892" height="331" key="GridCell.Tab.0.right" timestamp="1590576866461">
+    <state width="1864" height="215" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1590654508832" />
+    <state width="1864" height="215" key="GridCell.Tab.0.right" timestamp="1590654508833">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="331" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590576866461" />
+    <state width="1864" height="215" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590654508833" />
     <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590646899889">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -397,5 +418,8 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="3" y="3" width="1914" height="876" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1590653023937" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/app_template$Watch.dat" NAME="Watch Coverage Results" MODIFIED="1590654484211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

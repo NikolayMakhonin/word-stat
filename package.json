@@ -38,9 +38,9 @@
 		"build:dev": "node ./env/scripts/run.js \"require('./env/scripts').buildAll('dev').stopOnError()\"",
 		"build:gyp": "node ./env/scripts/run.js \"require('./env/scripts/common').buildGyp().stopOnError()\"",
 
-		"test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll('dev').stopOnError()\"",
-		"test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll('demo', 'dev', 'stage', 'prod').stopOnError()\"",
-		"test:ci": "node ./env/scripts/run.js \"require('./env/scripts').testCiAll('dev').stopOnError()\"",
+		"test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['dev']).stopOnError()\"",
+		"test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['demo', 'dev', 'stage', 'prod']).stopOnError()\"",
+		"test:ci": "node ./env/scripts/run.js \"require('./env/scripts').testCiAll(['dev']).stopOnError()\"",
 
 		"build-test:dev": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['dev']).stopOnError()\"",
 		"build-test:all": "node ./env/scripts/run.js \"require('./env/scripts').testAll(['demo', 'dev', 'stage', 'prod']).stopOnError()\"",
@@ -77,7 +77,6 @@
 		"color": "^3.1.2",
 		"core-js": "^3.2.1",
 		"core-js-pure": "^3.2.1",
-		"coveralls": "~3.0.14",
 		"cpy-cli": "^2.0.0",
 		"depcheck": "^0.8.3",
 		"electron": "^6.0.11",

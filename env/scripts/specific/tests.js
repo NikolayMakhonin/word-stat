@@ -18,7 +18,6 @@ const testMochaMjs = singleCall(async (appConfigType, coverage, options = {}) =>
 	if (options.build !== false) {
 		await builds.buildMjs(appConfigType)
 	}
-
 	await run(
 		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/mjs/test/tests/{node,common}/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
