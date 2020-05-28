@@ -8,23 +8,23 @@ jobs:
 #      node_js: "13.3.0"
     - os: linux
       node_js: "12.4.0"
+      env: CXX=g++-4.8
 
 os:
   - osx
 
-#env:
-#  - CXX=clang
+env:
+  - CXX=clang
 
 node_js:
   - "12.4.0"
 
-#addons:
-#  apt:
-#    sources:
-#      - ubuntu-toolchain-r-test
-#    packages:
-#      - g++-8
-#      - build-essential
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 
 sudo: false
 #dist: precise
