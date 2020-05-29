@@ -9,9 +9,9 @@
       <env name="APP_CONFIG" value="dev" />
     </envs>
     <ui>bdd</ui>
-    <extra-mocha-options>--opts ./env/mocha/configs/babel/mocha.opts --watch</extra-mocha-options>
+    <extra-mocha-options>--config ./env/mocha/configs/babel/.mocharc.js --watch</extra-mocha-options>
     <test-kind>PATTERN</test-kind>
-    <test-pattern>./src/test/tests/{common,node}/**/*.*</test-pattern>
+    <test-pattern>./src/test/tests/@(common|node)/**/*.*</test-pattern>
     <method v="2" />
   </configuration>
 </component>

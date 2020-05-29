@@ -1,5 +1,6 @@
 const registerBabel = require('@babel/register')
-const {fileExtensions, normalizePath} = require('../common/helpers')
+const {normalizePath} = require('../common/helpers')
+const {fileExtensions} = require('../common/constants')
 require('core-js/stable')
 require('@babel/runtime-corejs3/regenerator')
 

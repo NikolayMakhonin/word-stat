@@ -19,8 +19,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Merge fix">
+      <change afterPath="$PROJECT_DIR$/env/common/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/mocha/configs/babel/.mocharc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/mocha/configs/common/.mocharc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/mocha/configs/no-babel/.mocharc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev_Video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev_Video.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export_with_rebuild.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export_with_rebuild.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Watch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Watch.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/babel/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/babel/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/common/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/common/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/karma/configs/ci.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/ci.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/karma/configs/coverage.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/coverage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/karma/configs/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/karma/configs/performance.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/performance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/karma/configs/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/tests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/rollup/babel.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/babel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/rollup/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/plugins.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/common/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/common/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/specific/builds.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/builds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/specific/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/tests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -580,14 +602,14 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1864" height="215" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590669423059" />
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590646899889">
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590756206886">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590646899889" />
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590646905020">
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590756206886" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590756246420">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590646905020" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590756246420" />
     <state x="570" y="57" key="VcsDiffUtil.ChangesDialog" timestamp="1590576694849">
       <screen x="0" y="0" width="1920" height="882" />
     </state>

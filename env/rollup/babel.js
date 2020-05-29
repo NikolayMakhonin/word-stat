@@ -2,7 +2,7 @@ const babel = require('rollup-plugin-babel')
 const babelConfigMinimal = require('../babel/configs/minimal')
 const babelConfigNode = require('../babel/configs/node')
 const babelConfigV8Trace = require('../babel/configs/v8-trace')
-const {fileExtensions} = require('../common/helpers')
+const {fileExtensions} = require('../common/constants')
 
 const babelCommon = {
 	babelrc: false,

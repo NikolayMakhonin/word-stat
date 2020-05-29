@@ -1,13 +1,8 @@
+/* eslint-disable no-undef */
 const path = require('path')
 const fs = require('fs')
 const fse = require('fs-extra')
 const globby = require('globby')
-
-/* eslint-disable no-undef */
-const fileExtensions = {
-	js    : ['.es6', '.es', '.js', '.mjs'],
-	ts    : ['.ts'],
-}
 
 function asPromise(func) {
 	return new Promise((resolve, reject) => func((err, result) => {
@@ -107,8 +102,12 @@ async function copyToSingleDir(destDir, ...globbyPatterns) {
 	)
 }
 
-async function deletePath(_path) {
-	await fse.remove(_path)
+async function deletePaths(...globPatterns) {
+	const paths = await globby(globPatterns, {
+		expandDirectories: false,
+	})
+	await Promise.all(paths
+		.map(_path => fse.remove(_path)))
 }
 
 async function createDir(dirPath) {
@@ -116,7 +115,7 @@ async function createDir(dirPath) {
 }
 
 async function reCreateDir(dirPath) {
-	await deletePath(dirPath)
+	await deletePaths(dirPath)
 	await createDir(dirPath)
 }
 
@@ -124,11 +123,10 @@ module.exports = {
 	writeTextFile,
 	writeTextFileSync,
 	copyToSingleDir,
-	fileExtensions,
 	asPromise,
 	now,
 	normalizePath,
-	deletePath,
+	deletePaths,
 	createDir,
 	reCreateDir,
 }
