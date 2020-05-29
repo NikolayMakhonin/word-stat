@@ -10,7 +10,7 @@ const testMochaSrc = singleCall(async coverage => {
 	const appConfigType = 'dev'
 
 	await run(
-		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./src/test/tests/{node,common}/**/**/*.*`,
+		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./src/test/tests/node/**/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
 	)
 })
@@ -19,7 +19,7 @@ const testMochaMjs = singleCall(async (appConfigType, coverage, options = {}) =>
 		await builds.buildMjs(appConfigType)
 	}
 	await run(
-		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/mjs/test/tests/{node,common}/**/**/*.*`,
+		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/mjs/test/tests/node/**/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
 	)
 })
@@ -28,8 +28,8 @@ const testMochaJs = singleCall(async (appConfigType, coverage, options = {}) => 
 		await builds.buildJs(appConfigType)
 	}
 	await run(
-		// `${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/**/*.*`,
-		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/no-babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/{node,common}/**/**/*.*`,
+		// `${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/node/**/**/*.*`,
+		`${coverage ? 'nyc ' : ''}mocha --allow-natives-syntax --opts ./env/mocha/configs/no-babel/mocha.opts --bail ./dist/${appConfigType}/js/test/tests/node/**/**/*.*`,
 		{env: {APP_CONFIG: appConfigType}}
 	)
 })
