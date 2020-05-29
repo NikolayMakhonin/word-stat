@@ -21,6 +21,9 @@ node_modules/
 /.DS_Store
 /__sapper__/
 
+# node-gyp
+/build/
+
 # additional
 /tmp
 /.idea/libraries/Generated_files.xml
