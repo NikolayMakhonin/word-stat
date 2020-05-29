@@ -34,6 +34,3 @@ hydrogen*.cfg
 /dist/*/chrome/**
 /dist/
 *.stackdump
-
-# node-gyp
-/build/
