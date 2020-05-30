@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Coverage" type="mocha-javascript-test-runner">
+    <node-interpreter>node</node-interpreter>
+    <node-options>--max-old-space-size=4096 --allow-natives-syntax</node-options>
+    <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+    <working-directory>$PROJECT_DIR$</working-directory>
+    <pass-parent-env>true</pass-parent-env>
+    <envs>
+      <env name="APP_CONFIG" value="dev" />
+    </envs>
+    <ui>bdd</ui>
+    <extra-mocha-options>--config ./env/mocha/configs/babel/.mocharc.js</extra-mocha-options>
+    <test-kind>PATTERN</test-kind>
+    <test-pattern>./src/test/tests/@(common|node)/**/*.*</test-pattern>
+    <method v="2" />
+  </configuration>
+</component>
