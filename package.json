@@ -28,6 +28,7 @@
 	},
 	"scripts": {
 		"precommit": "npm run build-test:ci",
+		"prepare": "npm run build:gyp",
 		"prepublishOnly": "npm run test:dev",
 		"ci": "npm run build-test:ci && ncat \"tmp/*/coverage/all/lcov/**/lcov.info\" --banner \"\" | coveralls",
 		"lint": "node ./env/scripts/run.js \"require('./env/scripts/common').lint().stopOnError()\"",
