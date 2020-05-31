@@ -20,9 +20,10 @@
 		"dist/**",
 		"src/main/gyp/**"
 	],
-	"main": "dist/dev/js/main/node/main.js",
-	"jsnext:main": "dist/dev/mjs/main/node/main.js",
-	"module": "dist/dev/mjs/main/node/main.js",
+    "types": "dist/types/node/index.d.ts",
+	"main": "dist/dev/js/main/node/index.js",
+	"jsnext:main": "dist/dev/mjs/main/node/index.js",
+	"module": "dist/dev/mjs/main/node/index.js",
 	"engines": {
 		"node": ">= 8.6.0"
 	},
@@ -114,6 +115,6 @@
 		"tslint-no-circular-imports": "^0.7.0",
 		"tslint-sonarts": "^1.9.0",
 		"typescript": "^3.6.3",
-		"webrain": "^1.0.1-a"
+		"webrain": "^1.0.3-a"
 	}
 }

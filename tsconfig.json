@@ -9,6 +9,7 @@
 		"skipLibCheck": true,
 		"stripInternal": true,
 		"allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
 		"paths": {
 			"*" : ["node_modules/*"]
 		}

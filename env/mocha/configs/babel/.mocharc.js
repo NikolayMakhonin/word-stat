@@ -1,4 +1,3 @@
-const {fileExtensions} = require('../../../common/constants')
 const common = require('../common/.mocharc.js')
 
 module.exports = {
