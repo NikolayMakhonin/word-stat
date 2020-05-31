@@ -20,28 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Merge fix">
-      <change afterPath="$PROJECT_DIR$/env/common/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/mocha/configs/babel/.mocharc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/mocha/configs/common/.mocharc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/mocha/configs/no-babel/.mocharc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev_Video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Dev_Video.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export_with_rebuild.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Intern_Export_with_rebuild.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Watch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Watch.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/babel/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/babel/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/common/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/common/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/karma/configs/ci.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/ci.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/karma/configs/coverage.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/coverage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/karma/configs/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/karma/configs/performance.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/performance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/karma/configs/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/karma/configs/tests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/rollup/babel.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/babel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/rollup/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/plugins.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/scripts/common/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/common/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/scripts/specific/builds.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/builds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/specific/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/tests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,9 +173,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Mocha.Coverage" />
       <item itemvalue="Mocha.Watch" />
       <item itemvalue="npm.Test Dev" />
       <item itemvalue="npm.Test All" />
+      <item itemvalue="npm.Build Test All" />
+      <item itemvalue="npm.Build Test Dev" />
+      <item itemvalue="Mocha.Intern Debug Video" />
+      <item itemvalue="Mocha.Intern Debug" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -487,6 +473,14 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/node/js/index.js" />
+        <option value="$PROJECT_DIR$/node/mjs/index.js" />
+        <option value="$PROJECT_DIR$/browser/js/index.js" />
+        <option value="$PROJECT_DIR$/browser/mjs/index.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -574,10 +568,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590655106138" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590680160603">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590946788514">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590680160603" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590946788514" />
     <state x="2" y="0" width="1917" height="882" key="DiffContextDialog" timestamp="1590666528724">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -602,14 +596,18 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1864" height="215" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590669423059" />
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590756206886">
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590947109325">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590756206886" />
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590756246420">
+    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590947109325" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590947114044">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590756246420" />
+    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590947114044" />
+    <state x="654" y="68" key="RollbackChangesDialog" timestamp="1590946785212">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="654" y="68" key="RollbackChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1590946785212" />
     <state x="570" y="57" key="VcsDiffUtil.ChangesDialog" timestamp="1590576694849">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -618,5 +616,9 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="3" y="3" width="1914" height="876" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1590679174033" />
+    <state x="688" y="81" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590946764716">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="688" y="81" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.882@0.0.1920.882" timestamp="1590946764716" />
   </component>
 </project>
