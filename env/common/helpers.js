@@ -105,6 +105,7 @@ async function copyToSingleDir(destDir, ...globbyPatterns) {
 async function deletePaths(...globPatterns) {
 	const paths = await globby(globPatterns, {
 		expandDirectories: false,
+		onlyFiles        : false,
 	})
 	await Promise.all(paths
 		.map(_path => fse.remove(_path)))

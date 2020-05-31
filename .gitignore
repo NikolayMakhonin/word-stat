@@ -33,4 +33,6 @@ hydrogen*.cfg
 /dist/**/pack/**
 /dist/*/chrome/**
 /dist/
+/browser/**/*.js
+/node/**/*.js
 *.stackdump

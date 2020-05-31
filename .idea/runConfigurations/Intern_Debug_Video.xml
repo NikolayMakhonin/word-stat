@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Intern Debug Video" type="mocha-javascript-test-runner">
+    <node-interpreter>node</node-interpreter>
+    <node-options>--max-old-space-size=4096</node-options>
+    <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+    <working-directory>$PROJECT_DIR$</working-directory>
+    <pass-parent-env>true</pass-parent-env>
+    <envs>
+      <env name="APP_CONFIG" value="dev" />
+      <env name="NODE_ENV" value="development" />
+      <env name="OVERRIDE_VIDEO_OUTPUT_DIR" value="E:/Temp/selenoid/video" />
+    </envs>
+    <ui>bdd</ui>
+    <extra-mocha-options>--config ./env/intern/.mocharc.js</extra-mocha-options>
+    <test-kind>PATTERN</test-kind>
+    <test-pattern>./env/intern/configs/debug-video/mocha.js</test-pattern>
+    <method v="2" />
+  </configuration>
+</component>

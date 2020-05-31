@@ -83,8 +83,11 @@ const plugins = {
 	metricEnd  : metric.metricEnd,
 }
 
-plugins.resolveWebrain = (options = {}) => plugins.resolveTs({
-	only: ['webrain', /\bwebrain\/src\/main\/.*$/],
+plugins.resolveExternal = (options = {}) => plugins.resolve({
+	only: [
+		// 'webrain',
+		// /@flemist\/web-logger(\/(browser|node)\/.*)?$/
+	],
 	// preferBuiltins: false,
 	...options,
 })

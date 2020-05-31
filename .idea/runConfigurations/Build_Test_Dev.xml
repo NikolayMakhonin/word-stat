@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build Test Dev" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="build-test:dev" />
+    </scripts>
+    <node-interpreter value="node" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

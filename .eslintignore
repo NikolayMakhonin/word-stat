@@ -9,3 +9,5 @@ static
 *.ts
 **/v8/**/runtime.js
 env/logger/server/**/*
+browser/**/*.js
+node/**/*.js

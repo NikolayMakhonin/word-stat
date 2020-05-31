@@ -5,6 +5,17 @@ const buildTypes = singleCall(async () => {
 	await reCreateDir('dist/types')
 	await run('tsc --outDir dist/types --declaration')
 })
+const buildIndex = singleCall(async (env, type) => {
+	await run(`babel --out-dir ${env}/${type}/ --no-babelrc --config-file ./env/babel/configs/dist-${type}.js -x .ts ${env}/${type}/index.ts`)
+})
+const buildIndexes = singleCall(async () => {
+	await Promise.all([
+		buildIndex('browser', 'mjs'),
+		buildIndex('browser', 'js'),
+		buildIndex('node', 'mjs'),
+		buildIndex('node', 'js'),
+	])
+})
 const buildPolyfill = singleCall(() => run(
 	'node env/libs/polyfill/build.js',
 	{env: {APP_CONFIG: 'dev'}}
@@ -19,6 +30,7 @@ const buildGyp = singleCall(async () => {
 const clean = singleCall(() => deletePaths('{*.log,__sapper__}'))
 const build = singleCall(() => Promise.all([
 	// clean(),
+	buildIndexes(),
 	buildTypes(),
 	buildLibs(),
 	buildGyp(),
@@ -47,5 +59,6 @@ module.exports = {
 	build,
 	buildLibs,
 	buildPolyfill,
+	buildIndexes,
 	buildGyp,
 }
