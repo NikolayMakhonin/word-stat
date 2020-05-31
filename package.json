@@ -20,7 +20,7 @@
 		"dist/**",
 		"src/main/gyp/**"
 	],
-    "types": "dist/types/node/index.d.ts",
+	"types": "dist/types/node/index.d.ts",
 	"main": "dist/dev/js/main/node/index.js",
 	"jsnext:main": "dist/dev/mjs/main/node/index.js",
 	"module": "dist/dev/mjs/main/node/index.js",
