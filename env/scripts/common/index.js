@@ -47,6 +47,5 @@ module.exports = {
 	build,
 	buildLibs,
 	buildPolyfill,
-	buildIndexes,
 	buildGyp,
 }
