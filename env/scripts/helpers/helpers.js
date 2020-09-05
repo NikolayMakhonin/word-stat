@@ -209,6 +209,13 @@ function checkIsError(message) {
 		return false
 	}
 
+	// Entry module "rollup.config.js" is implicitly using "default" export mode, which means for CommonJS output that its default export is assigned to "module.exports". For many tools, suc
+	// h CommonJS output will not be interchangeable with the original ES module. If this is intended, explicitly set "output.exports" to either "auto" or "default", otherwise you might want
+	//  to consider changing the signature of "rollup.config.js" to use named exports only.
+	if (/explicitly set "output.exports" to either "auto" or "default"/.test(message)) {
+		return false
+	}
+
 	return true
 }
 

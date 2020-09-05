@@ -120,6 +120,10 @@ async function reCreateDir(dirPath) {
 	await createDir(dirPath)
 }
 
+function resolveModuleDir(moduleName) {
+	return path.dirname(require.resolve(`${moduleName}/package.json`)).replace(/\\/g, '/')
+}
+
 module.exports = {
 	writeTextFile,
 	writeTextFileSync,
@@ -130,4 +134,5 @@ module.exports = {
 	deletePaths,
 	createDir,
 	reCreateDir,
+	resolveModuleDir,
 }

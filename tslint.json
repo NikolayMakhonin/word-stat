@@ -70,7 +70,9 @@
 		"no-construct": false,
 		"use-primitive-type": false,
 		"no-var-requires": false,
-		"array-type": false
+		"array-type": false,
+		"no-use-of-empty-return-value": false,
+		"no-identical-functions": false
 	},
 	"rulesDirectory": [
 		"node_modules/tslint-eslint-rules/dist/rules"

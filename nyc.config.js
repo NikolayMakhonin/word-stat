@@ -5,6 +5,7 @@ if (!process.env.APP_CONFIG) {
 }
 
 module.exports = {
+	// include     : [`{src,dist/${process.env.APP_CONFIG}/{js,mjs}}/**/*.{js,ts}`],
 	include     : [`{src,dist/${process.env.APP_CONFIG}/{js,mjs}}/{main,test/**/src}/**/*.{js,ts}`],
 	exclude     : ['**/v8/**/*'],
 	reporter    : ['json'],
