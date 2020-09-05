@@ -122,7 +122,7 @@ module.exports = {
 				browser: true,
 			}),
 			plugins.commonjs(),
-			legacy && plugins.babel.browserModule({
+			legacy && plugins.babel.node({
 				compact: true,
 			}),
 			!dev && plugins.terser(),
