@@ -116,7 +116,6 @@ module.exports = {
 			}),
 			// plugins.replace(),
 			plugins.json(),
-			plugins.postCss(),
 			plugins.alias(),
 			plugins.resolve({
 				browser: true,
