@@ -23,6 +23,8 @@ module.exports = {
 		'@typescript-eslint/no-var-requires'               : 'off',
 		'@typescript-eslint/no-this-alias'                 : 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'arrow-body-style'                                 : 'off',
+		'object-shorthand'                                 : 'off'
 	},
 
 	env: {

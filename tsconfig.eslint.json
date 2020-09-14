@@ -15,6 +15,7 @@
 		"**/polyfill*/**",
 		"src/assets/**/*",
 		"static",
-		"env/logger/server/**/*"
+		"env/logger/server/**/*",
+		"docs/**/*"
 	]
 }

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Build Test Dev" type="js.build_tools.npm">
+  <configuration default="false" name="Build Test Dev" type="js.build_tools.npm" folderName="Dev">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
