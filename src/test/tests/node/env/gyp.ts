@@ -1,5 +1,4 @@
-/* tslint:disable:no-var-requires */
-/* eslint-disable no-new-func */
+/* eslint-disable no-new-func,@typescript-eslint/no-var-requires */
 const {
 	test,
 	isWin,
