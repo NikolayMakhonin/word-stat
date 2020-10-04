@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Merge fix">
-      <change beforePath="$PROJECT_DIR$/env/rollup/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/common/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/common/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/specific/builds.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/builds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +99,7 @@
     <property name="js.buildTools.grunt.grunt-cli.package" value="$USER_HOME$/AppData/Roaming/npm/node_modules/grunt-cli" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/tests/node/env/gyp.ts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -113,7 +108,7 @@
     <property name="node.js.path.for.package.standard" value="node" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="L:\Work\_GIT\GitHub\NodeJs\templates\nodejs-templates\node_modules\eslint" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="L:\Work\_GIT\GitHub\NodeJs\templates\nodejs-templates\node_modules\eslint" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -124,7 +119,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
   <component name="RunManager" selected="npm.Lint">
@@ -470,7 +465,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590680162375</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Lint fixes">
+      <created>1601798190356</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1601798190356</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Lint fixes">
+      <created>1601798319809</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1601798319809</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,64 +572,45 @@
     <MESSAGE value="Fix travis" />
     <MESSAGE value="Fix nyc bug" />
     <MESSAGE value="Fix coverage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix coverage" />
+    <MESSAGE value="Lint fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lint fixes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590655106138">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601798069939">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1590655106138" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1590946788514">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1601798069939" />
+    <state x="484" y="0" key="CommitChangelistDialog2" timestamp="1601798319217">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1590946788514" />
-    <state x="2" y="0" width="1917" height="882" key="DiffContextDialog" timestamp="1590666528724">
+    <state x="484" y="0" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1601798319217" />
+    <state x="183" y="66" key="DiffContextDialog" timestamp="1601798186227">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="2" y="0" width="1917" height="882" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1590666528724" />
-    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1590576570299">
+    <state x="183" y="66" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1601798186227" />
+    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1601798201449">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1590576570299" />
-    <state width="1864" height="215" key="GridCell.Tab.0.bottom" timestamp="1590669423059">
+    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1601798201449" />
+    <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601798284449">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1864" height="215" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1590669423059" />
-    <state width="1864" height="215" key="GridCell.Tab.0.center" timestamp="1590669423059">
+    <state width="1892" height="238" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
+    <state width="1892" height="238" key="GridCell.Tab.0.center" timestamp="1601798284449">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1864" height="215" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1590669423059" />
-    <state width="1864" height="215" key="GridCell.Tab.0.left" timestamp="1590669423058">
+    <state width="1892" height="238" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
+    <state width="1892" height="238" key="GridCell.Tab.0.left" timestamp="1601798284449">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1864" height="215" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1590669423058" />
-    <state width="1864" height="215" key="GridCell.Tab.0.right" timestamp="1590669423059">
+    <state width="1892" height="238" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
+    <state width="1892" height="238" key="GridCell.Tab.0.right" timestamp="1601798284449">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1864" height="215" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1590669423059" />
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog" timestamp="1590947109325">
+    <state width="1892" height="238" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
+    <state x="343" y="0" key="SettingsEditor" timestamp="1601798345135">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="-3" y="0" width="1915" height="879" key="MergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590947109325" />
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog" timestamp="1590947114044">
-      <screen x="0" y="0" width="1920" height="882" />
-    </state>
-    <state x="5" y="2" width="1915" height="880" key="MultipleFileMergeDialog/0.0.1920.882@0.0.1920.882" timestamp="1590947114044" />
-    <state x="654" y="68" key="RollbackChangesDialog" timestamp="1590946785212">
-      <screen x="0" y="0" width="1920" height="882" />
-    </state>
-    <state x="654" y="68" key="RollbackChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1590946785212" />
-    <state x="570" y="57" key="VcsDiffUtil.ChangesDialog" timestamp="1590576694849">
-      <screen x="0" y="0" width="1920" height="882" />
-    </state>
-    <state x="570" y="57" key="VcsDiffUtil.ChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1590576694849" />
-    <state x="3" y="3" width="1914" height="876" key="find.popup" timestamp="1590679174033">
-      <screen x="0" y="0" width="1920" height="882" />
-    </state>
-    <state x="3" y="3" width="1914" height="876" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1590679174033" />
-    <state x="688" y="81" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590946764716">
-      <screen x="0" y="0" width="1920" height="882" />
-    </state>
-    <state x="688" y="81" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.882@0.0.1920.882" timestamp="1590946764716" />
+    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1601798345135" />
   </component>
 </project>
