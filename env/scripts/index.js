@@ -22,8 +22,8 @@ const testCi = singleCall(async (appConfigType, options = {}) => {
 
 // region All
 
-const buildAll = singleCall((...appConfigTypes) => Promise.all(
-	appConfigTypes.map(appConfigType => specific.builds.build(appConfigType, {intern: false}))
+const buildAll = singleCall(appConfigTypes => Promise.all(
+	appConfigTypes.map(appConfigType => specific.builds.build(appConfigType, {intern: false})),
 ))
 
 const testAll = singleCall(async (appConfigTypes, options = {}) => {
@@ -35,7 +35,7 @@ const testAll = singleCall(async (appConfigTypes, options = {}) => {
 	}
 
 	await Promise.all(
-		appConfigTypes.map(appConfigType => test(appConfigType, options))
+		appConfigTypes.map(appConfigType => test(appConfigType, options)),
 	)
 })
 
@@ -48,7 +48,7 @@ const testCiAll = singleCall(async (appConfigTypes, options = {}) => {
 	}
 
 	await Promise.all(
-		appConfigTypes.map(appConfigType => testCi(appConfigType, options))
+		appConfigTypes.map(appConfigType => testCi(appConfigType, options)),
 	)
 })
 

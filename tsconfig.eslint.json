@@ -11,11 +11,13 @@
 		"dist",
 		"_trash",
 		"docs",
+		"docs/**/*",
+		"browser/**/*.js",
+		"node/**/*.js",
 		"__sapper__",
 		"**/polyfill*/**",
 		"src/assets/**/*",
 		"static",
-		"env/logger/server/**/*",
-		"docs/**/*"
+		"env/logger/server/**/*"
 	]
 }

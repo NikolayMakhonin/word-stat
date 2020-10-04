@@ -7,7 +7,7 @@ const buildTypes = singleCall(async () => {
 })
 const buildPolyfill = singleCall(() => run(
 	'node env/libs/polyfill/build.js',
-	{env: {APP_CONFIG: 'dev'}}
+	{env: {APP_CONFIG: 'dev'}},
 ))
 const buildLibs = singleCall(() => Promise.all([
 	buildPolyfill(),
@@ -24,20 +24,16 @@ const build = singleCall(() => Promise.all([
 	buildGyp(),
 ]))
 
-const lintEs = singleCall(async () => {
-	await run('eslint --plugin markdown --ext js,md .')
-})
-
-const lintTs = singleCall(async () => {
-	await run('tslint --project tsconfig.json --config tslint.json --exclude **/_trash/** src/main/**/*.ts')
+const lintEs = singleCall(async ({fix} = {}) => {
+	// TODO add svelte extension after this pull merged: https://github.com/sveltejs/eslint-plugin-svelte3/pull/74
+	await run('eslint --plugin markdown --ext js,ts,md,html .' + (fix ? ' --no-eslintrc -c eslintrc.fix.js --fix' : ''))
 })
 
 // Warning - depcheck takes a lot of memory - 13 GB !!
 // const npmCheck = singleCall(() => run('depcheck --ignores="*,@babel/*,@types/*,@metahub/karma-rollup-preprocessor,karma-*,@sapper/*,rdtsc,tslint-eslint-rules,electron,APP_CONFIG_PATH,SAPPER_MODULE,caniuse-lite,browserslist" --ignore-dirs=__sapper__,_trash,dist,docs,static,tmp'))
-const lint = singleCall(() => Promise.all([
+const lint = singleCall((options) => Promise.all([
 	// npmCheck(),
-	lintEs(),
-	lintTs(),
+	lintEs(options),
 ]))
 
 module.exports = {

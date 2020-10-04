@@ -10,16 +10,17 @@ const testMochaSrc = singleCall(async coverage => {
 
 	await run(
 		`${coverage ? 'nyc --all ' : ''}mocha --allow-natives-syntax --config ./env/mocha/configs/babel/.mocharc.js --bail "./src/test/tests/node/**/*.*"`,
-		{env: {APP_CONFIG: appConfigType}}
+		{env: {APP_CONFIG: appConfigType}},
 	)
 })
 const testMochaMjs = singleCall(async (appConfigType, coverage, options = {}) => {
 	if (options.build !== false) {
 		await builds.buildMjs(appConfigType)
 	}
+
 	await run(
 		`${coverage ? 'nyc --all ' : ''}mocha --allow-natives-syntax --config ./env/mocha/configs/babel/.mocharc.js --bail "./dist/${appConfigType}/mjs/test/tests/node/**/*.*"`,
-		{env: {APP_CONFIG: appConfigType}}
+		{env: {APP_CONFIG: appConfigType}},
 	)
 })
 const testMochaJs = singleCall(async (appConfigType, coverage, options = {}) => {
@@ -29,7 +30,7 @@ const testMochaJs = singleCall(async (appConfigType, coverage, options = {}) => 
 	await run(
 		// `${coverage ? 'nyc --all ' : ''}mocha --allow-natives-syntax --config ./env/mocha/configs/babel/.mocharc.js --bail "./dist/${appConfigType}/js/test/tests/node/**/*.*"`,
 		`${coverage ? 'nyc --all ' : ''}mocha --allow-natives-syntax --config ./env/mocha/configs/no-babel/.mocharc.js --bail "./dist/${appConfigType}/js/test/tests/node/**/*.*"`,
-		{env: {APP_CONFIG: appConfigType}}
+		{env: {APP_CONFIG: appConfigType}},
 	)
 })
 const testMocha = singleCall(async (appConfigType, coverage, options = {}) => {
@@ -52,12 +53,12 @@ const coverageMerge = singleCall(async appConfigType => {
 	await reCreateDir(`tmp/${appConfigType}/coverage/all/lcov`)
 	await run(
 		`nyc report -r lcov --report-dir tmp/${appConfigType}/coverage/all/lcov --temp-dir "tmp/${appConfigType}/coverage/merge/"`,
-		{env: {APP_CONFIG: appConfigType}}
+		{env: {APP_CONFIG: appConfigType}},
 	)
 })
 const coverageCheck = singleCall(appConfigType => run(
 	`nyc check-coverage --report-dir tmp/${appConfigType}/coverage/all/lcov --lines 0.1 --functions 0.1 --branches 0.1`,
-	{env: {APP_CONFIG: appConfigType}}
+	{env: {APP_CONFIG: appConfigType}},
 ))
 const coverage = singleCall(async (appConfigType, options = {}) => {
 	await Promise.all([

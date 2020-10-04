@@ -10,8 +10,8 @@ import {
 
 } from './src/helpers/helpers'
 
-describe('node > v8 > helpers', function() {
-	it('base', function() {
+describe('node > v8 > helpers', function () {
+	it('base', function () {
 		function test(o) {
 			return o * o
 		}
@@ -33,7 +33,7 @@ describe('node > v8 > helpers', function() {
 		assertIsOptimized({test})
 	})
 
-	it('optimization asserts', function() {
+	it('optimization asserts', function () {
 		const obj = {
 			x: 0,
 			y: 0,

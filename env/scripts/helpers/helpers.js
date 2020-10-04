@@ -387,7 +387,7 @@ function run(command, {
 		if (proc.stdout) {
 			readline.createInterface({
 				input   : proc.stdout,
-				terminal: false
+				terminal: false,
 			}).on('line', line => {
 				const error = searchError(line)
 				if (logFilter(line)) {
@@ -403,7 +403,7 @@ function run(command, {
 		if (proc.stderr) {
 			readline.createInterface({
 				input   : proc.stderr,
-				terminal: false
+				terminal: false,
 			}).on('line', line => {
 				if (checkIsError(line)) {
 					process.stdout.write(`STDERR: ${line}\r\n`)

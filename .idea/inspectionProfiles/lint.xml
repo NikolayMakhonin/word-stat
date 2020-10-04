@@ -1,6 +1,6 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
-    <option name="myName" value="Project Default" />
+    <option name="myName" value="lint" />
     <inspection_tool class="AmdModulesDependencies" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="AngularAmbiguousComponentTag" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="AngularCliAddDependency" enabled="false" level="WARNING" enabled_by_default="false" />

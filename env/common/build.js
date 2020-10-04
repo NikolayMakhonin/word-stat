@@ -30,5 +30,5 @@ async function build({fileInput, fileOutput, name}, rollupConfig) {
 }
 
 module.exports = {
-	build
+	build,
 }

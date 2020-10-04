@@ -6,5 +6,5 @@ run(
 	{
 		notAutoKill: true,
 		stdio      : 'inherit',
-	}
+	},
 )

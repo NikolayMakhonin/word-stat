@@ -10,5 +10,5 @@ module.exports = {
 	exclude     : ['**/v8/**/*'],
 	reporter    : ['json'],
 	'temp-dir'  : `./tmp/${process.env.APP_CONFIG}/coverage/nyc/tmp`,
-	'report-dir': `./tmp/${process.env.APP_CONFIG}/coverage/nyc/json`
+	'report-dir': `./tmp/${process.env.APP_CONFIG}/coverage/nyc/json`,
 }

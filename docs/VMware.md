@@ -92,6 +92,7 @@ npm i --unsafe-perm=true --allow-root
 
 ### Create installer
 ```
+git config --global credential.helper store
 sudo git checkout . && sudo git stash && sudo git pull && npm run pack:dev
 ```
 

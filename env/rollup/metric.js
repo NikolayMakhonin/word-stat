@@ -21,7 +21,7 @@ function metricStart(name) {
 				sizeStart: code.length,
 			}
 			return null
-		}
+		},
 	}
 }
 
@@ -55,7 +55,7 @@ function metricEnd() {
 			_module.duration = _module.timeEnd - _module.timeStart
 			_module.deltaSize = _module.sizeEnd - _module.sizeStart
 			return null
-		}
+		},
 	}
 }
 

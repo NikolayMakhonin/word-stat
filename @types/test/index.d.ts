@@ -1,1 +1,1 @@
-declare const assert = chai.assert
+// declare const assert = chai.assert

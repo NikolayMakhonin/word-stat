@@ -1,53 +1,36 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires,@typescript-eslint/no-unused-vars
+const svelteCompiler = require('svelte/compiler')
+
 module.exports = {
 	'extends': [
 		'pro',
-		'plugin:@typescript-eslint/recommended',
+		// 'plugin:@typescript-eslint/recommended',
 		// 'plugin:@typescript-eslint/recommended-requiring-type-checking',
 	],
 	rules: {
-		// Temporary disable: TypeError: Cannot read property 'value' of null (waiting for update babel-eslint)
-		'template-curly-spacing'                           : 'off',
-		'object-curly-spacing'                             : 'off',
-		indent                                             : 'off',
-		'prefer-destructuring'                             : 'off',
-		'no-sync'                                          : 'off',
-		'no-warning-comments'                              : 'warn',
-		'array-bracket-newline'                            : 'off',
-		'require-atomic-updates'                           : 'off',
-		'sort-imports'                                     : 'off',
-		'lines-between-class-members'                      : 'off',
-		'no-new-wrappers'                                  : 'off',
-		'generator-star-spacing'                           : ['error', {before: true, after: false}],
-		'object-property-newline'                          : 'off',
-		'@typescript-eslint/ban-ts-comment'                : 'off',
-		'@typescript-eslint/no-var-requires'               : 'off',
-		'@typescript-eslint/no-this-alias'                 : 'off',
-		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'arrow-body-style'                                 : 'off',
-		'object-shorthand'                                 : 'off'
+
 	},
 
 	env: {
 		node: true,
-		es6 : true
+		es6 : true,
 	},
 
-	parser       : 'babel-eslint',
-	// parser       : '@typescript-eslint/parser', // incorrect fix ";(value as any)" and many other problems (v3.0.1)
+	// parser       : 'babel-eslint',
+	parser       : '@typescript-eslint/parser',
 	parserOptions: {
-		ecmaVersion                : 6,
+		ecmaVersion                : '2020',
 		sourceType                 : 'module',
 		allowImportExportEverywhere: false,
 		codeFrame                  : true,
-		babelOptions               : {
-			configFile: './env/babel/configs/minimal.js'
-		},
-		project: 'tsconfig.eslint.json',
+		project                    : 'tsconfig.eslint.json',
+		// babelOptions               : {
+		// 	configFile: './env/babel/configs/minimal.js'
+		// },
 	},
 
 	plugins: [
 		'@typescript-eslint',
-		// '@typescript-eslint/tslint',
 		'sonarjs',
 	],
 }

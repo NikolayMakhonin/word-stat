@@ -1,11 +1,12 @@
 /* eslint-disable object-curly-newline,prefer-template,no-process-env */
+const path = require('path')
 const {terser} = require('rollup-plugin-terser')
 const istanbul = require('rollup-plugin-istanbul')
 const globals = require('rollup-plugin-node-globals')
 const builtins = require('rollup-plugin-node-builtins')
 const polyfills = require('rollup-plugin-node-polyfills')
 const resolve  = require('@rollup/plugin-node-resolve').default
-const commonjs  = require('rollup-plugin-commonjs')
+const commonjs = require('@rollup/plugin-commonjs')
 const nycrc  = require('../../nyc.config')
 const replace = require('rollup-plugin-replace')
 const alias = require('@rollup/plugin-alias')
@@ -38,8 +39,8 @@ const plugins = {
 		],
 		...options,
 	}),
-	globals    : (options = {}) => globals(options),
-	builtins: (options = {}) => builtins(options),
+	globals  : (options = {}) => globals(options),
+	builtins : (options = {}) => builtins(options),
 	polyfills: (options = {}) => polyfills(options),
 	// resolve: (options = {}) => resolve({
 	// 	extensions: [...fileExtensions.js],
@@ -50,7 +51,7 @@ const plugins = {
 	// 	// },
 	// 	...options
 	// }),
-	replace : (options = {}) => replace({
+	replace  : (options = {}) => replace({
 		APP_CONFIG_PATH       : require.resolve('../../configs/' + process.env.APP_CONFIG).replace(/\\/g, '/'),
 		'process.env.NODE_ENV': JSON.stringify(mode),
 		...options,

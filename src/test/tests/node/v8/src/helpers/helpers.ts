@@ -45,15 +45,15 @@ function _checkIsOptimized(obj: TAnyFunc|object, optimized: Set<any> = null, sca
 		if (obj.prototype) {
 			const res = _checkIsOptimized(obj.prototype, optimized, scanned)
 			if (res) {
-				hasError = true;
-				(actualFunc as any)._prototype = res.actual;
-				(expectedFunc as any)._prototype = res.expected
+				hasError = true
+;(actualFunc as any)._prototype = res.actual
+;(expectedFunc as any)._prototype = res.expected
 			}
 		}
 
 		if (hasError) {
 			return {
-				actual: actualFunc,
+				actual  : actualFunc,
 				expected: expectedFunc,
 			}
 		}
@@ -97,7 +97,7 @@ function _checkIsOptimized(obj: TAnyFunc|object, optimized: Set<any> = null, sca
 		}
 		if (hasError) {
 			return {
-				actual: actualInfo,
+				actual  : actualInfo,
 				expected: expectedInfo,
 			}
 		} else {
@@ -117,14 +117,14 @@ function _checkIsOptimized(obj: TAnyFunc|object, optimized: Set<any> = null, sca
 				}
 				if (hasError) {
 					return {
-						actual: actualArr,
+						actual  : actualArr,
 						expected: expectedArr,
 					}
 				}
 			} else {
 				const actualObj = {}
 				const expectedObj = {}
-				// tslint:disable-next-line:forin
+				// eslint-disable-next-line guard-for-in
 				for (const key in obj) {
 					const item = obj[key]
 					if (typeof item === 'function' || item != null && typeof item === 'object') {
@@ -138,7 +138,7 @@ function _checkIsOptimized(obj: TAnyFunc|object, optimized: Set<any> = null, sca
 				}
 				if (hasError) {
 					return {
-						actual: actualObj,
+						actual  : actualObj,
 						expected: expectedObj,
 					}
 				}
