@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +59,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="browser-helpers" />
+        <entry key="$PROJECT_DIR$" value="webapp" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,7 +124,7 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
-  <component name="RunManager" selected="npm.Lint">
+  <component name="RunManager" selected="Mocha.Watch">
     <configuration default="true" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
@@ -168,8 +170,6 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Mocha.Intern Debug Video" />
-      <item itemvalue="Mocha.Intern Debug" />
       <item itemvalue="Mocha.Coverage" />
       <item itemvalue="Mocha.Watch" />
       <item itemvalue="npm.Test All" />
@@ -430,12 +430,13 @@
       <updated>1590668617393</updated>
     </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b74b2bc0-009a-4535-9f65-cdf9c60c2fb6" name="Default Changelist" comment="" />
+      <changelist id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
       <created>1590675764994</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590675764994</updated>
       <workItem from="1590675768320" duration="5069000" />
+      <workItem from="1601798784029" duration="33000" />
     </task>
     <task id="LOCAL-00036" summary="Fix travis">
       <created>1590675855678</created>
@@ -479,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601798319809</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Lint fixes">
+      <created>1601798763621</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1601798763621</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,14 +584,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Lint fixes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601798069939">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601798816398">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1601798069939" />
-    <state x="484" y="0" key="CommitChangelistDialog2" timestamp="1601798319217">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1601798816398" />
+    <state x="484" y="0" key="CommitChangelistDialog2" timestamp="1601798763022">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="484" y="0" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1601798319217" />
+    <state x="484" y="0" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1601798763022" />
     <state x="183" y="66" key="DiffContextDialog" timestamp="1601798186227">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -592,22 +600,22 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1601798201449" />
-    <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601798284449">
+    <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601798777381">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
-    <state width="1892" height="238" key="GridCell.Tab.0.center" timestamp="1601798284449">
+    <state width="1892" height="238" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
+    <state width="1892" height="238" key="GridCell.Tab.0.center" timestamp="1601798777381">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
-    <state width="1892" height="238" key="GridCell.Tab.0.left" timestamp="1601798284449">
+    <state width="1892" height="238" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
+    <state width="1892" height="238" key="GridCell.Tab.0.left" timestamp="1601798777381">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
-    <state width="1892" height="238" key="GridCell.Tab.0.right" timestamp="1601798284449">
+    <state width="1892" height="238" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
+    <state width="1892" height="238" key="GridCell.Tab.0.right" timestamp="1601798777381">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1601798284449" />
+    <state width="1892" height="238" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
     <state x="343" y="0" key="SettingsEditor" timestamp="1601798345135">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
