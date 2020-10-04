@@ -9,8 +9,8 @@ declare const describe
 declare const it
 declare const assert
 
-describe('node > env > gyp', function() {
-	it('base', function() {
+describe('node > env > gyp', function () {
+	it('base', function () {
 		console.log(`isWin = ${isWin}`)
 		assert.strictEqual(test(), 'Test')
 	})

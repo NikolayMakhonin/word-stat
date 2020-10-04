@@ -3,7 +3,7 @@ module.exports = {
 		plugins: ['v8intrinsic'],
 	},
 	plugins: [
-		[ 'babel-plugin-root-import' ],
+		['babel-plugin-root-import'],
 
 		'@babel/plugin-transform-typescript',
 		'@babel/plugin-syntax-dynamic-import',

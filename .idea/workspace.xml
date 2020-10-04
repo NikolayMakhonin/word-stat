@@ -127,7 +127,7 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
-  <component name="RunManager" selected="Mocha.Watch">
+  <component name="RunManager" selected="npm.Lint">
     <configuration default="true" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
@@ -173,14 +173,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Mocha.Coverage" />
-      <item itemvalue="Mocha.Watch" />
-      <item itemvalue="npm.Test Dev" />
-      <item itemvalue="npm.Test All" />
-      <item itemvalue="npm.Build Test All" />
-      <item itemvalue="npm.Build Test Dev" />
       <item itemvalue="Mocha.Intern Debug Video" />
       <item itemvalue="Mocha.Intern Debug" />
+      <item itemvalue="Mocha.Coverage" />
+      <item itemvalue="Mocha.Watch" />
+      <item itemvalue="npm.Test All" />
+      <item itemvalue="npm.Build Test All" />
+      <item itemvalue="npm.Build Dev" />
+      <item itemvalue="npm.Test Dev" />
+      <item itemvalue="npm.Build Test Dev" />
+      <item itemvalue="npm.Lint" />
     </list>
   </component>
   <component name="SvnConfiguration">
