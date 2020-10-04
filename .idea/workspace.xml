@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/rollup/babel.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/babel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +177,6 @@
       <item itemvalue="npm.Build Dev" />
       <item itemvalue="npm.Test Dev" />
       <item itemvalue="npm.Build Test Dev" />
-      <item itemvalue="npm.Lint" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -492,14 +491,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/node/js/index.js" />
-        <option value="$PROJECT_DIR$/node/mjs/index.js" />
-        <option value="$PROJECT_DIR$/browser/js/index.js" />
-        <option value="$PROJECT_DIR$/browser/mjs/index.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -620,5 +611,9 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1601798345135" />
+    <state x="602" y="108" width="716" height="666" key="find.popup" timestamp="1601799134182">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="602" y="108" width="716" height="666" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1601799134182" />
   </component>
 </project>
