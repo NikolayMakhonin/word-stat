@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires,@typescript-eslint/no-unused-vars
-const svelteCompiler = require('svelte/compiler')
-
 module.exports = {
 	'extends': [
 		'pro',
