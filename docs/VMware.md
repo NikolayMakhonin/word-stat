@@ -1,9 +1,62 @@
 ## Install MacOS:
 **Admin password: 1234**
 
+* Open Terminal from Apps -> Utilities
+* Change password to 1
+    * sudo pwpolicy getaccountpolicies > temp.xml
+    * sudo nano temp.xml
+    * delete the first row (until <?xml...)
+    * change 4 -> 1: <string>policyAttributePassword matches '^$|.{1,}+'</string>
+    * sudo pwpolicy setaccountpolicies temp.xml
+    * sudo rm temp.xml
+    * sudo passwd admin
+* Change disk size
+    * sudo pmset hibernatemode 0; sudo rm -f /var/vm/sleepimage
+* sudo nano /etc/paths
+    * Add this line:
+    * ./node_modules/.bin
+    * Ctrl+X, Y
+* Show hidden files
+    * defaults write com.apple.Finder AppleShowAllFiles true
+* Allow apps downloaded from anywhere
+    * sudo spctl --master-disable
+    * Check this policy in security settings
+* System settings
+    * Disable screen saver
+    * Disable auto update
+    * Change language to English
+    * Change keyboard settings
+        * Set control = command
+* Install node 12.4.0 from official site:
+    * https://nodejs.org/download/release/v12.4.0/node-v12.4.0.pkg
+* Configure xcode
+    * see: https://github.com/electron/electron-notarize/issues/5#issuecomment-508479456
+    * sudo xcode-select -r
+        
+* Prepare projects 
+    * mkdir -p projects/nodejs/apps
+    * cd projects/nodejs/apps
+    * git clone https://otokonoko@gitlab.com/otokonoko/alertpoint-electron.git
+    * cd alertpoint-electron
+    * mkdir -p ../../modules/webrain
+    * npm init
+    * cd ../../apps/alertpoint-electron
+    * sudo git checkout . && sudo git stash && sudo git pull && sudo npm i --unsafe-perm=true --allow-root
+    * sudo git checkout . && sudo git stash && sudo git pull && sudo npm run electron:dev-vm
+    * sudo git checkout . && sudo git stash && sudo git pull && sudo npm run pack:dev
+* Install pfx
+    * double click on pfx
+    * add it to System
+
+============================================
+
+* Install brew & node
+    * ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    * brew install node@12.4.0
 * https://rutracker.org/forum/viewtopic.php?t=5634652
 * https://www.geekrar.com/install-macos-mojave-on-vmware/
 * https://github.com/DrDonk/unlocker
+* Switch Keyboard Language: Ctrl + Space
 * Install pfx
     * double click on pfx
     * add it to System
@@ -23,8 +76,8 @@
 	diskutil apfs defragment /dev/disk1 status
 	diskutil apfs defragment /dev/disk1 enable
 	diskutil apfs defragment /dev/disk1s1 enable
-    sudo diskutil secureErase freespace 0 /dev/disk1s1
-	sudo diskutil apfs resizeContainer disk1 25GB
+    * [10 mins] sudo diskutil secureErase freespace 0 /dev/disk1s1
+    * [10 mins] sudo diskutil apfs resizeContainer disk1 25GB
 * Allow apps downloaded from anywhere
     sudo spctl --master-disable
     Check this policy in security settings

@@ -58,7 +58,8 @@ const rules = {
 			functions: 'always-multiline',
 		},
 	],
-	quotes: ['error', 'single', {avoidEscape: true}],
+	quotes           : ['error', 'single', {avoidEscape: true}],
+	'linebreak-style': ['error', 'unix'],
 }
 
 const rulesOff = {}

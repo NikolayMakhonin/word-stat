@@ -132,6 +132,9 @@ function rollupCommon(options = {}) {
 			if (warning.code === 'unused-export-let') {
 				return false
 			}
+			if (warning.code.startsWith('a11y-')) {
+				return false
+			}
 			return onwarn(warning)
 		},
 		...options,
