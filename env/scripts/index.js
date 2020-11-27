@@ -1,4 +1,4 @@
-const {singleCall} = require('./helpers/helpers')
+const {singleCall} = require('@flemist/run-script')
 const common = require('./common')
 const specific = require('./specific')
 
@@ -63,7 +63,7 @@ const testAll = singleCall(async (appConfigTypes, options = {}) => {
 			buildAll(appConfigTypes),
 		])
 	}
-	
+
 	await testInternAll(appConfigTypes, options)
 
 	await Promise.all(
@@ -116,7 +116,7 @@ const deployAll = singleCall(async (appConfigTypes, options) => {
 			buildAll(appConfigTypes),
 		])
 	}
-	
+
 	if (options.test !== false) {
 		await testInternAll(appConfigTypes, options)
 	}

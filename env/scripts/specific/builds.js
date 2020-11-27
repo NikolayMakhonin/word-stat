@@ -1,4 +1,4 @@
-const {run, singleCall} = require('../helpers/helpers')
+const {run, singleCall} = require('@flemist/run-script')
 const common = require('../common')
 const {reCreateDir, deletePaths} = require('../../common/helpers')
 

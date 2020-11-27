@@ -1,5 +1,5 @@
 /* eslint-disable no-sync */
-const {run, singleCall, singleProcess} = require('../helpers/helpers')
+const {run, singleCall, singleProcess} = require('@flemist/run-script')
 // const builds = require('./builds')
 // const common = require('../common')
 
