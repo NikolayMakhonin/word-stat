@@ -94,7 +94,10 @@ module.exports = {
 		}
 
 		// experimental warnings
-		if (/ExperimentalWarning: Conditional exports is an experimental feature. This feature could change at any time/.test(text)) {
+		if (/ExperimentalWarning: Conditional exports is an experimental feature/.test(text)) {
+			return false
+		}
+		if (/ExperimentalWarning: Package name self resolution is an experimental feature/.test(text)) {
 			return false
 		}
 

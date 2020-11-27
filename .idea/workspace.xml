@@ -23,18 +23,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.run-script-rc.js" afterDir="false" />
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Integrated @flemist/run-script module">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/common/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/common/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/run.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/specific/builds.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/builds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/specific/deploy.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/deploy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/specific/packs.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/packs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/specific/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/specific/tests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +105,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="plint" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -153,16 +143,6 @@
       <gulpfile />
       <tasks />
       <arguments />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="Lint" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint" />
-      </scripts>
-      <node-interpreter value="node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -226,7 +206,7 @@
     </list>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>E:\Users\Mika.SEA\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -260,13 +240,6 @@
       <workItem from="1604762711020" duration="1324000" />
       <workItem from="1606039457815" duration="4394000" />
       <workItem from="1606458874653" duration="720000" />
-    </task>
-    <task id="LOCAL-00013" summary="Lint fixes">
-      <created>1590521703103</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1590521703103</updated>
     </task>
     <task id="LOCAL-00014" summary="Lint fixes">
       <created>1590552725497</created>
@@ -604,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606462253423</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Integrated @flemist/run-script module">
+      <created>1606473362892</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1606473362892</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +620,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Update electron" />
     <MESSAGE value="Disabled karma electron browser for Windows" />
     <MESSAGE value="Disabled windows travis tests. Rollback karma-edge-launcher" />
     <MESSAGE value="Fix scripts errors color" />
@@ -665,7 +644,8 @@
     <MESSAGE value="Lint fixes completed" />
     <MESSAGE value="Small fixes" />
     <MESSAGE value="Small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small changes" />
+    <MESSAGE value="Integrated @flemist/run-script module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrated @flemist/run-script module" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -677,10 +657,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="586" y="113" key="#Inspections/0.0.1920.882@0.0.1920.882" timestamp="1601729904444" />
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601729629131">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606473442661">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1601729629131" />
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1606473442661" />
     <state x="422" y="154" key="#org.intellij.plugins.intelliLang.inject.config.ui.BaseInjectionDialog" timestamp="1601711815579">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -689,22 +669,22 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.882@0.0.1920.882" timestamp="1601730650956" />
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606462252734">
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606473511820">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606462252734" />
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606473511820" />
     <state width="1843" height="581" key="DebuggerActiveHint" timestamp="1601784278582">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1843" height="581" key="DebuggerActiveHint/0.0.1920.882@0.0.1920.882" timestamp="1601784278582" />
-    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1606461574517">
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1606473311266">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606461574517" />
-    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1601786896631">
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606473311266" />
+    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1606473426879">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1601786896631" />
+    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1606473426879" />
     <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601833364385">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -769,18 +749,18 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1892" height="267" key="GridCell.Tab.3.right/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
-    <state x="343" y="0" key="SettingsEditor" timestamp="1606461439147">
+    <state x="343" y="0" key="SettingsEditor" timestamp="1606473503591">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606461439147" />
+    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606473503591" />
     <state width="969" height="450" key="XDebugger.FullValuePopup" timestamp="1601716969584">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="969" height="450" key="XDebugger.FullValuePopup/0.0.1920.882@0.0.1920.882" timestamp="1601716969584" />
-    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1606461519828">
+    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1606475297147">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1606461519828" />
+    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1606475297147" />
     <state x="43" y="43" width="1793" height="805" key="scopes" timestamp="1606461475596">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
