@@ -28,9 +28,6 @@ try {
 					if (/<\w+> was created with unknown prop ['"]?segment['"]?/.test(first)) {
 						return false
 					}
-					if (/ExperimentalWarning: Package name self resolution is an experimental feature/.test(first)) {
-						return false
-					}
 				}
 			}
 

@@ -21,6 +21,18 @@ try {
 		logFileName      : 'server.log',
 		appState         : {...appConfig},
 		writeToFileLevels: LogLevel.Any,
+		filter(logEvent) {
+			if (logEvent.messagesOrErrors && logEvent.messagesOrErrors.length) {
+				const first = logEvent.messagesOrErrors[0]
+				if (typeof first === 'string') {
+					if (/ExperimentalWarning: Package name self resolution is an experimental feature/.test(first)) {
+						return false
+					}
+				}
+			}
+
+			return true
+		},
 	})
 } catch (ex) {
 	console.error(ex)
