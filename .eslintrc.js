@@ -15,7 +15,6 @@ module.exports = {
 		'no-lonely-if'                     : 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
 	},
-
 	env: {
 		node: true,
 		es6 : true,

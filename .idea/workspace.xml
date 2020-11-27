@@ -25,12 +25,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Small changes">
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/app-template.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/app-template.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@types/test/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/@types/test/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/VMware.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/VMware.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/helpers/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/tests/node/v8/parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/tests/node/v8/parser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.eslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.eslint.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add-yarn" />
+        <entry key="$PROJECT_DIR$" value="node-module" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,20 +109,20 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="plint" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\docs\doc\template" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\env\chrome\app" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\main" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\brain" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\routes" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\docs\doc\template" />
-      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\env\chrome\app" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Lint">
@@ -685,18 +683,18 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.882@0.0.1920.882" timestamp="1601730650956" />
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606039516386">
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606461577789">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606039516386" />
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606461577789" />
     <state width="1843" height="581" key="DebuggerActiveHint" timestamp="1601784278582">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1843" height="581" key="DebuggerActiveHint/0.0.1920.882@0.0.1920.882" timestamp="1601784278582" />
-    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1601697356159">
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1606461574517">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1601697356159" />
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606461574517" />
     <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1601786896631">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -765,22 +763,22 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1892" height="267" key="GridCell.Tab.3.right/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
-    <state x="343" y="0" key="SettingsEditor" timestamp="1601870671794">
+    <state x="343" y="0" key="SettingsEditor" timestamp="1606461439147">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1601870671794" />
+    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606461439147" />
     <state width="969" height="450" key="XDebugger.FullValuePopup" timestamp="1601716969584">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="969" height="450" key="XDebugger.FullValuePopup/0.0.1920.882@0.0.1920.882" timestamp="1601716969584" />
-    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1601716472238">
+    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1606461519828">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1601716472238" />
-    <state x="43" y="43" width="1793" height="805" key="scopes" timestamp="1601729988979">
+    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1606461519828" />
+    <state x="43" y="43" width="1793" height="805" key="scopes" timestamp="1606461475596">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="43" y="43" width="1793" height="805" key="scopes/0.0.1920.882@0.0.1920.882" timestamp="1601729988979" />
+    <state x="43" y="43" width="1793" height="805" key="scopes/0.0.1920.882@0.0.1920.882" timestamp="1606461475596" />
     <state x="539" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1599836444913">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
