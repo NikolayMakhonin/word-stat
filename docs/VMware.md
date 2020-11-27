@@ -32,6 +32,8 @@
 * Configure xcode
     * see: https://github.com/electron/electron-notarize/issues/5#issuecomment-508479456
     * sudo xcode-select -r
+* Save git password
+    * sudo git config --global credential.helper store
         
 * Prepare projects 
     * mkdir -p projects/nodejs/apps
@@ -145,7 +147,6 @@ npm i --unsafe-perm=true --allow-root
 
 ### Create installer
 ```
-git config --global credential.helper store
 sudo git checkout . && sudo git stash && sudo git pull && npm run pack:dev
 ```
 
