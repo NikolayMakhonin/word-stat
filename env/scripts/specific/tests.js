@@ -57,7 +57,7 @@ const coverageMerge = singleCall(async appConfigType => {
 	)
 })
 const coverageCheck = singleCall(appConfigType => run(
-	`nyc check-coverage --report-dir tmp/${appConfigType}/coverage/all/lcov --lines 0.1 --functions 0.1 --branches 0.1`,
+	`nyc check-coverage --report-dir tmp/${appConfigType}/coverage/all/lcov --lines 0.1 --functions 0.1 --branches 0`,
 	{env: {APP_CONFIG: appConfigType}},
 ))
 const coverage = singleCall(async (appConfigType, options = {}) => {
