@@ -54,13 +54,13 @@ npx degit NikolayMakhonin/app-template#node-module <app name> && cd <app name> &
 # Documentation
 
 ## Terminal App
-* [Implementation](docs/doc/app/Implementation.md)
+* [Implementation](<docs/doc/app/Implementation.md>)
 
 ## Template
-* [Getting Started](docs/doc/template/Getting Started.md)
-* [Architecture](docs/doc/template/Architecture.md)
-* [Project Structure](docs/doc/template/Project Structure.md)
-* [Testing](docs/doc/template/Testing.md)
+* [Getting Started](<docs/doc/template/Getting Started.md>)
+* [Architecture](<docs/doc/template/Architecture.md>)
+* [Project Structure](<docs/doc/template/Project Structure.md>)
+* [Testing](<docs/doc/template/Testing.md>)
 
 <!--
 

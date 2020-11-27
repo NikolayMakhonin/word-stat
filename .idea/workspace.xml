@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="all" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,47 +23,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/env/rollup/babel.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/babel.js" afterDir="false" />
-    </list>
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/webapp" />
-                <branch-info repo="$PROJECT_DIR$" source="origin/browser-helpers" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="webapp" />
+        <entry key="$PROJECT_DIR$" value="node-module" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,23 +69,29 @@
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="auto.test.manager.delay" value="1000" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.4.0" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.17.0" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$USER_HOME$/AppData/Roaming/npm/node_modules/grunt-cli" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/tests/node/env/gyp.ts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="node" />
+    <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.path.for.package.standard" value="node" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="L:\Work\_GIT\GitHub\NodeJs\templates\nodejs-templates\node_modules\eslint" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -121,10 +102,24 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="run.code.analysis.last.selected.profile" value="plint" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
-  <component name="RunManager" selected="Mocha.Watch">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\main" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\brain" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\routes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\docs\doc\template" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\env\chrome\app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Lint">
     <configuration default="true" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
@@ -170,323 +165,406 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Mocha.Coverage" />
+      <item itemvalue="Karma.Dev" />
+      <item itemvalue="Karma.Tests" />
+      <item itemvalue="Karma.Performance" />
+      <item itemvalue="Karma.CI" />
+      <item itemvalue="Mocha.Intern Debug Video" />
+      <item itemvalue="Mocha.Intern Debug" />
+      <item itemvalue="Mocha.Intern Export" />
+      <item itemvalue="Mocha.Intern Export with rebuild" />
+      <item itemvalue="Mocha.Intern Dev" />
+      <item itemvalue="Mocha.Intern Dev Video" />
       <item itemvalue="Mocha.Watch" />
+      <item itemvalue="Mocha.Coverage" />
       <item itemvalue="npm.Test All" />
       <item itemvalue="npm.Build Test All" />
       <item itemvalue="npm.Build Dev" />
       <item itemvalue="npm.Test Dev" />
       <item itemvalue="npm.Build Test Dev" />
+      <item itemvalue="npm.Lint" />
     </list>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>E:\Users\Mika.SEA\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Precommit OK.">
-      <created>1590575276433</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1590575276433</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Merge fix" />
+      <created>1590054245686</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590054245686</updated>
+      <workItem from="1590054248215" duration="3782000" />
+      <workItem from="1590058063076" duration="1371000" />
+      <workItem from="1590067034346" duration="1859000" />
+      <workItem from="1590149420969" duration="1309000" />
+      <workItem from="1590316020088" duration="7807000" />
+      <workItem from="1590401921297" duration="9440000" />
+      <workItem from="1590459238370" duration="10835000" />
+      <workItem from="1590492426641" duration="5972000" />
+      <workItem from="1590521762170" duration="5000" />
+      <workItem from="1590521808093" duration="15858000" />
+      <workItem from="1590640011412" duration="4850000" />
+      <workItem from="1591082611110" duration="2080000" />
+      <workItem from="1593242391373" duration="6466000" />
+      <workItem from="1599236619071" duration="13487000" />
+      <workItem from="1600089629751" duration="735000" />
+      <workItem from="1601208130625" duration="1814000" />
+      <workItem from="1601357729400" duration="1266000" />
+      <workItem from="1601691610779" duration="59000" />
+      <workItem from="1601695149932" duration="16045000" />
+      <workItem from="1601716299612" duration="5114000" />
+      <workItem from="1601730023764" duration="9121000" />
+      <workItem from="1601870640640" duration="822000" />
+      <workItem from="1604762711020" duration="1324000" />
+      <workItem from="1606039457815" duration="4394000" />
+      <workItem from="1606458874653" duration="720000" />
     </task>
-    <task id="LOCAL-00002" summary="Precommit OK.">
-      <created>1590575306225</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1590575306225</updated>
-    </task>
-    <task id="LOCAL-00003" summary="SHA-1: bc2d2f929f5656162efd700717bbb3bb3b362238&#10;&#10;* Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.browserslistrc&#10;#&#9;.eslintrc&#10;#&#9;.idea/runConfigurations/Intern_Dev.xml&#10;#&#9;.idea/runConfigurations/Intern_Dev_Video.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;.travis.yml&#10;#&#9;configs/demo.js&#10;#&#9;configs/prod.js&#10;#&#9;env/babel/configs/intern.js&#10;#&#9;env/intern/configs/constants.js&#10;#&#9;env/intern/configs/dev-video/intern.js&#10;#&#9;env/intern/configs/dev-video/mocha.js&#10;#&#9;env/intern/configs/dev/mocha.js&#10;#&#9;env/intern/helpers/.eslintrc&#10;#&#9;env/intern/helpers/assert.js&#10;#&#9;env/intern/helpers/base.js&#10;#&#9;env/intern/helpers/log.js&#10;#&#9;env/intern/helpers/open-window.js&#10;#&#9;env/intern/helpers/svelte.js&#10;#&#9;env/intern/mocha-helpers.js&#10;#&#9;env/intern/register-intern.js&#10;#&#9;env/karma/configs/ci.js&#10;#&#9;env/karma/configs/coverage.js&#10;#&#9;env/karma/configs/dev.js&#10;#&#9;env/karma/configs/performance.js&#10;#&#9;env/karma/configs/tests.js&#10;#&#9;env/karma/helpers.js&#10;#&#9;env/rollup/babel.js&#10;#&#9;env/rollup/postcss.js&#10;#&#9;env/rollup/svelte.js&#10;#&#9;env/scripts/index.js&#10;#&#9;env/scripts/specific/tests.js&#10;#&#9;modules/browser/browser-debug/.eslintrc&#10;#&#9;modules/browser/browser-debug/helpers/get-debug-info.js&#10;#&#9;package.json&#10;#&#9;src/test/performance/browser/isBrowser.js&#10;#&#9;src/test/tests/browser/env/component.js&#10;#&#9;src/test/tests/browser/isBrowser.js&#10;#&#9;src/test/tests/common/env/modules.js&#10;#&#9;src/test/tests/webdriver/.eslintrc">
-      <created>1590576269979</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1590576269979</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;package.json">
-      <created>1590578318992</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1590578318992</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Precommit OK.">
-      <created>1590647720502</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1590647720502</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fix travis">
-      <created>1590648772884</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1590648772884</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fix travis">
-      <created>1590648961420</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1590648961420</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Fix travis">
-      <created>1590650083867</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1590650083867</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Fix travis">
-      <created>1590650606181</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1590650606181</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Fix travis">
-      <created>1590650735677</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1590650735677</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fix travis">
-      <created>1590651425166</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1590651425166</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Fix travis">
-      <created>1590651486524</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1590651486524</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Fix travis">
-      <created>1590652289397</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1590652289397</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Fix travis">
-      <created>1590653705394</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1590653705394</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Fix travis">
-      <created>1590653837657</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1590653837657</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Fix coverage">
-      <created>1590655633460</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1590655633460</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Fix travis">
-      <created>1590655986179</created>
+    <task id="LOCAL-00017" summary="Lint fixes">
+      <created>1590570787647</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1590655986179</updated>
+      <updated>1590570787647</updated>
     </task>
-    <task id="LOCAL-00018" summary="Fix travis">
-      <created>1590661448807</created>
+    <task id="LOCAL-00018" summary="Precommit OK.">
+      <created>1590571665630</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1590661448807</updated>
+      <updated>1590571665630</updated>
     </task>
-    <task id="LOCAL-00019" summary="Fix travis">
-      <created>1590662608670</created>
+    <task id="LOCAL-00019" summary="Precommit OK.">
+      <created>1590572150098</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1590662608670</updated>
+      <updated>1590572150098</updated>
     </task>
     <task id="LOCAL-00020" summary="Fix travis">
-      <created>1590663931380</created>
+      <created>1590731758479</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1590663931380</updated>
+      <updated>1590731758479</updated>
     </task>
-    <task id="LOCAL-00021" summary="Fix travis">
-      <created>1590664179400</created>
+    <task id="LOCAL-00021" summary="Change karma-edge-launcher to karma-edgium-launcher">
+      <created>1590733806026</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1590664179400</updated>
+      <updated>1590733806026</updated>
     </task>
-    <task id="LOCAL-00022" summary="Fix travis">
-      <created>1590665321539</created>
+    <task id="LOCAL-00022" summary="Update electron">
+      <created>1590735026587</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1590665321539</updated>
+      <updated>1590735026587</updated>
     </task>
-    <task id="LOCAL-00023" summary="Fix travis">
-      <created>1590665478023</created>
+    <task id="LOCAL-00023" summary="Disabled karma electron browser for Windows">
+      <created>1590738212275</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1590665478023</updated>
+      <updated>1590738212275</updated>
     </task>
-    <task id="LOCAL-00024" summary="Fix travis">
-      <created>1590665641350</created>
+    <task id="LOCAL-00024" summary="Disabled windows travis tests. Rollback karma-edge-launcher">
+      <created>1590742007162</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1590665641350</updated>
+      <updated>1590742007162</updated>
     </task>
-    <task id="LOCAL-00025" summary="Fix travis">
-      <created>1590665848120</created>
+    <task id="LOCAL-00025" summary="Fix scripts errors color">
+      <created>1590742033424</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1590665848120</updated>
+      <updated>1590742033424</updated>
     </task>
-    <task id="LOCAL-00026" summary="Fix travis">
-      <created>1590665864666</created>
+    <task id="LOCAL-00026" summary="travis OK">
+      <created>1590742524278</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1590665864666</updated>
+      <updated>1590742524278</updated>
     </task>
-    <task id="LOCAL-00027" summary="Fix travis">
-      <created>1590666141787</created>
+    <task id="LOCAL-00027" summary="Fix coverage">
+      <created>1590759418327</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1590666141787</updated>
+      <updated>1590759418327</updated>
     </task>
-    <task id="LOCAL-00028" summary="Fix travis">
-      <created>1590666387951</created>
+    <task id="LOCAL-00028" summary="Moved logger to separated module">
+      <created>1590940115570</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1590666387951</updated>
+      <updated>1590940115570</updated>
     </task>
-    <task id="LOCAL-00029" summary="Fix travis">
-      <created>1590666534460</created>
+    <task id="LOCAL-00029" summary="Moved logger to separated module">
+      <created>1590940632447</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1590666534460</updated>
+      <updated>1590940632447</updated>
     </task>
-    <task id="LOCAL-00030" summary="Fix travis">
-      <created>1590666674071</created>
+    <task id="LOCAL-00030" summary="Moved logger to separated module">
+      <created>1590941568448</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1590666674072</updated>
+      <updated>1590941568448</updated>
     </task>
-    <task id="LOCAL-00031" summary="Fix travis">
-      <created>1590667109651</created>
+    <task id="LOCAL-00031" summary="Fix resolveExternal">
+      <created>1590942171314</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1590667109651</updated>
+      <updated>1590942171314</updated>
     </task>
-    <task id="LOCAL-00032" summary="Fix travis">
-      <created>1590667794649</created>
+    <task id="LOCAL-00032" summary="Fix resolveExternal">
+      <created>1590942567339</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1590667794649</updated>
+      <updated>1590942567339</updated>
     </task>
-    <task id="LOCAL-00033" summary="Fix travis">
-      <created>1590668380010</created>
+    <task id="LOCAL-00033" summary="Merged with app2">
+      <created>1593263199226</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1590668380010</updated>
+      <updated>1593263199226</updated>
     </task>
-    <task id="LOCAL-00034" summary="Fix travis">
-      <created>1590668451281</created>
+    <task id="LOCAL-00034" summary="Merged with app2">
+      <created>1599247614252</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1590668451281</updated>
+      <updated>1599247614252</updated>
     </task>
-    <task id="LOCAL-00035" summary="Fix travis">
-      <created>1590668617393</created>
+    <task id="LOCAL-00035" summary="Fix lint">
+      <created>1599248159616</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1590668617393</updated>
+      <updated>1599248159616</updated>
     </task>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
-      <created>1590675764994</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1590675764994</updated>
-      <workItem from="1590675768320" duration="5069000" />
-      <workItem from="1601798784029" duration="33000" />
-    </task>
-    <task id="LOCAL-00036" summary="Fix travis">
-      <created>1590675855678</created>
+    <task id="LOCAL-00036" summary="Rollback postcss-nested to v4.2.1 due to: https://github.com/egoist/rollup-plugin-postcss/issues/205">
+      <created>1599280225124</created>
       <option name="number" value="00036" />
       <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1590675855678</updated>
+      <updated>1599280225124</updated>
     </task>
     <task id="LOCAL-00037" summary="Fix travis">
-      <created>1590678287023</created>
+      <created>1599281082674</created>
       <option name="number" value="00037" />
       <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1590678287023</updated>
+      <updated>1599281082674</updated>
     </task>
-    <task id="LOCAL-00038" summary="Fix nyc bug">
-      <created>1590679418890</created>
+    <task id="LOCAL-00038" summary="Fix travis">
+      <created>1599282318450</created>
       <option name="number" value="00038" />
       <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
-      <updated>1590679418890</updated>
+      <updated>1599282318450</updated>
     </task>
-    <task id="LOCAL-00039" summary="Fix coverage">
-      <created>1590680162375</created>
+    <task id="LOCAL-00039" summary="Fix travis">
+      <created>1599282562006</created>
       <option name="number" value="00039" />
       <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1590680162375</updated>
+      <updated>1599282562006</updated>
     </task>
-    <task id="LOCAL-00040" summary="Lint fixes">
-      <created>1601798190356</created>
+    <task id="LOCAL-00040" summary="Fix travis">
+      <created>1599283693052</created>
       <option name="number" value="00040" />
       <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1601798190356</updated>
+      <updated>1599283693052</updated>
     </task>
-    <task id="LOCAL-00041" summary="Lint fixes">
-      <created>1601798319809</created>
+    <task id="LOCAL-00041" summary="Fix travis: try to enable Electron in karma">
+      <created>1599284158769</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1601798319809</updated>
+      <updated>1599284158769</updated>
     </task>
-    <task id="LOCAL-00042" summary="Lint fixes">
-      <created>1601798763621</created>
+    <task id="LOCAL-00042" summary="Fix travis: disabled Electron in karma">
+      <created>1599284502182</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1601798763621</updated>
+      <updated>1599284502182</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Upgrade node modules">
+      <created>1599285337166</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1599285337166</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Small fixes">
+      <created>1599286395574</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1599286395574</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Documenting...">
+      <created>1599822361547</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1599822361547</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Documenting...">
+      <created>1599838690339</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1599838690339</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Merged with app">
+      <created>1600089674654</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1600089674654</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Merged with app">
+      <created>1601211263945</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1601211263945</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Lint config updated">
+      <created>1601697405090</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1601697405090</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Lint config updated">
+      <created>1601697438682</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1601697438682</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Lint fixes">
+      <created>1601697451648</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1601697451648</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Lint config updated">
+      <created>1601698691759</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1601698691759</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Lint fixes">
+      <created>1601706093977</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1601706093977</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Lint fixes">
+      <created>1601706641865</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1601706641865</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Try to add svelte eslint: not now">
+      <created>1601726659260</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1601726659261</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Added svelte eslint. Lint fixes">
+      <created>1601744715836</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1601744715838</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Added svelte eslint. Lint fixes">
+      <created>1601751142696</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1601751142696</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Lint fixes completed">
+      <created>1601785961555</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1601785961555</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Small fixes">
+      <created>1601870725776</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1601870725777</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Small changes">
+      <created>1604762378273</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1604762378274</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Small changes">
+      <created>1606462253423</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1606462253423</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Integrated @flemist/run-script module">
+      <created>1606473362892</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1606473362892</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Suppress experimental warnings">
+      <created>1606475701509</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1606475701509</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Suppress experimental warnings">
+      <created>1606476493080</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1606476493080</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Suppress experimental warnings">
+      <created>1606478293622</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1606478293623</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,27 +585,7 @@
       <map>
         <entry key="1">
           <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:L:/Work/_GIT/GitHub/NodeJs/apps/app-template/src/main/common" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
         <entry key="MAIN">
@@ -537,83 +595,184 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="1" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Users dialogs in process..." />
-    <MESSAGE value="v0.0.18" />
-    <MESSAGE value="User edit dialog in process..." />
-    <MESSAGE value="Dialogs in process..." />
-    <MESSAGE value="Devices in process..." />
-    <MESSAGE value="Battery marker" />
-    <MESSAGE value="Develop devices" />
-    <MESSAGE value="Develop devices and users" />
-    <MESSAGE value="build-and-pack:dev OK" />
-    <MESSAGE value="configure travis" />
-    <MESSAGE value="fix travis" />
-    <MESSAGE value="fix coveralls" />
-    <MESSAGE value="fix ReadMe" />
-    <MESSAGE value="Merged with app" />
-    <MESSAGE value="TODO changed" />
-    <MESSAGE value="Remove pug" />
-    <MESSAGE value="Fix package.json" />
-    <MESSAGE value="Delete browser specific code" />
-    <MESSAGE value="SHA-1: bc2d2f929f5656162efd700717bbb3bb3b362238&#10;&#10;* Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.browserslistrc&#10;#&#9;.eslintrc&#10;#&#9;.idea/runConfigurations/Intern_Dev.xml&#10;#&#9;.idea/runConfigurations/Intern_Dev_Video.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;.travis.yml&#10;#&#9;configs/demo.js&#10;#&#9;configs/prod.js&#10;#&#9;env/babel/configs/intern.js&#10;#&#9;env/intern/configs/constants.js&#10;#&#9;env/intern/configs/dev-video/intern.js&#10;#&#9;env/intern/configs/dev-video/mocha.js&#10;#&#9;env/intern/configs/dev/mocha.js&#10;#&#9;env/intern/helpers/.eslintrc&#10;#&#9;env/intern/helpers/assert.js&#10;#&#9;env/intern/helpers/base.js&#10;#&#9;env/intern/helpers/log.js&#10;#&#9;env/intern/helpers/open-window.js&#10;#&#9;env/intern/helpers/svelte.js&#10;#&#9;env/intern/mocha-helpers.js&#10;#&#9;env/intern/register-intern.js&#10;#&#9;env/karma/configs/ci.js&#10;#&#9;env/karma/configs/coverage.js&#10;#&#9;env/karma/configs/dev.js&#10;#&#9;env/karma/configs/performance.js&#10;#&#9;env/karma/configs/tests.js&#10;#&#9;env/karma/helpers.js&#10;#&#9;env/rollup/babel.js&#10;#&#9;env/rollup/postcss.js&#10;#&#9;env/rollup/svelte.js&#10;#&#9;env/scripts/index.js&#10;#&#9;env/scripts/specific/tests.js&#10;#&#9;modules/browser/browser-debug/.eslintrc&#10;#&#9;modules/browser/browser-debug/helpers/get-debug-info.js&#10;#&#9;package.json&#10;#&#9;src/test/performance/browser/isBrowser.js&#10;#&#9;src/test/tests/browser/env/component.js&#10;#&#9;src/test/tests/browser/isBrowser.js&#10;#&#9;src/test/tests/common/env/modules.js&#10;#&#9;src/test/tests/webdriver/.eslintrc" />
-    <MESSAGE value="Merge branch 'browser-helpers' into node-module&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;package.json" />
-    <MESSAGE value="Precommit OK." />
-    <MESSAGE value="Fix travis" />
-    <MESSAGE value="Fix nyc bug" />
+    <MESSAGE value="Disabled windows travis tests. Rollback karma-edge-launcher" />
+    <MESSAGE value="Fix scripts errors color" />
+    <MESSAGE value="travis OK" />
+    <MESSAGE value="Upgrade mocha 5.2.0 -&gt; 7.2.0" />
     <MESSAGE value="Fix coverage" />
+    <MESSAGE value="Moved logger to separated module" />
+    <MESSAGE value="Fix resolveExternal" />
+    <MESSAGE value="Merged with app2" />
+    <MESSAGE value="Fix lint" />
+    <MESSAGE value="Rollback postcss-nested to v4.2.1 due to: https://github.com/egoist/rollup-plugin-postcss/issues/205" />
+    <MESSAGE value="Fix travis" />
+    <MESSAGE value="Fix travis: try to enable Electron in karma" />
+    <MESSAGE value="Fix travis: disabled Electron in karma" />
+    <MESSAGE value="Upgrade node modules" />
+    <MESSAGE value="Documenting..." />
+    <MESSAGE value="Merged with app" />
+    <MESSAGE value="Lint config updated" />
     <MESSAGE value="Lint fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lint fixes" />
+    <MESSAGE value="Try to add svelte eslint: not now" />
+    <MESSAGE value="Added svelte eslint. Lint fixes" />
+    <MESSAGE value="Lint fixes completed" />
+    <MESSAGE value="Small fixes" />
+    <MESSAGE value="Small changes" />
+    <MESSAGE value="Integrated @flemist/run-script module" />
+    <MESSAGE value="Suppress experimental warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Suppress experimental warnings" />
+    <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601798816398">
+    <state x="614" y="103" key="#ESLint" timestamp="1601730229636">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1601798816398" />
-    <state x="484" y="0" key="CommitChangelistDialog2" timestamp="1601798763022">
+    <state x="614" y="103" key="#ESLint/0.0.1920.882@0.0.1920.882" timestamp="1601730229636" />
+    <state x="586" y="113" key="#Inspections" timestamp="1601729904444">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="484" y="0" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1601798763022" />
-    <state x="183" y="66" key="DiffContextDialog" timestamp="1601798186227">
+    <state x="586" y="113" key="#Inspections/0.0.1920.882@0.0.1920.882" timestamp="1601729904444" />
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606473442661">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="183" y="66" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1601798186227" />
-    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1601798201449">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1606473442661" />
+    <state x="422" y="154" key="#org.intellij.plugins.intelliLang.inject.config.ui.BaseInjectionDialog" timestamp="1601711815579">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1601798201449" />
-    <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601798777381">
+    <state x="422" y="154" key="#org.intellij.plugins.intelliLang.inject.config.ui.BaseInjectionDialog/0.0.1920.882@0.0.1920.882" timestamp="1601711815579" />
+    <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1601730650956">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
-    <state width="1892" height="238" key="GridCell.Tab.0.center" timestamp="1601798777381">
+    <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.882@0.0.1920.882" timestamp="1601730650956" />
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606478292902">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
-    <state width="1892" height="238" key="GridCell.Tab.0.left" timestamp="1601798777381">
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606478292902" />
+    <state width="1843" height="581" key="DebuggerActiveHint" timestamp="1601784278582">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
-    <state width="1892" height="238" key="GridCell.Tab.0.right" timestamp="1601798777381">
+    <state width="1843" height="581" key="DebuggerActiveHint/0.0.1920.882@0.0.1920.882" timestamp="1601784278582" />
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1606478289646">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="238" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1601798777381" />
-    <state x="343" y="0" key="SettingsEditor" timestamp="1601798345135">
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606478289646" />
+    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1606473426879">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1601798345135" />
-    <state x="602" y="108" width="716" height="666" key="find.popup" timestamp="1601799134182">
+    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1606473426879" />
+    <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601833364385">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="602" y="108" width="716" height="666" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1601799134182" />
+    <state width="1892" height="238" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601833364385" />
+    <state width="1892" height="238" key="GridCell.Tab.0.center" timestamp="1601833364385">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="238" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1601833364385" />
+    <state width="1892" height="238" key="GridCell.Tab.0.left" timestamp="1601833364384">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="238" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1601833364384" />
+    <state width="1892" height="238" key="GridCell.Tab.0.right" timestamp="1601833364385">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="238" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1601833364385" />
+    <state width="1892" height="267" key="GridCell.Tab.1.bottom" timestamp="1601784335610">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.1.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601784335610" />
+    <state width="1892" height="267" key="GridCell.Tab.1.center" timestamp="1601784335610">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.1.center/0.0.1920.882@0.0.1920.882" timestamp="1601784335610" />
+    <state width="1892" height="267" key="GridCell.Tab.1.left" timestamp="1601784335610">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.1.left/0.0.1920.882@0.0.1920.882" timestamp="1601784335610" />
+    <state width="1892" height="267" key="GridCell.Tab.1.right" timestamp="1601784335610">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.1.right/0.0.1920.882@0.0.1920.882" timestamp="1601784335610" />
+    <state width="1892" height="267" key="GridCell.Tab.2.bottom" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.2.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state width="1892" height="267" key="GridCell.Tab.2.center" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.2.center/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state width="1892" height="267" key="GridCell.Tab.2.left" timestamp="1601784335610">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.2.left/0.0.1920.882@0.0.1920.882" timestamp="1601784335610" />
+    <state width="1892" height="267" key="GridCell.Tab.2.right" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.2.right/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state width="1892" height="267" key="GridCell.Tab.3.bottom" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.3.bottom/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state width="1892" height="267" key="GridCell.Tab.3.center" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.3.center/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state width="1892" height="267" key="GridCell.Tab.3.left" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.3.left/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state width="1892" height="267" key="GridCell.Tab.3.right" timestamp="1601784335611">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="267" key="GridCell.Tab.3.right/0.0.1920.882@0.0.1920.882" timestamp="1601784335611" />
+    <state x="343" y="0" key="SettingsEditor" timestamp="1606473503591">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606473503591" />
+    <state width="969" height="450" key="XDebugger.FullValuePopup" timestamp="1601716969584">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="969" height="450" key="XDebugger.FullValuePopup/0.0.1920.882@0.0.1920.882" timestamp="1601716969584" />
+    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1606476360851">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1606476360851" />
+    <state x="43" y="43" width="1793" height="805" key="scopes" timestamp="1606461475596">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="43" y="43" width="1793" height="805" key="scopes/0.0.1920.882@0.0.1920.882" timestamp="1606461475596" />
+    <state x="539" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1599836444913">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="539" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1920.882@0.0.1920.882" timestamp="1599836444913" />
+    <state x="633" y="128" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1601795878169">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="633" y="128" key="vcs.ApplyPatchDifferentiatedDialog/0.0.1920.882@0.0.1920.882" timestamp="1601795878169" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/test/tests/node/styles/postcss.js</url>
+          <line>3</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/test/tests/node/styles/postcss.js</url>
+          <line>4</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/test/tests/node/styles/postcss.js</url>
+          <line>6</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

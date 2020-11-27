@@ -1,5 +1,5 @@
 const {deletePaths, reCreateDir} = require('../../common/helpers')
-const {run, singleCall} = require('../helpers/helpers')
+const {run, singleCall} = require('@flemist/run-script')
 
 const buildTypes = singleCall(async () => {
 	await reCreateDir('dist/types')
