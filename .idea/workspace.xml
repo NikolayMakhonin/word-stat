@@ -107,16 +107,16 @@
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\docs\doc\template" />
-      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\env\chrome\app" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\main" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\brain" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src" />
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src\routes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\docs\doc\template" />
+      <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\env\chrome\app" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Lint">
@@ -177,29 +177,11 @@
       <item itemvalue="Mocha.Intern Dev Video" />
       <item itemvalue="Mocha.Watch" />
       <item itemvalue="Mocha.Coverage" />
-      <item itemvalue="Node.js.Build Chrome Dev" />
-      <item itemvalue="Node.js.Sapper Dev - DEBUG" />
-      <item itemvalue="npm.Electron Dev" />
-      <item itemvalue="npm.Sapper Dev" />
-      <item itemvalue="npm.Sapper Dev Components" />
       <item itemvalue="npm.Test All" />
       <item itemvalue="npm.Build Test All" />
-      <item itemvalue="npm.Build Pack All" />
-      <item itemvalue="npm.Test Pack All" />
-      <item itemvalue="npm.Pack All" />
-      <item itemvalue="npm.Build Pack Demo" />
       <item itemvalue="npm.Build Dev" />
       <item itemvalue="npm.Test Dev" />
       <item itemvalue="npm.Build Test Dev" />
-      <item itemvalue="npm.Pack Chrome Dev" />
-      <item itemvalue="npm.Pack Dev" />
-      <item itemvalue="npm.Build Pack Chrome Dev" />
-      <item itemvalue="npm.Test Pack Dev" />
-      <item itemvalue="npm.Build Pack Dev" />
-      <item itemvalue="npm.Electron Export" />
-      <item itemvalue="npm.Build Pack Preprod" />
-      <item itemvalue="npm.Build Pack Prod" />
-      <item itemvalue="npm.Build Pack Stage" />
       <item itemvalue="npm.Lint" />
     </list>
   </component>
