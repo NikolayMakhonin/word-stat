@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-const {run, singleCall} = require('../helpers/helpers')
+const {run, singleCall} = require('@flemist/run-script')
 const builds = require('./builds')
 const {reCreateDir} = require('../../common/helpers')
 const {deletePaths} = require('../../common/helpers')

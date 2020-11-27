@@ -1,4 +1,4 @@
-const {singleCall} = require('./helpers/helpers')
+const {singleCall} = require('@flemist/run-script')
 const common = require('./common')
 const specific = require('./specific')
 
