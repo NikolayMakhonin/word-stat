@@ -195,7 +195,7 @@
 		"zip-dir": "^1.0.2"
 	},
 	"dependencies": {
-		"@flemist/web-logger": "^0.1.1",
+		"@flemist/web-logger": "^0.1.5",
 		"compression": "^1.7.4",
 		"express": "^4.17.1",
 		"html-escaper": "^2.0.2",
