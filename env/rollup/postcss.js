@@ -12,7 +12,7 @@ const postcssUrl = require('postcss-url')
 // const postcssGlobalWrapper = require('postcss-global-nested')
 // const postcssBeautify = require('perfectionist')
 // const postcssCalc = require('postcss-calc')
-require('../../modules/node/require-css')
+const {requireCss} = require('@flemist/require-css')
 const {register: registerBabel} = require('../babel/helpers')
 const babelrc = require('../babel/configs/postcss-js-syntax')
 const {asPromise} = require('../common/helpers')
@@ -33,6 +33,8 @@ const requireFromString = (code, filename, options) => _requireFromString(code, 
 	},
 	...options,
 })
+
+global.requireCss = requireCss
 
 // for postcssJsSyntax
 registerBabel(babelrc)
