@@ -72,6 +72,7 @@
 		"@babel/runtime-corejs3": "^7.11.2",
 		"@flemist/browser-debug": "0.0.1",
 		"@flemist/css-to-xpath": "0.0.5",
+		"@flemist/require-css": "0.0.1",
 		"@flemist/run-script": "^0.2.5",
 		"@metahub/karma-rollup-preprocessor": "^6.0.0",
 		"@rollup/plugin-alias": "^3.1.1",
