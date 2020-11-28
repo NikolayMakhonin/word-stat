@@ -34,7 +34,7 @@
 </div>
 
 <script>
-	import browserDebug from '../../../modules/browser/browser-debug'
+	import browserDebug from '@flemist/browser-debug'
 
 	let total = 0
 	let withErrors = ''

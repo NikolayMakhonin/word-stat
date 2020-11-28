@@ -39,7 +39,7 @@
 
 <script>
 	import { onMount, onDestroy } from 'svelte'
-	import browserDebug from '../../../modules/browser/browser-debug'
+	import browserDebug from '@flemist/browser-debug'
 
 	let status = null
 	let interval
