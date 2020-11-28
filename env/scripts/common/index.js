@@ -21,7 +21,7 @@ const build = singleCall(() => Promise.all([
 	// clean(),
 	buildTypes(),
 	buildLibs(),
-	buildGyp(),
+	// buildGyp(),
 ]))
 
 const lintEs = singleCall(async ({fix} = {}) => {

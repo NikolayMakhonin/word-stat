@@ -21,7 +21,7 @@ Config:
 
 ```cmd
 (
-SET TEMPLATE_BRANCH=node-module-gyp
+SET TEMPLATE_BRANCH=node-module
 SET TEMPLATE_REPO=https://github.com/NikolayMakhonin/app-template.git
 SET /p DIR_NAME=Enter project directory name:
 SET /p YOUR_REPO_URL=Enter your new clear repository url:
@@ -48,7 +48,7 @@ git branch -u origin/master master
 
 Or you can just clone repository without history using this command:
 ```bash
-npx degit NikolayMakhonin/app-template#node-module-gyp <app name> && cd <app name> && npm i && npm run test
+npx degit NikolayMakhonin/app-template#node-module <app name> && cd <app name> && npm i && npm run test
 ```
 
 # Documentation
@@ -79,10 +79,10 @@ npx degit NikolayMakhonin/app-template#node-module-gyp <app name> && cd <app nam
 [npm-url]: https://npmjs.org/package/app-template
 [node-version-image]: https://img.shields.io/node/v/app-template.svg
 [node-version-url]: https://nodejs.org/en/download/
-[travis-image]: https://travis-ci.org/NikolayMakhonin/app-template.svg?branch=node-module-gyp
-[travis-url]: https://travis-ci.org/NikolayMakhonin/app-template?branch=node-module-gyp
-[coveralls-image]: https://coveralls.io/repos/github/NikolayMakhonin/app-template/badge.svg?branch=node-module-gyp
-[coveralls-url]: https://coveralls.io/github/NikolayMakhonin/app-template?branch=node-module-gyp
+[travis-image]: https://travis-ci.org/NikolayMakhonin/app-template.svg?branch=node-module
+[travis-url]: https://travis-ci.org/NikolayMakhonin/app-template?branch=node-module
+[coveralls-image]: https://coveralls.io/repos/github/NikolayMakhonin/app-template/badge.svg?branch=node-module
+[coveralls-url]: https://coveralls.io/github/NikolayMakhonin/app-template?branch=node-module
 [downloads-image]: https://img.shields.io/npm/dm/app-template.svg
 [downloads-url]: https://npmjs.org/package/app-template
 [npm-url]: https://npmjs.org/package/app-template
