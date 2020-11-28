@@ -23,7 +23,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.run-script-rc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.run-script-rc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/intern/helpers/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/helpers/log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/intern/helpers/new/log.ts" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/helpers/new/log.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dev/status.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dev/status.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dev/validate.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dev/validate.svelte" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +40,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="node-module" />
+        <entry key="$PROJECT_DIR$" value="browser-helpers" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -210,6 +216,7 @@
       <workItem from="1604762711020" duration="1324000" />
       <workItem from="1606039457815" duration="4394000" />
       <workItem from="1606458874653" duration="720000" />
+      <workItem from="1606561392461" duration="2123000" />
     </task>
     <task id="LOCAL-00017" summary="Lint fixes">
       <created>1590570787647</created>
