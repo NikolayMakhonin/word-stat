@@ -16,10 +16,11 @@ const onwarn = (warning, nextOnWarn) => {
 
 export default {
 	client: {
-		input  : config.client.input(),
-		output : config.client.output(),
-		plugins: rollupPlugins.client({dev, legacy}),
+		input                  : config.client.input(),
+		output                 : config.client.output(),
+		plugins                : rollupPlugins.client({dev, legacy}),
 		onwarn,
+		preserveEntrySignatures: false,
 	},
 
 	server: {
