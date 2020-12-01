@@ -7,6 +7,7 @@ const postcssRollup = require('rollup-plugin-postcss')
 const postcssJsSyntax = require('postcss-js-syntax').default
 const postcssNested = require('postcss-nested')
 const postcssAutoPrefixer = require('autoprefixer')
+const postcssTailwindCss = require('tailwindcss')
 const postcssNano = require('cssnano')
 const postcssUrl = require('postcss-url')
 // const postcssGlobalWrapper = require('postcss-global-nested')
@@ -84,6 +85,7 @@ const plugins = [
 	postcssNested(),
 	// postcssCalc(),
 	// postcssGlobalWrapper(),
+	// postcssTailwindCss(path.resolve('./src/styles/tailwind.config.js')),
 	postcssAutoPrefixer({
 		// see: https://github.com/browserslist/browserslist
 		// see: .browserslistrc
