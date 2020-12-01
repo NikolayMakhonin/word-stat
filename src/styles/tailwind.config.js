@@ -1,11 +1,19 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-  purge   : [],
-  darkMode: false, // or 'media' or 'class'
-  theme   : {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+	purge: {
+		enabled: true,
+		content: ['./src/**/*.svelte'],
+	},
+	theme: {
+		extend: {
+			colors: {
+				'light-blue': colors.lightBlue,
+				cyan        : colors.cyan,
+			},
+		},
+	},
+	variants: {},
+	plugins : [],
 }
+
