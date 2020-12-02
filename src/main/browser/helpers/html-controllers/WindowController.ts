@@ -227,7 +227,7 @@ export class WindowController extends ObservableClass {
 	private async _waitLoad() {
 		await new Promise(resolve => {
 			if (!this.win) {
-				resolve()
+				resolve(null)
 				return
 			}
 
@@ -235,19 +235,19 @@ export class WindowController extends ObservableClass {
 			// this.win.addEventListener('load', resolve, false)
 			// this.win.addEventListener('DOMContentLoaded', resolve, false)
 			if (this.win.document.readyState === 'complete') {
-				resolve()
+				resolve(null)
 			}
 		})
 
 		await new Promise(resolve => {
 			if (!this.win) {
-				resolve()
+				resolve(null)
 				return
 			}
 
 			const _resolve = () => {
 				this.win.removeEventListener('resize', _resolve)
-				resolve()
+				resolve(null)
 			}
 
 			this.win.addEventListener('resize', _resolve, false)
