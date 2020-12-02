@@ -168,7 +168,7 @@
 		"postcss-calc": "^7.0.4",
 		"postcss-global-nested": "^1.2.0",
 		"postcss-js-syntax": "^1.0.7",
-		"postcss-nested": "^4.2.1",
+		"postcss-nested": "4.2.1",
 		"postcss-syntax": "^0.36.2",
 		"postcss-url": "^9.0.0",
 		"ps-tree": "^1.2.0",
