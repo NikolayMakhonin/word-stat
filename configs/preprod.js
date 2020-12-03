@@ -7,6 +7,7 @@ module.exports = {
 	packageName: `${base.packageName}-preprod`,
 	appName    : `${base.appName} PreProduction`,
 	appVersion : `${base.appVersion}`,
+	baseUrl    : base.baseUrl,
 	logUrls    : base.logUrls,
 	installer  : base.installer,
 

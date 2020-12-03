@@ -6,6 +6,7 @@ module.exports = {
 	packageName: `${base.packageName}-debug`,
 	appName    : `${base.appName} Debug`,
 	appVersion : `${base.appVersion}`,
+	baseUrl    : base.baseUrl,
 	logUrls    : base.logUrls,
 	installer  : base.installer,
 
