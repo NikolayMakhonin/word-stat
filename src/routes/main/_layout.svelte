@@ -87,7 +87,7 @@
 				<nav class="nav__content scroll__content">
 					<ul class="nav__list">
 						<li>
-							<a class="nav__item {segment === 'parser' ? 'nav__item--selected' : ''}" href="main/tailwind">
+							<a class="nav__item {segment === 'tailwind' ? 'nav__item--selected' : ''}" href="main/tailwind">
 								<span class="text">Tailwind</span>
 							</a>
 						</li>

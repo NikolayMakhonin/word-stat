@@ -2,6 +2,7 @@
 import {serveStatic} from '../../helpers/server'
 import {init} from '../init'
 const { app } = require('electron')
+import path from 'path'
 
 if (!process.env.APP_CONFIG) {
 	console.error('Environment variable APP_CONFIG is not defined', __filename)
@@ -23,5 +24,5 @@ init(app, appConfig, () => {
 	const protocolName = 'app'
 	app.setAsDefaultProtocolClient(protocolName)
 	serveStatic(app, protocolName, 'localhost', `dist/${appConfig.type}/sapper/export`)
-	return protocolName + '://localhost/app'
+	return path.join(protocolName + '://localhost/', appConfig.sapper.baseUrl)
 })

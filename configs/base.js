@@ -14,6 +14,7 @@ module.exports = {
 	},
 	sapper: {
 		devServer: (process.env.NODE_ENV || '').trim() === 'development',
+		baseUrl  : '/app',
 	},
 	tests: {
 		intern: {

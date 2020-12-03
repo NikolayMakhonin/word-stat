@@ -17,6 +17,15 @@ const {requireCss} = require('@flemist/require-css')
 const {register: registerBabel} = require('../babel/helpers')
 const babelrc = require('../babel/configs/postcss-js-syntax')
 const {asPromise} = require('../common/helpers')
+
+/* eslint-disable array-bracket-newline,no-process-env */
+if (!process.env.APP_CONFIG) {
+	console.error('Environment variable APP_CONFIG is not defined', __filename)
+	throw new Error('Environment variable APP_CONFIG is not defined')
+}
+
+const appConfig = require(`../../configs/${process.env.APP_CONFIG}`)
+
 const requireFromString = (code, filename, options) => _requireFromString(code, filename, {
 	logFilter(logEvent) {
 		if (logEvent.vars && logEvent.vars.request && (
@@ -93,7 +102,7 @@ const plugins = [
 	postcssUrl({
 		url(asset, dir, options, decl, warn, result) {
 			if (!asset.url.startsWith('/')) {
-				return `/app/${asset.url}`
+				return path.join(appConfig.sapper.baseUrl, `${asset.url}`)
 			}
 			return asset.url
 		},

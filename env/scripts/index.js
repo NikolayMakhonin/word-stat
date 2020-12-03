@@ -84,7 +84,7 @@ const testCiAll = singleCall(async (appConfigTypes, options = {}) => {
 	)
 })
 
-const packAll = singleCall(async (packTypes, appConfigTypes, options) => {
+const packAll = singleCall(async (packTypes, appConfigTypes, options = {}) => {
 	if (options.build !== false) {
 		await Promise.all([
 			common.lint(),
@@ -109,7 +109,7 @@ const packAll = singleCall(async (packTypes, appConfigTypes, options) => {
 	)
 })
 
-const deployAll = singleCall(async (appConfigTypes, options) => {
+const deployAll = singleCall(async (appConfigTypes, options = {}) => {
 	if (options.build !== false) {
 		await Promise.all([
 			common.lint(),

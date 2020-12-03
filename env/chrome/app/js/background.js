@@ -1,3 +1,5 @@
+import appConfig from './appConfig.js'
+
 /* eslint-disable default-case */
 function windowOpen(url, _name, options, callback) {
 	// docs: https://developer.chrome.com/apps/app_window#method-create
@@ -27,6 +29,7 @@ function windowOpen(url, _name, options, callback) {
 			})
 
 			appWindow.contentWindow.webview.src = url
+			// appWindow.contentWindow.webview.loadDataWithBaseUrl(url, '/app')
 
 			if (callback) {
 				callback(appWindow)
@@ -52,7 +55,7 @@ function init(launchData) {
 		height   : 700,
 	}
 
-	windowOpen('app/main/session/alerts/index.html', 'Main', options)
+	windowOpen(appConfig.sapper.baseUrl + '/main/tailwind/index.html', 'Main', options)
 }
 
 chrome.app.runtime.onLaunched.addListener(init)

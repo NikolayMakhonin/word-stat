@@ -14,7 +14,7 @@ module.exports = {
 	version         : appConfig.appVersion,
 	app             : {
 		background: {
-			scripts: ['js/background.js'],
+			page: 'background.html',
 		},
 	},
 

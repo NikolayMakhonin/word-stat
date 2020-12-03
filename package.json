@@ -109,6 +109,7 @@
 		"@rollup/plugin-node-resolve": "^9.0.0",
 		"@theintern/leadfoot": "^2.2.12",
 		"@types/chai": "^4.2.14",
+		"@types/chrome-apps": "0.0.12",
 		"@types/fs-extra": "^9.0.4",
 		"@types/mocha": "^8.0.4",
 		"@typescript-eslint/eslint-plugin": "^4.9.0",

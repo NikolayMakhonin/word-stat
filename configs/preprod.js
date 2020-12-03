@@ -25,6 +25,7 @@ module.exports = {
 		},
 	},
 	sapper: {
+		...base.sapper,
 		// buildMode: 'development',
 		port     : base.sapper.devServer ? 3000 : 3004,
 		devServer: base.sapper.devServer,
