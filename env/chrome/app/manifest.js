@@ -47,7 +47,7 @@ module.exports = {
 			// header.html, footer.html, and static.png.
 			{
 				name                : 'app',
-				accessible_resources: ['*.*'],
+				accessible_resources: ['app/*.*'],
 			},
 		],
 	},

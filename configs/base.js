@@ -5,6 +5,7 @@ module.exports = {
 	appName    : 'App Template',
 	appVersion : '0.0.1',
 	description: 'App Template',
+	baseUrl    : '/app',
 	logUrls    : [
 		// 'http://app-template.logger.com/log.php', // TODO
 	],
@@ -14,7 +15,6 @@ module.exports = {
 	},
 	sapper: {
 		devServer: (process.env.NODE_ENV || '').trim() === 'development',
-		baseUrl  : '/app',
 	},
 	tests: {
 		intern: {

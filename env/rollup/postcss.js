@@ -102,7 +102,7 @@ const plugins = [
 	postcssUrl({
 		url(asset, dir, options, decl, warn, result) {
 			if (!asset.url.startsWith('/')) {
-				return path.join(appConfig.sapper.baseUrl, `${asset.url}`)
+				return path.join(appConfig.baseUrl, `${asset.url}`)
 			}
 			return asset.url
 		},

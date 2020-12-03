@@ -52,7 +52,7 @@ const server = express()
 server.disable('x-powered-by')
 server
 	.use(
-		appConfig.sapper.baseUrl,
+		appConfig.baseUrl,
 		compression({threshold: 0}),
 		sirv('static', {dev}),
 		// Fix sapper template.html for Chrome App

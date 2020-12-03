@@ -10,5 +10,5 @@ init(app, appConfig, () => {
 	const protocolName = 'app'
 	app.setAsDefaultProtocolClient(protocolName)
 	serveStatic(app, protocolName, 'localhost', `dist/${appConfig.type}/sapper/export`)
-	return path.join(protocolName + '://localhost/', appConfig.sapper.baseUrl)
+	return path.join(protocolName + '://localhost/', appConfig.baseUrl)
 })

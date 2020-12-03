@@ -15,7 +15,7 @@ if (!process.env.APP_CONFIG) {
 const appConfig = require(`../../configs/${process.env.APP_CONFIG}`)
 
 const buildDir = path.resolve(`dist/${process.env.APP_CONFIG}/chrome/build/`)
-const appDir = path.relative(buildDir, path.join(`dist/${process.env.APP_CONFIG}/sapper/export/`, appConfig.sapper.baseUrl))
+const appDir = path.relative(buildDir, path.join(`dist/${process.env.APP_CONFIG}/sapper/export/`, appConfig.baseUrl))
 
 ;(async function () {
 	if (!fs.existsSync(buildDir)) {

@@ -29,7 +29,6 @@ function windowOpen(url, _name, options, callback) {
 			})
 
 			appWindow.contentWindow.webview.src = url
-			// appWindow.contentWindow.webview.loadDataWithBaseUrl(url, '/app')
 
 			if (callback) {
 				callback(appWindow)
@@ -55,7 +54,7 @@ function init(launchData) {
 		height   : 700,
 	}
 
-	windowOpen(appConfig.sapper.baseUrl + '/main/tailwind/index.html', 'Main', options)
+	windowOpen(appConfig.baseUrl + '/main/tailwind/index.html', 'Main', options)
 }
 
 chrome.app.runtime.onLaunched.addListener(init)

@@ -14,4 +14,4 @@ export const serverPort = appConfig.tests.intern.serverPort
 export const socketPort = appConfig.tests.intern.socketPort
 export const sapperPort = appConfig.sapper.port
 export const appConfigType = appConfig.type
-export const baseUrl = appConfig.sapper.baseUrl
+export const baseUrl = appConfig.baseUrl

@@ -22,12 +22,12 @@ registerSuite('main > sapper > routes > base', {
 		return runTest(this.remote, 10000, 5000, function *_1_base() {
 			yield openWindow(425, 882)
 			yield openWindow(425, 882)
-			yield getWithInternPort(path.join(appConfig.sapper.baseUrl, 'dev'))
+			yield getWithInternPort(path.join(appConfig.baseUrl, 'dev'))
 			yield testPage(
 				function *_testPage() {
 					yield testNavigate(
 						null, o => o.pathname,
-						path.join(appConfig.sapper.baseUrl, 'dev/components'), 2000,
+						path.join(appConfig.baseUrl, 'dev/components'), 2000,
 					)
 				},
 				errorPredicate,
