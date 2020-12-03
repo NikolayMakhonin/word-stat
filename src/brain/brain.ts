@@ -5,7 +5,6 @@ import {
 	deepSubscriber,
 	IDeSerializeValue,
 	IObservable,
-	IObservableMap,
 	ISerializable,
 	ISerializedObject,
 	ISerializeValue,
@@ -14,7 +13,6 @@ import {
 	ObservableClass,
 	registerSerializable,
 	resolvePath,
-	ValueChangeType,
 } from 'webrain'
 import {IBrain} from './contracts'
 import {MainWindow} from './view/MainWindow'

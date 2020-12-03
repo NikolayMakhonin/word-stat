@@ -5,6 +5,7 @@ import {
 	IPropertyChanged,
 	ObservableClass,
 } from 'webrain'
+import urlJoin from 'url-join'
 
 declare type Audio = any
 
@@ -307,7 +308,7 @@ new CalcObjectBuilder(AudioPlayer.prototype)
 
 const _cache: { [source: string]: AudioPlayer } = {}
 export function getAudio(source: string) {
-	source = new URL(source, document.baseURI).href
+	source = urlJoin(document.baseURI, source)
 	let item = _cache[source]
 	if (!item) {
 		_cache[source] = item = new AudioPlayer(source)

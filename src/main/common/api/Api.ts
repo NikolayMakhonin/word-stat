@@ -10,6 +10,7 @@ import {
 import {HttpDataType, IHttpClient, NetworkErrorType} from './contracts/http'
 import {toFormData, toFormUrlEncoded} from './helpers'
 import {NetworkError} from './NetworkError'
+import urlJoin from 'url-join'
 
 export interface IApiConstructorArgs {
 	urlBase?: string,
@@ -83,7 +84,7 @@ export class Api<TError> implements IApi<TError> {
 		}
 
 		if (this.urlBase) {
-			request.url = new URL(request.url, this.urlBase).href
+			request.url = urlJoin(this.urlBase, request.url)
 		}
 	}
 
