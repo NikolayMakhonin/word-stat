@@ -64,7 +64,7 @@
 	import Window from '../../components/app/Window.svelte'
 	// noinspection NpmUsedModulesInstalled
 	import appConfig from 'APP_CONFIG_PATH'
-	import {openWebrainWindow} from "../../components/app/Webrain"
+	import {openWebrainWindow} from '../../components/app/Webrain'
 
 	export let segment
 
@@ -87,14 +87,14 @@
 				<nav class="nav__content scroll__content">
 					<ul class="nav__list">
 						<li>
-							<a class="nav__item {segment === 'tailwind' ? 'nav__item--selected' : ''}" href="main/tailwind">
+							<a href="main/tailwind" class="nav__item {segment === 'tailwind' ? 'nav__item--selected' : ''}" rel="prefetch">
 								<span class="text">Tailwind</span>
 							</a>
 						</li>
 					</ul>
 				</nav>
 			</div>
-        	<div class="flex__item--fill scroll-vertical">
+			<div class="flex__item--fill scroll-vertical">
 				<slot></slot>
 			</div>
 		</div>
@@ -110,15 +110,42 @@
 	import borders from '../../styles/app/templates/borders';
 
 	module.exports = [
+		{
+			':global': [
+				`@tailwind base`,
+				`@tailwind components`,
+				`@tailwind utilities`,
+				{
+					'.flex-2': {
+						'flex': `2`,
+					},
+					'.flex-3': {
+						'flex': `3`,
+					},
+					'.text-160': {
+						'font-size': `160%`,
+					},
+					'.text-140': {
+						'font-size': `140%`,
+					},
+					'.text-120': {
+						'font-size': `120%`,
+					},
+				},
+			],
+		},
 		require('../../styles/app'),
 		{
 			main: {
 				'background-color': colors.base[7],
 				'color': colors.base[16],
 			},
+			'.content': {
+				// 'color': colors.base[0],
+			},
 			'.nav': {
 				'font-size': `160%`,
-				height: `2.2em`,
+				height: `2.5em`,
 				'background-color': colors.base[10],
 				...borders.base({
 					bottom: true,
@@ -126,9 +153,11 @@
 				}),
 				'&__list': {
 					'list-style': `none`,
+					display: `flex`,
 					padding: constants.space.half,
 				},
 				'&__item': {
+					position: `relative`,
 					padding: constants.space.half,
 					'&--selected': {
 						'font-weight': `600`,
@@ -137,7 +166,7 @@
 							content: `''`,
 							...borders.base({
 								bottom: true,
-								width: `3px`,
+								width: `4px`,
 								color: colors.base[14],
 							}),
 							'pointer-events': `none`,

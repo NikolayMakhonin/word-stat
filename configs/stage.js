@@ -3,13 +3,11 @@ const base = require('./base')
 
 module.exports = {
 	// base
+	...base,
 	appId      : `${base.appId}.stage`,
 	packageName: `${base.packageName}-stage`,
 	appName    : `${base.appName} Stage`,
 	appVersion : `${base.appVersion}`,
-	baseUrl    : base.baseUrl,
-	logUrls    : base.logUrls,
-	installer  : base.installer,
 
 	type: 'stage',
 	pack: {

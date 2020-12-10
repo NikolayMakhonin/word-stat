@@ -23,34 +23,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Update dependencies">
-      <change afterPath="$PROJECT_DIR$/env/chrome/app/background.html" afterDir="false" />
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Extract baseUrl option to config/base.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/base.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/debug.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/demo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/dev.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/preprod.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/preprod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/prod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/stage.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/stage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/chrome/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/chrome/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/chrome/app/js/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/chrome/app/js/background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/chrome/app/manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/chrome/app/manifest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/chrome/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/chrome/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/intern/configs/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/configs/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/intern/configs/export-coverage/intern.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/configs/export-coverage/intern.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/intern/configs/export/intern.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/configs/export/intern.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/rollup/postcss.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/postcss.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/scripts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/electron/run/dev-vm/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/electron/run/dev-vm/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/electron/run/dev/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/electron/run/dev/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/electron/run/export/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/electron/run/export/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/electron/run/pack/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/electron/run/pack/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/common/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/common/api/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/common/helpers/escape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/common/helpers/escape.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/main/_layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/main/_layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/main/index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/main/index.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/tests/webdriver/main/app/1_base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/tests/webdriver/main/app/1_base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/helpers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/helpers/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +117,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="plint" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="ts.external.directory.path" value="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -149,7 +135,7 @@
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Test Pack Dev">
+  <component name="RunManager" selected="npm.Pack Chrome Dev">
     <configuration default="true" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
@@ -274,42 +260,11 @@
       <workItem from="1606918912168" duration="2216000" />
       <workItem from="1606922348329" duration="1644000" />
       <workItem from="1606926798831" duration="24000" />
-      <workItem from="1606971796561" duration="13896000" />
-    </task>
-    <task id="LOCAL-00024" summary="Disabled windows travis tests. Rollback karma-edge-launcher">
-      <created>1590742007162</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1590742007162</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Fix scripts errors color">
-      <created>1590742033424</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1590742033424</updated>
-    </task>
-    <task id="LOCAL-00026" summary="travis OK">
-      <created>1590742524278</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1590742524278</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Fix coverage">
-      <created>1590759418327</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1590759418327</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Moved logger to separated module">
-      <created>1590940115570</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1590940115570</updated>
+      <workItem from="1606971796561" duration="18818000" />
+      <workItem from="1606997329765" duration="1538000" />
+      <workItem from="1606998954441" duration="16000" />
+      <workItem from="1606998975284" duration="695000" />
+      <workItem from="1607593295023" duration="1243000" />
     </task>
     <task id="LOCAL-00029" summary="Moved logger to separated module">
       <created>1590940632447</created>
@@ -619,7 +574,42 @@
       <option name="project" value="LOCAL" />
       <updated>1606923058614</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Extract baseUrl option to config/base.js">
+      <created>1606990692883</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1606990692883</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Extract baseUrl option to config/base.js">
+      <created>1606994028710</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1606994028710</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Extract baseUrl option to config/base.js">
+      <created>1606994200620</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1606994200620</updated>
+    </task>
+    <task id="LOCAL-00076" summary="replace new URL() to url-join">
+      <created>1606997684446</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1606997684446</updated>
+    </task>
+    <task id="LOCAL-00077" summary="replace new URL() to url-join">
+      <created>1606998576190</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1606998576190</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,8 +645,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fix coverage" />
-    <MESSAGE value="Moved logger to separated module" />
     <MESSAGE value="Fix resolveExternal" />
     <MESSAGE value="Merged with app2" />
     <MESSAGE value="Fix lint" />
@@ -680,7 +668,9 @@
     <MESSAGE value="Update postcss" />
     <MESSAGE value="Integrated tailwindcss" />
     <MESSAGE value="Update dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dependencies" />
+    <MESSAGE value="Extract baseUrl option to config/base.js" />
+    <MESSAGE value="replace new URL() to url-join" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace new URL() to url-join" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -692,10 +682,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="586" y="113" key="#Inspections/0.0.1920.882@0.0.1920.882" timestamp="1601729904444" />
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606987280301">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606991438006">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1606987280301" />
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1606991438006" />
     <state x="422" y="154" key="#org.intellij.plugins.intelliLang.inject.config.ui.BaseInjectionDialog" timestamp="1601711815579">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -704,106 +694,110 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.882@0.0.1920.882" timestamp="1601730650956" />
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606987707683">
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1607001077881">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606987707683" />
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1607001077881" />
     <state width="1843" height="581" key="DebuggerActiveHint" timestamp="1606818780971">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1843" height="581" key="DebuggerActiveHint/0.0.1920.882@0.0.1920.882" timestamp="1606818780971" />
-    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1606975710970">
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog" timestamp="1606998562534">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606975710970" />
-    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1606921134055">
+    <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606998562534" />
+    <state x="527" y="0" width="1098" height="781" key="EnvironmentVariablesDialog" timestamp="1606998804923">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1606921134055" />
-    <state width="1892" height="289" key="GridCell.Tab.0.bottom" timestamp="1606987302461">
+    <state x="527" y="0" width="1098" height="781" key="EnvironmentVariablesDialog/0.0.1920.882@0.0.1920.882" timestamp="1606998804923" />
+    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1606998860033">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="289" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606987302461" />
-    <state width="1892" height="289" key="GridCell.Tab.0.center" timestamp="1606987302460">
+    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1606998860033" />
+    <state width="1892" height="190" key="GridCell.Tab.0.bottom" timestamp="1606996903313">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="289" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1606987302460" />
-    <state width="1892" height="289" key="GridCell.Tab.0.left" timestamp="1606987302460">
+    <state width="1892" height="190" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606996903313" />
+    <state width="1892" height="190" key="GridCell.Tab.0.center" timestamp="1606996903313">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="289" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1606987302460" />
-    <state width="1892" height="289" key="GridCell.Tab.0.right" timestamp="1606987302461">
+    <state width="1892" height="190" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1606996903313" />
+    <state width="1892" height="190" key="GridCell.Tab.0.left" timestamp="1606996903313">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="289" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1606987302461" />
-    <state width="1892" height="268" key="GridCell.Tab.1.bottom" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1606996903313" />
+    <state width="1892" height="190" key="GridCell.Tab.0.right" timestamp="1606996903313">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.1.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.1.center" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1606996903313" />
+    <state width="1892" height="190" key="GridCell.Tab.1.bottom" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.1.center/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.1.left" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.1.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.1.center" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.1.left/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.1.right" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.1.center/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.1.left" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.1.right/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.2.bottom" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.1.left/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.1.right" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.2.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.2.center" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.1.right/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.2.bottom" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.2.center/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.2.left" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.2.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.2.center" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.2.left/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.2.right" timestamp="1606899781322">
+    <state width="1892" height="190" key="GridCell.Tab.2.center/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.2.left" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.2.right/0.0.1920.882@0.0.1920.882" timestamp="1606899781322" />
-    <state width="1892" height="268" key="GridCell.Tab.3.bottom" timestamp="1606899781323">
+    <state width="1892" height="190" key="GridCell.Tab.2.left/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.2.right" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.3.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606899781323" />
-    <state width="1892" height="268" key="GridCell.Tab.3.center" timestamp="1606899781323">
+    <state width="1892" height="190" key="GridCell.Tab.2.right/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.3.bottom" timestamp="1606996903315">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.3.center/0.0.1920.882@0.0.1920.882" timestamp="1606899781323" />
-    <state width="1892" height="268" key="GridCell.Tab.3.left" timestamp="1606899781323">
+    <state width="1892" height="190" key="GridCell.Tab.3.bottom/0.0.1920.882@0.0.1920.882" timestamp="1606996903315" />
+    <state width="1892" height="190" key="GridCell.Tab.3.center" timestamp="1606996903315">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.3.left/0.0.1920.882@0.0.1920.882" timestamp="1606899781323" />
-    <state width="1892" height="268" key="GridCell.Tab.3.right" timestamp="1606899781323">
+    <state width="1892" height="190" key="GridCell.Tab.3.center/0.0.1920.882@0.0.1920.882" timestamp="1606996903315" />
+    <state width="1892" height="190" key="GridCell.Tab.3.left" timestamp="1606996903314">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="268" key="GridCell.Tab.3.right/0.0.1920.882@0.0.1920.882" timestamp="1606899781323" />
+    <state width="1892" height="190" key="GridCell.Tab.3.left/0.0.1920.882@0.0.1920.882" timestamp="1606996903314" />
+    <state width="1892" height="190" key="GridCell.Tab.3.right" timestamp="1606996903315">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state width="1892" height="190" key="GridCell.Tab.3.right/0.0.1920.882@0.0.1920.882" timestamp="1606996903315" />
     <state x="666" y="68" key="RollbackChangesDialog" timestamp="1606987704016">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="666" y="68" key="RollbackChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1606987704016" />
-    <state x="343" y="0" key="SettingsEditor" timestamp="1606473503591">
+    <state x="343" y="0" key="SettingsEditor" timestamp="1606998985219">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606473503591" />
-    <state x="451" y="106" key="Vcs.Push.Dialog.v2" timestamp="1606919488306">
+    <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606998985219" />
+    <state x="451" y="106" key="Vcs.Push.Dialog.v2" timestamp="1607001085266">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="451" y="106" key="Vcs.Push.Dialog.v2/0.0.1920.882@0.0.1920.882" timestamp="1606919488306" />
+    <state x="451" y="106" key="Vcs.Push.Dialog.v2/0.0.1920.882@0.0.1920.882" timestamp="1607001085266" />
     <state width="969" height="450" key="XDebugger.FullValuePopup" timestamp="1606810870381">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="969" height="450" key="XDebugger.FullValuePopup/0.0.1920.882@0.0.1920.882" timestamp="1606810870381" />
-    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1606990434295">
+    <state x="0" y="0" width="1920" height="882" key="find.popup" timestamp="1606997591717">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1606990434295" />
+    <state x="0" y="0" width="1920" height="882" key="find.popup/0.0.1920.882@0.0.1920.882" timestamp="1606997591717" />
     <state x="43" y="43" width="1793" height="805" key="scopes" timestamp="1606461475596">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -859,5 +853,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="js.build_tools.npm">
+        <watch expression="path.join(`dist/${process.env.APP_CONFIG}/sapper/export/`, appConfig.sapper.baseUrl)" language="JavaScript" />
+        <watch expression="path.resolve(`dist/${process.env.APP_CONFIG}/chrome/build/`)" language="JavaScript" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

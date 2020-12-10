@@ -2,13 +2,11 @@ const base = require('./base')
 
 module.exports = {
 	// base
+	...base,
 	appId      : `${base.appId}.debug`,
 	packageName: `${base.packageName}-debug`,
 	appName    : `${base.appName} Debug`,
 	appVersion : `${base.appVersion}`,
-	baseUrl    : base.baseUrl,
-	logUrls    : base.logUrls,
-	installer  : base.installer,
 
 	type: 'debug',
 	pack: {

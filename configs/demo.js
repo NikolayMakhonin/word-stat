@@ -3,13 +3,11 @@ const base = require('./base')
 
 module.exports = {
 	// base
+	...base,
 	appId      : `${base.appId}.demo`,
 	packageName: `${base.packageName}-demo`,
 	appName    : `${base.appName} Demo`,
 	appVersion : `${base.appVersion}`,
-	baseUrl    : base.baseUrl,
-	logUrls    : base.logUrls,
-	installer  : base.installer,
 
 	type: 'demo',
 	pack: {

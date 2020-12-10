@@ -67,6 +67,9 @@ export class Api<TError> implements IApi<TError> {
 					request.data = JSON.stringify(request.data)
 					request.headers['Content-Type'] = 'application/json; charset=UTF-8'
 					break
+				case HttpDataType.String:
+					request.headers['Content-Type'] = 'text/plain; charset=UTF-8'
+					break
 				default:
 					throw new Error('Unknown dataType: ' + request.dataType)
 			}
@@ -128,6 +131,8 @@ export class Api<TError> implements IApi<TError> {
 				case HttpDataType.Json:
 					result = JSON.parse(response.data)
 					break
+				default:
+					result = response.data
 			}
 
 			const apiResult = {
