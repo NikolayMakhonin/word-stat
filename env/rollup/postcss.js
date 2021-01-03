@@ -92,7 +92,7 @@ const syntax = require('postcss-syntax')({
 const plugins = [
 	// This plugin is necessary and should be first in plugins list:
 	postcssNested(),
-	postcssTailwindCss(path.resolve('./src/styles/tailwind.config.js')),
+	// postcssTailwindCss(path.resolve('./src/styles/tailwind.config.js')),
 	// postcssCalc(),
 	// postcssGlobalWrapper(),
 	postcssAutoPrefixer({

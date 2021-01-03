@@ -24,10 +24,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/env/chrome/app/background.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/main/tailwind.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/client/images/tailwind.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/rollup/postcss.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/postcss.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,13 +224,6 @@
       <workItem from="1606039457815" duration="4394000" />
       <workItem from="1606458874653" duration="720000" />
       <workItem from="1606561392461" duration="2123000" />
-    </task>
-    <task id="LOCAL-00018" summary="Precommit OK.">
-      <created>1590571665630</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1590571665630</updated>
     </task>
     <task id="LOCAL-00019" summary="Precommit OK.">
       <created>1590572150098</created>
@@ -571,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609648667105</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Fix merge">
+      <created>1609649215586</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1609649215586</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,10 +685,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.882@0.0.1920.882" timestamp="1601730650956" />
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1609648666533">
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1609649214806">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1609648666533" />
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1609649214806" />
     <state width="1843" height="581" key="DebuggerActiveHint" timestamp="1601784278582">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
