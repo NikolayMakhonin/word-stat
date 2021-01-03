@@ -8,8 +8,8 @@ function fail($msg) {
 function deleteDir($dirPath) {
     if (! is_dir($dirPath)) {
         if (file_exists($dirPath)) {
-        fail("$dirPath must be a directory");
-    }
+        	fail("$dirPath must be a directory");
+    	}
         return true;
     }
     if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {

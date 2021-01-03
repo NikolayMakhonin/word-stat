@@ -2,8 +2,8 @@ DirectoryIndex index.html
 
 Authtype Basic
 
-AuthName "balda"
-AuthUserFile /home/otoka112/.htpasswds/balda
+AuthName "user"
+AuthUserFile /home/otoka112/.htpasswds/user
 Require valid-user
 
 <FilesMatch ".+\.(json|js)$">
