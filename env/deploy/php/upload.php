@@ -7,12 +7,15 @@ function fail($msg) {
 
 function deleteDir($dirPath) {
     if (! is_dir($dirPath)) {
+        if (file_exists($dirPath)) {
         fail("$dirPath must be a directory");
+    }
+        return true;
     }
     if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
         $dirPath .= '/';
     }
-    $files = glob($dirPath . '*', GLOB_MARK);
+    $files = glob($dirPath . '{,.}[!.,!..]*',GLOB_MARK|GLOB_BRACE); // from: https://stackoverflow.com/a/33059445/5221762
     foreach ($files as $file) {
         if (is_dir($file)) {
             deleteDir($file);
@@ -29,9 +32,9 @@ if (!$uploadedPath) {
     fail('Uploaded file is null');
 }
 
-$zipPath = 'deploy.zip';
-$tempDir = './unzipped';
-$destDir = './page';
+$zipPath = __DIR__ . '/deploy.zip';
+$tempDir = __DIR__ . '/unzipped';
+$destDir = __DIR__ . '/../' . $_POST['basePath'];
 
 if (file_exists($zipPath)) {
     unlink($zipPath);

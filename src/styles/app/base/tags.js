@@ -9,10 +9,7 @@ module.exports = [
 		},
 
 		a: {
-			...templates.anchorColor({
-				all: 'inherit',
-			}),
-			'text-decoration': 'inherit',
+			...templates.anchorAsDiv,
 			...templates.noSelect,
 			...templates.noDrag,
 		},
@@ -25,7 +22,7 @@ module.exports = [
 			'radio',
 			'checkbox',
 		]
-			.map(o => `input[type='${o}']`)
+			.map(o => `[type='${o}']`)
 			.join(', ')]: {
 			...templates.inputHidden,
 		},

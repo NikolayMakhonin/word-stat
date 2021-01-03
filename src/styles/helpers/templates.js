@@ -19,6 +19,7 @@ const buttonAsDiv = {
 	color             : 'inherit',
 	cursor            : 'auto',
 	display           : 'block',
+	'vertical-align'  : `middle`,
 
 	...fontInherit,
 
@@ -36,7 +37,9 @@ const buttonAsDiv = {
 	'word-spacing'          : '0',
 
 	// Firefox
-	border                   : 'none',
+	'border-style'           : `solid`,
+	'border-color'           : `black`,
+	'border-width'           : `0`,
 	'-moz-appearance'        : 'inherit',
 	'-moz-osx-font-smoothing': 'inherit',
 	'-moz-user-select'       : 'inherit',
@@ -63,10 +66,13 @@ const buttonAsDiv = {
 const textboxAsDiv = {
 	'background-color': 'transparent',
 	'background-image': 'none',
-	border            : 'none',
+	'border-style'    : `solid`,
+	'border-color'    : `black`,
+	'border-width'    : `0`,
 	'box-sizing'      : 'inherit',
 	display           : 'block',
 	color             : 'inherit',
+	'vertical-align'  : `middle`,
 
 	...fontInherit,
 	'font-family':	null,
@@ -171,15 +177,15 @@ const contentCenterButton = {
 
 const buttonsReset = {
 	[[
-		'input[type=\'button\']',
-		'input[type=\'submit\']',
-		'input[type=\'reset\']',
-		'input[type=\'color\']',
+		'[type=\'button\']',
+		'[type=\'submit\']',
+		'[type=\'reset\']',
+		'[type=\'color\']',
 		'button',
 	].join(',\n\t')]: [
 		buttonAsDiv,
 	],
-	'input[type=\'file\']::-webkit-file-upload-button': [
+	'[type=\'file\']::-webkit-file-upload-button': [
 		{
 			...buttonAsDiv,
 			'&::-moz-focus-inner': null,
@@ -190,11 +196,10 @@ const buttonsReset = {
 const textboxReset = {
 	[[
 		'textarea',
-		'input[type=\'text\']',
-		'input[type=\'email\']',
-		'input[type=\'password\']',
+		'[type=\'text\']',
+		'[type=\'email\']',
+		'[type=\'password\']',
 		'select',
-		'button',
 	].join(',\n\t')]: [
 		textboxAsDiv,
 	],
@@ -314,10 +319,8 @@ const marginAll = value => ({
 })
 
 const noSelect = {
-	'user-drag'          : 'none',
 	'user-select'        : 'none',
 	'-moz-user-select'   : 'none',
-	'-webkit-user-drag'  : 'none',
 	'-webkit-user-select': 'none',
 	'-ms-user-select'    : 'none',
 }

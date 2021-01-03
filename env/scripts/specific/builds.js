@@ -31,7 +31,7 @@ const buildSapperExport = singleCall(async appConfigType => {
 		`sapper export "dist/${appConfigType}/sapper/export/"`
 		+ ` --build-dir tmp/${appConfigType}/sapper/build`
 		+ ` --output src/node_modules/@sapper/${appConfigType}`
-		+ ' --timeout 180000 --legacy --basepath app',
+		+ ` --timeout 180000 --legacy --basepath ${require(`../../../configs/${appConfigType}`).baseUrl}`,
 		{
 			env: {
 				APP_CONFIG: appConfigType,

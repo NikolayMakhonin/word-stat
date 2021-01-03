@@ -2,6 +2,7 @@ const path = require('path')
 const needle = require('needle')
 const zipdir = require('zip-dir')
 const config = require('./deploy-config')
+const urlJoin = require('url-join')
 
 async function deploy() {
 	const zipBuffer = await new Promise((resolve, reject) => {
@@ -21,6 +22,7 @@ async function deploy() {
 			filename    : 'deploy.zip',
 			content_type: 'application/octet-stream',
 		},
+		basePath: config.basePath,
 	}
 
 	const result = await new Promise((resolve, reject) => {
@@ -52,7 +54,7 @@ async function deploy() {
 	}
 
 	console.log('Deploy successful!')
-	console.log(`${path.dirname(config.url)}/page`)
+	console.log(urlJoin(path.dirname(path.dirname(config.url)), config.basePath))
 }
 
 deploy()

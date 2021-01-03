@@ -25,6 +25,18 @@ module.exports = [
 			'white-space'   : 'nowrap',
 
 			...templates.fonts.clear,
+
+			'font-size': '100% !important',
+		},
+		'.icon-mask': {
+			'-webkit-mask-position'  : `center center`,
+			'-webkit-mask-position-x': `center`,
+			'-webkit-mask-position-y': `center`,
+			'mask-position'          : `center center`,
+			'-webkit-mask-size'      : `contain`,
+			'mask-size'              : `contain`,
+			'-webkit-mask-repeat'    : `no-repeat`,
+			'mask-repeat'            : `no-repeat`,
 		},
 	},
 ]

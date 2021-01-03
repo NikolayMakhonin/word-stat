@@ -57,7 +57,13 @@ module.exports = [
 				'vertical-align': 'middle',
 			},
 		},
-		'.nowrap': {
+		'.no-drag': {
+			...templates.noDrag,
+		},
+		'.no-select': {
+			...templates.noSelect,
+		},
+		'.no-wrap': {
 			...templates.noWrap(),
 			'&-2': {
 				...templates.noWrap({maxLines: 2}),
