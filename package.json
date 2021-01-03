@@ -160,6 +160,7 @@
 		"svelte": "^3.31.0",
 		"svelte-preprocess": "^3.9.12",
 		"svelte-themes-preprocess": "^1.0.5",
+		"tailwindcss": "2.0.1-compat",
 		"typescript": "^4.1.2",
 		"url-join": "^4.0.1",
 		"webrain": "^1.2.2-a"
