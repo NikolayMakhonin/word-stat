@@ -3,6 +3,7 @@ const base = require('./base')
 
 module.exports = {
 	// base
+	...base,
 	packageName: `${base.packageName}-dev`,
 
 	type : 'dev',
