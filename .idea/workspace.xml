@@ -24,17 +24,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/configs/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/debug.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/preprod.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/preprod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/stage.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/stage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/intern/configs/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/configs/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/intern/configs/export/intern.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/intern/configs/export/intern.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/rollup/postcss.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/rollup/postcss.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/chrome/app/background.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/main/tailwind.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/client/images/tailwind.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,13 +227,6 @@
       <workItem from="1606039457815" duration="4394000" />
       <workItem from="1606458874653" duration="720000" />
       <workItem from="1606561392461" duration="2123000" />
-    </task>
-    <task id="LOCAL-00017" summary="Lint fixes">
-      <created>1590570787647</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1590570787647</updated>
     </task>
     <task id="LOCAL-00018" summary="Precommit OK.">
       <created>1590571665630</created>
@@ -578,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606478293623</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Fix merge">
+      <created>1609648667105</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1609648667105</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +597,39 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="browser-helpers" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="browser-helpers" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -614,7 +639,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Disabled windows travis tests. Rollback karma-edge-launcher" />
     <MESSAGE value="Fix scripts errors color" />
     <MESSAGE value="travis OK" />
     <MESSAGE value="Upgrade mocha 5.2.0 -&gt; 7.2.0" />
@@ -639,7 +663,8 @@
     <MESSAGE value="Small changes" />
     <MESSAGE value="Integrated @flemist/run-script module" />
     <MESSAGE value="Suppress experimental warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Suppress experimental warnings" />
+    <MESSAGE value="Fix merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix merge" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -663,10 +688,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="651" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.882@0.0.1920.882" timestamp="1601730650956" />
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1606478292902">
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2" timestamp="1609648666533">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1606478292902" />
+    <state x="0" y="0" width="1919" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1609648666533" />
     <state width="1843" height="581" key="DebuggerActiveHint" timestamp="1601784278582">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -675,10 +700,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="0" y="2" width="1920" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1606478289646" />
-    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1606473426879">
+    <state x="686" y="134" key="FileChooserDialogImpl" timestamp="1609649040208">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1606473426879" />
+    <state x="686" y="134" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1609649040208" />
     <state width="1892" height="238" key="GridCell.Tab.0.bottom" timestamp="1601833364385">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -755,6 +780,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="343" y="0" key="SettingsEditor/0.0.1920.882@0.0.1920.882" timestamp="1606473503591" />
+    <state x="691" y="108" key="VcsDiffUtil.ChangesDialog" timestamp="1609649186828">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="691" y="108" key="VcsDiffUtil.ChangesDialog/0.0.1920.882@0.0.1920.882" timestamp="1609649186828" />
     <state width="969" height="450" key="XDebugger.FullValuePopup" timestamp="1601716969584">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
