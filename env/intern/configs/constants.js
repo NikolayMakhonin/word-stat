@@ -13,4 +13,3 @@ export const staticPort = appConfig.tests.intern.staticPort
 export const serverPort = appConfig.tests.intern.serverPort
 export const socketPort = appConfig.tests.intern.socketPort
 export const appConfigType = appConfig.type
-export const baseUrl = appConfig.baseUrl

@@ -4,10 +4,7 @@ const base = require('./base')
 module.exports = {
 	// base
 	...base,
-	appId      : `${base.appId}.dev`,
 	packageName: `${base.packageName}-dev`,
-	appName    : `${base.appName} Dev`,
-	appVersion : `${base.appVersion}`,
 
 	type : 'dev',
 	tests: {
@@ -16,11 +13,5 @@ module.exports = {
 			serverPort: 3022,
 			socketPort: 3032,
 		},
-	},
-	sapper: {
-		...base.sapper,
-		buildMode: 'development',
-		port     : base.sapper.devServer ? 3000 : 3002,
-		devServer: base.sapper.devServer,
 	},
 }

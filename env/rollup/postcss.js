@@ -99,14 +99,14 @@ const plugins = [
 		// see: https://github.com/browserslist/browserslist
 		// see: .browserslistrc
 	}),
-	postcssUrl({
-		url(asset, dir, options, decl, warn, result) {
-			if (!asset.url.startsWith('/')) {
-				return path.join(appConfig.baseUrl, `${asset.url}`)
-			}
-			return asset.url
-		},
-	}),
+	// postcssUrl({
+	// 	url(asset, dir, options, decl, warn, result) {
+	// 		if (!asset.url.startsWith('/')) {
+	// 			return path.join(appConfig.baseUrl, `${asset.url}`)
+	// 		}
+	// 		return asset.url
+	// 	},
+	// }),
 	// postcssNested(),
 	// postcssGlobalWrapper(),
 	// postcssAutoPrefixer({

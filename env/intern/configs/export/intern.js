@@ -1,5 +1,4 @@
 import {staticPort, appConfigType} from '../constants'
-import path from 'path'
 
 export default {
 	plugins: [
