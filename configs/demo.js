@@ -3,7 +3,7 @@ const base = require('./base')
 
 module.exports = {
 	// base
-	packageName: `${base.packageName}-demo`,
+	...base,
 
 	type : 'demo',
 	tests: {

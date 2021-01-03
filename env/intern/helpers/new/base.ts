@@ -24,9 +24,9 @@ export function pathToUrl(...concatPaths: string[]): string {
 			.replace(/^\//, '')
 	}`
 
-	const url = new URL(relativeUrl, intern.config.serverUrl)
+	const url = urlJoin(intern.config.serverUrl, relativeUrl)
 
-	return url.href
+	return url
 }
 
 export const getWithPort = iter(function *getWithPort(port: number, relativeUrl: string) {

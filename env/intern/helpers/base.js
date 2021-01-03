@@ -2,6 +2,7 @@
 const intern = require('intern').default
 const path = require('path')
 const Command = require('@theintern/leadfoot/Command').default
+const urlJoin = require('url-join')
 
 if (!process.env.APP_CONFIG) {
 	console.error('Environment variable APP_CONFIG is not defined', __filename)
@@ -22,9 +23,9 @@ global.pathToUrl = function (...concatPaths) {
 			.replace(/^\//, '')
 	}`
 
-	const url = new URL(relativeUrl, intern.config.serverUrl)
+	const url = urlJoin(intern.config.serverUrl, relativeUrl)
 
-	return url.href
+	return url
 }
 
 Command.prototype.getRoot = function () {

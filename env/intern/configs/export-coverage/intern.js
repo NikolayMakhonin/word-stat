@@ -27,7 +27,7 @@ export default {
 		// 		servers: [
 		// 			{
 		// 				port : staticPort,
-		// 				inits: [['/app', `dist/${appConfigType}/sapper/export/app`]],
+		// 				inits: [[baseUrl, path.join(`dist/${appConfigType}/sapper/export`, baseUrl)]],
 		// 			},
 		// 		],
 		// 	},

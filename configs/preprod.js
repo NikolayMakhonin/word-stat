@@ -3,7 +3,7 @@ const base = require('./base')
 
 module.exports = {
 	// base
-	packageName: `${base.packageName}-preprod`,
+	...base,
 
 	type : 'preprod',
 	tests: {

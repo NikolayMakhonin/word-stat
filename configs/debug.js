@@ -2,7 +2,11 @@ const base = require('./base')
 
 module.exports = {
 	// base
+	...base,
+	appId      : `${base.appId}.debug`,
 	packageName: `${base.packageName}-debug`,
+	appName    : `${base.appName} Debug`,
+	appVersion : `${base.appVersion}`,
 
 	type : 'debug',
 	tests: {
@@ -11,5 +15,11 @@ module.exports = {
 			serverPort: 3020,
 			socketPort: 3030,
 		},
+	},
+	sapper: {
+		...base.sapper,
+		buildMode: 'development',
+		port     : base.sapper.devServer ? 3000 : 3000,
+		devServer: base.sapper.devServer,
 	},
 }

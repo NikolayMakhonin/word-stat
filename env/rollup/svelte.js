@@ -26,12 +26,13 @@ const transformJsToCss = toCachedFunc(
 function rollupCommon(options = {}) {
 	const sveltePreprocessInstance = sveltePreprocess({
 		transformers: {
+			scss      : true,
 			javascript: transformJsToCss,
-			// postcss: {
-			// 	// see: https://github.com/postcss/postcss
-			// 	plugins  : postcss.plugins,
-			// 	sourceMap: false // 'inline',
-			// }
+			postcss   : {
+				// see: https://github.com/postcss/postcss#options
+				plugins: postcss.plugins,
+				map    : false, // 'inline',
+			},
 		},
 	})
 
