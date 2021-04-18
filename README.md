@@ -22,7 +22,7 @@ Config:
 ```cmd
 (
 SET TEMPLATE_BRANCH=node-module
-SET TEMPLATE_REPO=https://github.com/NikolayMakhonin/app-template.git
+SET TEMPLATE_REPO=https://github.com/NikolayMakhonin/word-stat.git
 SET /p DIR_NAME=Enter project directory name:
 SET /p YOUR_REPO_URL=Enter your new clear repository url:
 )
@@ -48,7 +48,7 @@ git branch -u origin/master master
 
 Or you can just clone repository without history using this command:
 ```bash
-npx degit NikolayMakhonin/app-template#node-module <app name> && cd <app name> && npm i && npm run test
+npx degit NikolayMakhonin/word-stat#node-module <app name> && cd <app name> && npm i && npm run test
 ```
 
 # Documentation
@@ -75,14 +75,14 @@ npx degit NikolayMakhonin/app-template#node-module <app name> && cd <app name> &
 
 [CC0-1.0](LICENSE)
 
-[npm-image]: https://img.shields.io/npm/v/app-template.svg
-[npm-url]: https://npmjs.org/package/app-template
-[node-version-image]: https://img.shields.io/node/v/app-template.svg
+[npm-image]: https://img.shields.io/npm/v/word-stat.svg
+[npm-url]: https://npmjs.org/package/word-stat
+[node-version-image]: https://img.shields.io/node/v/word-stat.svg
 [node-version-url]: https://nodejs.org/en/download/
-[travis-image]: https://travis-ci.org/NikolayMakhonin/app-template.svg?branch=node-module
-[travis-url]: https://travis-ci.org/NikolayMakhonin/app-template?branch=node-module
-[coveralls-image]: https://coveralls.io/repos/github/NikolayMakhonin/app-template/badge.svg?branch=node-module
-[coveralls-url]: https://coveralls.io/github/NikolayMakhonin/app-template?branch=node-module
-[downloads-image]: https://img.shields.io/npm/dm/app-template.svg
-[downloads-url]: https://npmjs.org/package/app-template
-[npm-url]: https://npmjs.org/package/app-template
+[travis-image]: https://travis-ci.org/NikolayMakhonin/word-stat.svg?branch=node-module
+[travis-url]: https://travis-ci.org/NikolayMakhonin/word-stat?branch=node-module
+[coveralls-image]: https://coveralls.io/repos/github/NikolayMakhonin/word-stat/badge.svg?branch=node-module
+[coveralls-url]: https://coveralls.io/github/NikolayMakhonin/word-stat?branch=node-module
+[downloads-image]: https://img.shields.io/npm/dm/word-stat.svg
+[downloads-url]: https://npmjs.org/package/word-stat
+[npm-url]: https://npmjs.org/package/word-stat
