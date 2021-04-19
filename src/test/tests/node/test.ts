@@ -52,7 +52,7 @@ describe('node > test', function () {
 
 		const wasReadStat = await calcStat({
 			wordsCache,
-			fileOrDirPath: 'assets/wasRead',
+			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
 		})
 
 		const resultDir = 'tmp/result'
@@ -62,13 +62,13 @@ describe('node > test', function () {
 
 		const wantReadStat = await calcStat({
 			wordsCache,
-			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books\\',
+			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books',
 			filterPhrases(phraseId: string) {
 				return !wasReadStat.has(phraseId)
 			},
 			async onFileHandled(filePath, filePathRelative, phrasesStat, totalWords) {
 				phrasesStat.reduce(true)
-				let resultPath = path.resolve(resultDir, filePathRelative)
+				let resultPath = path.resolve(resultDir, filePathRelative.replace(/[\\/]/g, ' - '))
 
 				const entries = phrasesStat.entries()
 				const unknownWords = entries.reduce((a, o) => {
