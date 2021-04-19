@@ -2,6 +2,7 @@
 import path from 'path'
 import sqlite from 'better-sqlite3'
 import yauzl from 'yauzl'
+import {Iconv} from 'iconv'
 
 export function getCountBooksQuery({
 	lang,
@@ -65,11 +66,11 @@ export function getBooksQuery({
 	`
 }
 
-function streamToString(stream): Promise<Buffer> {
+function streamToString(stream: NodeJS.ReadableStream): Promise<Buffer> {
 	return new Promise((resolve, reject) => {
 		const chunks = []
 		stream.on('data', (chunk) => {
-			chunks.push(chunk.toString())
+			chunks.push(chunk)
 		})
 		stream.on('error', err => {
 			reject(err)
@@ -130,7 +131,7 @@ export async function processLibRusEc({
 		}))
 		.all()
 
-	console.log(rows.length, rows[0])
+	// console.log(rows.length, rows[0])
 
 	const archives = rows.reduce((a, o) => {
 		let files = a[o.Folder]
@@ -189,14 +190,25 @@ export async function processLibRusEc({
 								return
 							}
 
-							const buffer = await streamToString(readStream)
-							const text = buffer.toString('utf-8')
+							try {
+								let buffer = await streamToString(readStream)
+								const header = buffer.toString('utf-8', 0, 100)
+								const encoding = (header.match(/encoding\s*[=:]\s*['"]([^['"]+)['"]/)[1] || 'UTF-8').toUpperCase()
+								if (encoding !== 'UTF-8') {
+									// @ts-ignore
+									const iconv = new Iconv(encoding, 'UTF-8')
+									buffer = iconv.convert(buffer)
+								}
+								const text = buffer.toString('utf-8')
 
-							await processBook(book, text)
+								await processBook(book, text)
 
-							countHandled++
+								countHandled++
 
-							zipFile.readEntry()
+								zipFile.readEntry()
+							} catch (err2) {
+								reject(err2)
+							}
 						})
 					})
 				})

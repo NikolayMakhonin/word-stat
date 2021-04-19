@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow,quotes */
 import path from 'path'
 import sqlite from 'better-sqlite3'
-import {processLibRusEc} from '../../../main/node/processLibRusEc'
+import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
 
 describe('node > processLibRusEc', function () {
 	this.timeout(30 * 24 * 60 * 60 * 1000)
@@ -39,10 +39,14 @@ describe('node > processLibRusEc', function () {
 	})
 
 	it('base', async function () {
-		processLibRusEc({
+		await processLibRusEc({
 			dbPath,
-			lang       : 'en',
-			processFile: null,
+			booksDir,
+			lang: 'en',
+			processBook(book: IBook, text: string) {
+				console.log(text.substring(0, 1000))
+				throw new Error('test')
+			},
 		})
 	})
 })
