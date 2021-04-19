@@ -36,6 +36,9 @@ export function getBooksQuery({
 			b.BookID,
 			b.LibID COLLATE NOCASE as LibID,
 			b.Lang COLLATE NOCASE as Lang,
+			a.FirstName COLLATE NOCASE as AuthorFirstName,
+			a.MiddleName COLLATE NOCASE as AuthorMiddleName,
+			a.LastName COLLATE NOCASE as AuthorLastName,
 			GROUP_CONCAT(DISTINCT a.[AuthorID]) as AuthorIDs,
 			b.Title COLLATE NOCASE as Title,
 			s.SeriesTitle COLLATE NOCASE as SeriesTitle,
@@ -85,6 +88,9 @@ export interface IBook {
 	BookID: number
 	LibID: string
 	Lang: string
+	AuthorFirstName: string,
+	AuthorMiddleName: string,
+	AuthorLastName: string,
 	AuthorIDs: string
 	Title: string
 	SeriesTitle: string

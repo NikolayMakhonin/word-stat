@@ -6,9 +6,13 @@ import {WordsCache} from '../../../main/common/WordsCache'
 import {processFiles} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
+import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
 
 describe('node > test', function () {
-	this.timeout(6000000)
+	this.timeout(30 * 24 * 60 * 60 * 1000)
+
+	const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
+	const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
 
 	async function calcStat({
 		wordsCache,
@@ -47,7 +51,7 @@ describe('node > test', function () {
 		return phrasesStat
 	}
 
-	it('base', async function () {
+	it('localFiles', async function () {
 		const wordsCache = new WordsCache()
 
 		const wasReadStat = await calcStat({
@@ -101,5 +105,72 @@ describe('node > test', function () {
 		// const statStr = phrasesStatToString(wordsCache, wantReadStat.entries())
 		//
 		// console.log(statStr)
+	})
+
+	it('libRusEc', async function () {
+		const wordsCache = new WordsCache()
+
+		const wasReadStat = await calcStat({
+			wordsCache,
+			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
+		})
+
+		const resultFile = 'tmp/result.txt'
+
+		if (fse.existsSync(resultFile)) {
+			await fse.unlink(resultFile)
+		}
+
+		let resultStr = ''
+		let prevTime = Date.now()
+
+		await processLibRusEc({
+			dbPath,
+			booksDir,
+			lang: 'en',
+			async processBook(book: IBook, text: string) {
+				console.log(text.substring(0, 1000))
+				const phrasesStat = new PhrasesStat()
+				const phrasesStatCollector = new PhrasesStatCollector({
+					wordsCache,
+					phrasesStat,
+					filterPhrases(phraseId: string) {
+						return !wasReadStat.has(phraseId)
+					},
+				})
+				const totalWords = phrasesStatCollector.addText(text)
+
+				const entries = phrasesStat.entries()
+				const unknownWords = entries.reduce((a, o) => {
+					return o[1].wordsCount === 1
+						? a + 1
+						: a
+				}, 0)
+
+				const wordsPerPage = 200
+				const totalPages = totalWords / wordsPerPage
+				const unknownWordsPer100Pages = Math.round(unknownWords / (totalPages / 100))
+
+				const bookName = (
+					book.AuthorFirstName + ' '
+					+ book.AuthorMiddleName + ' '
+					+ book.AuthorLastName + ' - '
+					+ book.Title).replace(/\s+/g, ' ',
+				)
+
+				if (resultStr) {
+					resultStr += '\r\n'
+				}
+				resultStr += unknownWordsPer100Pages + '\t' + bookName
+
+				const now = Date.now()
+
+				if (now - prevTime > 10 * 1000) {
+					await fse.writeFile(resultFile, resultStr, { encoding: 'utf-8' })
+				}
+			},
+		})
+
+		await fse.writeFile(resultFile, resultStr, { encoding: 'utf-8' })
 	})
 })

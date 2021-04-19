@@ -7,7 +7,6 @@ describe('node > processLibRusEc', function () {
 	this.timeout(30 * 24 * 60 * 60 * 1000)
 
 	const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
-	const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
 
 	it('open', function () {
 		const db = sqlite(dbPath, {})
@@ -36,17 +35,5 @@ describe('node > processLibRusEc', function () {
 		}
 
 		assert.strictEqual(count, 10)
-	})
-
-	it('base', async function () {
-		await processLibRusEc({
-			dbPath,
-			booksDir,
-			lang: 'en',
-			processBook(book: IBook, text: string) {
-				console.log(text.substring(0, 1000))
-				throw new Error('test')
-			},
-		})
 	})
 })
