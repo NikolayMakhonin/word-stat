@@ -1,7 +1,7 @@
 import {decode} from 'html-entities'
 
 export function removeHtmlTags(text: string) {
-	text = text.replace(/<description>.*?<\/description>|<binary .*?<\/binary>|<[a-zA-Z][\w\-]*(\s[^\r\n>]*)?\/?>|<\/[a-zA-Z][\w\-]*>|<\?[a-zA-Z][\w\-]*(\s[^\r\n>]*)?\?>/is, '\r\n')
+	text = text.replace(/<description>.*?<\/description>|<binary .*?<\/binary>|<[a-zA-Z][\w-]*(\s[^\r\n>]*)?\/?>|<\/[a-zA-Z][\w-]*>|<\?[a-zA-Z][\w-]*(\s[^\r\n>]*)?\?>/isg, '\r\n')
 	text = decode(text)
 	return text
 }

@@ -34,6 +34,10 @@ export class PhrasesStat {
 		this.reduce()
 	}
 
+	has(phraseId: string): boolean {
+		return this._phraseToStat.has(phraseId)
+	}
+
 	reduce(force?: boolean) {
 		if (!force && this._phraseToStat.size <= this._maxCount + this._bufferCount) {
 			return

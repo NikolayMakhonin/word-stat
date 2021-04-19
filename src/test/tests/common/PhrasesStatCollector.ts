@@ -13,7 +13,9 @@ describe('node > PhrasesStatCollector', function () {
 			phrasesStat,
 		})
 
-		phrasesStatCollector.addText(` Word’B - WordA  Word-C \t worda ; word-c wordA , wordD Wordd  - `)
+		const totalWords = phrasesStatCollector.addText(` Word’B - WordA   Word-C \t worda <p> word-c  wordA </p> wordD Wordd  - `)
+
+		assert.strictEqual(totalWords, 8)
 
 		phrasesStat.reduce(true)
 		const statStr = phrasesStatToString(wordsCache, phrasesStat.entries())
