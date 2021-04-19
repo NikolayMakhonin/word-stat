@@ -127,6 +127,7 @@ describe('node > test', function () {
 		const state: {
 			[bookId: string]: {
 				bookId: number,
+				unknownWordsInFirstPage: number,
 				unknownWords: number,
 				totalWords: number,
 				bookName: string,
@@ -142,16 +143,13 @@ describe('node > test', function () {
 
 			const report = Object.values(state)
 				.sort((o1, o2) => {
-					const score1 = o1.unknownWords / o1.totalWords
-					const score2 = o2.unknownWords / o2.totalWords
-					return score1 > score2
+					return o1.unknownWordsInFirstPage > o2.unknownWordsInFirstPage
 						? 1
 						: -1
 				})
 				.map(o => {
 					const totalPages = o.totalWords / wordsPerPage
-					const unknownWordsPerPage = o.unknownWords / totalPages
-					return unknownWordsPerPage.toFixed(2) + '\t'
+					return o.unknownWordsInFirstPage.toFixed(2) + '\t'
 						+ o.unknownWords + '\t'
 						+ totalPages + '\t'
 						+ o.bookId + '\t'
@@ -184,13 +182,18 @@ describe('node > test', function () {
 				const totalWords = phrasesStatCollector.addText(text)
 
 				const entries = phrasesStat.entries()
-				const unknownWordsInFirstPages = entries.reduce((a, o) => {
+				const unknownWords = entries.reduce((a, o) => {
+					return o[1].wordsCount === 1
+						? a + 1
+						: a
+				}, 0)
+				const unknownWordsInFirstPage = entries.reduce((a, o) => {
 					if (o[1].wordsCount !== 1) {
 						return a
 					}
-					const countInFirstPages = Math.min(1, (o[1].count / (firstPagesForEstimate * wordsPerPage)))
+					const countInFirstPages = Math.min(1, o[1].count * firstPagesForEstimate * wordsPerPage / totalWords)
 					return a + countInFirstPages
-				}, 0)
+				}, 0) / firstPagesForEstimate
 
 				const bookName = (
 					book.AuthorFirstName + ' '
@@ -201,7 +204,8 @@ describe('node > test', function () {
 
 				state[book.BookID] = {
 					bookId: book.BookID,
-					unknownWordsInFirstPages,
+					unknownWordsInFirstPage,
+					unknownWords,
 					totalWords,
 					bookName,
 				}
