@@ -13,6 +13,8 @@ describe('node > test', function () {
 
 	const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
 	const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
+	const wordsPerPage = 200
+	const firstPagesForEstimate = 3
 
 	async function calcStat({
 		wordsCache,
@@ -81,7 +83,6 @@ describe('node > test', function () {
 						: a
 				}, 0)
 
-				const wordsPerPage = 200
 				const totalPages = totalWords / wordsPerPage
 				const unknownWordsPer100Pages = Math.round(unknownWords / (totalPages / 100))
 
@@ -126,7 +127,8 @@ describe('node > test', function () {
 		const state: {
 			[bookId: string]: {
 				bookId: number,
-				unknownWordsPer100Pages: number,
+				unknownWords: number,
+				totalWords: number,
 				bookName: string,
 			}
 		} = fse.existsSync(stateFile)
@@ -140,11 +142,21 @@ describe('node > test', function () {
 
 			const report = Object.values(state)
 				.sort((o1, o2) => {
-					return o1.unknownWordsPer100Pages > o2.unknownWordsPer100Pages
+					const score1 = o1.unknownWords / o1.totalWords
+					const score2 = o2.unknownWords / o2.totalWords
+					return score1 > score2
 						? 1
 						: -1
 				})
-				.map(o => o.unknownWordsPer100Pages + '\t' + o.bookId + '\t' + o.bookName)
+				.map(o => {
+					const totalPages = o.totalWords / wordsPerPage
+					const unknownWordsPerPage = o.unknownWords / totalPages
+					return unknownWordsPerPage.toFixed(2) + '\t'
+						+ o.unknownWords + '\t'
+						+ totalPages + '\t'
+						+ o.bookId + '\t'
+						+ o.bookName.trim()
+				})
 				.join('\r\n')
 
 			await fse.writeFile(reportFile, report, { encoding: 'utf-8' })
@@ -172,26 +184,25 @@ describe('node > test', function () {
 				const totalWords = phrasesStatCollector.addText(text)
 
 				const entries = phrasesStat.entries()
-				const unknownWords = entries.reduce((a, o) => {
-					return o[1].wordsCount === 1
-						? a + 1
-						: a
+				const unknownWordsInFirstPages = entries.reduce((a, o) => {
+					if (o[1].wordsCount !== 1) {
+						return a
+					}
+					const countInFirstPages = Math.min(1, (o[1].count / (firstPagesForEstimate * wordsPerPage)))
+					return a + countInFirstPages
 				}, 0)
-
-				const wordsPerPage = 200
-				const totalPages = totalWords / wordsPerPage
-				const unknownWordsPer100Pages = Math.round(unknownWords / (totalPages / 100))
 
 				const bookName = (
 					book.AuthorFirstName + ' '
 					+ book.AuthorMiddleName + ' '
 					+ book.AuthorLastName + ' - '
 					+ book.Title).replace(/\s+/g, ' ',
-				)
+				).trim()
 
 				state[book.BookID] = {
 					bookId: book.BookID,
-					unknownWordsPer100Pages,
+					unknownWordsInFirstPages,
+					totalWords,
 					bookName,
 				}
 
