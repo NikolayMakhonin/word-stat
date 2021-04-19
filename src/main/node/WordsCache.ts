@@ -1,6 +1,6 @@
 export class WordsCache {
-	_idToStr = new Map<number, string>()
-	_strToId = new Map<string, number>()
+	_idToStr = new Map<string, string>()
+	_strToId = new Map<string, string>()
 	_nextId = 1
 	_normalize?: (str: string) => string
 	_getSynonims?: (str: string) => string[]
@@ -16,11 +16,11 @@ export class WordsCache {
 		this._getSynonims = getSynonims
 	}
 
-	get(id: number): string {
+	get(id: string): string {
 		return this._idToStr.get(id)
 	}
 
-	getId(str: string): number {
+	getId(str: string): string {
 		const strNormalized = this._normalize
 			? this._normalize(str)
 			: str
@@ -28,14 +28,14 @@ export class WordsCache {
 		return this._strToId.get(strNormalized)
 	}
 
-	put(str: string): number {
+	put(str: string): string {
 		const strNormalized = this._normalize
 			? this._normalize(str)
 			: str
 
 		let id = this._strToId.get(strNormalized)
 		if (id == null) {
-			id = this._nextId++
+			id = (this._nextId++).toString()
 			this._strToId.set(strNormalized, id)
 			this._idToStr.set(id, str)
 			if (this._getSynonims) {

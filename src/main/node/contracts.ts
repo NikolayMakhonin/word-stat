@@ -1,5 +1,3 @@
-export type TWordsCache = Map<string, number>
-
-export interface IStatCollector {
+export interface IPhrasesStatCollector {
 	addText(text: string): void
 }
