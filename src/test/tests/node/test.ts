@@ -82,11 +82,18 @@ describe('node > test', function () {
 						? a + 1
 						: a
 				}, 0)
+				const unknownWordsInFirstPage = entries.reduce((a, o) => {
+					if (o[1].wordsCount !== 1) {
+						return a
+					}
+					const countInFirstPages = Math.min(1, o[1].count * firstPagesForEstimate * wordsPerPage / totalWords)
+					return a + countInFirstPages
+				}, 0) / firstPagesForEstimate
 
 				const totalPages = totalWords / wordsPerPage
 				const unknownWordsPer100Pages = Math.round(unknownWords / (totalPages / 100))
 
-				resultPath = resultPath.replace(/([\\/])([^\\/]+)$/, `$1${unknownWordsPer100Pages.toString().padStart(5, '0')} - $2`)
+				resultPath = resultPath.replace(/([\\/])([^\\/]+)$/, `$1${unknownWordsInFirstPage.toString().padStart(5, '0')} - $2`)
 				resultPath = resultPath.replace(/\.\w+$/, '.txt')
 
 				const statStr = phrasesStatToString(wordsCache, entries)

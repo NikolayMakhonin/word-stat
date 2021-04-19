@@ -24,7 +24,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/tests/node/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/tests/node/test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +128,7 @@
       <recent name="L:\Work\_GIT\GitHub\NodeJs\templates\app-template\env\chrome\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.node &gt; test.libRusEc">
+  <component name="RunManager" selected="Mocha.node &gt; test.localFiles">
     <configuration default="true" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
@@ -230,25 +229,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="node &gt; test.base" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>node</node-interpreter>
-      <node-options>--max-old-space-size=4096 --allow-natives-syntax</node-options>
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs>
-        <env name="APP_CONFIG" value="dev" />
-      </envs>
-      <ui>bdd</ui>
-      <extra-mocha-options>--config ./env/mocha/configs/babel/.mocharc.js --watch</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/test/tests/node/test.ts</test-file>
-      <test-names>
-        <name value="node &gt; test" />
-        <name value="base" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="node &gt; test.libRusEc" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>node</node-interpreter>
       <node-options>--max-old-space-size=4096 --allow-natives-syntax</node-options>
@@ -268,11 +248,30 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="node &gt; test.localFiles" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>node</node-interpreter>
+      <node-options>--max-old-space-size=4096 --allow-natives-syntax</node-options>
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs>
+        <env name="APP_CONFIG" value="dev" />
+      </envs>
+      <ui>bdd</ui>
+      <extra-mocha-options>--config ./env/mocha/configs/babel/.mocharc.js</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/src/test/tests/node/test.ts</test-file>
+      <test-names>
+        <name value="node &gt; test" />
+        <name value="localFiles" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Mocha.Watch" />
       <item itemvalue="Mocha.Coverage" />
       <item itemvalue="Mocha.node &gt; PhrasesStatCollector.base" />
-      <item itemvalue="Mocha.node &gt; test.base" />
+      <item itemvalue="Mocha.node &gt; test.localFiles" />
       <item itemvalue="Mocha.node &gt; processLibRusEc.base" />
       <item itemvalue="Mocha.node &gt; processLibRusEc" />
       <item itemvalue="Mocha.node &gt; test.libRusEc" />
@@ -286,10 +285,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.node &gt; test.localFiles" />
         <item itemvalue="Mocha.node &gt; test.libRusEc" />
         <item itemvalue="Mocha.node &gt; processLibRusEc.base" />
         <item itemvalue="Mocha.node &gt; processLibRusEc" />
-        <item itemvalue="Mocha.node &gt; test.base" />
         <item itemvalue="Mocha.node &gt; PhrasesStatCollector.base" />
       </list>
     </recent_temporary>
@@ -332,14 +331,7 @@
       <workItem from="1606561392461" duration="2123000" />
       <workItem from="1618752448134" duration="2515000" />
       <workItem from="1618802418760" duration="22939000" />
-      <workItem from="1618844362248" duration="13309000" />
-    </task>
-    <task id="LOCAL-00031" summary="Fix resolveExternal">
-      <created>1590942171314</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1590942171314</updated>
+      <workItem from="1618844362248" duration="13435000" />
     </task>
     <task id="LOCAL-00032" summary="Fix resolveExternal">
       <created>1590942567339</created>
@@ -677,7 +669,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618857560897</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="lib.rus.ec parser completed">
+      <created>1618858186335</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1618858186335</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -742,10 +741,10 @@
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618858179663">
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618858306919">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1618858179663" />
+    <state x="409" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.882@0.0.1920.882" timestamp="1618858306919" />
     <state x="91" y="91" width="1738" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1618816307709">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -754,10 +753,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="646" y="218" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.882@0.0.1920.882" timestamp="1618802774436" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1618857560391">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1618858185701">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1618857560391" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1618858185701" />
     <state width="999" height="564" key="DebuggerActiveHint" timestamp="1618851351511">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -770,22 +769,22 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="686" y="135" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1618753609842" />
-    <state width="1892" height="201" key="GridCell.Tab.0.bottom" timestamp="1618858127042">
+    <state width="1892" height="201" key="GridCell.Tab.0.bottom" timestamp="1618858181008">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="201" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1618858127042" />
-    <state width="1892" height="201" key="GridCell.Tab.0.center" timestamp="1618858127042">
+    <state width="1892" height="201" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1618858181008" />
+    <state width="1892" height="201" key="GridCell.Tab.0.center" timestamp="1618858181008">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="201" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1618858127042" />
-    <state width="1892" height="201" key="GridCell.Tab.0.left" timestamp="1618858127042">
+    <state width="1892" height="201" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1618858181008" />
+    <state width="1892" height="201" key="GridCell.Tab.0.left" timestamp="1618858181008">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="201" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1618858127042" />
-    <state width="1892" height="201" key="GridCell.Tab.0.right" timestamp="1618858127042">
+    <state width="1892" height="201" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1618858181008" />
+    <state width="1892" height="201" key="GridCell.Tab.0.right" timestamp="1618858181008">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="201" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1618858127042" />
+    <state width="1892" height="201" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1618858181008" />
     <state width="1892" height="280" key="GridCell.Tab.1.bottom" timestamp="1618853263684">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
