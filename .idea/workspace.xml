@@ -24,12 +24,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/node/StatCollector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/node/contracts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/node/read-files.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/node/PhrasesParser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/node/WordsCache.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/node/contracts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/contracts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/node/read-files.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/read-files.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,21 +222,8 @@
       <workItem from="1606039457815" duration="4394000" />
       <workItem from="1606458874653" duration="720000" />
       <workItem from="1606561392461" duration="2123000" />
-      <workItem from="1618752448134" duration="2308000" />
-    </task>
-    <task id="LOCAL-00019" summary="Precommit OK.">
-      <created>1590572150098</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1590572150098</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Fix travis">
-      <created>1590731758479</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1590731758479</updated>
+      <workItem from="1618752448134" duration="2515000" />
+      <workItem from="1618802418760" duration="4172000" />
     </task>
     <task id="LOCAL-00021" summary="Change karma-edge-launcher to karma-edgium-launcher">
       <created>1590733806026</created>
@@ -568,7 +554,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618752633014</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Develop">
+      <created>1618754764569</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1618754764569</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Develop">
+      <created>1618754958824</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1618754958825</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +604,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="travis OK" />
     <MESSAGE value="Upgrade mocha 5.2.0 -&gt; 7.2.0" />
     <MESSAGE value="Fix coverage" />
     <MESSAGE value="Moved logger to separated module" />
@@ -629,14 +628,19 @@
     <MESSAGE value="Suppress experimental warnings" />
     <MESSAGE value="Fix merge" />
     <MESSAGE value="Prepared project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepared project" />
+    <MESSAGE value="Develop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1618752632391">
+    <state x="646" y="218" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618802774436">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1618752632391" />
+    <state x="646" y="218" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.882@0.0.1920.882" timestamp="1618802774436" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1618754958335">
+      <screen x="0" y="0" width="1920" height="882" />
+    </state>
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1618754958335" />
     <state x="686" y="135" key="FileChooserDialogImpl" timestamp="1618753609842">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
