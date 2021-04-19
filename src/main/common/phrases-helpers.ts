@@ -1,4 +1,4 @@
-import {IPhraseStat, PhrasesStat} from './PhrasesStat'
+import {IPhraseStat} from './PhrasesStat'
 import {WordsCache} from './WordsCache'
 
 export function createWordPattern(
@@ -11,7 +11,7 @@ export function createPhrasePattern(
 	wordPatern: string,
 	betweenLettersPattern: string,
 ) {
-	return `((?:${wordPatern})((?:${betweenLettersPattern})?(?:${wordPatern}))*)+`
+	return `((?:${wordPatern})((?:${betweenLettersPattern})*?(?:${wordPatern})+)*)+`
 }
 
 export function createRegExp(
@@ -49,16 +49,11 @@ export function processPhraseCombines(
 	wordsCache: WordsCache,
 	processPhrase: (wordsIds: string[], indexStart: number, indexEnd: number) => void
 ) {
-	for (let i = 1, len = wordsIds.length; i < len; i++) {
-		for (let j = len - 1; j >= i; j--) {
+	for (let i = 0, len = wordsIds.length; i < len; i++) {
+		for (let j = i + 1; j <= len; j++) {
 			processPhrase(wordsIds, i, j)
 		}
 	}
-}
-
-export function normalize(str: string) {
-	str = str.trim().toLowerCase().replace('ё', 'е')
-	return str
 }
 
 export function getPhraseId(wordsIds: string[], indexStart: number, indexEndExclusie: number) {
@@ -91,6 +86,9 @@ export function phrasesStatToString(wordsCache: WordsCache, entries: [string, IP
 	let result = ''
 	for (let i = 0, len = entries.length; i < len; i++) {
 		const [phraseId, phraseStat] = entries[i]
+		if (phraseStat.count === 1 && phraseStat.wordsCount > 1) {
+			continue
+		}
 		if (result) {
 			result += '\r\n'
 		}

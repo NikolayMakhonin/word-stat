@@ -2,11 +2,12 @@ import {IPhrasesStatCollector} from './contracts'
 import {
 	createPhrasePattern,
 	createRegExp,
-	createWordPattern, getPhraseId,
+	createWordPattern,
+	getPhraseId,
 	parsePhrases,
 	parseWordsIds,
-	processPhraseCombines
-} from './parse-phrases'
+	processPhraseCombines,
+} from './phrases-helpers'
 import {PhrasesStat} from './PhrasesStat'
 import {textPreprocess} from './textPreprocess'
 import {WordsCache} from './WordsCache'
@@ -23,7 +24,7 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 	constructor({
 		phrasesStat,
 		wordsCache,
-		textPreprocess,
+		textPreprocess: _textPreprocess,
 		lettersPatern,
 		betweenLettersPattern,
 	}:{
@@ -35,11 +36,13 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 	}) {
 		this._wordsCache = wordsCache
 		this._phrasesStat = phrasesStat
-		this._textPreprocess = textPreprocess
+		this._textPreprocess = _textPreprocess || textPreprocess
 
-		const wordPattern = createWordPattern(lettersPatern || `[a-zA-Zа-яА-ЯёЁ_]|\\b['-]\\b`)
+		// eslint-disable-next-line quotes
+		const wordPattern = createWordPattern(lettersPatern || `[a-zA-Zа-яА-ЯёЁ_]|(?<=[a-zA-Z])'(?=[a-zA-Z])|(?<=[a-zA-Zа-яА-ЯёЁ_])-(?=[a-zA-Zа-яА-ЯёЁ_])`)
 		this._wordRegExp = createRegExp(wordPattern)
-		this._phraseRegExp = createRegExp(createPhrasePattern(wordPattern, betweenLettersPattern || `[ \t'-]`))
+		// eslint-disable-next-line quotes
+		this._phraseRegExp = createRegExp(createPhrasePattern(wordPattern, betweenLettersPattern || `[ \t]`))
 
 	}
 
@@ -47,8 +50,8 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 		text = (this._textPreprocess || textPreprocess)(text)
 		parsePhrases(text, this._phraseRegExp, phrase => {
 			const wordsIds = parseWordsIds(phrase, this._wordRegExp, this._wordsCache)
-			processPhraseCombines(wordsIds, this._wordsCache, (wordsIds, indexStart, indexEndExclusie) => {
-				const phraseId = getPhraseId(wordsIds, indexStart, indexEndExclusie)
+			processPhraseCombines(wordsIds, this._wordsCache, (_wordsIds, indexStart, indexEndExclusie) => {
+				const phraseId = getPhraseId(_wordsIds, indexStart, indexEndExclusie)
 				this._phrasesStat.add(phraseId, indexEndExclusie - indexStart)
 			})
 		})

@@ -1,16 +1,19 @@
 import fse from 'fs-extra'
+import path from 'path'
 
 export function processFiles({
-	fileOrDirPath,
-	excludePaths,
+	fileOrDirPath: _fileOrDirPath,
+	filterPaths,
 	processFile,
 }: {
 	fileOrDirPath: string,
-	excludePaths: (fileOrDirPath: string) => boolean,
-	processFile: (fileName: string) => Promise<void>,
+	filterPaths?: (fileOrDirPath: string) => boolean,
+	processFile: (filePath: string) => Promise<void>|void,
 }) {
 	async function _processFiles(fileOrDirPath: string) {
-		if (excludePaths(fileOrDirPath)) {
+		fileOrDirPath = path.resolve(fileOrDirPath)
+
+		if (filterPaths && !filterPaths(fileOrDirPath)) {
 			return
 		}
 
@@ -25,11 +28,11 @@ export function processFiles({
 
 		const subPaths = await fse.readdir(fileOrDirPath)
 		for (let i = 0, len = subPaths.length; i < len; i++) {
-			_processFiles(subPaths[i])
+			// eslint-disable-next-line no-await-in-loop
+			await _processFiles(path.resolve(fileOrDirPath, subPaths[i]))
 		}
 	}
 
-	return _processFiles(fileOrDirPath)
+	return _processFiles(_fileOrDirPath)
 }
-
 

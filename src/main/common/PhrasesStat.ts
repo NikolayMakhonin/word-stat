@@ -26,6 +26,7 @@ export class PhrasesStat {
 				count: 1,
 				wordsCount,
 			}
+			this._phraseToStat.set(phraseId, phraseStat)
 		} else {
 			phraseStat.count++
 		}
@@ -40,11 +41,11 @@ export class PhrasesStat {
 
 		const entries = Array.from(this._phraseToStat.entries())
 		entries.sort((o1, o2) => {
-			if (o1[1].count > o2[1].count) {
-				return -1
+			if (o1[1].count !== o2[1].count) {
+				return o1[1].count > o2[1].count ? -1 : 1
 			}
-			if (o1[1].wordsCount < o2[1].wordsCount) {
-				return -1
+			if (o1[1].wordsCount !== o2[1].wordsCount) {
+				return o1[1].wordsCount > o2[1].wordsCount ? 1 : -1
 			}
 			return 0
 		})

@@ -1,3 +1,8 @@
+export function normalize(str: string) {
+	str = str.trim().toLowerCase().replace('ё', 'е')
+	return str
+}
+
 export class WordsCache {
 	_idToStr = new Map<string, string>()
 	_strToId = new Map<string, string>()
@@ -6,13 +11,13 @@ export class WordsCache {
 	_getSynonims?: (str: string) => string[]
 
 	constructor({
-		normalize,
+		normalize: _normalize,
 		getSynonims,
 	}: {
 		normalize?: (str: string) => string,
 		getSynonims?: (str: string) => string[],
 	} = {}) {
-		this._normalize = normalize
+		this._normalize = _normalize || normalize
 		this._getSynonims = getSynonims
 	}
 

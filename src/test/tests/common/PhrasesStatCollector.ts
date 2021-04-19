@@ -3,12 +3,9 @@ import {phrasesStatToString} from '../../../main/common/phrases-helpers'
 import {PhrasesStat} from '../../../main/common/PhrasesStat'
 import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
-import {processFiles} from '../../../main/node/processFiles'
-import path from 'path'
-import fse from 'fs-extra'
 
-describe('node > test', function () {
-	it('base', async function () {
+describe('node > PhrasesStatCollector', function () {
+	it('base', function () {
 		const wordsCache = new WordsCache()
 		const phrasesStat = new PhrasesStat()
 		const phrasesStatCollector = new PhrasesStatCollector({
@@ -16,20 +13,13 @@ describe('node > test', function () {
 			phrasesStat,
 		})
 
-		await processFiles({
-			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books\\B1 pre-intermediate\\The Law of Life - Jack London.txt',
-			async processFile(filePath) {
-				if (!/\.(txt|fb2)$/i.test(filePath)) {
-					return
-				}
-				const text = await fse.readFile(filePath, { encoding: 'utf-8' })
-				phrasesStatCollector.addText(text)
-			},
-		})
+		phrasesStatCollector.addText(` Word’B - WordA  Word-C \t worda ; word-c wordA , wordD Wordd  - `)
 
 		phrasesStat.reduce(true)
 		const statStr = phrasesStatToString(wordsCache, phrasesStat.entries())
 
 		console.log(statStr)
+
+		assert.strictEqual(statStr, "3\tWordA\r\n2\tWord-C\r\n2\twordD\r\n2\tWord-C WordA\r\n1\tWord'B")
 	})
 })
