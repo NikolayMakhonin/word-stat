@@ -109,6 +109,15 @@ export interface IBook {
 	Genres: string
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        const temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+    }
+}
+
 export async function processLibRusEc({
 	dbPath,
 	booksDir,
@@ -138,6 +147,8 @@ export async function processLibRusEc({
 		.all()
 
 	// console.log(rows.length, rows[0])
+
+	shuffleArray(rows)
 
 	const archives = rows.reduce((a, o) => {
 		let files = a[o.Folder]
@@ -199,7 +210,8 @@ export async function processLibRusEc({
 							try {
 								let buffer = await streamToString(readStream)
 								const header = buffer.toString('utf-8', 0, 100)
-								const encoding = (header.match(/encoding\s*[=:]\s*['"]([^['"]+)['"]/)[1] || 'UTF-8').toUpperCase()
+								const headerMatch = header.match(/encoding\s*[=:]\s*['"]([^['"]+)['"]/)
+								const encoding = (headerMatch && headerMatch[1] || 'UTF-8').toUpperCase()
 								if (encoding !== 'UTF-8') {
 									// @ts-ignore
 									const iconv = new Iconv(encoding, 'UTF-8')

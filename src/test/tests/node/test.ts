@@ -115,21 +115,52 @@ describe('node > test', function () {
 			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
 		})
 
-		const resultFile = 'tmp/result.txt'
+		const stateFile = path.resolve('tmp/libRusEc/state.txt')
+		const reportFile = path.resolve('tmp/libRusEc/report.txt')
+		const dir = path.dirname(reportFile)
 
-		if (fse.existsSync(resultFile)) {
-			await fse.unlink(resultFile)
+		if (!fse.existsSync(dir)) {
+			await fse.mkdirp(dir)
 		}
 
-		let resultStr = ''
+		const state: {
+			[bookId: string]: {
+				bookId: number,
+				unknownWordsPer100Pages: number,
+				bookName: string,
+			}
+		} = fse.existsSync(stateFile)
+			? JSON.parse(await fse.readFile(stateFile, { encoding: 'utf-8' }))
+			: {}
+
 		let prevTime = Date.now()
+
+		async function save() {
+			await fse.writeFile(stateFile, JSON.stringify(state), { encoding: 'utf-8' })
+
+			const report = Object.values(state)
+				.sort((o1, o2) => {
+					return o1.unknownWordsPer100Pages > o2.unknownWordsPer100Pages
+						? 1
+						: -1
+				})
+				.map(o => o.unknownWordsPer100Pages + '\t' + o.bookId + '\t' + o.bookName)
+				.join('\r\n')
+
+			await fse.writeFile(reportFile, report, { encoding: 'utf-8' })
+		}
 
 		await processLibRusEc({
 			dbPath,
 			booksDir,
 			lang: 'en',
 			async processBook(book: IBook, text: string) {
-				console.log(text.substring(0, 1000))
+				// console.log(text.substring(0, 1000))
+
+				if (state[book.BookID]) {
+					return
+				}
+
 				const phrasesStat = new PhrasesStat()
 				const phrasesStatCollector = new PhrasesStatCollector({
 					wordsCache,
@@ -158,19 +189,20 @@ describe('node > test', function () {
 					+ book.Title).replace(/\s+/g, ' ',
 				)
 
-				if (resultStr) {
-					resultStr += '\r\n'
+				state[book.BookID] = {
+					bookId: book.BookID,
+					unknownWordsPer100Pages,
+					bookName,
 				}
-				resultStr += unknownWordsPer100Pages + '\t' + bookName
 
 				const now = Date.now()
 
 				if (now - prevTime > 10 * 1000) {
-					await fse.writeFile(resultFile, resultStr, { encoding: 'utf-8' })
+					await save()
 				}
 			},
 		})
 
-		await fse.writeFile(resultFile, resultStr, { encoding: 'utf-8' })
+		await save()
 	})
 })
