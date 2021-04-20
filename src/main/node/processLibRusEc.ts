@@ -222,7 +222,6 @@ export async function processLibRusEc({
 								await processBook(book, text)
 
 								countHandled++
-
 								zipFile.readEntry()
 							} catch (err2) {
 								reject(err2)

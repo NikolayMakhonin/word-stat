@@ -47,10 +47,14 @@ export function parseWordsIds(
 export function processPhraseCombines(
 	wordsIds: string[],
 	wordsCache: WordsCache,
-	processPhrase: (wordsIds: string[], indexStart: number, indexEnd: number) => void
+	maxPhraseLength: number|null,
+	processPhrase: (wordsIds: string[], indexStart: number, indexEnd: number) => void,
 ) {
 	for (let i = 0, len = wordsIds.length; i < len; i++) {
-		for (let j = i + 1; j <= len; j++) {
+		const len2 = maxPhraseLength
+			? Math.min(i + maxPhraseLength, len)
+			: len
+		for (let j = i + 1; j <= len2; j++) {
 			processPhrase(wordsIds, i, j)
 		}
 	}
@@ -99,4 +103,17 @@ export function phrasesStatToString(wordsCache: WordsCache, entries: [string, IP
 		result += phrase
 	}
 	return result
+}
+
+export function countMatches(regexp: RegExp, text: string, sumLength?: boolean) {
+	let count = 0
+	let match
+	while ((match = regexp.exec(text)) !== null) {
+		if (sumLength) {
+			count += match[0].length
+		} else {
+			count++
+		}
+	}
+	return count
 }

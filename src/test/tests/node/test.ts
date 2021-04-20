@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow,quotes */
-import {phrasesStatToString} from '../../../main/common/phrases-helpers'
+import {countMatches, phrasesStatToString} from '../../../main/common/phrases-helpers'
 import {PhrasesStat} from '../../../main/common/PhrasesStat'
 import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
@@ -21,10 +21,12 @@ describe('node > test', function () {
 		fileOrDirPath,
 		filterPhrases,
 		onFileHandled,
+		maxPhraseLength,
 	}: {
 		wordsCache: WordsCache,
 		fileOrDirPath: string,
 		filterPhrases?: (phraseId: string) => boolean,
+		maxPhraseLength?: number,
 		onFileHandled?: (filePath: string, filePathRelative: string, phrasesStat: PhrasesStat, totalWords: number) => Promise<void>|void,
 	}) {
 		const phrasesStat = new PhrasesStat()
@@ -32,6 +34,7 @@ describe('node > test', function () {
 			wordsCache,
 			phrasesStat,
 			filterPhrases,
+			maxPhraseLength,
 		})
 
 		await processFiles({
@@ -120,7 +123,8 @@ describe('node > test', function () {
 
 		const wasReadStat = await calcStat({
 			wordsCache,
-			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
+			fileOrDirPath  : 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
+			maxPhraseLength: 1,
 		})
 
 		const stateFile = path.resolve('tmp/libRusEc/state.txt')
@@ -146,6 +150,8 @@ describe('node > test', function () {
 		let prevTime = Date.now()
 
 		async function save() {
+			wordsCache.clear()
+
 			await fse.writeFile(stateFile, JSON.stringify(state), { encoding: 'utf-8' })
 
 			const report = Object.values(state)
@@ -185,8 +191,23 @@ describe('node > test', function () {
 					filterPhrases(phraseId: string) {
 						return !wasReadStat.has(phraseId)
 					},
+					filterText(text: string) {
+						if (book.Lang.toUpperCase() !== 'RU') {
+							const ruLength = countMatches(/[а-яА-ЯёЁ]+/, text, true)
+							if (ruLength > 0.01 * text.length) {
+								return false
+							}
+						}
+						return true
+					},
+					maxPhraseLength: 1,
 				})
+
 				const totalWords = phrasesStatCollector.addText(text)
+
+				if (!totalWords) {
+					return
+				}
 
 				const entries = phrasesStat.entries()
 				const unknownWords = entries.reduce((a, o) => {
@@ -218,8 +239,8 @@ describe('node > test', function () {
 				}
 
 				const now = Date.now()
-
-				if (now - prevTime > 10 * 1000) {
+				if (now - prevTime > 60 * 1000) {
+					prevTime = now
 					await save()
 				}
 			},
