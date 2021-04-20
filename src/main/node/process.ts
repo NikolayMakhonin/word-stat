@@ -213,7 +213,7 @@ export async function processLibgen({
 			return 0
 		})
 
-		let reportStr = 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalWords'
+		let reportStr = 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalWords\r\n'
 		reportStr += _log.map(o => `${
 			o.id
 		}\t${
