@@ -66,6 +66,14 @@ export async function calcStat({
 	return phrasesStat
 }
 
+interface ILogEntry {
+	id: number,
+	hash: string,
+	unknownWordsIn3Pages: number,
+	unknownWordsIn20Pages: number,
+	unknownWords: number,
+	totalWords: number,
+}
 
 export async function processLibgen({
 	dbPath,
@@ -158,7 +166,7 @@ export async function processLibgen({
 	// endregion
 
 	const stateFile = path.resolve(resultsDir, 'state.json')
-	const logFile = path.resolve(resultsDir, 'log.txt')
+	const logFile = path.resolve(resultsDir, 'log.json')
 	const reportFile = path.resolve(resultsDir, 'report.txt')
 	const dir = path.dirname(reportFile)
 
@@ -172,14 +180,7 @@ export async function processLibgen({
 		? await fse.readJSON(stateFile, { encoding: 'utf-8' })
 		: { scannedArchives: {} }
 
-	const log: Array<{
-		id: number,
-		hash: string,
-		unknownWordsIn3Pages: number,
-		unknownWordsIn20Pages: number,
-		unknownWords: number,
-		totalWords: number,
-	}> = []
+	const log: ILogEntry[] = []
 
 	let scannedBooks = Object.keys(state.scannedArchives).reduce((a, o) => {
 		return a + state.scannedArchives[o]
@@ -190,30 +191,59 @@ export async function processLibgen({
 		console.log(`${scannedBooks} / (${(scannedBooks * 100 / totalBooks).toFixed(2)}%)`)
 	}
 
+	async function report() {
+		if (!fse.existsSync(logFile)) {
+			return
+		}
+		const logStr = (await fse.readFile(logFile, {encoding: 'utf-8'})) + ']'
+		const _log: ILogEntry[] = JSON.parse(logStr)
+		_log.sort((o1, o2) => {
+			if (o1.unknownWordsIn3Pages !== o2.unknownWordsIn3Pages) {
+				return o1.unknownWordsIn3Pages > o2.unknownWordsIn3Pages ? 1 : -1
+			}
+			if (o1.unknownWordsIn20Pages !== o2.unknownWordsIn20Pages) {
+				return o1.unknownWordsIn20Pages > o2.unknownWordsIn20Pages ? 1 : -1
+			}
+			if (o1.unknownWords !== o2.unknownWords) {
+				return o1.unknownWords > o2.unknownWords ? 1 : -1
+			}
+			if (o1.totalWords !== o2.totalWords) {
+				return o1.totalWords > o2.totalWords ? -1 : 1
+			}
+			return 0
+		})
+
+		let reportStr = 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalWords'
+		reportStr += _log.map(o => `${
+			o.id
+		}\t${
+			o.hash
+		}\t${
+			o.unknownWordsIn3Pages
+		}\t${
+			o.unknownWordsIn20Pages
+		}\t${
+			o.unknownWords
+		}\t${
+			o.totalWords
+		}`)
+			.join('\r\n')
+
+		await fse.writeFile(reportFile, reportStr, { encoding: 'utf-8' })
+	}
+
 	async function save() {
 		if (log.length > 0) {
-			const logStr = log.map(o => `${
-				o.id
-			}\t${
-				o.hash
-			}\t${
-				o.unknownWordsIn3Pages
-			}\t${
-				o.unknownWordsIn20Pages
-			}\t${
-				o.unknownWords
-			}\t${
-				o.totalWords
-			}`)
-				.join('\r\n') + '\r\n'
+			let logStr = JSON.stringify(log)
+			logStr = (fse.existsSync(logFile) ? ',' : '[')
+				+ logStr.substring(1, logStr.length - 1)
 			await fse.appendFile(logFile, logStr, {encoding: 'utf-8'})
 			log.length = 0
 		}
 
 		await fse.writeJSON(stateFile, state, { encoding: 'utf-8' })
 
-		// const report = TODO
-		// await fse.writeFile(reportFile, report, { encoding: 'utf-8' })
+		await report()
 
 		showProgress()
 	}
