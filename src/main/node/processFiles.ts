@@ -1,5 +1,7 @@
 import fse from 'fs-extra'
 import path from 'path'
+import tar from 'tar-stream'
+import {streamToBuffer} from './helpers'
 
 export async function processFiles({
 	fileOrDirPath: _fileOrDirPath,
@@ -43,3 +45,37 @@ export async function processFiles({
 	return _processFiles(_fileOrDirPath)
 }
 
+export function processArchiveTar({
+	archivePath,
+	processFile,
+}: {
+	archivePath: string,
+	processFile: (archivePath: string, filePath: string, buffer: Buffer) => Promise<void>|void,
+}) {
+	return new Promise((resolve, reject) => {
+		const extract = tar.extract()
+		extract.on('entry', async (headers, content, next) => {
+			const {name: filePath, type} = headers
+
+			if (type === 'file') {
+				try {
+					const buffer = await streamToBuffer(content)
+					await processFile(archivePath, filePath, buffer)
+				} catch (err) {
+					reject(err)
+					return
+				}
+			}
+
+			next()
+		})
+
+		extract.on('error', reject)
+		extract.on('finish', resolve)
+
+		const source = fse.createReadStream(archivePath)
+		source.on('error', reject)
+
+		source.pipe(extract)
+	})
+}

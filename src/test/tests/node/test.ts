@@ -4,7 +4,8 @@ import {PhrasesStat} from '../../../main/common/PhrasesStat'
 import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
 import {xmlBufferToString} from '../../../main/node/helpers'
-import {processFiles} from '../../../main/node/processFiles'
+import {calcStat, firstPagesForEstimate, lettersPatern, processLibgen, wordsPerPage} from '../../../main/node/process'
+import {processArchiveTar, processFiles} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
 import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
@@ -14,52 +15,6 @@ describe('node > test', function () {
 
 	const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
 	const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
-	const wordsPerPage = 200
-	const firstPagesForEstimate = 3
-	const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])['_-](?=[a-zA-Z])`
-
-
-	async function calcStat({
-		wordsCache,
-		fileOrDirPath,
-		filterPhrases,
-		onFileHandled,
-		maxPhraseLength,
-	}: {
-		wordsCache: WordsCache,
-		fileOrDirPath: string,
-		filterPhrases?: (phraseId: string) => boolean,
-		maxPhraseLength?: number,
-		onFileHandled?: (filePath: string, filePathRelative: string, phrasesStat: PhrasesStat, totalWords: number) => Promise<void>|void,
-	}) {
-		const phrasesStat = new PhrasesStat()
-		const phrasesStatCollector = new PhrasesStatCollector({
-			wordsCache,
-			phrasesStat,
-			lettersPatern,
-			filterPhrases,
-			maxPhraseLength,
-		})
-
-		await processFiles({
-			fileOrDirPath,
-			async processFile(filePath, filePathRelative) {
-				if (!/\.(txt|fb2)$/i.test(filePath)) {
-					return
-				}
-				const buffer = await fse.readFile(filePath)
-				const text = xmlBufferToString(buffer)
-				const totalWords = phrasesStatCollector.addText(text)
-				if (onFileHandled) {
-					await onFileHandled(filePath, filePathRelative, phrasesStat, totalWords)
-				}
-			},
-		})
-
-		phrasesStat.reduce(true)
-
-		return phrasesStat
-	}
 
 	it('localFiles', async function () {
 		const wordsCache = new WordsCache()
@@ -254,5 +209,91 @@ describe('node > test', function () {
 		})
 
 		await save()
+	})
+
+	it('libgen', async function () {
+		const dbPath = 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv'
+		const booksDir = 'f:\\Torrents\\New\\text\\text\\'
+
+		await processLibgen({
+			dbPath  : 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv',
+			booksDir: 'f:\\Torrents\\New\\text\\text\\',
+		})
+
+		// await processLibRusEc({
+		// 	dbPath,
+		// 	booksDir,
+		// 	lang: 'en',
+		// 	async processBook(book: IBook, text: string) {
+		// 		// console.log(text.substring(0, 1000))
+		//
+		// 		if (state[book.BookID]) {
+		// 			return
+		// 		}
+		//
+		// 		const phrasesStat = new PhrasesStat()
+		// 		const phrasesStatCollector = new PhrasesStatCollector({
+		// 			wordsCache,
+		// 			phrasesStat,
+		// 			lettersPatern,
+		// 			filterPhrases(phraseId: string) {
+		// 				return !wasReadStat.has(phraseId)
+		// 			},
+		// 			filterText(text: string) {
+		// 				if (book.Lang.toUpperCase() !== 'RU') {
+		// 					const ruSymbols = countRuSymbols(text)
+		// 					if (ruSymbols > 0.1 * text.length) {
+		// 						return false
+		// 					}
+		// 				}
+		// 				return true
+		// 			},
+		// 			maxPhraseLength: 1,
+		// 		})
+		//
+		// 		const totalWords = phrasesStatCollector.addText(text)
+		//
+		// 		if (!totalWords) {
+		// 			return
+		// 		}
+		//
+		// 		const entries = phrasesStat.entries()
+		// 		const unknownWords = entries.reduce((a, o) => {
+		// 			return o[1].wordsCount === 1
+		// 				? a + 1
+		// 				: a
+		// 		}, 0)
+		// 		const unknownWordsInFirstPage = entries.reduce((a, o) => {
+		// 			if (o[1].wordsCount !== 1) {
+		// 				return a
+		// 			}
+		// 			const countInFirstPages = Math.min(1, o[1].count * firstPagesForEstimate * wordsPerPage / totalWords)
+		// 			return a + countInFirstPages
+		// 		}, 0) / firstPagesForEstimate
+		//
+		// 		const bookName = (
+		// 			book.AuthorFirstName + ' '
+		// 			+ book.AuthorMiddleName + ' '
+		// 			+ book.AuthorLastName + ' - '
+		// 			+ book.Title).replace(/\s+/g, ' ',
+		// 		).trim()
+		//
+		// 		state[book.BookID] = {
+		// 			bookId: book.BookID,
+		// 			unknownWordsInFirstPage,
+		// 			unknownWords,
+		// 			totalWords,
+		// 			bookName,
+		// 		}
+		//
+		// 		const now = Date.now()
+		// 		if (now - prevTime > 60 * 1000) {
+		// 			prevTime = now
+		// 			await save()
+		// 		}
+		// 	},
+		// })
+
+		// await save()
 	})
 })

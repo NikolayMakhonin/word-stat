@@ -68,4 +68,8 @@ export class PhrasesStat {
 	entries() {
 		return Array.from(this._phraseToStat.entries())
 	}
+
+	forEach(callbackfn: (value: IPhraseStat, key: string) => void): void {
+		this._phraseToStat.forEach(callbackfn)
+	}
 }

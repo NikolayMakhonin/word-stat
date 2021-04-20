@@ -1,8 +1,8 @@
 /* eslint-disable no-await-in-loop */
-import path from 'path'
 import sqlite from 'better-sqlite3'
+import path from 'path'
 import yauzl from 'yauzl'
-import {xmlBufferToString} from './helpers'
+import {streamToBuffer, xmlBufferToString} from './helpers'
 
 export function getCountBooksQuery({
 	lang,
@@ -67,21 +67,6 @@ export function getBooksQuery({
 		GROUP BY b.[BookID]
 		${limit > 0 ? `LIMIT ${limit}` : ''}
 	`
-}
-
-function streamToString(stream: NodeJS.ReadableStream): Promise<Buffer> {
-	return new Promise((resolve, reject) => {
-		const chunks = []
-		stream.on('data', (chunk) => {
-			chunks.push(chunk)
-		})
-		stream.on('error', err => {
-			reject(err)
-		})
-		stream.on('end', () => {
-			resolve(Buffer.concat(chunks))
-		})
-	})
 }
 
 export interface IBook {
@@ -208,7 +193,7 @@ export async function processLibRusEc({
 							}
 
 							try {
-								const buffer = await streamToString(readStream)
+								const buffer = await streamToBuffer(readStream)
 								const text = xmlBufferToString(buffer)
 
 								await processBook(book, text)
