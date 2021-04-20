@@ -2,7 +2,7 @@
 import path from 'path'
 import sqlite from 'better-sqlite3'
 import yauzl from 'yauzl'
-import {Iconv} from 'iconv'
+import {xmlBufferToString} from './helpers'
 
 export function getCountBooksQuery({
 	lang,
@@ -208,16 +208,8 @@ export async function processLibRusEc({
 							}
 
 							try {
-								let buffer = await streamToString(readStream)
-								const header = buffer.toString('utf-8', 0, 100)
-								const headerMatch = header.match(/encoding\s*[=:]\s*['"]([^['"]+)['"]/)
-								const encoding = (headerMatch && headerMatch[1] || 'UTF-8').toUpperCase()
-								if (encoding !== 'UTF-8') {
-									// @ts-ignore
-									const iconv = new Iconv(encoding, 'UTF-8')
-									buffer = iconv.convert(buffer)
-								}
-								const text = buffer.toString('utf-8')
+								const buffer = await streamToString(readStream)
+								const text = xmlBufferToString(buffer)
 
 								await processBook(book, text)
 
@@ -233,4 +225,3 @@ export async function processLibRusEc({
 		}
 	}
 }
-

@@ -3,6 +3,7 @@ import {countRuSymbols, phrasesStatToString} from '../../../main/common/phrases-
 import {PhrasesStat} from '../../../main/common/PhrasesStat'
 import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
+import {xmlBufferToString} from '../../../main/node/helpers'
 import {processFiles} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
@@ -15,6 +16,8 @@ describe('node > test', function () {
 	const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
 	const wordsPerPage = 200
 	const firstPagesForEstimate = 3
+	const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])['_-](?=[a-zA-Z])`
+
 
 	async function calcStat({
 		wordsCache,
@@ -33,6 +36,7 @@ describe('node > test', function () {
 		const phrasesStatCollector = new PhrasesStatCollector({
 			wordsCache,
 			phrasesStat,
+			lettersPatern,
 			filterPhrases,
 			maxPhraseLength,
 		})
@@ -43,7 +47,8 @@ describe('node > test', function () {
 				if (!/\.(txt|fb2)$/i.test(filePath)) {
 					return
 				}
-				const text = await fse.readFile(filePath, { encoding: 'utf-8' })
+				const buffer = await fse.readFile(filePath)
+				const text = xmlBufferToString(buffer)
 				const totalWords = phrasesStatCollector.addText(text)
 				if (onFileHandled) {
 					await onFileHandled(filePath, filePathRelative, phrasesStat, totalWords)
@@ -64,20 +69,21 @@ describe('node > test', function () {
 			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
 		})
 
-		const resultDir = 'tmp/result'
+		const resultDir = path.resolve('tmp/result')
 		if (fse.existsSync(resultDir)) {
 			await fse.rmdir(resultDir, {recursive: true})
 		}
 
 		const wantReadStat = await calcStat({
 			wordsCache,
+			// fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books\\16 - This Body of Death.fb2',
 			fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books',
 			filterPhrases(phraseId: string) {
 				return !wasReadStat.has(phraseId)
 			},
 			async onFileHandled(filePath, filePathRelative, phrasesStat, totalWords) {
 				phrasesStat.reduce(true)
-				let resultPath = path.resolve(resultDir, filePathRelative.replace(/[\\/]/g, ' - '))
+				let resultPath = path.resolve(resultDir, filePathRelative.replace(/[\\/:]/g, ' - '))
 
 				const entries = phrasesStat.entries()
 				const unknownWords = entries.reduce((a, o) => {
@@ -188,7 +194,7 @@ describe('node > test', function () {
 				const phrasesStatCollector = new PhrasesStatCollector({
 					wordsCache,
 					phrasesStat,
-					lettersPatern: `[a-zA-Z]|(?<=[a-zA-Z])['_-](?=[a-zA-Z])`,
+					lettersPatern,
 					filterPhrases(phraseId: string) {
 						return !wasReadStat.has(phraseId)
 					},

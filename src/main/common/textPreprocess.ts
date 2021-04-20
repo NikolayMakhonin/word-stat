@@ -7,7 +7,7 @@ export function removeHtmlTags(text: string) {
 }
 
 export function fixApostrophes(text: string) {
-	return text.replace(/[’Т�'`\u2019\u0422\x92]/, "'")
+	return text.replace(/[’Т�'`\u2019\u0422\x92]/g, "'")
 }
 
 export function textPreprocess(text: string) {
