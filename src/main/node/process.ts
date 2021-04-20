@@ -8,15 +8,16 @@ import {
 } from '../common/phrases-helpers'
 import {PhrasesStat} from '../common/PhrasesStat'
 import {PhrasesStatCollector} from '../common/PhrasesStatCollector'
+import {textPreprocess} from '../common/textPreprocess'
 import {WordsCache} from '../common/WordsCache'
 import {WordsStat} from '../common/WordsStat'
 import {xmlBufferToString} from './helpers'
-import {processArchiveTar, processFiles} from './processFiles'
+import {processArchiveTarXz, processFiles} from './processFiles'
 import readline from 'readline'
 
 export const wordsPerPage = 200
 export const firstPagesForEstimate = 3
-export const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])['_-](?=[a-zA-Z])`
+export const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
 
 export async function calcStat({
 	wordsCache,
@@ -69,9 +70,11 @@ export async function calcStat({
 export async function processLibgen({
 	dbPath,
 	booksDir,
+	resultsDir,
 }: {
 	dbPath: string,
 	booksDir: string,
+	resultsDir: string,
 }) {
 	// region parse db
 
@@ -139,19 +142,20 @@ export async function processLibgen({
 				return
 			}
 			const buffer = await fse.readFile(filePath)
-			const text = xmlBufferToString(buffer)
+			let text = xmlBufferToString(buffer)
 
+			text = textPreprocess(text)
 			parsePhrases(text, wordRegExp, word => {
-				wasReadStat.add(word)
+				wasReadStat.add(word.toLowerCase())
 			})
 		},
 	})
 
 	// endregion
 
-	const stateFile = path.resolve('tmp/libRusEc/state.txt')
-	const logFile = path.resolve('tmp/libRusEc/log.txt')
-	const reportFile = path.resolve('tmp/libRusEc/report.txt')
+	const stateFile = path.resolve(resultsDir, 'state.json')
+	const logFile = path.resolve(resultsDir, 'log.txt')
+	const reportFile = path.resolve(resultsDir, 'report.txt')
 	const dir = path.dirname(reportFile)
 
 	if (!fse.existsSync(dir)) {
@@ -159,10 +163,10 @@ export async function processLibgen({
 	}
 
 	const state: {
-		scannedArchives: { [key: string]: boolean }
+		scannedArchives: { [key: string]: number }
 	} = fse.existsSync(stateFile)
 		? await fse.readJSON(stateFile, { encoding: 'utf-8' })
-		: {}
+		: { scannedArchives: {} }
 
 	const log: Array<{
 		id: number,
@@ -173,41 +177,50 @@ export async function processLibgen({
 		totalWords: number,
 	}> = []
 
+	let scannedBooks = Object.keys(state.scannedArchives).reduce((a, o) => {
+		return a + state.scannedArchives[o]
+	}, 0)
+	const totalBooks = Object.keys(books).length
+
 	async function save() {
-		const logStr = log.map(o => `${
-			o.id
-		}\t${
-			o.hash
-		}\t${
-			o.unknownWordsIn3Pages
-		}\t${
-			o.unknownWordsIn20Pages
-		}\t${
-			o.unknownWords
-		}\t${
-			o.totalWords
-		}`)
-			.join('\r\n') + '\r\n'
-		await fse.appendFile(logFile, logStr, { encoding: 'utf-8' })
-		log.length = 0
+		if (log.length > 0) {
+			const logStr = log.map(o => `${
+				o.id
+			}\t${
+				o.hash
+			}\t${
+				o.unknownWordsIn3Pages
+			}\t${
+				o.unknownWordsIn20Pages
+			}\t${
+				o.unknownWords
+			}\t${
+				o.totalWords
+			}`)
+				.join('\r\n') + '\r\n'
+			await fse.appendFile(logFile, logStr, {encoding: 'utf-8'})
+			log.length = 0
+		}
 
 		await fse.writeJSON(stateFile, state, { encoding: 'utf-8' })
 
 		// const report = TODO
 		// await fse.writeFile(reportFile, report, { encoding: 'utf-8' })
-	}
 
-	let prevTime = Date.now()
+		console.log(`${scannedBooks} / (${(scannedBooks * 100 / totalBooks).toFixed(2)}%)`)
+	}
 
 	await processFiles({
 		fileOrDirPath: booksDir,
-		filterPaths(fileOrDirPath: string) {
-			return /\.tar(\.\w+)?$/.test(fileOrDirPath)
-		},
-		processFile(filePath) {
-			return processArchiveTar({
-				archivePath: filePath,
-				async processFile(archivePath, hash, buffer) {
+		async processFile(archivePath) {
+			if (!/\.tar(\.\w+)?$/.test(archivePath)) {
+				return
+			}
+
+			await processArchiveTarXz({
+				archivePath,
+				processFile(_archivePath, filePath, buffer) {
+					const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)[1]?.toLowerCase()
 					const book = books[hash]
 					if (!book) {
 						return
@@ -250,16 +263,13 @@ export async function processLibgen({
 						unknownWords,
 						totalWords,
 					})
-
-					state.scannedArchives[book.hash] = true
-
-					const now = Date.now()
-					if (now - prevTime > 60 * 1000) {
-						prevTime = now
-						await save()
-					}
 				},
 			})
+
+			state.scannedArchives[archivePath] = log.length
+			scannedBooks += log.length
+
+			await save()
 		},
 	})
 

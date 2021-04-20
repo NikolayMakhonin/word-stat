@@ -5,7 +5,7 @@ import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
 import {xmlBufferToString} from '../../../main/node/helpers'
 import {calcStat, firstPagesForEstimate, lettersPatern, processLibgen, wordsPerPage} from '../../../main/node/process'
-import {processArchiveTar, processFiles} from '../../../main/node/processFiles'
+import {processArchiveTarXz, processFiles} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
 import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
@@ -212,12 +212,10 @@ describe('node > test', function () {
 	})
 
 	it('libgen', async function () {
-		const dbPath = 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv'
-		const booksDir = 'f:\\Torrents\\New\\text\\test\\'
-
 		await processLibgen({
-			dbPath  : 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv',
-			booksDir: 'f:\\Torrents\\New\\text\\text\\',
+			dbPath    : 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv',
+			booksDir  : 'f:\\Torrents\\New\\test\\text\\',
+			resultsDir: 'f:\\Torrents\\New\\test\\result\\',
 		})
 	})
 })

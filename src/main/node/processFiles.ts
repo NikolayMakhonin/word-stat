@@ -1,6 +1,7 @@
 import fse from 'fs-extra'
 import path from 'path'
 import tar from 'tar-stream'
+import lzmaNative from 'lzma-native'
 import {streamToBuffer} from './helpers'
 
 export async function processFiles({
@@ -45,7 +46,7 @@ export async function processFiles({
 	return _processFiles(_fileOrDirPath)
 }
 
-export function processArchiveTar({
+export function processArchiveTarXz({
 	archivePath,
 	processFile,
 }: {
@@ -76,6 +77,9 @@ export function processArchiveTar({
 		const source = fse.createReadStream(archivePath)
 		source.on('error', reject)
 
-		source.pipe(extract)
+		const xzStream = lzmaNative.createDecompressor()
+
+		xzStream.pipe(extract)
+		source.pipe(xzStream)
 	})
 }

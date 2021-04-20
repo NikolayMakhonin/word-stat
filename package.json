@@ -80,6 +80,7 @@
 		"@types/fs-extra": "^9.0.11",
 		"@types/iconv": "^2.1.16",
 		"@types/json5": "0.0.30",
+		"@types/lzma-native": "^4.0.0",
 		"@types/mocha": "^8.2.2",
 		"@types/tar-stream": "^2.2.0",
 		"@types/yauzl": "^2.9.1",
@@ -131,6 +132,7 @@
 		"better-sqlite3": "^7.1.5",
 		"html-entities": "^2.3.2",
 		"iconv": "^3.0.0",
+		"lzma-native": "^7.0.1",
 		"tar-stream": "^2.2.0",
 		"yauzl": "^2.10.0"
 	}
