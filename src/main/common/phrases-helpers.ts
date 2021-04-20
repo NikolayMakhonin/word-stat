@@ -105,13 +105,15 @@ export function phrasesStatToString(wordsCache: WordsCache, entries: [string, IP
 	return result
 }
 
-export function countMatches(regexp: RegExp, text: string, sumLength?: boolean) {
+export function countRuSymbols(text: string) {
 	let count = 0
-	let match
-	while ((match = regexp.exec(text)) !== null) {
-		if (sumLength) {
-			count += match[0].length
-		} else {
+	for (let i = 0, len = text.length; i < len; i++) {
+		const ch = text.charCodeAt(i)
+		if (
+			ch >= 1040 && ch <= 1103 // а-я А-Я
+			|| ch === 1105 // ё
+			|| ch === 1025 // Ё
+		) {
 			count++
 		}
 	}

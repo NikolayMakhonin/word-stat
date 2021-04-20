@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow,quotes */
-import {countMatches, phrasesStatToString} from '../../../main/common/phrases-helpers'
+import {countRuSymbols, phrasesStatToString} from '../../../main/common/phrases-helpers'
 import {PhrasesStat} from '../../../main/common/PhrasesStat'
 import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
@@ -188,13 +188,14 @@ describe('node > test', function () {
 				const phrasesStatCollector = new PhrasesStatCollector({
 					wordsCache,
 					phrasesStat,
+					lettersPatern: `[a-zA-Z]|(?<=[a-zA-Z])['_-](?=[a-zA-Z])`,
 					filterPhrases(phraseId: string) {
 						return !wasReadStat.has(phraseId)
 					},
 					filterText(text: string) {
 						if (book.Lang.toUpperCase() !== 'RU') {
-							const ruLength = countMatches(/[а-яА-ЯёЁ]+/, text, true)
-							if (ruLength > 0.01 * text.length) {
+							const ruSymbols = countRuSymbols(text)
+							if (ruSymbols > 0.1 * text.length) {
 								return false
 							}
 						}
