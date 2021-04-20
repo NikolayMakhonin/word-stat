@@ -182,6 +182,10 @@ export async function processLibgen({
 	}, 0)
 	const totalBooks = Object.keys(books).length
 
+	function showProgress() {
+		console.log(`${scannedBooks} / (${(scannedBooks * 100 / totalBooks).toFixed(2)}%)`)
+	}
+
 	async function save() {
 		if (log.length > 0) {
 			const logStr = log.map(o => `${
@@ -207,13 +211,15 @@ export async function processLibgen({
 		// const report = TODO
 		// await fse.writeFile(reportFile, report, { encoding: 'utf-8' })
 
-		console.log(`${scannedBooks} / (${(scannedBooks * 100 / totalBooks).toFixed(2)}%)`)
+		showProgress()
 	}
+
+	showProgress()
 
 	await processFiles({
 		fileOrDirPath: booksDir,
 		async processFile(archivePath) {
-			if (!/\.tar(\.\w+)?$/.test(archivePath)) {
+			if (archivePath in state.scannedArchives || !/\.tar(\.\w+)?$/.test(archivePath)) {
 				return
 			}
 
