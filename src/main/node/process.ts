@@ -145,9 +145,13 @@ export async function processLibgen({
 			let text = xmlBufferToString(buffer)
 
 			text = textPreprocess(text)
+			// let totalWords = 0
 			parsePhrases(text, wordRegExp, word => {
 				wasReadStat.add(word.toLowerCase())
+				// totalWords++
 			})
+
+			// console.log('totalWords:', totalWords)
 		},
 	})
 
