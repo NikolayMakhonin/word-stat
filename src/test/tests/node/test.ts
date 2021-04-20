@@ -213,87 +213,11 @@ describe('node > test', function () {
 
 	it('libgen', async function () {
 		const dbPath = 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv'
-		const booksDir = 'f:\\Torrents\\New\\text\\text\\'
+		const booksDir = 'f:\\Torrents\\New\\text\\test\\'
 
 		await processLibgen({
 			dbPath  : 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv',
 			booksDir: 'f:\\Torrents\\New\\text\\text\\',
 		})
-
-		// await processLibRusEc({
-		// 	dbPath,
-		// 	booksDir,
-		// 	lang: 'en',
-		// 	async processBook(book: IBook, text: string) {
-		// 		// console.log(text.substring(0, 1000))
-		//
-		// 		if (state[book.BookID]) {
-		// 			return
-		// 		}
-		//
-		// 		const phrasesStat = new PhrasesStat()
-		// 		const phrasesStatCollector = new PhrasesStatCollector({
-		// 			wordsCache,
-		// 			phrasesStat,
-		// 			lettersPatern,
-		// 			filterPhrases(phraseId: string) {
-		// 				return !wasReadStat.has(phraseId)
-		// 			},
-		// 			filterText(text: string) {
-		// 				if (book.Lang.toUpperCase() !== 'RU') {
-		// 					const ruSymbols = countRuSymbols(text)
-		// 					if (ruSymbols > 0.1 * text.length) {
-		// 						return false
-		// 					}
-		// 				}
-		// 				return true
-		// 			},
-		// 			maxPhraseLength: 1,
-		// 		})
-		//
-		// 		const totalWords = phrasesStatCollector.addText(text)
-		//
-		// 		if (!totalWords) {
-		// 			return
-		// 		}
-		//
-		// 		const entries = phrasesStat.entries()
-		// 		const unknownWords = entries.reduce((a, o) => {
-		// 			return o[1].wordsCount === 1
-		// 				? a + 1
-		// 				: a
-		// 		}, 0)
-		// 		const unknownWordsInFirstPage = entries.reduce((a, o) => {
-		// 			if (o[1].wordsCount !== 1) {
-		// 				return a
-		// 			}
-		// 			const countInFirstPages = Math.min(1, o[1].count * firstPagesForEstimate * wordsPerPage / totalWords)
-		// 			return a + countInFirstPages
-		// 		}, 0) / firstPagesForEstimate
-		//
-		// 		const bookName = (
-		// 			book.AuthorFirstName + ' '
-		// 			+ book.AuthorMiddleName + ' '
-		// 			+ book.AuthorLastName + ' - '
-		// 			+ book.Title).replace(/\s+/g, ' ',
-		// 		).trim()
-		//
-		// 		state[book.BookID] = {
-		// 			bookId: book.BookID,
-		// 			unknownWordsInFirstPage,
-		// 			unknownWords,
-		// 			totalWords,
-		// 			bookName,
-		// 		}
-		//
-		// 		const now = Date.now()
-		// 		if (now - prevTime > 60 * 1000) {
-		// 			prevTime = now
-		// 			await save()
-		// 		}
-		// 	},
-		// })
-
-		// await save()
 	})
 })

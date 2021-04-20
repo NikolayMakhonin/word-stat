@@ -51,7 +51,7 @@ export function processArchiveTar({
 }: {
 	archivePath: string,
 	processFile: (archivePath: string, filePath: string, buffer: Buffer) => Promise<void>|void,
-}) {
+}): Promise<void> {
 	return new Promise((resolve, reject) => {
 		const extract = tar.extract()
 		extract.on('entry', async (headers, content, next) => {

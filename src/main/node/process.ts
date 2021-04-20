@@ -73,30 +73,59 @@ export async function processLibgen({
 	dbPath: string,
 	booksDir: string,
 }) {
-	const dbStream = fse.createReadStream(dbPath)
+	// region parse db
 
-	const dbReadLine = readline.createInterface({
-		input    : dbStream,
-		crlfDelay: Infinity,
-	})
+	let books: {
+		[hash: string]: {
+			id: number
+			hash: string
+			author: string
+			title: string
+			series: number
+		}
+	}
 
-	const books = new Map<string, {
-		author: string,
-		title: string,
-	}>()
-	for await (const line of dbReadLine) {
-		if (line) {
-			let [id, hash, lang, , author, title, series] = line.split(',')
-			id = id.trim()
-			lang = lang.toLowerCase().trim()
-			hash = hash.toLowerCase().trim()
-			if (lang === 'english') {
-				books[hash] = {
-					id, hash, author, title, series,
+	const dbCachePath = dbPath + '.json'
+	if (fse.existsSync(dbCachePath)) {
+		books = await fse.readJSON(dbCachePath, { encoding: 'utf-8' }) as any
+	} else {
+		books = {}
+
+		const dbStream = fse.createReadStream(dbPath)
+
+		const dbReadLine = readline.createInterface({
+			input    : dbStream,
+			crlfDelay: Infinity,
+		})
+
+		let firstLine = true
+		for await (const line of dbReadLine) {
+			if (firstLine) {
+				firstLine = false
+				continue
+			}
+			if (line) {
+				let [idStr, hash, lang, , author, title, seriesStr] = line.split(',')
+				idStr = idStr.trim()
+				seriesStr = seriesStr.trim()
+				lang = lang.toLowerCase().trim()
+				hash = hash.toLowerCase().trim()
+				const id = idStr ? parseInt(idStr, 10) : null
+				const series = seriesStr ? parseInt(seriesStr, 10) : null
+				if (!lang || lang === 'english') {
+					books[hash] = {
+						id, hash, author, title, series,
+					}
 				}
 			}
 		}
+
+		await fse.writeJSON(dbCachePath, books, { encoding: 'utf-8' })
+
+		dbStream.close()
 	}
+
+	// endregion
 
 	const wordRegExp = createRegExp(createWordPattern(lettersPatern))
 
@@ -132,11 +161,11 @@ export async function processLibgen({
 	const state: {
 		scannedArchives: { [key: string]: boolean }
 	} = fse.existsSync(stateFile)
-		? JSON.parse(await fse.readFile(stateFile, { encoding: 'utf-8' }))
+		? await fse.readJSON(stateFile, { encoding: 'utf-8' })
 		: {}
 
 	const log: Array<{
-		id: string,
+		id: number,
 		hash: string,
 		unknownWordsIn3Pages: number,
 		unknownWordsIn20Pages: number,
@@ -162,7 +191,7 @@ export async function processLibgen({
 		await fse.appendFile(logFile, logStr, { encoding: 'utf-8' })
 		log.length = 0
 
-		await fse.writeFile(stateFile, JSON.stringify(state), { encoding: 'utf-8' })
+		await fse.writeJSON(stateFile, state, { encoding: 'utf-8' })
 
 		// const report = TODO
 		// await fse.writeFile(reportFile, report, { encoding: 'utf-8' })
@@ -176,7 +205,7 @@ export async function processLibgen({
 			return /\.tar(\.\w+)?$/.test(fileOrDirPath)
 		},
 		processFile(filePath) {
-			processArchiveTar({
+			return processArchiveTar({
 				archivePath: filePath,
 				async processFile(archivePath, hash, buffer) {
 					const book = books[hash]
