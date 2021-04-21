@@ -12,24 +12,23 @@ import {WordsStat} from '../../../main/common/WordsStat'
 import {xmlBookBufferToString, xmlBufferToString} from '../../../main/node/helpers'
 import {
 	calcStat,
-	calcWordStat, ILibgenBookStat, libgenUnpack,
+	calcWordStat,
+	ILibgenBookStat,
 	processBooks,
-	processLibgen, readBookStats,
+	readBookStats,
 	wordsPerPage,
 } from '../../../main/node/process'
 import {processArchiveTarXz} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
 import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
+import {libgenUnpack, processLibgen, processMyBooks} from '../../../main/node/scripts'
 
 describe('node > test', function () {
 	this.timeout(30 * 24 * 60 * 60 * 1000)
 
-	const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
-	const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
-
-	const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
-	const wordRegExp = createRegExp(createWordPattern(lettersPatern))
+	// const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
+	// const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
 
 	// it('localFiles', async function () {
 	// 	const wordsCache = new WordsCache()
@@ -226,64 +225,15 @@ describe('node > test', function () {
 	// 	await save()
 	// })
 
-	function filterXmlBooks(isDir, archivePath, _fileOrDirPath) {
-		if (!isDir && !/\.(txt|fb2)$/i.test(_fileOrDirPath)) {
-			return false
-		}
-		return true
-	}
-
-	let wasReadStat: WordsStat
-	async function calcWasReadStat() {
-		if (wasReadStat == null) {
-			wasReadStat = await calcWordStat({
-				wordRegExp,
-				fileOrDirPath : 'e:/RemoteData/Mega2/Text/Books/Учебники/English/WasRead',
-				filterPaths   : filterXmlBooks,
-				bufferToString: xmlBookBufferToString,
-			})
-		}
-
-		return wasReadStat
-	}
-
 	it('my books', async function () {
-		const wasReadStat = await calcWasReadStat()
-
-		await processBooks({
-			booksDir   : 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books',
-			resultsDir : 'tmp/myBooks',
-			filterPaths: filterXmlBooks,
-			wordRegExp,
-			wordFilter(word) {
-				return !wasReadStat.has(word)
-			},
-		})
+		await processMyBooks()
 	})
 
 	it('libgen', async function () {
-		const wasReadStat = await calcWasReadStat()
-
-		await processLibgen({
-			dbPath    : 'f:/Torrents/New/text/db/ff/simple.csv',
-			booksDir  : 'f:/Torrents/New/test/text/',
-			resultsDir: 'f:/Torrents/New/test/result/',
-			wordRegExp,
-			wordFilter(word) {
-				return !wasReadStat.has(word)
-			},
-		})
+		await processLibgen()
 	})
 
 	it('libgen unpack', async function () {
-		let bookStats = await readBookStats<ILibgenBookStat>('f:/Torrents/New/test/result/stat.json')
-		bookStats = bookStats.slice(0, 100)
-
-		await libgenUnpack({
-			bookStats,
-			dbPath   : 'f:/Torrents/New/text/db/ff/simple.csv',
-			booksDir : 'f:/Torrents/New/test/text/ff',
-			unpackDir: 'f:/Torrents/New/test/result/books',
-		})
+		await libgenUnpack()
 	})
 })

@@ -24,7 +24,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/node/scripts.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/tests/node/process.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/tests/node/process.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +132,7 @@
       <recent name="L:\Work\_GIT\GitHub\NodeJs\apps\word-stat\assets\wasRead" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.node &gt; test.libgen">
+  <component name="RunManager" selected="npm.Build Dev">
     <configuration default="true" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/env/karma/configs/dev.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
@@ -294,14 +297,7 @@
       <workItem from="1618802418760" duration="22939000" />
       <workItem from="1618844362248" duration="30771000" />
       <workItem from="1618914036261" duration="13592000" />
-      <workItem from="1618972943802" duration="20493000" />
-    </task>
-    <task id="LOCAL-00046" summary="Documenting...">
-      <created>1599838690339</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1599838690339</updated>
+      <workItem from="1618972943802" duration="21175000" />
     </task>
     <task id="LOCAL-00047" summary="Merged with app">
       <created>1600089674654</created>
@@ -639,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618993434295</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Develop">
+      <created>1618996259763</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1618996259763</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,10 +719,10 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="646" y="218" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.882@0.0.1920.882" timestamp="1618802774436" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1618993433260">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1618996258828">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1618993433260" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1618996258828" />
     <state width="1068" height="564" key="DebuggerActiveHint" timestamp="1618991582538">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -732,22 +735,22 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="686" y="135" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1618915756679" />
-    <state width="1892" height="248" key="GridCell.Tab.0.bottom" timestamp="1618993494101">
+    <state width="1892" height="181" key="GridCell.Tab.0.bottom" timestamp="1618996759634">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="248" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1618993494101" />
-    <state width="1892" height="248" key="GridCell.Tab.0.center" timestamp="1618993494101">
+    <state width="1892" height="181" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1618996759634" />
+    <state width="1892" height="181" key="GridCell.Tab.0.center" timestamp="1618996759633">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="248" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1618993494101" />
-    <state width="1892" height="248" key="GridCell.Tab.0.left" timestamp="1618993494101">
+    <state width="1892" height="181" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1618996759633" />
+    <state width="1892" height="181" key="GridCell.Tab.0.left" timestamp="1618996759633">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="248" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1618993494101" />
-    <state width="1892" height="248" key="GridCell.Tab.0.right" timestamp="1618993494101">
+    <state width="1892" height="181" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1618996759633" />
+    <state width="1892" height="181" key="GridCell.Tab.0.right" timestamp="1618996759633">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="248" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1618993494101" />
+    <state width="1892" height="181" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1618996759633" />
     <state width="1892" height="246" key="GridCell.Tab.1.bottom" timestamp="1618993297873">
       <screen x="0" y="0" width="1920" height="882" />
     </state>

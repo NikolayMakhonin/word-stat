@@ -29,6 +29,9 @@
 		"node": ">= 8.6.0"
 	},
 	"scripts": {
+		"process:my-books": "node -e \"require('./dist/dev/js/main/node/scripts.js').processMyBooks()\"",
+		"process:libgen": "node -e \"require('./dist/dev/js/main/node/scripts.js').processLibgen()\"",
+		"process:libgen:unpack": "node -e \"require('./dist/dev/js/main/node/scripts.js').libgenUnpack()\"",
 		"precommit": "npm run build-test:ci",
 		"prepare": "",
 		"prepublishOnly": "npm run build-test:dev",
