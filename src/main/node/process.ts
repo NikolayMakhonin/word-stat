@@ -488,7 +488,7 @@ export async function libgenUnpack({
 		}
 	} = bookStats
 		.reduce((a, o) => {
-			const archiveName = Math.floor(o.id / 1000) + '000.tar.xz'
+			const archiveName = (Math.floor(o.id / 1000) * 1000) + '.tar.xz'
 			let stats = a[archiveName]
 			if (!stats) {
 				a[archiveName] = stats = {}
