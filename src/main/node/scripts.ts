@@ -2,6 +2,7 @@
 import {createRegExp, createWordPattern} from '../common/phrases-helpers'
 import {WordsStat} from '../common/WordsStat'
 import {xmlBookBufferToString} from './helpers'
+import fse from 'fs-extra'
 import {
 	calcWordStat,
 	processBooks,
@@ -52,11 +53,27 @@ export async function processMyBooks() {
 export async function processLibgen() {
 	const wasReadStat = await calcWasReadStat()
 
+	const downloadedStr = await fse.readFile('f:/Torrents/New/test/result/downloaded.txt', { encoding: 'utf-8' })
+	const downloaded = downloadedStr
+		.match(/(?<=\btext[\\/]ff[\\/])\d+(?=\.tar\.xz\b)/g)
+		.reduce((a, o) => {
+			a[o] = true
+			return a
+		}, {})
+
+
 	await _processLibgen({
 		dbPath    : 'f:/Torrents/New/text/db/ff/simple.csv',
-		booksDir  : 'f:/Torrents/New/test/text/',
+		booksDir  : 'f:/Torrents/New/text/text/',
 		resultsDir: 'f:/Torrents/New/test/result/',
 		wordRegExp,
+		filterPaths(isDir, archivePath, fileOrDirPath) {
+			if (!isDir && !archivePath) {
+				const id = fileOrDirPath.match(/(?<=\btext[\\/]ff[\\/])\d+(?=\.tar\.xz$)/)?.[0]
+				return id && downloaded[id]
+			}
+			return true
+		},
 		wordFilter(word) {
 			return !wasReadStat.has(word)
 		},
@@ -70,7 +87,7 @@ export async function libgenUnpack() {
 	await _libgenUnpack({
 		bookStats,
 		dbPath   : 'f:/Torrents/New/text/db/ff/simple.csv',
-		booksDir : 'f:/Torrents/New/test/text/ff',
+		booksDir : 'f:/Torrents/New/text/text/ff',
 		unpackDir: 'f:/Torrents/New/test/result/books',
 	})
 }

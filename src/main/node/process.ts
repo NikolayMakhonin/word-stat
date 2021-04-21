@@ -165,7 +165,10 @@ export async function readBookStats<TLogEntry extends IBookStat>(bookStatsFile: 
 	const bookStatsStr = (await fse.readFile(bookStatsFile, {encoding: 'utf-8'})) + ']'
 	let bookStats: TLogEntry[] = JSON.parse(bookStatsStr)
 	bookStats = bookStats
-		.filter(o => o.totalWords / wordsPerPage >= 2)
+		.filter(o => {
+			return o.totalWords / wordsPerPage >= 3
+				&& o.unknownWords >= 10
+		})
 		.sort((o1, o2) => {
 			if (o1.unknownWordsIn3Pages !== o2.unknownWordsIn3Pages) {
 				return o1.unknownWordsIn3Pages > o2.unknownWordsIn3Pages ? 1 : -1
