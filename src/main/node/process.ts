@@ -401,7 +401,7 @@ export async function processLibgen({
 		},
 		filterPaths,
 		analyzeBook(rootDir, archivePath, filePath, buffer) {
-			const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)[1]?.toLowerCase()
+			const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)?.[1]?.toLowerCase()
 			const book = books[hash]
 			if (!book) {
 				return null
@@ -485,22 +485,72 @@ export async function libgenUnpack({
 	bookStats: ILibgenBookStat[],
 	unpackDir: string,
 }) {
+	const excludedStr = await fse.readFile('f:/Torrents/New/test/result/excluded.txt', { encoding: 'utf-8' })
+	const excluded = excludedStr
+		.split('\r\n')
+		.map(o => o.match(/^\s*(\d+\s*-\s*)?\s*(.+)\s*$/)?.[2])
+		.reduce((a, o) => {
+			if (o) {
+				a[o] = true
+			}
+			return a
+		}, {})
+
+	await Promise.all(
+		(await fse.readdir(unpackDir))
+			.map(o => {
+				if (!excluded[o.match(/^\s*(\d+\s*-\s*)?\s*(.+)\s*$/)?.[2]]) {
+					return null
+				}
+
+				return fse.unlink(path.resolve(unpackDir, o))
+			})
+			.filter(o => o),
+	)
+
+	const books = await parseLibgenDb(dbPath)
+
 	const archives: {
 		[archiveName: string]: {
-			[hash: string]: ILibgenBookStat
+			[hash: string]: string
 		}
 	} = bookStats
 		.reduce((a, o) => {
+			const book = books[o.hash]
+
+			let fileName = book
+				? (book.author || '')
+					+ ' - ' + (book.title || '')
+					+ ' ' + (book.series || '')
+				: o.hash
+
+			fileName = fileName
+				.replace(/[\\/:*?<>|"]/g, '')
+				.replace(/\s+/g, ' ')
+				.trim()
+
+			fileName += '.txt'
+
+			if (excluded[fileName]) {
+				return a
+			}
+
+			fileName = Math.round(o.unknownWordsIn3Pages * 100).toString().padStart(5, '0') + ' - ' + fileName
+
+			const filePath = path.resolve(unpackDir, fileName)
+
+			if (fse.existsSync(filePath)) {
+				return a
+			}
+
 			const archiveName = (Math.floor(o.id / 1000) * 1000) + '.tar.xz'
 			let stats = a[archiveName]
 			if (!stats) {
 				a[archiveName] = stats = {}
 			}
-			stats[o.hash] = o
+			stats[o.hash] = filePath
 			return a
 		}, {})
-
-	const books = await parseLibgenDb(dbPath)
 
 	if (!fse.existsSync(unpackDir)) {
 		await fse.mkdirp(unpackDir)
@@ -513,31 +563,12 @@ export async function libgenUnpack({
 				archivePath: path.resolve(booksDir, archiveName),
 				async processFile(archivePath, innerFilePath, stream) {
 					const hash = innerFilePath.match(/\/(\w+)(?:\.\w+)?$/)?.[1]?.toLowerCase()
-					const bookStat = stats[hash]
-					if (!bookStat) {
+					const filePath = stats[hash]
+					if (!filePath) {
 						return
 					}
 
-					const book = books[bookStat.hash]
-
-					let fileName = book
-						? (book.author || '')
-							+ ' - ' + (book.title || '')
-							+ ' ' + (book.series || '')
-						: bookStat.hash
-
-					fileName = fileName
-						.replace(/[\\/:*?<>|"]/g, '')
-						.replace(/\s+/g, ' ')
-						.trim()
-
-					fileName = Math.round(bookStat.unknownWordsIn3Pages * 100).toString().padStart(5, '0') + ' - ' + fileName
-
-					const filePath = path.resolve(unpackDir, fileName + path.extname(innerFilePath))
-
-					if (!fse.existsSync(filePath)) {
-						await stream.pipe(fse.createWriteStream(filePath))
-					}
+					await stream.pipe(fse.createWriteStream(filePath))
 				},
 			})
 		}

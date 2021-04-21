@@ -61,7 +61,6 @@ export async function processLibgen() {
 			return a
 		}, {})
 
-
 	await _processLibgen({
 		dbPath    : 'f:/Torrents/New/text/db/ff/simple.csv',
 		booksDir  : 'f:/Torrents/New/text/text/',
