@@ -10,6 +10,7 @@ import {
 	ILibgenBookStat,
 	libgenUnpack as _libgenUnpack,
 	readBookStats,
+	createReportLibgen,
 } from './process'
 
 const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
@@ -82,6 +83,8 @@ export async function processLibgen() {
 export async function libgenUnpack() {
 	let bookStats = await readBookStats<ILibgenBookStat>('f:/Torrents/New/test/result/stat.json')
 	bookStats = bookStats.slice(0, 100)
+
+	await createReportLibgen('f:/Torrents/New/test/result/')
 
 	await _libgenUnpack({
 		bookStats,

@@ -187,20 +187,43 @@ export async function readBookStats<TLogEntry extends IBookStat>(bookStatsFile: 
 	return bookStats
 }
 
+async function createReport<TBookStat extends IBookStat>({
+	bookStatsFile,
+	reportFile,
+	reportHeader,
+	bookStatToReportLine,
+}: {
+	bookStatsFile: string,
+	reportFile: string,
+	reportHeader: string,
+	bookStatToReportLine: (bookStat: TBookStat) => string,
+}) {
+	if (!fse.existsSync(bookStatsFile)) {
+		return
+	}
+	const _bookStats = await readBookStats<TBookStat>(bookStatsFile)
+	let reportStr = reportHeader + '\r\n'
+	reportStr += _bookStats.map(bookStatToReportLine)
+		.join('\r\n')
+
+	const dir = path.dirname(bookStatsFile)
+	if (!fse.existsSync(dir)) {
+		await fse.mkdirp(dir)
+	}
+
+	await fse.writeFile(reportFile, reportStr, { encoding: 'utf-8' })
+}
+
 export async function analyzeBooks<TBookStat extends IBookStat>({
 	booksDir,
 	resultsDir,
 	totalBooks,
-	reportHeader,
-	bookStatToReportLine,
 	filterPaths,
 	analyzeBook: _analyzeBook,
 }: {
 	booksDir: string,
 	resultsDir: string,
 	totalBooks?: number,
-	reportHeader: string,
-	bookStatToReportLine: (bookStat: TBookStat) => string,
 	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
 	analyzeBook: (
 		rootDir: string,
@@ -211,8 +234,7 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 }) {
 	const stateFile = path.resolve(resultsDir, 'state.json')
 	const bookStatsFile = path.resolve(resultsDir, 'stat.json')
-	const reportFile = path.resolve(resultsDir, 'report.txt')
-	const dir = path.dirname(reportFile)
+	const dir = path.dirname(bookStatsFile)
 
 	if (!fse.existsSync(dir)) {
 		await fse.mkdirp(dir)
@@ -238,18 +260,6 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 		}
 	}
 
-	async function report() {
-		if (!fse.existsSync(bookStatsFile)) {
-			return
-		}
-		const _bookStats = await readBookStats<TBookStat>(bookStatsFile)
-		let reportStr = reportHeader + '\r\n'
-		reportStr += _bookStats.map(bookStatToReportLine)
-			.join('\r\n')
-
-		await fse.writeFile(reportFile, reportStr, { encoding: 'utf-8' })
-	}
-
 	async function save() {
 		if (bookStats.length > 0) {
 			let bookStatsStr = JSON.stringify(bookStats)
@@ -261,8 +271,6 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 
 		await fse.writeJSON(stateFile, state, { encoding: 'utf-8' })
 
-		await report()
-
 		showProgress()
 	}
 
@@ -271,9 +279,9 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 	let prevTime = Date.now()
 
 	await processFiles({
-		fileOrDirPath   : booksDir,
-		processArchives : true,
-		readBuffer      : true,
+		fileOrDirPath  : booksDir,
+		processArchives: true,
+		readBuffer     : true,
 		filterPaths(isDir, archivePath, fileOrDirPath) {
 			if (!isDir && !archivePath && fileOrDirPath in state.processedFiles) {
 				return false
@@ -360,6 +368,29 @@ export async function parseLibgenDb(dbPath: string) {
 	return books
 }
 
+export function createReportLibgen(resultsDir: string) {
+	return createReport<ILibgenBookStat>({
+		bookStatsFile: path.resolve(resultsDir, 'stat.json'),
+		reportFile   : path.resolve(resultsDir, 'report.txt'),
+		reportHeader : 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
+		bookStatToReportLine(bookStat) {
+			return `${
+				bookStat.id
+			}\t${
+				bookStat.hash
+			}\t${
+				bookStat.unknownWordsIn3Pages
+			}\t${
+				bookStat.unknownWordsIn20Pages
+			}\t${
+				bookStat.unknownWords
+			}\t${
+				bookStat.totalWords / wordsPerPage
+			}`
+		},
+	})
+}
+
 export async function processLibgen({
 	dbPath,
 	booksDir,
@@ -383,22 +414,6 @@ export async function processLibgen({
 		booksDir,
 		resultsDir,
 		totalBooks,
-		reportHeader: 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
-		bookStatToReportLine(bookStat) {
-			return `${
-				bookStat.id
-			}\t${
-				bookStat.hash
-			}\t${
-				bookStat.unknownWordsIn3Pages
-			}\t${
-				bookStat.unknownWordsIn20Pages
-			}\t${
-				bookStat.unknownWords
-			}\t${
-				bookStat.totalWords / wordsPerPage
-			}`
-		},
 		filterPaths,
 		analyzeBook(rootDir, archivePath, filePath, buffer) {
 			const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)?.[1]?.toLowerCase()
@@ -422,6 +437,31 @@ export async function processLibgen({
 			}
 		},
 	})
+
+	await createReportLibgen(resultsDir)
+}
+
+export function createReportBooks(resultsDir: string) {
+	return createReport<{
+		filePath,
+	} & IBookStat>({
+		bookStatsFile: path.resolve(resultsDir, 'stat.json'),
+		reportFile   : path.resolve(resultsDir, 'report.txt'),
+		reportHeader : 'unknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
+		bookStatToReportLine(bookStat) {
+			return `${
+				bookStat.unknownWordsIn3Pages
+			}\t${
+				bookStat.unknownWordsIn20Pages
+			}\t${
+				bookStat.unknownWords
+			}\t${
+				bookStat.totalWords / wordsPerPage
+			}\t${
+				bookStat.filePath
+			}`
+		},
+	})
 }
 
 export async function processBooks({
@@ -442,20 +482,6 @@ export async function processBooks({
 	} & IBookStat>({
 		booksDir,
 		resultsDir,
-		reportHeader: 'unknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
-		bookStatToReportLine(bookStat) {
-			return `${
-				bookStat.unknownWordsIn3Pages
-			}\t${
-				bookStat.unknownWordsIn20Pages
-			}\t${
-				bookStat.unknownWords
-			}\t${
-				bookStat.totalWords / wordsPerPage
-			}\t${
-				bookStat.filePath
-			}`
-		},
 		filterPaths,
 		analyzeBook(rootDir, archivePath, filePath, buffer) {
 			const text = xmlBookBufferToString(buffer)
@@ -472,6 +498,8 @@ export async function processBooks({
 			}
 		},
 	})
+
+	await createReportBooks(resultsDir)
 }
 
 export async function libgenUnpack({
