@@ -2,34 +2,31 @@
 import fse from 'fs-extra'
 import path from "path"
 import {
-	createRegExp,
-	createWordPattern,
 	parsePhrases,
 } from '../common/phrases-helpers'
 import {PhrasesStat} from '../common/PhrasesStat'
 import {PhrasesStatCollector} from '../common/PhrasesStatCollector'
-import {textPreprocess} from '../common/textPreprocess'
 import {WordsCache} from '../common/WordsCache'
 import {WordsStat} from '../common/WordsStat'
-import {xmlBufferToString} from './helpers'
-import {processArchiveTarXz, processFiles} from './processFiles'
+import {txtBookBufferToString, xmlBookBufferToString} from './helpers'
+import {processFiles} from './processFiles'
 import readline from 'readline'
 
 export const wordsPerPage = 200
-export const firstPagesForEstimate = 3
-export const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
 
 export async function calcStat({
 	wordsCache,
 	fileOrDirPath,
 	filterPhrases,
-	onFileHandled,
 	maxPhraseLength,
+	lettersPatern,
+	onFileHandled,
 }: {
 	wordsCache: WordsCache,
 	fileOrDirPath: string,
 	filterPhrases?: (phraseId: string) => boolean,
 	maxPhraseLength?: number,
+	lettersPatern: string,
 	onFileHandled?: (
 		filePath: string,
 		filePathRelative: string,
@@ -48,14 +45,19 @@ export async function calcStat({
 
 	await processFiles({
 		fileOrDirPath,
-		async processFile(filePath, filePathRelative) {
-			if (!/\.(txt|fb2)$/i.test(filePath)) {
-				return
+		alwaysReadBuffer: true,
+		processArchives : true,
+		filterPaths(isDir, archivePath, _fileOrDirPath) {
+			if (!isDir && !/\.(txt|fb2)$/i.test(_fileOrDirPath)) {
+				return false
 			}
-			const buffer = await fse.readFile(filePath)
-			const text = xmlBufferToString(buffer)
+			return true
+		},
+		async processFile(rootDir, archivePath, filePath, buffer) {
+			const text = xmlBookBufferToString(buffer)
 			const totalWords = phrasesStatCollector.addText(text)
 			if (onFileHandled) {
+				const filePathRelative = path.relative(rootDir, filePath)
 				await onFileHandled(filePath, filePathRelative, phrasesStat, totalWords)
 			}
 		},
@@ -66,23 +68,230 @@ export async function calcStat({
 	return phrasesStat
 }
 
-interface ILogEntry {
-	id: number,
-	hash: string,
+export async function calcWordStat({
+	wordRegExp,
+	fileOrDirPath,
+	bufferToString,
+}: {
+	wordRegExp: RegExp,
+	fileOrDirPath: string,
+	bufferToString: (buffer: Buffer) => Promise<string>|string,
+}) {
+	const wordsStat = new WordsStat()
+	await processFiles({
+		fileOrDirPath,
+		async processFile(filePath) {
+			if (!/\.(txt|fb2)$/i.test(filePath)) {
+				return
+			}
+			const buffer = await fse.readFile(filePath)
+			const text = await bufferToString(buffer)
+
+			// let totalWords = 0
+			parsePhrases(text, wordRegExp, word => {
+				wordsStat.add(word.toLowerCase())
+				// totalWords++
+			})
+
+			// console.log('totalWords:', totalWords)
+		},
+	})
+
+	return wordsStat
+}
+
+interface IAnalyzeBookResult {
 	unknownWordsIn3Pages: number,
 	unknownWordsIn20Pages: number,
 	unknownWords: number,
 	totalWords: number,
 }
 
+export function analyzeBook({
+	text,
+	wordRegExp,
+	wordFilter,
+}: {
+	text: string,
+	wordRegExp: RegExp,
+	wordFilter: (word: string) => boolean,
+}): IAnalyzeBookResult {
+	const wordStat = new WordsStat()
+	let totalWords = 0
+	parsePhrases(text, wordRegExp, word => {
+		if (wordFilter && !wordFilter(word)) {
+			return
+		}
+		wordStat.add(word)
+		totalWords++
+	})
+
+	if (!totalWords) {
+		return null
+	}
+
+	const values = Array.from(wordStat.values())
+
+	const unknownWords = values.length
+
+	const unknownWordsIn3Pages = values.reduce((a, o) => {
+		const countInFirstPages = Math.min(1, o * 3 * wordsPerPage / totalWords)
+		return a + countInFirstPages
+	}, 0) / 3
+
+	const unknownWordsIn20Pages = values.reduce((a, o) => {
+		const countInFirstPages = Math.min(1, o * 20 * wordsPerPage / totalWords)
+		return a + countInFirstPages
+	}, 0) / 20
+
+	return {
+		unknownWordsIn3Pages,
+		unknownWordsIn20Pages,
+		unknownWords,
+		totalWords,
+	}
+}
+
+export async function analyzeBooks<TLogEntry extends IAnalyzeBookResult>({
+	booksDir,
+	resultsDir,
+	totalBooks,
+	reportHeader,
+	logEntryToReportLine,
+	filterPaths,
+	analyzeBook: _analyzeBook,
+}: {
+	booksDir: string,
+	resultsDir: string,
+	totalBooks?: number,
+	reportHeader: string,
+	logEntryToReportLine: (logEntry: TLogEntry) => string,
+	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
+	analyzeBook: (
+		rootDir: string,
+		archivePath: string,
+		filePath: string,
+		buffer?: Buffer,
+	) => Promise<TLogEntry>|TLogEntry,
+}) {
+	const stateFile = path.resolve(resultsDir, 'state.json')
+	const logFile = path.resolve(resultsDir, 'log.json')
+	const reportFile = path.resolve(resultsDir, 'report.txt')
+	const dir = path.dirname(reportFile)
+
+	if (!fse.existsSync(dir)) {
+		await fse.mkdirp(dir)
+	}
+
+	const state: {
+		processedFiles: { [key: string]: number }
+	} = fse.existsSync(stateFile)
+		? await fse.readJSON(stateFile, { encoding: 'utf-8' })
+		: { processedFiles: {} }
+
+	const log: TLogEntry[] = []
+
+	let processedBooks = Object.keys(state.processedFiles).reduce((a, o) => {
+		return a + state.processedFiles[o]
+	}, 0)
+
+	function showProgress() {
+		if (totalBooks) {
+			console.log(`${processedBooks} / (${(processedBooks * 100 / totalBooks).toFixed(2)}%)`)
+		} else {
+			console.log(processedBooks)
+		}
+	}
+
+	async function report() {
+		if (!fse.existsSync(logFile)) {
+			return
+		}
+		const logStr = (await fse.readFile(logFile, {encoding: 'utf-8'})) + ']'
+		const _log: TLogEntry[] = JSON.parse(logStr)
+		_log.sort((o1, o2) => {
+			if (o1.unknownWordsIn3Pages !== o2.unknownWordsIn3Pages) {
+				return o1.unknownWordsIn3Pages > o2.unknownWordsIn3Pages ? 1 : -1
+			}
+			if (o1.unknownWordsIn20Pages !== o2.unknownWordsIn20Pages) {
+				return o1.unknownWordsIn20Pages > o2.unknownWordsIn20Pages ? 1 : -1
+			}
+			if (o1.unknownWords !== o2.unknownWords) {
+				return o1.unknownWords > o2.unknownWords ? 1 : -1
+			}
+			if (o1.totalWords !== o2.totalWords) {
+				return o1.totalWords > o2.totalWords ? -1 : 1
+			}
+			return 0
+		})
+
+		let reportStr = reportHeader + '\r\n'
+		reportStr += _log.map(logEntryToReportLine)
+			.join('\r\n')
+
+		await fse.writeFile(reportFile, reportStr, { encoding: 'utf-8' })
+	}
+
+	async function save() {
+		if (log.length > 0) {
+			let logStr = JSON.stringify(log)
+			logStr = (fse.existsSync(logFile) ? ',' : '[')
+				+ logStr.substring(1, logStr.length - 1)
+			await fse.appendFile(logFile, logStr, {encoding: 'utf-8'})
+			log.length = 0
+		}
+
+		await fse.writeJSON(stateFile, state, { encoding: 'utf-8' })
+
+		await report()
+
+		showProgress()
+	}
+
+	showProgress()
+
+	await processFiles({
+		fileOrDirPath   : booksDir,
+		processArchives : true,
+		alwaysReadBuffer: true,
+		filterPaths(isDir, archivePath, fileOrDirPath) {
+			if (!isDir && !archivePath && fileOrDirPath in state.processedFiles) {
+				return false
+			}
+			return filterPaths(isDir, archivePath, fileOrDirPath)
+		},
+		async processFile(rootDir, archivePath, filePath, buffer) {
+			const logEntry = await _analyzeBook(rootDir, archivePath, filePath, buffer)
+			if (logEntry) {
+				log.push(logEntry)
+			}
+		},
+		async onFileProcessed(rootDir, archivePath, filePath) {
+			if (!archivePath) {
+				state.processedFiles[filePath] = log.length
+				processedBooks += log.length
+				await save()
+			}
+		},
+	})
+
+	await save()
+}
+
 export async function processLibgen({
 	dbPath,
 	booksDir,
 	resultsDir,
+	wordRegExp,
+	wordFilter,
+	filterPaths,
 }: {
 	dbPath: string,
 	booksDir: string,
 	resultsDir: string,
+	wordRegExp: RegExp,
+	wordFilter: (word: string) => boolean,
+	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
 }) {
 	// region parse db
 
@@ -138,180 +347,95 @@ export async function processLibgen({
 
 	// endregion
 
-	const wordRegExp = createRegExp(createWordPattern(lettersPatern))
-
-	// region calc wasReadStat
-
-	const wasReadStat = new WordsStat()
-	await processFiles({
-		fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
-		async processFile(filePath) {
-			if (!/\.(txt|fb2)$/i.test(filePath)) {
-				return
-			}
-			const buffer = await fse.readFile(filePath)
-			let text = xmlBufferToString(buffer)
-
-			text = textPreprocess(text)
-			// let totalWords = 0
-			parsePhrases(text, wordRegExp, word => {
-				wasReadStat.add(word.toLowerCase())
-				// totalWords++
-			})
-
-			// console.log('totalWords:', totalWords)
-		},
-	})
-
-	// endregion
-
-	const stateFile = path.resolve(resultsDir, 'state.json')
-	const logFile = path.resolve(resultsDir, 'log.json')
-	const reportFile = path.resolve(resultsDir, 'report.txt')
-	const dir = path.dirname(reportFile)
-
-	if (!fse.existsSync(dir)) {
-		await fse.mkdirp(dir)
-	}
-
-	const state: {
-		scannedArchives: { [key: string]: number }
-	} = fse.existsSync(stateFile)
-		? await fse.readJSON(stateFile, { encoding: 'utf-8' })
-		: { scannedArchives: {} }
-
-	const log: ILogEntry[] = []
-
-	let scannedBooks = Object.keys(state.scannedArchives).reduce((a, o) => {
-		return a + state.scannedArchives[o]
-	}, 0)
 	const totalBooks = Object.keys(books).length
 
-	function showProgress() {
-		console.log(`${scannedBooks} / (${(scannedBooks * 100 / totalBooks).toFixed(2)}%)`)
-	}
-
-	async function report() {
-		if (!fse.existsSync(logFile)) {
-			return
-		}
-		const logStr = (await fse.readFile(logFile, {encoding: 'utf-8'})) + ']'
-		const _log: ILogEntry[] = JSON.parse(logStr)
-		_log.sort((o1, o2) => {
-			if (o1.unknownWordsIn3Pages !== o2.unknownWordsIn3Pages) {
-				return o1.unknownWordsIn3Pages > o2.unknownWordsIn3Pages ? 1 : -1
-			}
-			if (o1.unknownWordsIn20Pages !== o2.unknownWordsIn20Pages) {
-				return o1.unknownWordsIn20Pages > o2.unknownWordsIn20Pages ? 1 : -1
-			}
-			if (o1.unknownWords !== o2.unknownWords) {
-				return o1.unknownWords > o2.unknownWords ? 1 : -1
-			}
-			if (o1.totalWords !== o2.totalWords) {
-				return o1.totalWords > o2.totalWords ? -1 : 1
-			}
-			return 0
-		})
-
-		let reportStr = 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages\r\n'
-		reportStr += _log.map(o => `${
-			o.id
-		}\t${
-			o.hash
-		}\t${
-			o.unknownWordsIn3Pages
-		}\t${
-			o.unknownWordsIn20Pages
-		}\t${
-			o.unknownWords
-		}\t${
-			o.totalWords / wordsPerPage
-		}`)
-			.join('\r\n')
-
-		await fse.writeFile(reportFile, reportStr, { encoding: 'utf-8' })
-	}
-
-	async function save() {
-		if (log.length > 0) {
-			let logStr = JSON.stringify(log)
-			logStr = (fse.existsSync(logFile) ? ',' : '[')
-				+ logStr.substring(1, logStr.length - 1)
-			await fse.appendFile(logFile, logStr, {encoding: 'utf-8'})
-			log.length = 0
-		}
-
-		await fse.writeJSON(stateFile, state, { encoding: 'utf-8' })
-
-		await report()
-
-		showProgress()
-	}
-
-	showProgress()
-
-	await processFiles({
-		fileOrDirPath: booksDir,
-		async processFile(archivePath) {
-			if (archivePath in state.scannedArchives || !/\.tar(\.\w+)?$/.test(archivePath)) {
-				return
+	await analyzeBooks<{
+		id: number,
+		hash: string,
+	} & IAnalyzeBookResult>({
+		booksDir,
+		resultsDir,
+		totalBooks,
+		reportHeader: 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
+		logEntryToReportLine(logEntry) {
+			return `${
+				logEntry.id
+			}\t${
+				logEntry.hash
+			}\t${
+				logEntry.unknownWordsIn3Pages
+			}\t${
+				logEntry.unknownWordsIn20Pages
+			}\t${
+				logEntry.unknownWords
+			}\t${
+				logEntry.totalWords / wordsPerPage
+			}`
+		},
+		filterPaths,
+		analyzeBook(rootDir, archivePath, filePath, buffer) {
+			const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)[1]?.toLowerCase()
+			const book = books[hash]
+			if (!book) {
+				return null
 			}
 
-			await processArchiveTarXz({
-				archivePath,
-				processFile(_archivePath, filePath, buffer) {
-					const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)[1]?.toLowerCase()
-					const book = books[hash]
-					if (!book) {
-						return
-					}
-					const text = buffer.toString('utf-8')
+			const text = txtBookBufferToString(buffer)
 
-					const wordStat = new WordsStat()
-					let totalWords = 0
-					parsePhrases(text, wordRegExp, word => {
-						if (wasReadStat.has(word)) {
-							return
-						}
-						wordStat.add(word)
-						totalWords++
-					})
-
-					if (!totalWords) {
-						return
-					}
-
-					const values = Array.from(wordStat.values())
-
-					const unknownWords = values.length
-
-					const unknownWordsIn3Pages = values.reduce((a, o) => {
-						const countInFirstPages = Math.min(1, o * 3 * wordsPerPage / totalWords)
-						return a + countInFirstPages
-					}, 0) / 3
-
-					const unknownWordsIn20Pages = values.reduce((a, o) => {
-						const countInFirstPages = Math.min(1, o * 20 * wordsPerPage / totalWords)
-						return a + countInFirstPages
-					}, 0) / 20
-
-					log.push({
-						id  : book.id,
-						hash: book.hash,
-						unknownWordsIn3Pages,
-						unknownWordsIn20Pages,
-						unknownWords,
-						totalWords,
-					})
-				},
+			const logEntry = analyzeBook({
+				text,
+				wordRegExp,
+				wordFilter,
 			})
 
-			state.scannedArchives[archivePath] = log.length
-			scannedBooks += log.length
-
-			await save()
+			return {
+				id: book.id,
+				hash,
+				...logEntry,
+			}
 		},
 	})
+}
 
-	await save()
+export async function processBooks({
+	booksDir,
+	resultsDir,
+	wordRegExp,
+	wordFilter,
+	filterPaths,
+}: {
+	booksDir: string,
+	resultsDir: string,
+	wordRegExp: RegExp,
+	wordFilter: (word: string) => boolean,
+	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
+}) {
+	await analyzeBooks({
+		booksDir,
+		resultsDir,
+		reportHeader: 'unknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
+		logEntryToReportLine(logEntry) {
+			return `${
+				logEntry.unknownWordsIn3Pages
+			}\t${
+				logEntry.unknownWordsIn20Pages
+			}\t${
+				logEntry.unknownWords
+			}\t${
+				logEntry.totalWords / wordsPerPage
+			}`
+		},
+		filterPaths,
+		analyzeBook(rootDir, archivePath, filePath, buffer) {
+			const text = xmlBookBufferToString(buffer)
+
+			const logEntry = analyzeBook({
+				text,
+				wordRegExp,
+				wordFilter,
+			})
+
+			return logEntry
+		},
+	})
 }

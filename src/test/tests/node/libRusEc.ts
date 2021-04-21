@@ -3,7 +3,7 @@ import path from 'path'
 import sqlite from 'better-sqlite3'
 import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
 
-describe('node > processLibRusEc', function () {
+describe('node > libRusEc', function () {
 	this.timeout(30 * 24 * 60 * 60 * 1000)
 
 	const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'

@@ -1,4 +1,5 @@
 import {Iconv} from 'iconv'
+import {textPreprocess} from '../common/textPreprocess'
 
 const encodings: BufferEncoding[] = ['utf-8', 'utf16le', 'ucs-2', 'latin1']
 export function detectXmlEncoding(buffer: Buffer) {
@@ -20,6 +21,18 @@ export function xmlBufferToString(buffer: Buffer) {
 		buffer = iconv.convert(buffer)
 	}
 	const text = buffer.toString('utf-8')
+	return text
+}
+
+export function xmlBookBufferToString(buffer: Buffer): string {
+	let text = xmlBufferToString(buffer)
+	text = textPreprocess(text)
+	return text
+}
+
+export function txtBookBufferToString(buffer: Buffer, encoding: BufferEncoding = 'utf-8'): string {
+	let text = buffer.toString(encoding)
+	text = textPreprocess(text)
 	return text
 }
 
