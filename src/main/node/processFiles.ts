@@ -1,5 +1,6 @@
 import fse from 'fs-extra'
 import path from 'path'
+import type {Readable} from 'stream'
 import tar from 'tar-stream'
 import lzmaNative from 'lzma-native'
 import {streamToBuffer} from './helpers'
@@ -8,18 +9,19 @@ export async function processFiles({
 	fileOrDirPath: _fileOrDirPath,
 	filterPaths,
 	processArchives,
-	alwaysReadBuffer,
+	readBuffer,
 	processFile,
 	onFileProcessed,
 }: {
 	fileOrDirPath: string,
 	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
 	processArchives?: boolean,
-	alwaysReadBuffer?: boolean,
+	readBuffer?: boolean,
 	processFile: (
 		rootDir: string,
 		archivePath: string,
 		filePath: string,
+		stream: Readable|null,
 		buffer?: Buffer,
 	) => Promise<void>|void,
 	onFileProcessed?: (rootDir: string, archivePath: string, filePath: string) => Promise<void>|void,
@@ -32,17 +34,19 @@ export async function processFiles({
 		fileOrDirPath = path.resolve(fileOrDirPath)
 
 		const stat = await fse.stat(fileOrDirPath)
+		const isDir = stat.isDirectory()
 
-		if (filterPaths && !filterPaths(stat.isDirectory(), null, fileOrDirPath)) {
+		if (filterPaths && !filterPaths(isDir, null, fileOrDirPath)) {
 			return
 		}
 
-		if (!stat.isDirectory()) {
+		if (!isDir) {
 			if (processArchives && /\.tar(\.\w+)?$/.test(fileOrDirPath)) {
 				await processArchiveTarXz({
 					archivePath: fileOrDirPath,
+					readBuffer,
 					filterPaths,
-					async processFile(archivePath, innerFilePath, buffer) {
+					async processFile(archivePath, innerFilePath, stream, buffer) {
 						if (filterPaths && !filterPaths(false, archivePath, innerFilePath)) {
 							return
 						}
@@ -51,6 +55,7 @@ export async function processFiles({
 							rootDir,
 							archivePath,
 							innerFilePath,
+							stream,
 							buffer,
 						)
 
@@ -64,7 +69,7 @@ export async function processFiles({
 					},
 				})
 			} else {
-				const buffer = alwaysReadBuffer
+				const buffer = readBuffer
 					? await fse.readFile(fileOrDirPath)
 					: null
 
@@ -72,6 +77,7 @@ export async function processFiles({
 					rootDir,
 					null,
 					fileOrDirPath,
+					null,
 					buffer,
 				)
 			}
@@ -99,36 +105,43 @@ export async function processFiles({
 
 export function processArchiveTarXz({
 	archivePath,
+	readBuffer,
 	filterPaths,
 	processFile,
 }: {
 	archivePath: string,
+	readBuffer?: boolean,
 	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
-	processFile: (archivePath: string, filePath: string, buffer: Buffer) => Promise<void>|void,
+	processFile: (archivePath: string, filePath: string, stream: Readable, buffer?: Buffer) => Promise<void>|void,
 }): Promise<void> {
 	return new Promise((resolve, reject) => {
 		const extract = tar.extract()
-		extract.on('entry', async (headers, content, next) => {
+		extract.on('entry', async (headers, stream, next) => {
 			const {name: innerPath, type} = headers
+
+			stream.on('end', next)
 
 			if (type === 'directory' || type === 'file') {
 				if (filterPaths && !filterPaths(type === 'directory', archivePath, innerPath)) {
-					next()
+					stream.resume()
 					return
 				}
 			}
 
 			if (type === 'file') {
 				try {
-					const buffer = await streamToBuffer(content)
-					await processFile(archivePath, innerPath, buffer)
+					const buffer = readBuffer
+						? await streamToBuffer(stream)
+						: null
+					await processFile(archivePath, innerPath, stream, buffer)
 				} catch (err) {
+					stream.resume()
 					reject(err)
 					return
 				}
 			}
 
-			next()
+			stream.resume()
 		})
 
 		extract.on('error', reject)

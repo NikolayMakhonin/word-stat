@@ -8,12 +8,13 @@ import {
 import {PhrasesStat} from '../../../main/common/PhrasesStat'
 import {PhrasesStatCollector} from '../../../main/common/PhrasesStatCollector'
 import {WordsCache} from '../../../main/common/WordsCache'
+import {WordsStat} from '../../../main/common/WordsStat'
 import {xmlBookBufferToString, xmlBufferToString} from '../../../main/node/helpers'
 import {
 	calcStat,
-	calcWordStat,
+	calcWordStat, ILibgenBookStat, libgenUnpack,
 	processBooks,
-	processLibgen,
+	processLibgen, readBookStats,
 	wordsPerPage,
 } from '../../../main/node/process'
 import {processArchiveTarXz} from '../../../main/node/processFiles'
@@ -35,7 +36,7 @@ describe('node > test', function () {
 	//
 	// 	const wasReadStat = await calcStat({
 	// 		wordsCache,
-	// 		fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
+	// 		fileOrDirPath: 'e:/RemoteData/Mega2/Text/Books/Учебники/English/WasRead',
 	// 	})
 	//
 	// 	const resultDir = path.resolve('tmp/result')
@@ -45,14 +46,14 @@ describe('node > test', function () {
 	//
 	// 	const wantReadStat = await calcStat({
 	// 		wordsCache,
-	// 		// fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books\\16 - This Body of Death.fb2',
-	// 		fileOrDirPath: 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books',
+	// 		// fileOrDirPath: 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books/16 - This Body of Death.fb2',
+	// 		fileOrDirPath: 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books',
 	// 		filterPhrases(phraseId: string) {
 	// 			return !wasReadStat.has(phraseId)
 	// 		},
 	// 		async onFileHandled(filePath, filePathRelative, phrasesStat, totalWords) {
 	// 			phrasesStat.reduce(true)
-	// 			let resultPath = path.resolve(resultDir, filePathRelative.replace(/[\\/:]/g, ' - '))
+	// 			let resultPath = path.resolve(resultDir, filePathRelative.replace(/[//:]/g, ' - '))
 	//
 	// 			const entries = phrasesStat.entries()
 	// 			const unknownWords = entries.reduce((a, o) => {
@@ -71,7 +72,7 @@ describe('node > test', function () {
 	// 			const totalPages = totalWords / wordsPerPage
 	// 			const unknownWordsPer100Pages = Math.round(unknownWords / (totalPages / 100))
 	//
-	// 			resultPath = resultPath.replace(/([\\/])([^\\/]+)$/, `$1${unknownWordsInFirstPage.toString().padStart(5, '0')} - $2`)
+	// 			resultPath = resultPath.replace(/([//])([^//]+)$/, `$1${unknownWordsInFirstPage.toString().padStart(5, '0')} - $2`)
 	// 			resultPath = resultPath.replace(/\.\w+$/, '.txt')
 	//
 	// 			const statStr = phrasesStatToString(wordsCache, entries)
@@ -98,7 +99,7 @@ describe('node > test', function () {
 	//
 	// 	const wasReadStat = await calcStat({
 	// 		wordsCache,
-	// 		fileOrDirPath  : 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
+	// 		fileOrDirPath  : 'e:/RemoteData/Mega2/Text/Books/Учебники/English/WasRead',
 	// 		maxPhraseLength: 1,
 	// 	})
 	//
@@ -225,16 +226,34 @@ describe('node > test', function () {
 	// 	await save()
 	// })
 
+	function filterXmlBooks(isDir, archivePath, _fileOrDirPath) {
+		if (!isDir && !/\.(txt|fb2)$/i.test(_fileOrDirPath)) {
+			return false
+		}
+		return true
+	}
+
+	let wasReadStat: WordsStat
+	async function calcWasReadStat() {
+		if (wasReadStat == null) {
+			wasReadStat = await calcWordStat({
+				wordRegExp,
+				fileOrDirPath : 'e:/RemoteData/Mega2/Text/Books/Учебники/English/WasRead',
+				filterPaths   : filterXmlBooks,
+				bufferToString: xmlBookBufferToString,
+			})
+		}
+
+		return wasReadStat
+	}
+
 	it('my books', async function () {
-		const wasReadStat = await calcWordStat({
-			wordRegExp,
-			fileOrDirPath : 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
-			bufferToString: xmlBookBufferToString,
-		})
+		const wasReadStat = await calcWasReadStat()
 
 		await processBooks({
-			booksDir  : 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\Books',
-			resultsDir: 'f:\\Torrents\\New\\test\\result\\',
+			booksDir   : 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books',
+			resultsDir : 'tmp/myBooks',
+			filterPaths: filterXmlBooks,
 			wordRegExp,
 			wordFilter(word) {
 				return !wasReadStat.has(word)
@@ -243,20 +262,28 @@ describe('node > test', function () {
 	})
 
 	it('libgen', async function () {
-		const wasReadStat = await calcWordStat({
-			wordRegExp,
-			fileOrDirPath : 'e:\\RemoteData\\Mega2\\Text\\Books\\Учебники\\English\\WasRead',
-			bufferToString: xmlBookBufferToString,
-		})
+		const wasReadStat = await calcWasReadStat()
 
 		await processLibgen({
-			dbPath    : 'f:\\Torrents\\New\\text\\db\\ff\\simple.csv',
-			booksDir  : 'f:\\Torrents\\New\\test\\text\\',
-			resultsDir: 'f:\\Torrents\\New\\test\\result\\',
+			dbPath    : 'f:/Torrents/New/text/db/ff/simple.csv',
+			booksDir  : 'f:/Torrents/New/test/text/',
+			resultsDir: 'f:/Torrents/New/test/result/',
 			wordRegExp,
 			wordFilter(word) {
 				return !wasReadStat.has(word)
 			},
+		})
+	})
+
+	it('libgen unpack', async function () {
+		let bookStats = await readBookStats<ILibgenBookStat>('f:/Torrents/New/test/result/stat.json')
+		bookStats = bookStats.slice(0, 100)
+
+		await libgenUnpack({
+			bookStats,
+			dbPath   : 'f:/Torrents/New/text/db/ff/simple.csv',
+			booksDir : 'f:/Torrents/New/test/text/ff',
+			unpackDir: 'f:/Torrents/New/test/result/books',
 		})
 	})
 })
