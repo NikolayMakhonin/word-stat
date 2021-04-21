@@ -532,7 +532,9 @@ export async function libgenUnpack({
 
 					const filePath = path.resolve(unpackDir, fileName + path.extname(innerFilePath))
 
-					await stream.pipe(fse.createWriteStream(filePath))
+					if (!fse.existsSync(filePath)) {
+						await stream.pipe(fse.createWriteStream(filePath))
+					}
 				},
 			})
 		}
