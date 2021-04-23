@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow,quotes */
+import {distinct} from '../common/helpers'
 import {createRegExp, createWordPattern} from '../common/phrases-helpers'
 import {WordsStat} from '../common/WordsStat'
 import {xmlBookBufferToString} from './helpers'
@@ -82,7 +83,7 @@ export async function processLibgen() {
 
 export async function libgenUnpack() {
 	let bookStats = await readBookStats<ILibgenBookStat>('f:/Torrents/New/test/result/stat.json')
-	bookStats = bookStats.slice(0, 100)
+	bookStats = distinct(bookStats, o => o.hash).slice(0, 10000)
 
 	await createReportLibgen('f:/Torrents/New/test/result/')
 
