@@ -1,6 +1,7 @@
 /* eslint-disable quotes,no-await-in-loop */
 import fse from 'fs-extra'
 import path from "path"
+import {Readable} from "stream"
 import {
 	parsePhrases,
 } from '../common/phrases-helpers'
@@ -8,7 +9,7 @@ import {PhrasesStat} from '../common/PhrasesStat'
 import {PhrasesStatCollector} from '../common/PhrasesStatCollector'
 import {WordsCache} from '../common/WordsCache'
 import {WordsStat} from '../common/WordsStat'
-import {txtBookBufferToString, xmlBookBufferToString} from './helpers'
+import {streamToBuffer, txtBookBufferToString, xmlBookBufferToString} from './helpers'
 import {processArchiveTarXz, processFiles} from './processFiles'
 import readline from 'readline'
 import papaparse from 'papaparse'
@@ -229,7 +230,7 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 		rootDir: string,
 		archivePath: string,
 		filePath: string,
-		buffer?: Buffer,
+		stream?: Readable,
 	) => Promise<TBookStat>|TBookStat,
 }) {
 	const stateFile = path.resolve(resultsDir, 'state.json')
@@ -281,15 +282,14 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 	await processFiles({
 		fileOrDirPath  : booksDir,
 		processArchives: true,
-		readBuffer     : true,
 		filterPaths(isDir, archivePath, fileOrDirPath) {
 			if (!isDir && !archivePath && fileOrDirPath in state.processedFiles) {
 				return false
 			}
 			return !filterPaths || filterPaths(isDir, archivePath, fileOrDirPath)
 		},
-		async processFile(rootDir, archivePath, filePath, stream, buffer) {
-			const bookStat = await _analyzeBook(rootDir, archivePath, filePath, buffer)
+		async processFile(rootDir, archivePath, filePath, stream) {
+			const bookStat = await _analyzeBook(rootDir, archivePath, filePath, stream)
 			if (bookStat) {
 				bookStats.push(bookStat)
 			}
@@ -415,13 +415,14 @@ export async function processLibgen({
 		resultsDir,
 		totalBooks,
 		filterPaths,
-		analyzeBook(rootDir, archivePath, filePath, buffer) {
+		async analyzeBook(rootDir, archivePath, filePath, stream) {
 			const hash = filePath.match(/\/(\w+)(?:\.\w+)?$/)?.[1]?.toLowerCase()
 			const book = books[hash]
 			if (!book) {
 				return null
 			}
 
+			const buffer = await streamToBuffer(stream)
 			const text = txtBookBufferToString(buffer)
 
 			const bookStat = analyzeBook({
@@ -483,7 +484,8 @@ export async function processBooks({
 		booksDir,
 		resultsDir,
 		filterPaths,
-		analyzeBook(rootDir, archivePath, filePath, buffer) {
+		async analyzeBook(rootDir, archivePath, filePath, stream) {
+			const buffer = await streamToBuffer(stream)
 			const text = xmlBookBufferToString(buffer)
 
 			const bookStat = analyzeBook({

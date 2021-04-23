@@ -23,11 +23,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/process.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/process.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/scripts.ts" afterDir="false" />
-    </list>
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -310,14 +306,7 @@
       <workItem from="1618972943802" duration="21762000" />
       <workItem from="1618999271612" duration="2617000" />
       <workItem from="1619019886590" duration="2941000" />
-      <workItem from="1619024161268" duration="717000" />
-    </task>
-    <task id="LOCAL-00051" summary="Lint fixes">
-      <created>1601697451648</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1601697451648</updated>
+      <workItem from="1619024161268" duration="1508000" />
     </task>
     <task id="LOCAL-00052" summary="Lint config updated">
       <created>1601698691759</created>
@@ -655,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619022225620</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Develop">
+      <created>1619025063784</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1619025063784</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -732,38 +728,38 @@
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="646" y="218" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.882@0.0.1920.882" timestamp="1618802774436" />
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1619022224769">
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2" timestamp="1619025062909">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1619022224769" />
+    <state x="0" y="0" width="1920" height="882" key="CommitChangelistDialog2/0.0.1920.882@0.0.1920.882" timestamp="1619025062909" />
     <state width="1355" height="564" key="DebuggerActiveHint" timestamp="1619021238680">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state width="1355" height="564" key="DebuggerActiveHint/0.0.1920.882@0.0.1920.882" timestamp="1619021238680" />
-    <state x="183" y="66" key="DiffContextDialog" timestamp="1618974865398">
+    <state x="-1" y="1" width="1922" height="879" key="DiffContextDialog" timestamp="1619025059604">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state x="183" y="66" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1618974865398" />
+    <state x="-1" y="1" width="1922" height="879" key="DiffContextDialog/0.0.1920.882@0.0.1920.882" timestamp="1619025059604" />
     <state x="686" y="135" key="FileChooserDialogImpl" timestamp="1618915756679">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
     <state x="686" y="135" key="FileChooserDialogImpl/0.0.1920.882@0.0.1920.882" timestamp="1618915756679" />
-    <state width="1892" height="180" key="GridCell.Tab.0.bottom" timestamp="1619023200325">
+    <state width="1892" height="243" key="GridCell.Tab.0.bottom" timestamp="1619027985554">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="180" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1619023200325" />
-    <state width="1892" height="180" key="GridCell.Tab.0.center" timestamp="1619023200325">
+    <state width="1892" height="243" key="GridCell.Tab.0.bottom/0.0.1920.882@0.0.1920.882" timestamp="1619027985554" />
+    <state width="1892" height="243" key="GridCell.Tab.0.center" timestamp="1619027985553">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="180" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1619023200325" />
-    <state width="1892" height="180" key="GridCell.Tab.0.left" timestamp="1619023200325">
+    <state width="1892" height="243" key="GridCell.Tab.0.center/0.0.1920.882@0.0.1920.882" timestamp="1619027985553" />
+    <state width="1892" height="243" key="GridCell.Tab.0.left" timestamp="1619027985553">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="180" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1619023200325" />
-    <state width="1892" height="180" key="GridCell.Tab.0.right" timestamp="1619023200325">
+    <state width="1892" height="243" key="GridCell.Tab.0.left/0.0.1920.882@0.0.1920.882" timestamp="1619027985553" />
+    <state width="1892" height="243" key="GridCell.Tab.0.right" timestamp="1619027985553">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
-    <state width="1892" height="180" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1619023200325" />
+    <state width="1892" height="243" key="GridCell.Tab.0.right/0.0.1920.882@0.0.1920.882" timestamp="1619027985553" />
     <state width="1892" height="230" key="GridCell.Tab.1.bottom" timestamp="1619023200319">
       <screen x="0" y="0" width="1920" height="882" />
     </state>
@@ -843,12 +839,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <condition expression="!filePath.match(/\/(\w+)(?:\.\w+)?$/)" language="JavaScript" />
           <url>file://$PROJECT_DIR$/dist/dev/js/main/node/process.js</url>
-          <line>758</line>
+          <line>775</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/node/scripts.ts</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
