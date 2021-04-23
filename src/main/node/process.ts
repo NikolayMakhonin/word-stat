@@ -296,11 +296,12 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 		},
 		async onFileProcessed(rootDir, archivePath, filePath) {
 			if (!archivePath) {
+				state.processedFiles[filePath] = bookStats.length
+				processedBooks += bookStats.length
+
 				const now = Date.now()
 				if (now > prevTime + 60 * 1000) {
 					prevTime = now
-					state.processedFiles[filePath] = bookStats.length
-					processedBooks += bookStats.length
 					await save()
 				}
 			}
