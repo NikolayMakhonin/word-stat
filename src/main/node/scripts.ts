@@ -42,7 +42,7 @@ export async function processMyBooks() {
 	const wasReadStat = await calcWasReadStat()
 
 	await processBooks({
-		booksDir   : 'f:/Torrents/New/test/result/books',
+		booksDir   : 'f:/Torrents/New/test/result/books__',
 		resultsDir : 'f:/Torrents/New/test/result/myBooks',
 		filterPaths: filterXmlBooks,
 		wordRegExp,
