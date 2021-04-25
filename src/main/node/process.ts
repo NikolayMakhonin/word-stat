@@ -11,8 +11,7 @@ import {WordsCache} from '../common/WordsCache'
 import {WordsStat} from '../common/WordsStat'
 import {streamToBuffer, txtBookBufferToString, xmlBookBufferToString} from './helpers'
 import {processArchiveTarXz, processFiles} from './processFiles'
-import readline from 'readline'
-import papaparse from 'papaparse'
+import papaparse, {ParseResult} from 'papaparse'
 
 export const wordsPerPage = 200
 
@@ -47,8 +46,8 @@ export async function calcStat({
 
 	await processFiles({
 		fileOrDirPath,
-		readBuffer: true,
-		processArchives : true,
+		readBuffer     : true,
+		processArchives: true,
 		filterPaths(isDir, archivePath, _fileOrDirPath) {
 			if (!isDir && !/\.(txt|fb2)$/i.test(_fileOrDirPath)) {
 				return false
@@ -84,8 +83,8 @@ export async function calcWordStat({
 	const wordsStat = new WordsStat()
 	await processFiles({
 		fileOrDirPath,
-		readBuffer: true,
-		processArchives : true,
+		readBuffer     : true,
+		processArchives: true,
 		filterPaths,
 		async processFile(rootDir, archivePath, filePath, stream, buffer) {
 			const text = await bufferToString(buffer)
@@ -189,22 +188,30 @@ export async function readBookStats<TLogEntry extends IBookStat>(bookStatsFile: 
 }
 
 async function createReport<TBookStat extends IBookStat>({
+	dbDescriptionsPath,
 	bookStatsFile,
+	bookStats,
 	reportFile,
 	reportHeader,
 	bookStatToReportLine,
 }: {
-	bookStatsFile: string,
+	dbDescriptionsPath: string,
+	bookStatsFile?: string,
+	bookStats?: TBookStat[],
 	reportFile: string,
 	reportHeader: string,
-	bookStatToReportLine: (bookStat: TBookStat) => string,
+	bookStatToReportLine: (bookStat: TBookStat, descriptions?: { [hash: string]: string }) => string,
 }) {
 	if (!fse.existsSync(bookStatsFile)) {
 		return
 	}
-	const _bookStats = await readBookStats<TBookStat>(bookStatsFile)
+	const _bookStats = bookStats || await readBookStats<TBookStat>(bookStatsFile)
+	const descriptions = dbDescriptionsPath
+		? await parseLibgenDbDescriptions(dbDescriptionsPath)
+		: null
+
 	let reportStr = reportHeader + '\r\n'
-	reportStr += _bookStats.map(bookStatToReportLine)
+	reportStr += _bookStats.map(o => bookStatToReportLine(o, descriptions))
 		.join('\r\n')
 
 	const dir = path.dirname(bookStatsFile)
@@ -212,7 +219,7 @@ async function createReport<TBookStat extends IBookStat>({
 		await fse.mkdirp(dir)
 	}
 
-	await fse.writeFile(reportFile, reportStr, { encoding: 'utf-8' })
+	await fse.writeFile(reportFile, '\ufeff' + reportStr, { encoding: 'utf-8' })
 }
 
 export async function analyzeBooks<TBookStat extends IBookStat>({
@@ -279,6 +286,8 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 
 	let prevTime = Date.now()
 
+	const fileBookStats = []
+
 	await processFiles({
 		fileOrDirPath  : booksDir,
 		processArchives: true,
@@ -291,13 +300,15 @@ export async function analyzeBooks<TBookStat extends IBookStat>({
 		async processFile(rootDir, archivePath, filePath, stream) {
 			const bookStat = await _analyzeBook(rootDir, archivePath, filePath, stream)
 			if (bookStat) {
-				bookStats.push(bookStat)
+				fileBookStats.push(bookStat)
 			}
 		},
 		async onFileProcessed(rootDir, archivePath, filePath) {
 			if (!archivePath) {
-				state.processedFiles[filePath] = bookStats.length
-				processedBooks += bookStats.length
+				bookStats.push(...fileBookStats)
+				state.processedFiles[filePath] = fileBookStats.length
+				processedBooks += fileBookStats.length
+				fileBookStats.length = 0
 
 				const now = Date.now()
 				if (now > prevTime + 60 * 1000) {
@@ -328,64 +339,94 @@ export async function parseLibgenDb(dbPath: string) {
 	} else {
 		books = {}
 
-		const dbStream = fse.createReadStream(dbPath)
-
-		const dbReadLine = readline.createInterface({
-			input    : dbStream,
-			crlfDelay: Infinity,
+		const stream = fse.createReadStream(dbPath)
+		const result = await new Promise<ParseResult<string[]>>((resolve, reject) => {
+			papaparse.parse(dbPath, {
+				header  : false,
+				complete: resolve,
+				error   : reject,
+			})
 		})
+		stream.close()
 
-		let firstLine = true
-		for await (const line of dbReadLine) {
-			if (firstLine) {
-				firstLine = false
-				continue
-			}
-			if (line) {
-				let [idStr, hash, lang, , author, title, seriesStr] = papaparse.parse(line, {
-					header: false,
-				}).data[0] as string[]
-				// let [idStr, hash, lang, , author, title, seriesStr] = line.split(',')
-
-				idStr = idStr.trim()
-				seriesStr = seriesStr.trim()
-				lang = lang.toLowerCase().trim()
-				hash = hash.toLowerCase().trim()
-				const id = idStr ? parseInt(idStr, 10) : null
-				const series = seriesStr ? parseInt(seriesStr, 10) : null
-				if (!lang || lang === 'english') {
-					books[hash] = {
-						id, hash, author, title, series,
-					}
+		for (let i = 1, len = result.data.length; i < len; i++) {
+			let [idStr, hash, lang, , author, title, seriesStr] = result.data[i]
+			idStr = idStr.trim()
+			seriesStr = seriesStr.trim()
+			lang = lang.toLowerCase().trim()
+			hash = hash.toLowerCase().trim()
+			const id = idStr ? parseInt(idStr, 10) : null
+			const series = seriesStr ? parseInt(seriesStr, 10) : null
+			if (!lang || lang === 'english') {
+				books[hash] = {
+					id, hash, author, title, series,
 				}
 			}
 		}
 
 		await fse.writeJSON(dbCachePath, books, { encoding: 'utf-8' })
-
-		dbStream.close()
 	}
 
 	return books
 }
 
-export function createReportLibgen(resultsDir: string) {
+export async function parseLibgenDbDescriptions(dbPath: string) {
+	let descriptions: {
+		[hash: string]: string,
+	}
+
+	const dbCachePath = dbPath + '.json'
+	if (fse.existsSync(dbCachePath)) {
+		descriptions = await fse.readJSON(dbCachePath, { encoding: 'utf-8' }) as any
+	} else {
+		descriptions = {} as any
+
+		const stream = fse.createReadStream(dbPath)
+		const result = await new Promise<ParseResult<string[]>>((resolve, reject) => {
+			papaparse.parse(stream, {
+				header  : false,
+				complete: resolve,
+				error   : reject,
+			})
+		})
+		stream.close()
+
+		for (let i = 1, len = result.data.length; i < len; i++) {
+			const [hash, description] = result.data[i]
+			descriptions[hash] = description
+		}
+
+		await fse.writeJSON(dbCachePath, descriptions, { encoding: 'utf-8' })
+	}
+
+	return descriptions
+}
+
+export function createReportLibgen({
+	resultsDir,
+	bookStats,
+}: {
+	resultsDir: string,
+	bookStats?: ILibgenBookStat[],
+}) {
 	return createReport<ILibgenBookStat>({
-		bookStatsFile: path.resolve(resultsDir, 'stat.json'),
-		reportFile   : path.resolve(resultsDir, 'report.txt'),
-		reportHeader : 'id\thash\tunknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
+		dbDescriptionsPath: 'f:/Torrents/New/text/db/ff/fiction_description.csv',
+		bookStatsFile     : path.resolve(resultsDir, 'stat.json'),
+		bookStats,
+		reportFile        : path.resolve(resultsDir, 'report.csv'),
+		reportHeader      : 'id,hash,unknownWordsIn3Pages,unknownWordsIn20Pages,unknownWords,totalPages',
 		bookStatToReportLine(bookStat) {
 			return `${
 				bookStat.id
-			}\t${
+			},${
 				bookStat.hash
-			}\t${
+			},${
 				bookStat.unknownWordsIn3Pages
-			}\t${
+			},${
 				bookStat.unknownWordsIn20Pages
-			}\t${
+			},${
 				bookStat.unknownWords
-			}\t${
+			},${
 				bookStat.totalWords / wordsPerPage
 			}`
 		},
@@ -440,28 +481,41 @@ export async function processLibgen({
 		},
 	})
 
-	await createReportLibgen(resultsDir)
+	// await createReportLibgen({
+	// 	resultsDir,
+	// })
 }
 
-export function createReportBooks(resultsDir: string) {
+export function createReportBooks({
+	resultsDir,
+	bookStats,
+}: {
+	resultsDir: string,
+	bookStats?: Array<{
+		filePath,
+	} & IBookStat>,
+}) {
 	return createReport<{
 		filePath,
 	} & IBookStat>({
-		bookStatsFile: path.resolve(resultsDir, 'stat.json'),
-		reportFile   : path.resolve(resultsDir, 'report.txt'),
-		reportHeader : 'unknownWordsIn3Pages\tunknownWordsIn20Pages\tunknownWords\ttotalPages',
-		bookStatToReportLine(bookStat) {
-			return `${
-				bookStat.unknownWordsIn3Pages
-			}\t${
-				bookStat.unknownWordsIn20Pages
-			}\t${
-				bookStat.unknownWords
-			}\t${
-				bookStat.totalWords / wordsPerPage
-			}\t${
-				bookStat.filePath
-			}`
+		dbDescriptionsPath: 'f:/Torrents/New/text/db/ff/fiction_description.csv',
+		bookStatsFile     : path.resolve(resultsDir, 'stat.json'),
+		bookStats,
+		reportFile        : path.resolve(resultsDir, 'report.csv'),
+		reportHeader      : 'unknownWordsIn3Pages,unknownWordsIn20Pages,unknownWords,totalPages,author,title,description,filePath',
+		bookStatToReportLine(bookStat, descriptions) {
+			const [, hash, name] = bookStat.filePath.match(/[\\/](?:\d+ *- *)?(?:([\da-f]{32}) *- *)?([^\\/]+?)(?:\.\w+)?$/)
+			const [author, title] = name.split('-').map(o => o.trim())
+			return papaparse.unparse([[
+				bookStat.unknownWordsIn3Pages,
+				bookStat.unknownWordsIn20Pages,
+				bookStat.unknownWords,
+				bookStat.totalWords / wordsPerPage,
+				author,
+				title,
+				hash && descriptions[hash.toUpperCase()],
+				bookStat.filePath,
+			]])
 		},
 	})
 }
@@ -502,7 +556,7 @@ export async function processBooks({
 		},
 	})
 
-	await createReportBooks(resultsDir)
+	await createReportBooks({resultsDir})
 }
 
 export async function libgenUnpack({
@@ -566,7 +620,7 @@ export async function libgenUnpack({
 				return a
 			}
 
-			fileName = Math.round(o.unknownWordsIn3Pages * 100).toString().padStart(5, '0') + ' - ' + fileName
+			fileName = Math.round(o.unknownWordsIn3Pages * 100).toString().padStart(5, '0') + ' - ' + o.hash + ' - ' + fileName
 
 			const filePath = path.resolve(unpackDir, fileName)
 

@@ -11,7 +11,7 @@ import {
 	ILibgenBookStat,
 	libgenUnpack as _libgenUnpack,
 	readBookStats,
-	createReportLibgen,
+	createReportLibgen, createReportBooks,
 } from './process'
 
 const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
@@ -42,14 +42,18 @@ export async function processMyBooks() {
 	const wasReadStat = await calcWasReadStat()
 
 	await processBooks({
-		booksDir   : 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books',
-		resultsDir : 'tmp/myBooks',
+		booksDir   : 'f:/Torrents/New/test/result/books',
+		resultsDir : 'f:/Torrents/New/test/result/myBooks',
 		filterPaths: filterXmlBooks,
 		wordRegExp,
 		wordFilter(word) {
 			return !wasReadStat.has(word)
 		},
 	})
+}
+
+export async function myBooksReport() {
+	await createReportBooks({resultsDir: 'f:/Torrents/New/test/result/myBooks'})
 }
 
 export async function processLibgen() {
@@ -81,11 +85,24 @@ export async function processLibgen() {
 	})
 }
 
+export async function libgenReport() {
+	let bookStats = await readBookStats<ILibgenBookStat>('f:/Torrents/New/test/result/stat.json')
+	bookStats = distinct(bookStats, o => o.hash).slice(0, 10000)
+
+	await createReportLibgen({
+		resultsDir: 'f:/Torrents/New/test/result/',
+		bookStats,
+	})
+}
+
 export async function libgenUnpack() {
 	let bookStats = await readBookStats<ILibgenBookStat>('f:/Torrents/New/test/result/stat.json')
 	bookStats = distinct(bookStats, o => o.hash).slice(0, 10000)
 
-	await createReportLibgen('f:/Torrents/New/test/result/')
+	await createReportLibgen({
+		resultsDir: 'f:/Torrents/New/test/result/',
+		bookStats,
+	})
 
 	await _libgenUnpack({
 		bookStats,

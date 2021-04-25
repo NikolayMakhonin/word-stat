@@ -3,6 +3,7 @@ import path from 'path'
 import type {Readable} from 'stream'
 import tar from 'tar-stream'
 import lzmaNative from 'lzma-native'
+import yauzl from 'yauzl'
 import {streamToBuffer} from './helpers'
 
 export async function processFiles({
@@ -40,46 +41,55 @@ export async function processFiles({
 			return
 		}
 
-		if (!isDir) {
-			if (processArchives && /\.tar(\.\w+)?$/.test(fileOrDirPath)) {
-				await processArchiveTarXz({
-					archivePath: fileOrDirPath,
-					readBuffer,
-					filterPaths,
-					async processFile(archivePath, innerFilePath, stream, buffer) {
-						if (filterPaths && !filterPaths(false, archivePath, innerFilePath)) {
-							return
-						}
+		function getUnpackParams() {
+			return {
+				archivePath: fileOrDirPath,
+				readBuffer,
+				filterPaths,
+				async processFile(archivePath, innerFilePath, stream, buffer) {
+					if (filterPaths && !filterPaths(false, archivePath, innerFilePath)) {
+						return
+					}
 
-						await processFile(
+					await processFile(
+						rootDir,
+						archivePath,
+						innerFilePath,
+						stream,
+						buffer,
+					)
+
+					if (onFileProcessed) {
+						await onFileProcessed(
 							rootDir,
 							archivePath,
 							innerFilePath,
-							stream,
-							buffer,
 						)
+					}
+				},
+			}
+		}
 
-						if (onFileProcessed) {
-							await onFileProcessed(
-								rootDir,
-								archivePath,
-								innerFilePath,
-							)
-						}
-					},
-				})
+		if (!isDir) {
+			if (processArchives && /\.zip$/.test(fileOrDirPath)) {
+				await processArchiveZip(getUnpackParams())
+			} else if (processArchives && /\.tar(\.\w+)?$/.test(fileOrDirPath)) {
+				await processArchiveTarXz(getUnpackParams())
 			} else {
+				const stream = fse.createReadStream(fileOrDirPath)
 				const buffer = readBuffer
-					? await fse.readFile(fileOrDirPath)
+					? await streamToBuffer(stream)
 					: null
 
 				await processFile(
 					rootDir,
 					null,
 					fileOrDirPath,
-					null,
+					stream,
 					buffer,
 				)
+
+				stream.close()
 			}
 
 			if (onFileProcessed) {
@@ -154,5 +164,64 @@ export function processArchiveTarXz({
 
 		xzStream.pipe(extract)
 		source.pipe(xzStream)
+	})
+}
+
+export function processArchiveZip({
+	archivePath,
+	readBuffer,
+	filterPaths,
+	processFile,
+}: {
+	archivePath: string,
+	readBuffer?: boolean,
+	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
+	processFile: (archivePath: string, filePath: string, stream: Readable, buffer?: Buffer) => Promise<void>|void,
+}): Promise<void> {
+	return new Promise((resolve, reject) => {
+		yauzl.open(archivePath, {lazyEntries: true}, (error, zipFile) => {
+			if (error) {
+				reject(error)
+				return
+			}
+
+			zipFile.on('end', () => {
+				resolve(null)
+			})
+
+			zipFile.on('error', err => {
+				reject(err)
+			})
+
+			zipFile.readEntry()
+
+			zipFile.on('entry', entry => {
+				if (filterPaths && !filterPaths(false, archivePath, entry.fileName)) {
+					zipFile.readEntry()
+					return
+				}
+
+				// file entry
+				zipFile.openReadStream(entry, async (err, stream) => {
+					if (err) {
+						reject(err)
+						return
+					}
+
+					try {
+						const buffer = readBuffer
+							? await streamToBuffer(stream)
+							: null
+						await processFile(archivePath, entry.fileName, stream, buffer)
+
+						zipFile.readEntry()
+					} catch (err2) {
+						stream.resume()
+						reject(err2)
+						return
+					}
+				})
+			})
+		})
 	})
 }

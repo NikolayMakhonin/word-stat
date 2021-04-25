@@ -22,7 +22,7 @@ import {processArchiveTarXz} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
 import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
-import {libgenUnpack, processLibgen, processMyBooks} from '../../../main/node/scripts'
+import {libgenReport, libgenUnpack, myBooksReport, processLibgen, processMyBooks} from '../../../main/node/scripts'
 
 describe('node > test', function () {
 	this.timeout(30 * 24 * 60 * 60 * 1000)
@@ -229,11 +229,19 @@ describe('node > test', function () {
 		await processMyBooks()
 	})
 
+	it('my books report', async function () {
+		await myBooksReport()
+	})
+
 	it('libgen', async function () {
 		await processLibgen()
 	})
 
 	it('libgen unpack', async function () {
 		await libgenUnpack()
+	})
+
+	it('libgen report', async function () {
+		await libgenReport()
 	})
 })
