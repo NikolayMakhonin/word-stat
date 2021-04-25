@@ -7,6 +7,7 @@ import {
 } from '../common/phrases-helpers'
 import {PhrasesStat} from '../common/PhrasesStat'
 import {PhrasesStatCollector} from '../common/PhrasesStatCollector'
+import {removeHtmlTags} from '../common/textPreprocess'
 import {WordsCache} from '../common/WordsCache'
 import {WordsStat} from '../common/WordsStat'
 import {streamToBuffer, txtBookBufferToString, xmlBookBufferToString} from './helpers'
@@ -513,7 +514,7 @@ export function createReportBooks({
 				bookStat.totalWords / wordsPerPage,
 				author,
 				title,
-				hash && descriptions[hash.toUpperCase()],
+				hash && removeHtmlTags(descriptions[hash.toUpperCase()] || ''),
 				bookStat.filePath,
 			]])
 		},
