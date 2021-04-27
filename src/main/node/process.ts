@@ -144,15 +144,19 @@ export function analyzeBook({
 
 	const unknownWords = values.length
 
-	const unknownWordsIn3Pages = values.reduce((a, o) => {
-		const countInFirstPages = Math.min(1, o * 3 * wordsPerPage / totalWords)
-		return a + countInFirstPages
-	}, 0) / 3
+	const unknownWordsIn3Pages = totalWords <= 3 * wordsPerPage
+		? unknownWords / (totalWords / wordsPerPage)
+		: values.reduce((a, o) => {
+			const countInFirstPages = Math.min(1, o * 3 * wordsPerPage / totalWords)
+			return a + countInFirstPages
+		}, 0) / 3
 
-	const unknownWordsIn20Pages = values.reduce((a, o) => {
-		const countInFirstPages = Math.min(1, o * 20 * wordsPerPage / totalWords)
-		return a + countInFirstPages
-	}, 0) / 20
+	const unknownWordsIn20Pages = totalWords <= 20 * wordsPerPage
+		? unknownWords / (totalWords / wordsPerPage)
+		: values.reduce((a, o) => {
+			const countInFirstPages = Math.min(1, o * 20 * wordsPerPage / totalWords)
+			return a + countInFirstPages
+		}, 0) / 20
 
 	return {
 		unknownWordsIn3Pages,
