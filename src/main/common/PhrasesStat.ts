@@ -1,11 +1,9 @@
 import {getPhraseId, phraseIdToWordsIds, processPhraseCombines} from './phrases-helpers'
 
 export interface IPhraseStat {
-	id: string
+	countSelf?: number
 	count: number
 	wordsCount: number
-	excluded: boolean // needed for parent phrases
-	parent: IPhraseStat
 }
 
 export class PhrasesStat {
@@ -30,16 +28,6 @@ export class PhrasesStat {
 		maxPhraseLength?: number,
 		filterPhrases?: (phraseId: string) => boolean,
 	) {
-		const parentId = getPhraseId(wordsIds, 0, wordsIds.length)
-		if (!filterPhrases || filterPhrases(parentId)) {
-			return
-		}
-
-		const parent = this.add(
-			null, parentId, wordsIds.length, count,
-			maxPhraseLength && wordsIds.length > maxPhraseLength,
-		)
-
 		processPhraseCombines(
 			wordsIds, maxPhraseLength,
 			(_wordsIds, indexStart, indexEndExclusie) => {
@@ -47,29 +35,24 @@ export class PhrasesStat {
 				if (filterPhrases && !filterPhrases(phraseId)) {
 					return
 				}
-				this.add(parent, phraseId, indexEndExclusie - indexStart, count)
+				this.add(phraseId, indexEndExclusie - indexStart, count)
 			},
 		)
 	}
 
-	add(parent: IPhraseStat, id: string, wordsCount: number, count: number, excluded?: boolean) {
-		let phraseStat = this._phraseToStat.get(id)
+	add(phraseId: string, wordsCount: number, count: number) {
+		let phraseStat = this._phraseToStat.get(phraseId)
 		if (!phraseStat) {
 			phraseStat = {
-				id,
 				count,
 				wordsCount,
-				excluded,
-				parent,
 			}
-			this._phraseToStat.set(id, phraseStat)
+			this._phraseToStat.set(phraseId, phraseStat)
 		} else {
 			phraseStat.count += count
 		}
 
 		this.reduce()
-
-		return phraseStat
 	}
 
 	has(phraseId: string): boolean {
@@ -87,22 +70,28 @@ export class PhrasesStat {
 			stat.countSelf = stat.count
 		}
 		entries.sort((o1, o2) => o1[1].wordsCount >= o2[1].wordsCount ? -1 : 1)
+
+		let stat: IPhraseStat
+		const processPhrase = (_wordsIds, indexStart, indexEndExclusie) => {
+			const phraseId = getPhraseId(_wordsIds, indexStart, indexEndExclusie)
+			const childStat = this._phraseToStat.get(phraseId)
+			if (childStat) {
+				childStat.countSelf -= stat.countSelf
+			}
+		}
 		for (let i = 0, len = entries.length; i < len; i++) {
-			const [key, stat] = entries[i]
-			const wordsIds = phraseIdToWordsIds(key)
-			processPhraseCombines(
-				wordsIds, null,
-				(_wordsIds, indexStart, indexEndExclusie) => {
-					const phraseId = getPhraseId(_wordsIds, indexStart, indexEndExclusie)
-					const childStat = this._phraseToStat.get(phraseId)
-					if (childStat) {
-						childStat.countSelf -= stat.countSelf
-					}
-				},
-			)
+			const entry = entries[i]
+			stat = entry[1]
+			const wordsIds = phraseIdToWordsIds(entry[0])
+			processPhraseCombines(wordsIds, null, processPhrase)
 		}
 		entries
-			.filter(o => o[1].countSelf > 0)
+			.filter(o => {
+				if (o[1].countSelf < 0) {
+					return false
+				}
+				return o[1].countSelf > 0
+			})
 			.sort((o1, o2) => {
 				if (o1[1].countSelf !== o2[1].countSelf) {
 					return o1[1].countSelf > o2[1].countSelf ? -1 : 1

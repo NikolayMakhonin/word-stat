@@ -17,7 +17,7 @@ import {
 } from './process'
 
 // const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
-const wordPattern = `'[a-zA-Z]+|[a-zA-Z]+-[a-zA-Z]+|[a-zA-Z]+`
+const wordPattern = `(?<=[a-zA-Z])'[a-zA-Z]+|[a-zA-Z]+-[a-zA-Z]+|[a-zA-Z]+`
 // const wordRegExp = createRegExp(createWordPattern(lettersPatern))
 const wordRegExp = createRegExp(wordPattern)
 
@@ -63,7 +63,6 @@ export async function myBooksReport() {
 
 export async function myBooksPhrasesStat() {
 	const wordsCache = new WordsCache()
-	const wordPattern = `'[a-zA-Z]+|[a-zA-Z]+-[a-zA-Z]+|[a-zA-Z]+`
 
 	const wasReadStat = await calcStat({
 		wordsCache,
