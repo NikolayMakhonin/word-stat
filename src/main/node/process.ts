@@ -707,7 +707,13 @@ export async function calcPhrasesStat<TBookStat extends IMyBookStat>({
 	}
 	let _bookStats = bookStats || await readBookStats<TBookStat>(bookStatsFile)
 
-	_bookStats = _bookStats.slice(0, 100)
+	_bookStats = _bookStats
+		.sort((o1, o2) => {
+			return o1.unknownWordsIn100Pages > o2.unknownWordsIn100Pages
+				? 1
+				: -1
+		})
+		.slice(0, 100)
 
 	const phrasesStat = new PhrasesStat()
 	const phrasesStatCollector = new PhrasesStatCollector({
