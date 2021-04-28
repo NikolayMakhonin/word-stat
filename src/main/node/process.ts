@@ -122,6 +122,7 @@ export interface ILibgenBookStat extends IBookStat {
 
 export interface IMyBookStat extends IBookStat {
 	filePath: string
+	hash?: string
 }
 
 export function analyzeBook({

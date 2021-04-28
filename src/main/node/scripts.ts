@@ -2,6 +2,7 @@
 import path from "path"
 import {distinct} from '../common/helpers'
 import {createRegExp, createWordPattern, phrasesStatToString} from '../common/phrases-helpers'
+import {removeHtmlTags} from '../common/textPreprocess'
 import {WordsCache} from '../common/WordsCache'
 import {WordsStat} from '../common/WordsStat'
 import {xmlBookBufferToString} from './helpers'
@@ -13,7 +14,13 @@ import {
 	ILibgenBookStat,
 	libgenUnpack as _libgenUnpack,
 	readBookStats,
-	createReportLibgen, createReportBooks, calcStat, wordsPerPage, calcPhrasesStat, IMyBookStat,
+	createReportLibgen,
+	createReportBooks,
+	calcStat,
+	wordsPerPage,
+	calcPhrasesStat,
+	IMyBookStat,
+	parseLibgenDbDescriptions,
 } from './process'
 
 // const lettersPatern = `[a-zA-Z]|(?<=[a-zA-Z])[-](?=[a-zA-Z])`
@@ -70,12 +77,18 @@ export async function myBooksPhrasesStat() {
 		fileOrDirPath: 'f:/Torrents/New/test/result/WasRead/',
 	})
 
+	const dbDescriptionsPath = 'f:/Torrents/New/text/db/ff/fiction_description.csv'
+	const descriptions = dbDescriptionsPath
+		? await parseLibgenDbDescriptions(dbDescriptionsPath)
+		: null
+
 	const resultDir = 'f:/Torrents/New/test/result/books-stat/'
 	await calcPhrasesStat<IMyBookStat>({
 		wordsCache,
-		bookStatsFile: 'f:/Torrents/New/test/result/myBooks/stat.json',
 		wordPattern,
-		rootDir      : 'f:/Torrents/New/test/result/books/',
+		bookStatsFile  : 'f:/Torrents/New/test/result/myBooks/stat.json',
+		maxPhraseLength: 20,
+		rootDir        : 'f:/Torrents/New/test/result/books/',
 		filterPhrases(phraseId: string) {
 			return !wasReadStat.has(phraseId)
 		},
@@ -94,16 +107,30 @@ export async function myBooksPhrasesStat() {
 				return 0
 			})
 
-			resultPath = resultPath.replace(/([\\/])(?:\d+ *- *)?([^\\/]+?)(?:\.\w+)?$/, `$1${Math.round(bookStat.unknownWordsIn20Pages * 100).toString().padStart(5, '0')} - $2.txt`)
+			resultPath = resultPath.replace(/([\\/])(?:\d+ *- *)?([^\\/]+?)(?:\.\w+)?$/, `$1${Math.round(bookStat.unknownWordsIn100Pages * 100).toString().padStart(5, '0')} - $2`)
 
-			const statStr = phrasesStatToString(wordsCache, entries)
+			const [, hash] = bookStat.filePath.match(/[\\/](?:\d+ *- *)?(?:([\da-f]{32}) *- *)?([^\\/]+?)(?:\.\w+)?$/)
+			const description = hash && removeHtmlTags(descriptions[hash.toUpperCase()] || '')
 
+			const statStr =
+`unknownWordsIn3Pages  : ${bookStat.unknownWordsIn3Pages}
+unknownWordsIn20Pages : ${bookStat.unknownWordsIn20Pages}
+unknownWordsIn100Pages: ${bookStat.unknownWordsIn100Pages}
+unknownWords          : ${bookStat.unknownWords}
+totalPages            : ${bookStat.totalWords / wordsPerPage}
+filePath: ${bookStat.filePath}
+
+${description ? description + '\r\n\r\n' : ''}${phrasesStatToString(wordsCache, entries)}
+`
 			const dir = path.dirname(resultPath)
 			if (!fse.existsSync(dir)) {
 				await fse.mkdirp(dir)
 			}
 
-			await fse.writeFile(resultPath, statStr, { encoding: 'utf-8' })
+			await Promise.all([
+				fse.writeFile(resultPath + '._', statStr, { encoding: 'utf-8' }),
+				fse.copyFile(filePath, resultPath + path.extname(filePath)),
+			])
 
 			_phrasesStat.clear()
 		},
