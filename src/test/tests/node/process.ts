@@ -22,76 +22,20 @@ import {processArchiveTarXz} from '../../../main/node/processFiles'
 import path from 'path'
 import fse from 'fs-extra'
 import {IBook, processLibRusEc} from '../../../main/node/processLibRusEc'
-import {libgenReport, libgenUnpack, myBooksReport, processLibgen, processMyBooks} from '../../../main/node/scripts'
+import {
+	libgenReport,
+	libgenUnpack,
+	myBooksPhrasesStat,
+	myBooksReport,
+	processLibgen,
+	processMyBooks
+} from '../../../main/node/scripts'
 
 describe('node > test', function () {
 	this.timeout(30 * 24 * 60 * 60 * 1000)
 
 	// const dbPath = 'e:/Torrents/Completed/_Lib.rus.ec/MyHomeLib_2_2/Data/librusec_local_fb2.hlc2'
 	// const booksDir = 'e:/Torrents/Completed/_Lib.rus.ec/lib.rus.ec'
-
-	// it('localFiles', async function () {
-	// 	const wordsCache = new WordsCache()
-	//
-	// 	const wasReadStat = await calcStat({
-	// 		wordsCache,
-	// 		fileOrDirPath: 'e:/RemoteData/Mega2/Text/Books/Учебники/English/WasRead',
-	// 	})
-	//
-	// 	const resultDir = path.resolve('tmp/result')
-	// 	if (fse.existsSync(resultDir)) {
-	// 		await fse.rmdir(resultDir, {recursive: true})
-	// 	}
-	//
-	// 	const wantReadStat = await calcStat({
-	// 		wordsCache,
-	// 		// fileOrDirPath: 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books/16 - This Body of Death.fb2',
-	// 		fileOrDirPath: 'e:/RemoteData/Mega2/Text/Books/Учебники/English/Books',
-	// 		filterPhrases(phraseId: string) {
-	// 			return !wasReadStat.has(phraseId)
-	// 		},
-	// 		async onFileHandled(filePath, filePathRelative, phrasesStat, totalWords) {
-	// 			phrasesStat.reduce(true)
-	// 			let resultPath = path.resolve(resultDir, filePathRelative.replace(/[//:]/g, ' - '))
-	//
-	// 			const entries = phrasesStat.entries()
-	// 			const unknownWords = entries.reduce((a, o) => {
-	// 				return o[1].wordsCount === 1
-	// 					? a + 1
-	// 					: a
-	// 			}, 0)
-	// 			const unknownWordsInFirstPage = entries.reduce((a, o) => {
-	// 				if (o[1].wordsCount !== 1) {
-	// 					return a
-	// 				}
-	// 				const countInFirstPages = Math.min(1, o[1].count * firstPagesForEstimate * wordsPerPage / totalWords)
-	// 				return a + countInFirstPages
-	// 			}, 0) / firstPagesForEstimate
-	//
-	// 			const totalPages = totalWords / wordsPerPage
-	// 			const unknownWordsPer100Pages = Math.round(unknownWords / (totalPages / 100))
-	//
-	// 			resultPath = resultPath.replace(/([//])([^//]+)$/, `$1${unknownWordsInFirstPage.toString().padStart(5, '0')} - $2`)
-	// 			resultPath = resultPath.replace(/\.\w+$/, '.txt')
-	//
-	// 			const statStr = phrasesStatToString(wordsCache, entries)
-	//
-	// 			const dir = path.dirname(resultPath)
-	// 			if (!fse.existsSync(dir)) {
-	// 				await fse.mkdirp(dir)
-	// 			}
-	//
-	// 			await fse.writeFile(resultPath, statStr, { encoding: 'utf-8' })
-	//
-	// 			phrasesStat.clear()
-	// 		},
-	// 	})
-	//
-	// 	// wantReadStat.reduce(true)
-	// 	// const statStr = phrasesStatToString(wordsCache, wantReadStat.entries())
-	// 	//
-	// 	// console.log(statStr)
-	// })
 
 	// it('libRusEc', async function () {
 	// 	const wordsCache = new WordsCache()
@@ -231,6 +175,10 @@ describe('node > test', function () {
 
 	it('my books report', async function () {
 		await myBooksReport()
+	})
+
+	it('my books phrases stat', async function () {
+		await myBooksPhrasesStat()
 	})
 
 	it('libgen', async function () {

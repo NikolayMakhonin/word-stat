@@ -3,7 +3,7 @@ import fse from 'fs-extra'
 import path from "path"
 import {Readable} from "stream"
 import {
-	parsePhrases,
+	parsePhrases, phrasesStatToString,
 } from '../common/phrases-helpers'
 import {PhrasesStat} from '../common/PhrasesStat'
 import {PhrasesStatCollector} from '../common/PhrasesStatCollector'
@@ -22,13 +22,15 @@ export async function calcStat({
 	filterPhrases,
 	maxPhraseLength,
 	lettersPatern,
+	wordPattern,
 	onFileHandled,
 }: {
 	wordsCache: WordsCache,
 	fileOrDirPath: string,
 	filterPhrases?: (phraseId: string) => boolean,
 	maxPhraseLength?: number,
-	lettersPatern: string,
+	lettersPatern?: string,
+	wordPattern?: string,
 	onFileHandled?: (
 		filePath: string,
 		filePathRelative: string,
@@ -41,6 +43,7 @@ export async function calcStat({
 		wordsCache,
 		phrasesStat,
 		lettersPatern,
+		wordPattern,
 		filterPhrases,
 		maxPhraseLength,
 	})
@@ -107,6 +110,7 @@ export async function calcWordStat({
 export interface IBookStat {
 	unknownWordsIn3Pages: number,
 	unknownWordsIn20Pages: number,
+	unknownWordsIn100Pages: number,
 	unknownWords: number,
 	totalWords: number,
 }
@@ -114,6 +118,10 @@ export interface IBookStat {
 export interface ILibgenBookStat extends IBookStat {
 	id: number,
 	hash: string,
+}
+
+export interface IMyBookStat extends IBookStat {
+	filePath: string
 }
 
 export function analyzeBook({
@@ -144,23 +152,26 @@ export function analyzeBook({
 
 	const unknownWords = values.length
 
-	const unknownWordsIn3Pages = totalWords <= 3 * wordsPerPage
-		? unknownWords / (totalWords / wordsPerPage)
-		: values.reduce((a, o) => {
-			const countInFirstPages = Math.min(1, o * 3 * wordsPerPage / totalWords)
-			return a + countInFirstPages
-		}, 0) / 3
+	const countPages = totalWords / wordsPerPage
+	const unknownWordsPerPage = unknownWords / countPages
+	let unknownWordsIn3Pages = 0
+	let unknownWordsIn20Pages = 0
+	let unknownWordsIn100Pages = 0
 
-	const unknownWordsIn20Pages = totalWords <= 20 * wordsPerPage
-		? unknownWords / (totalWords / wordsPerPage)
-		: values.reduce((a, o) => {
-			const countInFirstPages = Math.min(1, o * 20 * wordsPerPage / totalWords)
-			return a + countInFirstPages
-		}, 0) / 20
+	values.forEach(o => {
+		unknownWordsIn3Pages += Math.min(1, o * 3 / countPages)
+		unknownWordsIn20Pages += Math.min(1, o * 20 / countPages)
+		unknownWordsIn100Pages += Math.min(1, o * 100 / countPages)
+	})
+
+	unknownWordsIn3Pages = countPages > 3 ? unknownWordsIn3Pages / 3 : unknownWordsPerPage
+	unknownWordsIn20Pages = countPages > 20 ? unknownWordsIn20Pages / 20 : unknownWordsPerPage
+	unknownWordsIn100Pages = countPages > 100 ? unknownWordsIn100Pages / 100 : unknownWordsPerPage
 
 	return {
 		unknownWordsIn3Pages,
 		unknownWordsIn20Pages,
+		unknownWordsIn100Pages,
 		unknownWords,
 		totalWords,
 	}
@@ -175,11 +186,14 @@ export async function readBookStats<TLogEntry extends IBookStat>(bookStatsFile: 
 				&& o.unknownWords >= 10
 		})
 		.sort((o1, o2) => {
-			if (o1.unknownWordsIn3Pages !== o2.unknownWordsIn3Pages) {
-				return o1.unknownWordsIn3Pages > o2.unknownWordsIn3Pages ? 1 : -1
-			}
 			if (o1.unknownWordsIn20Pages !== o2.unknownWordsIn20Pages) {
 				return o1.unknownWordsIn20Pages > o2.unknownWordsIn20Pages ? 1 : -1
+			}
+			if (o1.unknownWordsIn100Pages !== o2.unknownWordsIn100Pages) {
+				return o1.unknownWordsIn100Pages > o2.unknownWordsIn100Pages ? 1 : -1
+			}
+			if (o1.unknownWordsIn3Pages !== o2.unknownWordsIn3Pages) {
+				return o1.unknownWordsIn3Pages > o2.unknownWordsIn3Pages ? 1 : -1
 			}
 			if (o1.unknownWords !== o2.unknownWords) {
 				return o1.unknownWords > o2.unknownWords ? 1 : -1
@@ -207,7 +221,7 @@ async function createReport<TBookStat extends IBookStat>({
 	reportHeader: string,
 	bookStatToReportLine: (bookStat: TBookStat, descriptions?: { [hash: string]: string }) => string,
 }) {
-	if (!fse.existsSync(bookStatsFile)) {
+	if (!bookStats && !fse.existsSync(bookStatsFile)) {
 		return
 	}
 	const _bookStats = bookStats || await readBookStats<TBookStat>(bookStatsFile)
@@ -419,7 +433,7 @@ export function createReportLibgen({
 		bookStatsFile     : path.resolve(resultsDir, 'stat.json'),
 		bookStats,
 		reportFile        : path.resolve(resultsDir, 'report.csv'),
-		reportHeader      : 'id,hash,unknownWordsIn3Pages,unknownWordsIn20Pages,unknownWords,totalPages',
+		reportHeader      : 'id,hash,unknownWordsIn3Pages,unknownWordsIn20Pages,unknownWordsIn100Pages,unknownWords,totalPages',
 		bookStatToReportLine(bookStat) {
 			return `${
 				bookStat.id
@@ -429,6 +443,8 @@ export function createReportLibgen({
 				bookStat.unknownWordsIn3Pages
 			},${
 				bookStat.unknownWordsIn20Pages
+			},${
+				bookStat.unknownWordsIn100Pages
 			},${
 				bookStat.unknownWords
 			},${
@@ -496,24 +512,21 @@ export function createReportBooks({
 	bookStats,
 }: {
 	resultsDir: string,
-	bookStats?: Array<{
-		filePath,
-	} & IBookStat>,
+	bookStats?: Array<IMyBookStat>,
 }) {
-	return createReport<{
-		filePath,
-	} & IBookStat>({
+	return createReport<IMyBookStat>({
 		dbDescriptionsPath: 'f:/Torrents/New/text/db/ff/fiction_description.csv',
 		bookStatsFile     : path.resolve(resultsDir, 'stat.json'),
 		bookStats,
 		reportFile        : path.resolve(resultsDir, 'report.csv'),
-		reportHeader      : 'unknownWordsIn3Pages,unknownWordsIn20Pages,unknownWords,totalPages,author,title,description,filePath',
+		reportHeader      : 'unknownWordsIn3Pages,unknownWordsIn20Pages,unknownWordsIn100Pages,unknownWords,totalPages,author,title,description,filePath',
 		bookStatToReportLine(bookStat, descriptions) {
 			const [, hash, name] = bookStat.filePath.match(/[\\/](?:\d+ *- *)?(?:([\da-f]{32}) *- *)?([^\\/]+?)(?:\.\w+)?$/)
 			const [author, title] = name.split('-').map(o => o.trim())
 			return papaparse.unparse([[
 				bookStat.unknownWordsIn3Pages,
 				bookStat.unknownWordsIn20Pages,
+				bookStat.unknownWordsIn100Pages,
 				bookStat.unknownWords,
 				bookStat.totalWords / wordsPerPage,
 				author,
@@ -538,9 +551,7 @@ export async function processBooks({
 	wordFilter: (word: string) => boolean,
 	filterPaths?: (isDir: boolean, archivePath: string, fileOrDirPath: string) => boolean,
 }) {
-	await analyzeBooks<{
-		filePath,
-	} & IBookStat>({
+	await analyzeBooks<IMyBookStat>({
 		booksDir,
 		resultsDir,
 		filterPaths,
@@ -663,4 +674,64 @@ export async function libgenUnpack({
 			})
 		}
 	}
+}
+
+export async function calcPhrasesStat<TBookStat extends IMyBookStat>({
+	wordsCache,
+	bookStatsFile,
+	bookStats,
+	lettersPatern,
+	wordPattern,
+	maxPhraseLength,
+	filterPhrases,
+	rootDir,
+	onFileHandled,
+}: {
+	wordsCache: WordsCache,
+	bookStatsFile?: string,
+	bookStats?: TBookStat[],
+	lettersPatern?: string,
+	wordPattern?: string,
+	maxPhraseLength?: number,
+	filterPhrases?: (phrase: string) => boolean,
+	rootDir: string,
+	onFileHandled?: (
+		filePath: string,
+		filePathRelative: string,
+		phrasesStat: PhrasesStat,
+		bookStat: TBookStat,
+	) => Promise<void>|void,
+}) {
+	if (!bookStats && !fse.existsSync(bookStatsFile)) {
+		return null
+	}
+	let _bookStats = bookStats || await readBookStats<TBookStat>(bookStatsFile)
+
+	_bookStats = _bookStats.slice(0, 100)
+
+	const phrasesStat = new PhrasesStat()
+	const phrasesStatCollector = new PhrasesStatCollector({
+		wordsCache,
+		phrasesStat,
+		lettersPatern,
+		wordPattern,
+		maxPhraseLength,
+		filterPhrases,
+	})
+
+	for (let i = 0, len = _bookStats.length; i < len; i++) {
+		const bookStat = _bookStats[i]
+		const stream = fse.createReadStream(bookStat.filePath)
+		const buffer = await streamToBuffer(stream)
+		const text = xmlBookBufferToString(buffer)
+		phrasesStatCollector.addText(text)
+		if (onFileHandled) {
+			const filePathRelative = path.relative(rootDir, bookStat.filePath)
+			await onFileHandled(bookStat.filePath, filePathRelative, phrasesStat, bookStat)
+		}
+	}
+
+	phrasesStat.reduce(true)
+
+	return phrasesStat
 }

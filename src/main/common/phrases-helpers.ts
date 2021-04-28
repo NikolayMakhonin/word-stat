@@ -11,7 +11,7 @@ export function createPhrasePattern(
 	wordPatern: string,
 	betweenLettersPattern: string,
 ) {
-	return `((?:${wordPatern})((?:${betweenLettersPattern})*?(?:${wordPatern})+)*)+`
+	return `((?:${wordPatern})((?:${betweenLettersPattern})*?(?:${wordPatern}))*)+`
 }
 
 export function createRegExp(
@@ -46,7 +46,6 @@ export function parseWordsIds(
 
 export function processPhraseCombines(
 	wordsIds: string[],
-	wordsCache: WordsCache,
 	maxPhraseLength: number|null,
 	processPhrase: (wordsIds: string[], indexStart: number, indexEnd: number) => void,
 ) {

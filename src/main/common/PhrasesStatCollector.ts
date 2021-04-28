@@ -29,6 +29,7 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 		wordsCache,
 		textPreprocess: _textPreprocess,
 		lettersPatern,
+		wordPattern,
 		betweenLettersPattern,
 		filterPhrases,
 		filterText,
@@ -38,6 +39,7 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 		wordsCache: WordsCache,
 		textPreprocess?: TTextPreprocess,
 		lettersPatern?: string,
+		wordPattern?: string,
 		betweenLettersPattern?: string,
 		filterPhrases?: (phraseId: string) => boolean,
 		filterText?: (text: string) => boolean
@@ -51,7 +53,7 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 		this._maxPhraseLength = maxPhraseLength
 
 		// eslint-disable-next-line quotes
-		const wordPattern = createWordPattern(lettersPatern || `[a-zA-Zа-яА-ЯёЁ_]|(?<=[a-zA-Z])'(?=[a-zA-Z])|(?<=[a-zA-Zа-яА-ЯёЁ_])-(?=[a-zA-Zа-яА-ЯёЁ_])`)
+		wordPattern = wordPattern || createWordPattern(lettersPatern || `[a-zA-Zа-яА-ЯёЁ_]|(?<=[a-zA-Z])'(?=[a-zA-Z])|(?<=[a-zA-Zа-яА-ЯёЁ_])-(?=[a-zA-Zа-яА-ЯёЁ_])`)
 		this._wordRegExp = createRegExp(wordPattern)
 		// eslint-disable-next-line quotes
 		this._phraseRegExp = createRegExp(createPhrasePattern(wordPattern, betweenLettersPattern || `[ \t]`))
@@ -66,16 +68,7 @@ export class PhrasesStatCollector implements IPhrasesStatCollector {
 		parsePhrases(text, this._phraseRegExp, phrase => {
 			const wordsIds = parseWordsIds(phrase, this._wordRegExp, this._wordsCache)
 			totalWords += wordsIds.length
-			processPhraseCombines(
-				wordsIds, this._wordsCache, this._maxPhraseLength,
-				(_wordsIds, indexStart, indexEndExclusie) => {
-					const phraseId = getPhraseId(_wordsIds, indexStart, indexEndExclusie)
-					if (this._filterPhrases && !this._filterPhrases(phraseId)) {
-						return
-					}
-					this._phrasesStat.add(phraseId, indexEndExclusie - indexStart)
-				},
-			)
+			this._phrasesStat.addCombines(wordsIds, 1, this._maxPhraseLength, this._filterPhrases)
 		})
 		return totalWords
 	}
