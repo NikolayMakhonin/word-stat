@@ -590,7 +590,7 @@ export async function libgenUnpack({
 	const excludedStr = await fse.readFile('f:/Torrents/New/test/result/excluded.txt', { encoding: 'utf-8' })
 	const excluded = excludedStr
 		.split('\r\n')
-		.map(o => o.match(/^\s*(\d+\s*-\s*)?\s*(.+)\s*$/)?.[2])
+		.map(o => o.match(/^\s*(?:\d+\s*-\s*)?(?:(?:[\da-f]{32})\s*-\s*)?\s*(.+)\s*$/)?.[1])
 		.reduce((a, o) => {
 			if (o) {
 				a[o] = true
@@ -601,7 +601,7 @@ export async function libgenUnpack({
 	await Promise.all(
 		(await fse.readdir(unpackDir))
 			.map(o => {
-				if (!excluded[o.match(/^\s*(\d+\s*-\s*)?\s*(.+)\s*$/)?.[2]]) {
+				if (!excluded[o.match(/^\s*(?:\d+\s*-\s*)?(?:(?:[\da-f]{32})\s*-\s*)?\s*(.+)\s*$/)?.[1]]) {
 					return null
 				}
 
@@ -728,6 +728,10 @@ export async function calcPhrasesStat<TBookStat extends IMyBookStat>({
 
 	for (let i = 0, len = _bookStats.length; i < len; i++) {
 		const bookStat = _bookStats[i]
+		console.log(bookStat.filePath)
+		if (!fse.existsSync(bookStat.filePath)) {
+			continue
+		}
 		const stream = fse.createReadStream(bookStat.filePath)
 		const buffer = await streamToBuffer(stream)
 		const text = xmlBookBufferToString(buffer)
