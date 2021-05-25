@@ -69,9 +69,12 @@ export async function myBooksReport() {
 
 
 export async function myBooksPhrasesStat() {
+	const maxPhraseLength = 1
+
 	const wordsCache = new WordsCache()
 
 	const wasReadStat = await calcStat({
+		maxPhraseLength,
 		wordsCache,
 		wordPattern,
 		fileOrDirPath: 'f:/Torrents/New/test/result/WasRead/',
@@ -84,10 +87,10 @@ export async function myBooksPhrasesStat() {
 
 	const resultDir = 'f:/Torrents/New/test/result/books-stat/'
 	await calcPhrasesStat<IMyBookStat>({
+		maxPhraseLength,
 		wordsCache,
 		wordPattern,
 		bookStatsFile  : 'f:/Torrents/New/test/result/myBooks/stat.json',
-		maxPhraseLength: 20,
 		rootDir        : 'f:/Torrents/New/test/result/books/',
 		filterPhrases(phraseId: string) {
 			return !wasReadStat.has(phraseId)
