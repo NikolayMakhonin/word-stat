@@ -73,6 +73,7 @@ export async function myBooksPhrasesStat() {
 
 	const wordsCache = new WordsCache()
 
+	// const wasReadStat_ = await calcWasReadStat()
 	const wasReadStat = await calcStat({
 		maxPhraseLength,
 		wordsCache,
