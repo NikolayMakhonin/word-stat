@@ -32,6 +32,7 @@
 		"process:my-books": "node --max-old-space-size=8192 -e \"require('./dist/dev/js/main/node/scripts.js').processMyBooks()\"",
 		"process:my-books:report": "node --max-old-space-size=8192 -e \"require('./dist/dev/js/main/node/scripts.js').myBooksReport()\"",
 		"process:my-books:stat": "node --max-old-space-size=8192 -e \"require('./dist/dev/js/main/node/scripts.js').myBooksPhrasesStat()\"",
+		"process:my-custom:stat": "node --max-old-space-size=8192 -e \"require('./dist/dev/js/main/node/scripts.js').myCustomTextsPhrasesStat()\"",
 		"process:libgen": "node --max-old-space-size=8192 -e \"require('./dist/dev/js/main/node/scripts.js').processLibgen()\"",
 		"process:libgen:unpack": "node --max-old-space-size=8192 -e \"require('./dist/dev/js/main/node/scripts.js').libgenUnpack()\"",
 		"precommit": "npm run build-test:ci",

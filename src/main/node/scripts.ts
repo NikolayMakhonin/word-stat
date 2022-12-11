@@ -29,7 +29,7 @@ const wordPattern = `(?<=[a-zA-Z])'[a-zA-Z]+|[a-zA-Z]+-[a-zA-Z]+|[a-zA-Z]+`
 const wordRegExp = createRegExp(wordPattern)
 
 function filterXmlBooks(isDir, archivePath, _fileOrDirPath) {
-	if (!isDir && !/\.(csv|txt|fb2)$/i.test(_fileOrDirPath)) {
+	if (!isDir && !/\.(csv|txt|fb2|srt)$/i.test(_fileOrDirPath)) {
 		return false
 	}
 	return true
@@ -166,6 +166,55 @@ ${description ? description + '\r\n\r\n' : ''}${phrasesStatToString(wordsCache, 
 	// // const statStr = phrasesStatToString(wordsCache, wantReadStat.entries())
 	// //
 	// // console.log(statStr)
+}
+
+export async function myCustomTextsPhrasesStat() {
+	const maxPhraseLength = 5
+
+	const wordsCache = new WordsCache()
+
+	const wasReadStat = await calcStat({
+		maxPhraseLength,
+		wordsCache,
+		wordPattern,
+		fileOrDirPath: 'j:/Torrents/New/test/result/WasRead/',
+	})
+
+	console.log('Known words: ' + wordsCache.size())
+
+	const resultDir = 'e:/Temp/srt/stat'
+	const wantReadStats = await calcPhrasesStat<IMyBookStat>({
+		maxPhraseLength,
+		wordsCache,
+		wordPattern,
+		bookStatsFile  : 'j:/Torrents/New/test/result/myBooks/stat.json',
+		rootDir        : 'e:/Temp/srt/Wednesday',
+		filterPhrases(phraseId: string) {
+			return !wasReadStat.has(phraseId)
+		},
+	})
+
+	let resultPath = path.join(resultDir, 'stat.txt')
+
+	const entries = wantReadStats.entries()
+	entries.sort((o1, o2) => {
+		if (o1[1].count !== o2[1].count) {
+			return o1[1].count > o2[1].count ? -1 : 1
+		}
+		if (o1[1].wordsCount !== o2[1].wordsCount) {
+			return o1[1].wordsCount > o2[1].wordsCount ? 1 : -1
+		}
+		return 0
+	})
+
+	const statStr = phrasesStatToString(wordsCache, entries)
+
+	const dir = path.dirname(resultPath)
+	if (!fse.existsSync(dir)) {
+		await fse.mkdirp(dir)
+	}
+
+	await fse.writeFile(resultPath + '._', statStr, { encoding: 'utf-8' })
 }
 
 export async function processLibgen() {

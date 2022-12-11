@@ -53,7 +53,7 @@ export async function calcStat({
 		readBuffer     : true,
 		processArchives: true,
 		filterPaths(isDir, archivePath, _fileOrDirPath) {
-			if (!isDir && !/\.(csv|txt|fb2)$/i.test(_fileOrDirPath)) {
+			if (!isDir && !/\.(csv|txt|fb2|srt)$/i.test(_fileOrDirPath)) {
 				return false
 			}
 			return true

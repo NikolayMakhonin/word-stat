@@ -23,10 +23,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="">
+    <list default="true" id="d52e1996-07d3-4492-b0b2-6fba29f4b076" name="Default Changelist" comment="Develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/common/WordsCache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/common/WordsCache.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/node/process.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/process.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run-script-rc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.run-script-rc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/node/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/node/scripts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +36,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="DarkyenusTimeTracker">
+    <option name="totalTimeSeconds" value="1086" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
@@ -48,11 +51,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="NamedScopeManager">
     <order>
@@ -80,6 +80,7 @@
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "pnpm",
     "settings.editor.selected.configurable": "settings.nodejs",
+    "ts.external.directory.path": "D:\\projects\\my\\node\\apps\\word-stat\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -187,25 +188,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="node &gt; test.libgen" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>node</node-interpreter>
-      <node-options>--max-old-space-size=4096 --allow-natives-syntax</node-options>
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs>
-        <env name="APP_CONFIG" value="dev" />
-      </envs>
-      <ui>bdd</ui>
-      <extra-mocha-options>--config ./env/mocha/configs/babel/.mocharc.js</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/test/tests/node/process.ts</test-file>
-      <test-names>
-        <name value="node &gt; test" />
-        <name value="libgen" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="node &gt; test.my books phrases stat" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>node</node-interpreter>
       <node-options>--max-old-space-size=4096 --allow-natives-syntax</node-options>
@@ -268,7 +250,6 @@
       <item itemvalue="Mocha.Watch" />
       <item itemvalue="Mocha.Coverage" />
       <item itemvalue="Mocha.node &gt; test.my books" />
-      <item itemvalue="Mocha.node &gt; test.libgen" />
       <item itemvalue="Mocha.node &gt; test.my books report" />
       <item itemvalue="Mocha.node &gt; test.libgen report" />
       <item itemvalue="Mocha.node &gt; test.my books phrases stat" />
@@ -281,6 +262,7 @@
       <item itemvalue="npm.Test Dev" />
       <item itemvalue="npm.Build Test Dev" />
       <item itemvalue="npm.Lint" />
+      <item itemvalue="npm.process:my-custom:stat" />
     </list>
     <recent_temporary>
       <list>
@@ -288,7 +270,6 @@
         <item itemvalue="Mocha.node &gt; test.my books" />
         <item itemvalue="Mocha.node &gt; test.my books report" />
         <item itemvalue="Mocha.node &gt; test.libgen report" />
-        <item itemvalue="Mocha.node &gt; test.libgen" />
       </list>
     </recent_temporary>
   </component>
@@ -346,14 +327,7 @@
       <workItem from="1619612378907" duration="113000" />
       <workItem from="1620794029112" duration="697000" />
       <workItem from="1621925401684" duration="2984000" />
-      <workItem from="1670730641981" duration="51000" />
-    </task>
-    <task id="LOCAL-00066" summary="Fix merge">
-      <created>1609648047055</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1609648047055</updated>
+      <workItem from="1670730641981" duration="1672000" />
     </task>
     <task id="LOCAL-00067" summary="Prepared project">
       <created>1618752633014</created>
@@ -691,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621927291480</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Develop">
+      <created>1670730836133</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1670730836133</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -760,7 +741,7 @@
         <line-breakpoint enabled="true" type="javascript">
           <condition expression="!(id &amp;&amp; downloaded[id])" language="TypeScript" />
           <url>file://$PROJECT_DIR$/src/main/node/scripts.ts</url>
-          <line>189</line>
+          <line>238</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

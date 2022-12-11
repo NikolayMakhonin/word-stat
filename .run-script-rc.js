@@ -117,6 +117,10 @@ module.exports = {
 			return false
 		}
 
+		if (/caniuse-lite is outdated|browserslist|Why you should do it regularly/.test(text)) {
+			return false
+		}
+
 		return next(text)
 	},
 }
