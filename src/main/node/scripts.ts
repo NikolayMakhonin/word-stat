@@ -29,7 +29,7 @@ const wordPattern = `(?<=[a-zA-Z])'[a-zA-Z]+|[a-zA-Z]+-[a-zA-Z]+|[a-zA-Z]+`
 const wordRegExp = createRegExp(wordPattern)
 
 function filterXmlBooks(isDir, archivePath, _fileOrDirPath) {
-	if (!isDir && !/\.(txt|fb2)$/i.test(_fileOrDirPath)) {
+	if (!isDir && !/\.(csv|txt|fb2)$/i.test(_fileOrDirPath)) {
 		return false
 	}
 	return true
@@ -73,13 +73,14 @@ export async function myBooksPhrasesStat() {
 
 	const wordsCache = new WordsCache()
 
-	// const wasReadStat_ = await calcWasReadStat()
 	const wasReadStat = await calcStat({
 		maxPhraseLength,
 		wordsCache,
 		wordPattern,
 		fileOrDirPath: 'f:/Torrents/New/test/result/WasRead/',
 	})
+
+	console.log('Known words: ' + wordsCache.size())
 
 	const dbDescriptionsPath = 'f:/Torrents/New/text/db/ff/fiction_description.csv'
 	const descriptions = dbDescriptionsPath

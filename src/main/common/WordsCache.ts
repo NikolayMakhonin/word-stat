@@ -62,4 +62,8 @@ export class WordsCache {
 		this._idToStr.clear()
 		this._strToId.clear()
 	}
+
+	size() {
+		return this._strToId.size
+	}
 }
